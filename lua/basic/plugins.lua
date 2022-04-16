@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 use 'wbthomason/packer.nvim'
---    use 'vim-airline/vim-airline'
+use 'vim-airline/vim-airline'
 use 'Yggdroot/LeaderF'
 use 'github/copilot.vim'
 -- 代码注释
@@ -15,7 +15,7 @@ use {
 }
 -- 快捷终端
 use "skywind3000/vim-terminal-help"
---    use 'puremourning/vimspector'
+use 'puremourning/vimspector'
 -- LSP 基础服务
 use {
     "neovim/nvim-lspconfig",
