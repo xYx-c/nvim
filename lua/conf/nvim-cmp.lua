@@ -31,13 +31,13 @@ cmp.setup(
         -- 指定补全源（安装了补全源插件就在这里指定）
         sources = cmp.config.sources(
             {
-                {name = "vsnip"},
                 {name = "nvim_lsp"},
+                -- {name = "vsnip"},
                 {name = "path"},
                 {name = "buffer"},
                 {name = "cmdline"},
                 {name = "spell"},
-                {name = "cmp_tabnine"}
+                -- {name = "cmp_tabnine"}
             }
         ),
         -- 格式化补全菜单
@@ -61,7 +61,7 @@ cmp.setup(
                 cmp.config.compare.score,
                 cmp.config.compare.recently_used,
                 require("cmp-under-comparator").under,
-                require("cmp_tabnine.compare"),
+                -- require("cmp_tabnine.compare"),
                 cmp.config.compare.kind,
                 cmp.config.compare.sort_text,
                 cmp.config.compare.length,
