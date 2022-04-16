@@ -7,7 +7,7 @@ local servers = {
     -- 语言服务器名称：配置选项
     sumneko_lua = require("lsp.sumneko_lua"),
     rust_analyzer = require("lsp.rust_analyzer"),
-    jdtls = require("lsp.jdtls"),
+    -- jdtls = require("lsp.jdtls"),
     volar = require("lsp.volar"),
     tsserver = require("lsp.tsserver"),
     clangd = require("lsp.clangd"),
