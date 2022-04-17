@@ -29,7 +29,7 @@ vim.o.backup = false
 -- 是否开启交换文件
 vim.o.swapfile = false
 -- 是否特殊显示空格等字符
-vim.o.list = true
+-- vim.o.list = true
 -- 是否开启自动缩进
 vim.o.autoindent = true
 -- 设定自动缩进的策略为 plugin

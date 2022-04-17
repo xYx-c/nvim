@@ -9,8 +9,8 @@ vim.fn.sign_define("DapBreakpoint", {text = "⊚", texthl = "TodoFgFIX", linehl 
 local dap_config = {
     -- rust = require("dap.rust"),
     java = require("dap.java"),
-    -- python = require("dap.python"),
     -- go = require("dap.go"),
+    -- python = require("dap.python"),
 }
 -- 设置调试器
 for dap_name, dap_options in pairs(dap_config) do
