@@ -29,14 +29,14 @@ let g:terminal_kill = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Debug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
-nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
-nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
-" nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+" nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+" nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+" nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+" nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+" nnoremap <silent> <F9> :lua require'dap'.toggle_breakpoint()<CR>
+" nnoremap <silent> <F8> :lua require'dap'.repl.open()<CR>
 " nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
 " nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-" nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 " nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 
 " let g:vimspector_enable_mappings = 'HUMAN'
@@ -44,6 +44,16 @@ nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
 " xmap  <Leader>di <Plug> VimspectorBalloonEval
 " let g:vimspector_sidebar_width = 65
 " packadd! vimspector
+" function! JavaStartDebugCallback(err, port)
+"   execute "cexpr! 'Java debug started on port: " . a:port . "'"
+"   call vimspector#LaunchWithSettings({ "configuration": "Java Attach", "AdapterPort": "5005" })
+" endfunction
+"
+" function JavaStartDebug()
+"   call CocActionAsync('runCommand', 'vscode.java.startDebugSession', function('JavaStartDebugCallback'))
+" endfunction
+"
+" nmap <F1> :call JavaStartDebug()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "LeaderF模糊搜索插件配置
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

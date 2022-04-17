@@ -50,9 +50,9 @@ local on_attach = function(_, bufnr)
 end
 
 local bundles = {
-  vim.fn.glob("~/.config/nvim/java_debug/com.microsoft.java.debug.plugin-*.jar"),
+  vim.fn.glob(home .. "/.config/nvim/java_debug/com.microsoft.java.debug.plugin-*.jar"),
 };
-vim.list_extend(bundles, vim.split(vim.fn.glob("~/.config/nvim/java_test/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java_test/*.jar"), "\n"))
 
 return {
     cmd = {

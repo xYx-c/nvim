@@ -16,8 +16,6 @@ use {
 }
 -- 快捷终端
 use "skywind3000/vim-terminal-help"
--- debug
--- use 'puremourning/vimspector'
 -- LSP 基础服务
 use {
     "neovim/nvim-lspconfig",
@@ -59,11 +57,40 @@ use {
 --         require("conf.nvim-lightbulb")
 --     end
 -- }
--- debug
+-- java
+use {
+"mfussenegger/nvim-jdtls",
+config = function()
+    require("conf.nvim-jdtls")
+end
+}
+-- java_debug
+-- use 'neoclide/coc.nvim'
+-- use {'puremourning/vimspector', opt=true}
 use {
     "mfussenegger/nvim-dap",
     config = function()
         require("conf.nvim-dap")
+    end
+}
+-- 为代码调试提供内联文本
+use {
+    "theHamsta/nvim-dap-virtual-text",
+    requires = {
+        "mfussenegger/nvim-dap"
+    },
+    config = function()
+        require("conf.nvim-dap-virtual-text")
+    end
+}
+-- 为代码调试提供 UI 界面
+use {
+    "rcarriga/nvim-dap-ui",
+    requires = {
+        "mfussenegger/nvim-dap"
+    },
+    config = function()
+        require("conf.nvim-dap-ui")
     end
 }
 -- nvim-tree
@@ -76,13 +103,6 @@ requires = {
 config = function()
     -- 插件加载完成后自动运行 lua/conf/nvim-tree.lua 文件中的代码
     require("conf.nvim-tree")
-end
-}
--- java
-use {
-"mfussenegger/nvim-jdtls",
-config = function()
-    require("conf.nvim-jdtls")
 end
 }
 -- 自动代码补全系列插件
