@@ -7,6 +7,7 @@ use 'Yggdroot/LeaderF'
 use 'github/copilot.vim'
 -- 代码注释
 use "tomtom/tcomment_vim"
+-- 主题
 use {
     "ellisonleao/gruvbox.nvim",
     config = function()
@@ -15,7 +16,8 @@ use {
 }
 -- 快捷终端
 use "skywind3000/vim-terminal-help"
-use 'puremourning/vimspector'
+-- debug
+-- use 'puremourning/vimspector'
 -- LSP 基础服务
 use {
     "neovim/nvim-lspconfig",
@@ -37,12 +39,12 @@ use {
     end
 }
 -- LSP 进度提示
-use {
-    "j-hui/fidget.nvim",
-    config = function()
-        require("conf.fidget")
-    end
-}
+-- use {
+--     "j-hui/fidget.nvim",
+--     config = function()
+--         require("conf.fidget")
+--     end
+-- }
 -- 插入模式获得函数签名
 -- use {
 --     "ray-x/lsp_signature.nvim",
@@ -57,6 +59,13 @@ use {
 --         require("conf.nvim-lightbulb")
 --     end
 -- }
+-- debug
+use {
+    "mfussenegger/nvim-dap",
+    config = function()
+        require("conf.nvim-dap")
+    end
+}
 -- nvim-tree
 use {
 "kyazdani42/nvim-tree.lua",
@@ -69,6 +78,7 @@ config = function()
     require("conf.nvim-tree")
 end
 }
+-- java
 use {
 "mfussenegger/nvim-jdtls",
 config = function()
@@ -80,8 +90,8 @@ use {
 "hrsh7th/nvim-cmp",  -- 代码补全核心插件，下面都是增强补全的体验插件
 requires = {
     {"onsails/lspkind-nvim"}, -- 为补全添加类似 vscode 的图标
-    -- {"hrsh7th/vim-vsnip"}, -- vsnip 引擎，用于获得代码片段支持
-    -- {"hrsh7th/cmp-vsnip"}, -- 适用于 vsnip 的代码片段源
+    {"hrsh7th/vim-vsnip"}, -- vsnip 引擎，用于获得代码片段支持
+    {"hrsh7th/cmp-vsnip"}, -- 适用于 vsnip 的代码片段源
     {"hrsh7th/cmp-nvim-lsp"}, -- 替换内置 omnifunc，获得更多补全
     {"hrsh7th/cmp-path"}, -- 路径补全
     {"hrsh7th/cmp-buffer"}, -- 缓冲区补全
