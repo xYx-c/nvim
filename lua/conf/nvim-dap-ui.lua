@@ -7,7 +7,7 @@ dapui.setup(
     {
         sidebar = {
             -- dapui 的窗口设置在右边
-            position = "left"
+            position = "right"
         }
     }
 )

@@ -47,6 +47,7 @@ local on_attach = function(_, bufnr)
 
     -- debug
     require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    require('jdtls.dap').setup_dap_main_class_configs()
     require('jdtls.setup').add_commands()
 end
 
@@ -56,6 +57,9 @@ local bundles = {
 vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java_test/*.jar"), "\n"))
 
 return {
+    flags = {allow_incremental_sync = true},
+    name = 'jdtls',
+    filetypes = {'java'},
     cmd = {
         java .. '/bin/java',
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -67,9 +71,9 @@ return {
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+        '-jar', home .. '/.local/share/nvim/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         "-javaagent:" .. home .. "/.local/share/nvim/lsp_servers/jdtls/lombok.jar",
         "-Xbootclasspath/a:" .. home .. "/.local/share/nvim/lsp_servers/jdtls/lombok.jar",
-        '-jar', home .. '/.local/share/nvim/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         '-configuration', home .. '/.local/share/nvim/lsp_servers/jdtls/config_' .. system,
         '-data', workspace_dir
     },
@@ -83,9 +87,7 @@ return {
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
-    settings = {
-        java = {}
-    },
+    settings = {},
 
     -- Language server `initializationOptions`
     -- You need to extend the `bundles` with paths to jar files

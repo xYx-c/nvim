@@ -4,7 +4,7 @@ require("nvim-tree").setup({
     -- 视图
     view = {
         -- 宽度
-        width = 30,
+        width = 50,
         -- 高度
         height = 30,
         -- 隐藏顶部的根目录显示
@@ -15,12 +15,12 @@ require("nvim-tree").setup({
     diagnostics = {
         -- 是否启用文件诊断信息
         enable = true,
-        -- icons = {
-        --     hint = "",
-        --     info = "",
-        --     warning = "",
-        --     error = ""
-        -- }
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = ""
+        }
     },
     git = {
         -- 是否启用 git 信息
