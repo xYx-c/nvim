@@ -4,12 +4,12 @@
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 local dap = require("dap")
 -- 设置断点样式
-vim.fn.sign_define("DapBreakpoint", {text = "⊚", texthl = "TodoFgFIX", linehl = "", numhl = ""})
+-- vim.fn.sign_define("DapBreakpoint", {text = "⊚", texthl = "TodoFgFIX", linehl = "", numhl = ""})
 -- 加载调试器配置
 local dap_config = {
     -- rust = require("dap.rust"),
     java = require("dap.java"),
-    -- go = require("dap.go"),
+    go = require("dap.go"),
     -- python = require("dap.python"),
 }
 -- 设置调试器
