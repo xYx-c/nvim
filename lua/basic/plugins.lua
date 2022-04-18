@@ -82,19 +82,19 @@ use {
     end
 }
 -- 插入模式获得函数签名
-use {
-    "ray-x/lsp_signature.nvim",
-    config = function()
-        require("conf.lsp_signature")
-    end
-}
+-- use {
+--     "ray-x/lsp_signature.nvim",
+--     config = function()
+--         require("conf.lsp_signature")
+--     end
+-- }
 -- 灯泡提示代码行为
-use {
-    "kosayoda/nvim-lightbulb",
-    config = function()
-        require("conf.nvim-lightbulb")
-    end
-}
+-- use {
+--     "kosayoda/nvim-lightbulb",
+--     config = function()
+--         require("conf.nvim-lightbulb")
+--     end
+-- }
 -- java
 use {
 "mfussenegger/nvim-jdtls",
