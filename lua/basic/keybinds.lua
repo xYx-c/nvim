@@ -14,6 +14,12 @@ vim.keybinds = {
 vim.keybinds.gmap("i", "jj", "<Esc>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "jk", "<Esc>", vim.keybinds.opts)
 
+-- 分屏窗口移动
+vim.keybinds.gmap("n", "<C-k>", "<c-w>k", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-j>", "<c-w>j", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-h>", "<c-w>h", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-l>", "<c-w>l", vim.keybinds.opts)
+
 -- 用 H 和 L 代替 ^ 与 $
 vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
 vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)

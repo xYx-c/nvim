@@ -13,13 +13,13 @@ return {
     --     end)
     -- end,
     configurations = {
-        {
-            type = 'java';
-            request = 'attach';
-            name = "Debug (Attach) - Remote";
-            -- projectName = projectName or nil,
-            hostName = "127.0.0.1",
-            port = 5005;
-        }
+        -- {
+        --     type = 'java';
+        --     request = 'attach';
+        --     name = "Debug (Attach) - Remote";
+        --     -- projectName = projectName or nil,
+        --     hostName = "127.0.0.1",
+        --     port = 5005;
+        -- }
     }
 }

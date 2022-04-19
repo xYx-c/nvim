@@ -16,48 +16,13 @@ local servers = {
     lemminx = require("lsp.lemminx"),
 }
 
--- LSP 服务启动后的按键加载
--- local function attach(_, bufnr)
---     -- 跳转到定义（代替内置 LSP 的窗口，telescope 插件让跳转定义更方便）
---     vim.keybinds.bmap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions theme=dropdown<CR>", vim.keybinds.opts)
---     -- 列出光标下所有引用（代替内置 LSP 的窗口，telescope 插件让查看引用更方便）
---     vim.keybinds.bmap(bufnr, "n", "gr", "<cmd>Telescope lsp_references theme=dropdown<CR>", vim.keybinds.opts)
---     -- 工作区诊断（代替内置 LSP 的窗口，telescope 插件让工作区诊断更方便）
---     vim.keybinds.bmap(bufnr, "n", "go", "<cmd>Telescope diagnostics theme=dropdown<CR>", vim.keybinds.opts)
---     -- 显示代码可用操作（代替内置 LSP 的窗口，telescope 插件让代码行为更方便）
---     vim.keybinds.bmap(bufnr, "n", "<leader>ac", "<cmd>Telescope lsp_code_actions theme=dropdown<CR>", vim.keybinds.opts)
---     -- 变量重命名（代替内置 LSP 的窗口，Lspsaga 让变量重命名更美观）
---     vim.keybinds.bmap(bufnr, "n", "<leader>cn", "<cmd>Lspsaga rename<CR>", vim.keybinds.opts)
---     -- 查看帮助信息（代替内置 LSP 的窗口，Lspsaga 让查看帮助信息更美观）
---     vim.keybinds.bmap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<CR>", vim.keybinds.opts)
---     -- 跳转到上一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
---     vim.keybinds.bmap(bufnr, "n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", vim.keybinds.opts)
---     -- 跳转到下一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
---     vim.keybinds.bmap(bufnr, "n", "g]", "<cmd>Lspsaga diagnostic_jump_next<CR>", vim.keybinds.opts)
---     -- 悬浮窗口上翻页，由 Lspsaga 提供
---     vim.keybinds.bmap(
---         bufnr,
---         "n",
---         "<C-p>",
---         "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
---         vim.keybinds.opts
---     )
---     -- 悬浮窗口下翻页，由 Lspsaga 提供
---     vim.keybinds.bmap(
---         bufnr,
---         "n",
---         "<C-n>",
---         "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
---         vim.keybinds.opts
---     )
--- end
-
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
+-- LSP 服务启动后的按键加载
 local on_attach = function(_, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

@@ -4,7 +4,7 @@ require("nvim-tree").setup({
     -- 视图
     view = {
         -- 宽度
-        width = 50,
+        width = 55,
         -- 高度
         height = 30,
         -- 隐藏顶部的根目录显示
@@ -43,8 +43,6 @@ vim.g.nvim_tree_icons = {
         ignored = ""
     },
     folder = {
-        -- arrow_open = "╰─▸",
-        -- arrow_closed = "├─▸",
         arrow_open = "",
         arrow_closed = "",
         default = "",
@@ -56,8 +54,9 @@ vim.g.nvim_tree_icons = {
     }
 }
 -- 目录后加上反斜杠 /
-vim.g.nvim_tree_add_trailing = 1
--- 按 leader 1 打开文件树
+-- vim.g.nvim_tree_add_trailing = 1
+vim.g.nvim_tree_group_empty = 1
+-- 打开文件树
 vim.keybinds.gmap("n", "E", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
 -- 按 leader fc 在文件树中找到当前以打开文件的位置
 vim.keybinds.gmap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
