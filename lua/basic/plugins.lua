@@ -59,7 +59,13 @@ return require('packer').startup(function(use)
         end
     }
     use 'Yggdroot/LeaderF'
-    use 'github/copilot.vim'
+    -- copilot 自动补全
+    use {
+        "github/copilot.vim",
+        config = function()
+            require("conf.copilot")
+        end
+    }
     -- 代码注释
     use "tomtom/tcomment_vim"
     -- 主题

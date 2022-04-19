@@ -31,8 +31,8 @@ vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
 
 -- 插入模式下的上下左右移动
-vim.keybinds.gmap("i", "<C-k>", "<up>", vim.keybinds.opts)
-vim.keybinds.gmap("i", "<C-j>", "<down>", vim.keybinds.opts)
+-- vim.keybinds.gmap("i", "<C-k>", "<up>", vim.keybinds.opts)
+-- vim.keybinds.gmap("i", "<C-j>", "<down>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "<C-h>", "<left>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "<C-l>", "<right>", vim.keybinds.opts)
 
