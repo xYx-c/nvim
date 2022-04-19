@@ -40,6 +40,13 @@ packer.init {
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    -- 优化启动速度
+    use { 'lewis6991/impatient.nvim',
+        config = function()
+            require("conf.impatient")
+        end
+    }
+    -- use 'kyazdani42/nvim-web-devicons'
     -- 状态栏
     use {
         'nvim-lualine/lualine.nvim',
