@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -58,7 +58,18 @@ return require('packer').startup(function(use)
             require("conf.bufferline")
         end
     }
-    use 'Yggdroot/LeaderF'
+    -- 模糊查找
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim", -- Lua 开发模块
+            "BurntSushi/ripgrep", -- 文字查找
+            "sharkdp/fd" -- 文件查找
+        },
+        config = function()
+            require("conf.telescope")
+        end
+    }
     -- copilot 自动补全
     use {
         "github/copilot.vim",
@@ -66,8 +77,6 @@ return require('packer').startup(function(use)
             require("conf.copilot")
         end
     }
-    -- 代码注释
-    use "tomtom/tcomment_vim"
     -- 主题
     use {
         "ellisonleao/gruvbox.nvim",
@@ -75,8 +84,31 @@ return require('packer').startup(function(use)
             require("conf.gruvbox")
         end
     }
-    -- 快捷终端
-    use "skywind3000/vim-terminal-help"
+    -- 全局替换
+    use {
+        "nvim-pack/nvim-spectre",
+        requires = {
+            "nvim-lua/plenary.nvim", -- Lua 开发模块
+            "BurntSushi/ripgrep" -- 文字查找
+        },
+        config = function()
+            require("conf.nvim-spectre")
+        end
+    }
+    -- 内置终端
+    use {
+        "akinsho/toggleterm.nvim",
+        config = function()
+            require("conf.toggleterm")
+        end
+    }
+    -- 自动匹配括号
+    use {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("conf.nvim-autopairs")
+        end
+    }
     -- LSP 基础服务
     use {
         "neovim/nvim-lspconfig",
@@ -111,13 +143,37 @@ return require('packer').startup(function(use)
             require("conf.lsp_signature")
         end
     }
+    -- 代码注释
+    use {
+        "numToStr/Comment.nvim",
+        requires = {
+            "JoosepAlviste/nvim-ts-context-commentstring"
+        },
+        config = function()
+            require("conf.Comment")
+        end
+    }
+    -- todo tree
+    use {
+        "folke/todo-comments.nvim",
+        config = function()
+            require("conf.todo-comments")
+        end
+    }
     -- 灯泡提示代码行为
-    -- use {
-    --     "kosayoda/nvim-lightbulb",
-    --     config = function()
-    --         require("conf.nvim-lightbulb")
-    --     end
-    -- }
+    use {
+        "kosayoda/nvim-lightbulb",
+        config = function()
+            require("conf.nvim-lightbulb")
+        end
+    }
+    -- 自动保存
+    use {
+        "Pocco81/AutoSave.nvim",
+        config = function()
+            require("conf.AutoSave")
+        end
+    }
     -- java
     use {
         "mfussenegger/nvim-jdtls",
@@ -125,8 +181,7 @@ return require('packer').startup(function(use)
             require("conf.nvim-jdtls")
         end
     }
-    -- java_debug
-    -- use {'puremourning/vimspector', opt=true}
+    -- debug
     use {
         "mfussenegger/nvim-dap",
         config = function()
@@ -159,7 +214,7 @@ return require('packer').startup(function(use)
             require("conf.dap-install")
         end
     }
-
+    -- 代码高亮
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
