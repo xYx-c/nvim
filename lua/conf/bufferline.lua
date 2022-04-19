@@ -29,7 +29,7 @@ require("bufferline").setup(
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
                 local s = " "
                 for e, n in pairs(diagnostics_dict) do
-                    local sym = e == "error" and " " or (e == "warning" and " " or "")
+                    local sym = e == "error" and "" or (e == "warning" and "" or "")
                     s = s .. n .. sym
                 end
                 return s
@@ -40,9 +40,9 @@ require("bufferline").setup(
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
 vim.keybinds.gmap("n", "<C-q>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
-vim.keybinds.gmap("n", "<M-h>", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-a>", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
 -- 切换下一个缓冲区
-vim.keybinds.gmap("n", "<M-l>", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-s>", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 -- 关闭左侧缓冲区
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
 -- 关闭右侧缓冲区

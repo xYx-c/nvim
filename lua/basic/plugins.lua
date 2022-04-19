@@ -161,12 +161,12 @@ return require('packer').startup(function(use)
         end
     }
     -- 灯泡提示代码行为
-    use {
-        "kosayoda/nvim-lightbulb",
-        config = function()
-            require("conf.nvim-lightbulb")
-        end
-    }
+    -- use {
+    --     "kosayoda/nvim-lightbulb",
+    --     config = function()
+    --         require("conf.nvim-lightbulb")
+    --     end
+    -- }
     -- 自动保存
     use {
         "Pocco81/AutoSave.nvim",
