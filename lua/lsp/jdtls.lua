@@ -46,7 +46,8 @@ local on_attach = function(_, bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
     -- debug
-    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    -- require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    require('jdtls').setup_dap()
     require('jdtls.dap').setup_dap_main_class_configs()
     require('jdtls.setup').add_commands()
 end
@@ -87,7 +88,22 @@ return {
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
-    settings = {},
+    settings = {
+        java = {
+            configuration = {
+                runtimes = {
+                    {
+                        name = "JavaSE-1.8",
+                        path = os.getenv("JAVA_HOME")
+                    },
+                    -- {
+                    --     name = "JavaSE-17",
+                    --     path = os.getenv("JAVA_HOME")
+                    -- },
+                }
+            }
+        }
+    },
 
     -- Language server `initializationOptions`
     -- You need to extend the `bundles` with paths to jar files

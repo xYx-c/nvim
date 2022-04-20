@@ -10,7 +10,7 @@ require("bufferline").setup(
             indicator_icon = "▎",
             buffer_close_icon = "",
             modified_icon = "●",
-            close_icon = "",
+            close_icon = "",
             left_trunc_marker = "",
             right_trunc_marker = "",
             -- 分割符样式："slant" | "thick" | "thin"
@@ -26,15 +26,18 @@ require("bufferline").setup(
                 }
             },
             custom_filter = function(buf_number, _)
-                if vim.fn.bufname(buf_number) ~= "<java>" then
+                -- print(vim.fn.bufname(buf_number))
+                if string.find(vim.fn.bufname(buf_number), 'term://') == nil then
                     return true
+                else
+                    return false
                 end
             end,
             -- 显示 LSP 报错图标
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
                 local s = " "
                 for e, n in pairs(diagnostics_dict) do
-                    local sym = e == "error" and "" or (e == "warning" and "" or "")
+                    local sym = e == "error" and "" or (e == "warning" and "" or "")
                     s = s .. n .. sym
                 end
                 return s
@@ -45,11 +48,11 @@ require("bufferline").setup(
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
 vim.keybinds.gmap("n", "<C-q>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
-vim.keybinds.gmap("n", "<M-h>", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("t", "<M-h>", "<C-\\><C-n><cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-M-h>", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("t", "<C-M-h>", "<C-\\><C-n><cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
 -- 切换下一个缓冲区
-vim.keybinds.gmap("n", "<M-l>", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("t", "<M-l>", "<C-\\><C-n><cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-M-l>", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("t", "<C-M-l>", "<C-\\><C-n><cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 -- 关闭左侧缓冲区
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
 -- 关闭右侧缓冲区
