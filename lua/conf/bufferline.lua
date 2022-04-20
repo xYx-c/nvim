@@ -25,6 +25,11 @@ require("bufferline").setup(
                     text_align = "left"
                 }
             },
+            custom_filter = function(buf_number, _)
+                if vim.fn.bufname(buf_number) ~= "<java>" then
+                    return true
+                end
+            end,
             -- 显示 LSP 报错图标
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
                 local s = " "
