@@ -42,7 +42,7 @@ local floatTerm =
         on_open = function(term)
             inInsert()
             -- 浮动终端中 Esc 是退出
-            vim.keybinds.bmap(term.bufnr, "t", "<Esc>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
+            vim.keybinds.bmap(term.bufnr, "t", "<C-t>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
         end,
         on_close = function()
             -- 重新映射 Esc
