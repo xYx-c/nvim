@@ -16,7 +16,7 @@ local servers = {
     lemminx = require("lsp.lemminx"),
 }
 
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -58,17 +58,25 @@ for server_name, server_options in pairs(servers) do
                 server_options.flags = {
                     debounce_text_changes = 150
                 }
-                -- if server_name == "jdtls" then
-                --     require('jdtls').start_or_attach(server_options)
-                -- else
+
+                if server.name == "rust_analyzer" then
+                    require("rust-tools").setup {
+                        server = vim.tbl_deep_extend("force", server:get_default_options(), server_options)
+                    }
+                    server:attach_buffers()
+                    -- Only if standalone support is needed
+                    require("rust-tools").start_standalone_if_required()
+                elseif server_name == "jdtls" then
+                    require('jdtls').start_or_attach(server_options)
+                else
                     -- 启动服务
                     server:setup(server_options)
-                -- end
+                end
             end
         )
         -- 如果服务器没有下载，则通过 notify 插件弹出下载提示
         if not server:is_installed() then
-            vim.notify("Install Language Server : " .. server_name, "WARN", {title = "Language Servers"})
+            vim.notify("Install Language Server : " .. server_name, "WARN", { title = "Language Servers" })
             server:install()
         end
     end

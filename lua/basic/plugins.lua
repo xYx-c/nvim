@@ -93,11 +93,20 @@ return require('packer').startup(function(use)
     }
     -- 主题
     use {
-        "ellisonleao/gruvbox.nvim",
+        "catppuccin/nvim",
+        -- 改个别名，因为它的名字是 nvim，可能会冲突
+        as = "catppuccin",
         config = function()
-            require("conf.gruvbox")
+            -- 插件加载完成后自动运行 lua/conf/catppuccin.lua 文件中的代码
+            require("conf.catppuccin")
         end
     }
+    -- use {
+    --     "sainnhe/gruvbox-material",
+    --     config = function()
+    --         require("conf.gruvbox-material")
+    --     end
+    -- }
     -- 全局替换
     use {
         "nvim-pack/nvim-spectre",
@@ -187,6 +196,13 @@ return require('packer').startup(function(use)
         config = function()
             require("conf.AutoSave")
         end
+    }
+    -- rust
+    use {
+        "simrat39/rust-tools.nvim",
+        -- config = function()
+        --     require("conf.rust-tools")
+        -- end
     }
     -- java
     use {

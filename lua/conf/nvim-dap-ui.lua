@@ -11,10 +11,10 @@ dapui.setup(
             -- Can be float or integer > 1
             position = "right",
             elements = {
-                { id = "breakpoints", size = 0.15 },
-                { id = "stacks", size = 0.25 },
-                -- { id = "watches", size = 0.6 },
-                { id = "repl", size = 0.6 },
+                { id = "breakpoints", size = 0.25 },
+                { id = "stacks", size = 0.2 },
+                { id = "watches", size = 0.55 },
+                -- { id = "repl", size = 0.55 },
             },
             size = 80,
         },
@@ -49,4 +49,5 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dap.repl.close()
 end
 -- 显示或隐藏调试界面
-vim.keybinds.gmap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<F11>", "<cmd>lua require'dapui'.toggle()<CR>", vim.keybinds.opts)
+
