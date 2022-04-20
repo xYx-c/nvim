@@ -7,7 +7,13 @@
 -- macOS
 -- brew install fd
 -- https://github.com/BurntSushi/ripgrep
-require("telescope").setup()
+require("telescope").setup({
+    pickers = {
+        find_files = {
+            theme = "dropdown",
+        }
+    },
+})
 -- 查找文件
 vim.keybinds.gmap("n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找文字

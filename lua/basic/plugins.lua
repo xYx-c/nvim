@@ -46,6 +46,13 @@ return require('packer').startup(function(use)
             require("conf.impatient")
         end
     }
+    -- 消息提示
+    use {
+        'rcarriga/nvim-notify',
+        config = function()
+            require("conf.nvim-notify")
+        end
+    }
     -- use 'kyazdani42/nvim-web-devicons'
     -- 状态栏
     use {
