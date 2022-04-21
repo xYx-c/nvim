@@ -7,8 +7,10 @@ local notify_opts = {
     -- slide
     -- static
     stages = "fade",
+    max_width = 60,
+
     -- 超时时间，默认 5s
-    timeout = 2000
+    -- timeout = 5000
 }
 
 -- 如果是透明背景，则需要设置背景色

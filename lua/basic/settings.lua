@@ -30,6 +30,6 @@ vim.o.foldmethod = "indent"                         -- 指定代码折叠的策�
 vim.o.foldlevel = 100                               -- 指定代码折叠的最高层级为 100
 
 vim.cmd[[
-    let $LANG = 'en_us.utf-8'
+    " let $LANG = 'en_US.UTF-8'
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 ]]

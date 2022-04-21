@@ -21,18 +21,18 @@ vim.keybinds.gmap("n", "<C-h>", "<c-w>h", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-l>", "<c-w>l", vim.keybinds.opts)
 
 -- 用 H 和 L 代替 ^ 与 $
-vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
-vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
-vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
-vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
+-- vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
+-- vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
 
 -- 将 C-u 和 C-d 调整为上下滑动 10 行而不是半页
 vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
 
 -- 插入模式下的上下左右移动
--- vim.keybinds.gmap("i", "<C-k>", "<up>", vim.keybinds.opts)
--- vim.keybinds.gmap("i", "<C-j>", "<down>", vim.keybinds.opts)
+vim.keybinds.gmap("i", "<M-k>", "<up>", vim.keybinds.opts)
+vim.keybinds.gmap("i", "<M-j>", "<down>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "<M-h>", "<left>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "<M-l>", "<right>", vim.keybinds.opts)
 

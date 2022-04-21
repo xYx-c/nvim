@@ -92,21 +92,27 @@ return require('packer').startup(function(use)
         end
     }
     -- 主题
-    use {
-        "catppuccin/nvim",
-        -- 改个别名，因为它的名字是 nvim，可能会冲突
-        as = "catppuccin",
-        config = function()
-            -- 插件加载完成后自动运行 lua/conf/catppuccin.lua 文件中的代码
-            require("conf.catppuccin")
-        end
-    }
+    -- use {
+    --     "catppuccin/nvim",
+    --     -- 改个别名，因为它的名字是 nvim，可能会冲突
+    --     as = "catppuccin",
+    --     config = function()
+    --         -- 插件加载完成后自动运行 lua/conf/catppuccin.lua 文件中的代码
+    --         require("conf.catppuccin")
+    --     end
+    -- }
     -- use {
     --     "sainnhe/gruvbox-material",
     --     config = function()
     --         require("conf.gruvbox-material")
     --     end
     -- }
+    use {
+        "eddyekofo94/gruvbox-flat.nvim",
+        config = function()
+            require("conf.gruvbox-flat")
+        end
+    }
     -- 全局替换
     use {
         "nvim-pack/nvim-spectre",
@@ -177,12 +183,12 @@ return require('packer').startup(function(use)
         end
     }
     -- todo tree
-    use {
-        "folke/todo-comments.nvim",
-        config = function()
-            require("conf.todo-comments")
-        end
-    }
+    -- use {
+    --     "folke/todo-comments.nvim",
+    --     config = function()
+    --         require("conf.todo-comments")
+    --     end
+    -- }
     -- 灯泡提示代码行为
     -- use {
     --     "kosayoda/nvim-lightbulb",
@@ -200,9 +206,9 @@ return require('packer').startup(function(use)
     -- rust
     use {
         "simrat39/rust-tools.nvim",
-        -- config = function()
-        --     require("conf.rust-tools")
-        -- end
+        config = function()
+            require("conf.rust-tools")
+        end
     }
     -- java
     use {
@@ -255,10 +261,10 @@ return require('packer').startup(function(use)
     -- nvim-tree
     use {
         "kyazdani42/nvim-tree.lua",
-        requires = {
-            -- 依赖一个图标插件
-            "kyazdani42/nvim-web-devicons"
-        },
+        -- requires = {
+        --     -- 依赖一个图标插件
+        --     "kyazdani42/nvim-web-devicons"
+        -- },
         config = function()
             -- 插件加载完成后自动运行 lua/conf/nvim-tree.lua 文件中的代码
             require("conf.nvim-tree")

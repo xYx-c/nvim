@@ -5,15 +5,15 @@ require("catppuccin").setup(
         -- 透明背景
         transparent_background = false,
         -- 使用终端背景色
-        term_color = true,
+        term_color = false,
         -- 代码样式
-        styles = {
-            comments = "italic",
-            functions = "NONE",
-            keywords = "NONE",
-            strings = "NONE",
-            variables = "NONE"
-        },
+        -- styles = {
+        --     comments = "italic",
+        --     functions = "NONE",
+        --     keywords = "NONE",
+        --     strings = "NONE",
+        --     variables = "NONE"
+        -- },
         -- 为不同的插件统一样式风格
         -- 尽管这里有一些插件还没有安装，但是先将它们
         -- 设置为 true 并不影响
@@ -22,7 +22,7 @@ require("catppuccin").setup(
             gitsigns = true,
             telescope = true,
             which_key = true,
-            bufferline = true,
+            -- bufferline = true,
             markdown = true,
             ts_rainbow = true,
             hop = true,

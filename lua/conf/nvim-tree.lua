@@ -5,12 +5,15 @@ require("nvim-tree").setup({
     view = {
         -- 宽度
         width = 55,
-        -- 高度
-        height = 30,
         -- 隐藏顶部的根目录显示
         hide_root_folder = false,
         -- 自动调整大小
-        auto_resize = true
+        -- auto_resize = true
+    },
+    renderer = {
+        icons = {
+            webdev_colors = false,
+        },
     },
     diagnostics = {
         -- 是否启用文件诊断信息
@@ -53,8 +56,6 @@ vim.g.nvim_tree_icons = {
         symlink_open = ""
     }
 }
--- 目录后加上反斜杠 /
--- vim.g.nvim_tree_add_trailing = 1
 vim.g.nvim_tree_group_empty = 1
 -- 打开文件树
 vim.keybinds.gmap("n", "E", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
