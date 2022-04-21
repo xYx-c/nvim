@@ -58,7 +58,7 @@ vim.g.nvim_tree_icons = {
 }
 vim.g.nvim_tree_group_empty = 1
 -- 打开文件树
-vim.keybinds.gmap("n", "E", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>e", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
 -- 按 leader fc 在文件树中找到当前以打开文件的位置
 vim.keybinds.gmap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 

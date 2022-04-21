@@ -7,7 +7,7 @@ local notify_opts = {
     -- slide
     -- static
     stages = "fade",
-    max_width = 60,
+    -- max_width = 60,
 
     -- 超时时间，默认 5s
     -- timeout = 5000
