@@ -17,14 +17,14 @@ require("bufferline").setup(
             -- 分割符样式："slant" | "thick" | "thin"
             -- separator_style = "slant",
             -- 左侧让出 nvim-tree 的位置
-            offsets = {
-                {
-                    filetype = "NvimTree",
-                    text = "File Explorer",
-                    highlight = "Directory",
-                    text_align = "left"
-                }
-            },
+            -- offsets = {
+            --     {
+            --         filetype = "NvimTree",
+            --         text = "File Explorer",
+            --         highlight = "Directory",
+            --         text_align = "left"
+            --     }
+            -- },
             custom_filter = function(buf_number, _)
                 if string.find(vim.fn.bufname(buf_number), 'term://') == nil then
                     return true
