@@ -46,6 +46,11 @@ local on_attach = function(_, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
+
+-- 使用 cmp_nvim_lsp 代替内置 omnifunc，获得更强的补全体验
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
 -- 自动安装或启动 LanguageServers
 for server_name, server_options in pairs(servers) do
     local server_available, server = lsp_installer_servers.get_server(server_name)
@@ -60,7 +65,8 @@ for server_name, server_options in pairs(servers) do
                 server_options.flags = {
                     debounce_text_changes = 150
                 }
-
+                -- 代替内置 omnifunc
+                server_options.capabilities = capabilities
                 if server.name == "rust_analyzer" then
                     require("rust-tools").setup {
                         server = vim.tbl_deep_extend("force", server:get_default_options(), server_options)
