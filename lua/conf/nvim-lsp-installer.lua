@@ -74,8 +74,8 @@ for server_name, server_options in pairs(servers) do
                     server:attach_buffers()
                     -- Only if standalone support is needed
                     require("rust-tools").start_standalone_if_required()
-                elseif server_name == "jdtls" then
-                    require('jdtls').start_or_attach(server_options)
+                -- elseif server_name == "jdtls" then
+                --     require('jdtls').start_or_attach(server_options)
                 else
                     -- 启动服务
                     server:setup(server_options)
