@@ -5,15 +5,17 @@ local lsp_installer_servers = require("nvim-lsp-installer.servers")
 -- 配置：https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
     -- 语言服务器名称：配置选项
-    sumneko_lua = require("lsp.sumneko_lua"),
     rust_analyzer = require("lsp.rust_analyzer"),
     -- jdtls = require("lsp.jdtls"),
-    volar = require("lsp.volar"),
-    tsserver = require("lsp.tsserver"),
     clangd = require("lsp.clangd"),
     gopls = require("lsp.gopls"),
-    taplo = require("lsp.taplo"),
-    lemminx = require("lsp.lemminx"),
+    sumneko_lua = require("lsp.sumneko_lua"),
+    pyright = require("lsp.pyright"),
+    volar = require("lsp.volar"),
+    tsserver = require("lsp.tsserver"),
+    jsonls = require("lsp.jsonls"),
+    -- cssls = require("lsp.cssls"),
+    -- html = require("lsp.html"),
 }
 
 local opts = { noremap = true, silent = true }

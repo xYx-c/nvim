@@ -53,9 +53,9 @@ local on_attach = function(_, bufnr)
 end
 
 local bundles = {
-  vim.fn.glob(home .. "/.config/nvim/java_debug/com.microsoft.java.debug.plugin-*.jar"),
+  vim.fn.glob(home .. "/.config/nvim/dap/java_debug/com.microsoft.java.debug.plugin-*.jar"),
 };
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java_test/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/dap/java_test/*.jar"), "\n"))
 
 return {
     flags = {allow_incremental_sync = true},

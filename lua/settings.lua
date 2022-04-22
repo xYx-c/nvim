@@ -29,7 +29,12 @@ vim.o.foldenable = true                             -- 是否开启代码折叠
 vim.o.foldmethod = "indent"                         -- 指定代码折叠的策略是按照缩进进行的
 vim.o.foldlevel = 100                               -- 指定代码折叠的最高层级为 100
 
+local system = io.popen("uname -s"):read("*l")
+if system == "Darwin" then
+    vim.cmd[[
+        let $LANG = 'en_US.UTF-8'
+    ]]
+end
 vim.cmd[[
-    " let $LANG = 'en_US.UTF-8'
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 ]]

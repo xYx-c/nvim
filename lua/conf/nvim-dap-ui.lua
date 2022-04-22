@@ -16,7 +16,7 @@ dapui.setup(
                 { id = "watches", size = 0.55 },
                 -- { id = "repl", size = 0.55 },
             },
-            size = 80,
+            size = 55,
         },
         tray = {
             elements = {

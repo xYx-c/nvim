@@ -8,7 +8,7 @@ require("nvim-tree").setup({
         -- 隐藏顶部的根目录显示
         hide_root_folder = false,
         -- 自动调整大小
-        -- auto_resize = true
+        auto_resize = true
     },
     renderer = {
         icons = {
@@ -60,7 +60,7 @@ vim.g.nvim_tree_group_empty = 1
 -- 打开文件树
 vim.keybinds.gmap("n", "<space>e", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
 -- 按 leader fc 在文件树中找到当前以打开文件的位置
-vim.keybinds.gmap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "E", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 
 -- 默认按键
 -- o     ：打开目录或文件

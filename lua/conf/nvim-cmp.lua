@@ -8,14 +8,15 @@
 -- https://github.com/f3fora/cmp-spell
 -- https://github.com/rafamadriz/friendly-snippets
 -- https://github.com/lukas-reineke/cmp-under-comparator
+
 -- https://github.com/tzachar/cmp-tabnine
 
--- FIX: tabline 在某些计算机上有 1 个 BUG
 -- 当出现：
 --    TabNine is not executable
 -- 等字样时，需要手动执行（仅限 Manjaro）：
 --    rm ~/.local/share/nvim/plugged/cmp-tabnine/binaries
 --    ~/.local/share/nvim/plugged/cmp-tabnine/install.sh
+
 local lspkind = require("lspkind")
 local cmp = require("cmp")
 cmp.setup(

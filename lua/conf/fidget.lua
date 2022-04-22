@@ -1,4 +1,5 @@
 -- https://github.com/j-hui/fidget.nvim
+
 require("fidget").setup({
     window = {
         -- 窗口全透明，不建议修改这个选项

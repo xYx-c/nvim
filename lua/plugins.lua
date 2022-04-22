@@ -40,7 +40,7 @@ packer.init {
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    -- 优化启动速度
+    -- 启动加速
     use { 'lewis6991/impatient.nvim',
         config = function()
             require("conf.impatient")
@@ -168,19 +168,19 @@ return require('packer').startup(function(use)
         end
     }
     -- todo tree
-    -- use {
-    --     "folke/todo-comments.nvim",
-    --     config = function()
-    --         require("conf.todo-comments")
-    --     end
-    -- }
+    use {
+        "folke/todo-comments.nvim",
+        config = function()
+            require("conf.todo-comments")
+        end
+    }
     -- 灯泡提示代码行为
-    -- use {
-    --     "kosayoda/nvim-lightbulb",
-    --     config = function()
-    --         require("conf.nvim-lightbulb")
-    --     end
-    -- }
+    use {
+        "kosayoda/nvim-lightbulb",
+        config = function()
+            require("conf.nvim-lightbulb")
+        end
+    }
     -- 自动保存
     use {
         "Pocco81/AutoSave.nvim",
