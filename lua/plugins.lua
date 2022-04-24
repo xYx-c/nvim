@@ -181,6 +181,13 @@ return require('packer').startup(function(use)
             require("conf.nvim-lightbulb")
         end
     }
+    -- 自动恢复光标位置
+    use {
+        "ethanholz/nvim-lastplace",
+        config = function()
+            require("conf.nvim-lastplace")
+        end
+    }
     -- 自动保存
     use {
         "Pocco81/AutoSave.nvim",

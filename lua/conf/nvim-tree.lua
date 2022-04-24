@@ -7,8 +7,6 @@ require("nvim-tree").setup({
         width = 55,
         -- 隐藏顶部的根目录显示
         hide_root_folder = false,
-        -- 自动调整大小
-        auto_resize = true
     },
     renderer = {
         icons = {

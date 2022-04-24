@@ -35,6 +35,3 @@ if system == "Darwin" then
         let $LANG = 'en_US.UTF-8'
     ]]
 end
-vim.cmd[[
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-]]
