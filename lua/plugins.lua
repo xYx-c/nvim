@@ -40,6 +40,7 @@ packer.init {
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'chemzqm/wxapp.vim'
     -- 启动加速
     use { 'lewis6991/impatient.nvim',
         config = function()
@@ -175,12 +176,12 @@ return require('packer').startup(function(use)
         end
     }
     -- 灯泡提示代码行为
-    use {
-        "kosayoda/nvim-lightbulb",
-        config = function()
-            require("conf.nvim-lightbulb")
-        end
-    }
+    -- use {
+    --     "kosayoda/nvim-lightbulb",
+    --     config = function()
+    --         require("conf.nvim-lightbulb")
+    --     end
+    -- }
     -- 自动恢复光标位置
     use {
         "ethanholz/nvim-lastplace",

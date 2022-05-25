@@ -19,8 +19,9 @@
 
 local lspkind = require("lspkind")
 local cmp = require("cmp")
+vim.g.vsnip_snippet_dir = "~/.config/nvim/snippets"
 cmp.setup(
-    ---@diagnostic disable-next-line: redundant-parameter
+---@diagnostic disable-next-line: redundant-parameter
     {
         -- 指定补全引擎
         snippet = {
@@ -32,12 +33,12 @@ cmp.setup(
         -- 指定补全源（安装了补全源插件就在这里指定）
         sources = cmp.config.sources(
             {
-                {name = "nvim_lsp"},
-                {name = "vsnip"},
-                {name = "path"},
-                {name = "buffer"},
-                {name = "cmdline"},
-                {name = "spell"},
+                { name = "nvim_lsp" },
+                { name = "vsnip" },
+                { name = "path" },
+                { name = "buffer" },
+                { name = "cmdline" },
+                { name = "spell" },
                 -- {name = "cmp_tabnine"}
             }
         ),
@@ -103,14 +104,14 @@ cmp.setup(
                     if cmp.visible() then
                         local entry = cmp.get_selected_entry()
                         if not entry then
-                            cmp.select_next_item({behavior = cmp.SelectBehavior.Select})
+                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
                         end
                         cmp.confirm()
                     else
                         fallback()
                     end
                 end,
-                {"i", "s", "c"}
+                { "i", "s", "c" }
             )
         }
     }
@@ -120,7 +121,7 @@ cmp.setup.cmdline(
     "/",
     {
         sources = {
-            {name = "buffer"}
+            { name = "buffer" }
         }
     }
 )
@@ -130,10 +131,10 @@ cmp.setup.cmdline(
     {
         sources = cmp.config.sources(
             {
-                {name = "path"}
+                { name = "path" }
             },
             {
-                {name = "cmdline"}
+                { name = "cmdline" }
             }
         )
     }
