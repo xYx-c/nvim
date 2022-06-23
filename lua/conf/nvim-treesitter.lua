@@ -1,3 +1,5 @@
+-- https://github.com/nvim-treesitter/nvim-treesitter
+
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "cpp", "go", "lua", "rust", "java", "vue", "javascript", "css", "html", "tsx", "typescript", "toml", "json", "yaml" },
 

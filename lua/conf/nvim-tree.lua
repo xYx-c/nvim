@@ -9,6 +9,7 @@ require("nvim-tree").setup({
         hide_root_folder = false,
     },
     renderer = {
+        group_empty = true,
         icons = {
             webdev_colors = false,
         },
@@ -32,8 +33,8 @@ require("nvim-tree").setup({
 })
 -- 默认图标，可自行修改
 vim.g.nvim_tree_icons = {
-    default = " ",
-    symlink = " ",
+    default = "",
+    symlink = "",
     git = {
         unstaged = "",
         staged = "✓",
@@ -54,7 +55,6 @@ vim.g.nvim_tree_icons = {
         symlink_open = ""
     }
 }
-vim.g.nvim_tree_group_empty = 1
 -- 打开文件树
 vim.keybinds.gmap("n", "<space>e", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
 -- 按 leader fc 在文件树中找到当前以打开文件的位置

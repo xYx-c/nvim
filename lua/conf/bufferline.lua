@@ -25,13 +25,13 @@ require("bufferline").setup(
             --         text_align = "left"
             --     }
             -- },
-            custom_filter = function(buf_number, _)
-                if string.find(vim.fn.bufname(buf_number), 'term://') == nil then
-                    return true
-                else
-                    return false
-                end
-            end,
+            -- custom_filter = function(buf_number, _)
+            --     if string.find(vim.fn.bufname(buf_number), 'term://') == nil then
+            --         return true
+            --     else
+            --         return false
+            --     end
+            -- end,
             -- 显示 LSP 报错图标
             diagnostics_indicator = function(_, _, diagnostics_dict, _)
                 local s = " "
