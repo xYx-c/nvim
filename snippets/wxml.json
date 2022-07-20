@@ -1,0 +1,10 @@
+{
+  "view": {
+    "prefix": ["view"],
+    "body": ["<view>$0</view>"]
+  },
+  "text": {
+    "prefix": ["text"],
+    "body": ["<text>$0</text>"]
+  }
+}

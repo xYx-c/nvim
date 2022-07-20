@@ -1,0 +1,41 @@
+{
+  "create class": {
+    "prefix": ["clas", "cls"],
+    "body": [
+      "package $1",
+      "/**",
+      " * @author xYx",
+      " * @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " */",
+      "public class $TM_FILENAME_BASE {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "create interface": {
+    "prefix": ["interf", "iface"],
+    "body": [
+      "package $1",
+      "/**",
+      " * @author xYx",
+      " * @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " */",
+      "public interface $TM_FILENAME_BASE {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "create enum": {
+    "prefix": ["enu"],
+    "body": [
+      "package $1",
+      "/**",
+      " * @author xYx",
+      " * @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " */",
+      "public enum $TM_FILENAME_BASE {",
+      "\t$0",
+      "}"
+    ]
+  }
+}
