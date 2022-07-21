@@ -7,14 +7,19 @@ local dap = require("dap")
 vim.fn.sign_define("DapBreakpoint", {text = "●", texthl = "TodoFgFIX", linehl = "", numhl = ""})
 -- 加载调试器配置
 local dap_config = {
-    -- rust = require("dap.rust"),
+    rust = require("dap.rust"),
+    cpp = require("dap.rust"),
     java = require("dap.java"),
     go = require("dap.go"),
     -- python = require("dap.python"),
 }
 -- 设置调试器
 for dap_name, dap_options in pairs(dap_config) do
-    dap.adapters[dap_name] = dap_options.adapters
+    if dap_name == 'rust' or dap_name == 'c' or dap_name == 'cc' or dap_name == 'cpp' then
+        dap.adapters = dap_options.adapters;
+    else
+        dap.adapters[dap_name] = dap_options.adapters
+    end
     dap.configurations[dap_name] = dap_options.configurations
 end
 
