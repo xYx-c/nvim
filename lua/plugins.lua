@@ -40,6 +40,10 @@ packer.init {
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    -- 界面美化
+    use 'hood/popui.nvim'
+    use 'RishabhRD/popfix'
+    -- 微信小程序插件
     use 'chemzqm/wxapp.vim'
     -- 启动加速
     use { 'lewis6991/impatient.nvim',
@@ -169,12 +173,12 @@ return require('packer').startup(function(use)
         end
     }
     -- todo tree
-    use {
-        "folke/todo-comments.nvim",
-        config = function()
-            require("conf.todo-comments")
-        end
-    }
+    -- use {
+    --     "folke/todo-comments.nvim",
+    --     config = function()
+    --         require("conf.todo-comments")
+    --     end
+    -- }
     -- 灯泡提示代码行为
     -- use {
     --     "kosayoda/nvim-lightbulb",
@@ -197,6 +201,7 @@ return require('packer').startup(function(use)
         end
     }
     -- rust
+    use "nvim-lua/plenary.nvim"
     use {
         "simrat39/rust-tools.nvim",
         config = function()
@@ -206,9 +211,6 @@ return require('packer').startup(function(use)
     -- java
     use {
         "mfussenegger/nvim-jdtls",
-        config = function()
-            require("conf.nvim-jdtls")
-        end
     }
     -- debug
     use {
