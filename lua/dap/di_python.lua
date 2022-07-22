@@ -1,2 +1,6 @@
--- local dap_install = require("dap-install")
--- dap_install.config("python", {})
+local opts = {
+    init = function(dap_install)
+        dap_install.config("python", {})
+    end
+}
+return opts

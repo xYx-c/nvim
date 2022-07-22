@@ -1,2 +1,6 @@
--- local dap_install = require("dap-install")
--- dap_install.config("go", {})
+local opts = {
+    init = function(dap_install)
+        dap_install.config("go", {})
+    end
+}
+return opts
