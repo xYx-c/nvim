@@ -19,10 +19,10 @@ vim.keybinds.gmap("n", "<C-j>", "<c-w>j", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-h>", "<c-w>h", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-l>", "<c-w>l", vim.keybinds.opts)
 -- 用 H 和 L 代替 ^ 与 $
--- vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
--- vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
--- vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
--- vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
+vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
+vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
+vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
+vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
 -- 将 C-u 和 C-d 调整为上下滑动 10 行而不是半页
 vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
@@ -84,16 +84,16 @@ end
 -- buffer
 ---------------------------------------------------------------------------
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
-vim.keybinds.gmap("n", "<C-q>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-q>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
 vim.keybinds.gmap("n", "<leader>bu", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("t", "<leader>bu", "<C-\\><C-n><cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "H", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-h>", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
 -- vim.keybinds.gmap("t", "H", "<C-\\><C-n><cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
 -- 切换下一个缓冲区
 vim.keybinds.gmap("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("t", "<leader>bn", "<C-\\><C-n><cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "L", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-l>", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 -- vim.keybinds.gmap("t", "L", "<C-\\><C-n><cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 -- 关闭左侧缓冲区
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
@@ -103,48 +103,44 @@ vim.keybinds.gmap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", vim.keybin
 -- dap-debug
 ---------------------------------------------------------------------------
 -- 显示或隐藏调试界面
-vim.keybinds.gmap("n", "<F11>", "<cmd>lua require('dapui').toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-9>", "<cmd>lua require('dapui').toggle()<CR>", vim.keybinds.opts)
 -- 打开浮动窗口
 vim.keybinds.gmap("v", "<M-k>", "<Cmd>lua require('dapui').eval()<CR>", vim.keybinds.opts)
 -- 打断点
-vim.keybinds.gmap("n", "<F4>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-4>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", vim.keybinds.opts)
 -- 开启调试或到下一个断点处
-vim.keybinds.gmap("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-5>", "<cmd>lua require'dap'.continue()<CR>", vim.keybinds.opts)
 -- 单步进入执行（会进入函数内部，有回溯阶段）
-vim.keybinds.gmap("n", "<F6>", "<cmd>lua require'dap'.step_into()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-2>", "<cmd>lua require'dap'.step_into()<CR>", vim.keybinds.opts)
 -- 单步跳过执行（不进入函数内部，无回溯阶段）
-vim.keybinds.gmap("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-3>", "<cmd>lua require'dap'.step_over()<CR>", vim.keybinds.opts)
 -- 步出当前函数
-vim.keybinds.gmap("n", "<F8>", "<cmd>lua require'dap'.step_out()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-6>", "<cmd>lua require'dap'.step_out()<CR>", vim.keybinds.opts)
 -- 重启调试
-vim.keybinds.gmap("n", "<F9>", "<cmd>lua require'dap'.run_last()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-8>", "<cmd>lua require'dap'.run_last()<CR>", vim.keybinds.opts)
 -- 退出调试（关闭调试，关闭 repl，关闭 ui，清除内联文本）
-vim.keybinds.gmap(
-    "n",
-    "<F10>",
+vim.keybinds.gmap("n", "<M-0>",
     "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>"
-    ,
-    vim.keybinds.opts
-)
+    , vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- search-file or replace-file
 ---------------------------------------------------------------------------
 -- 全项目替换
-vim.keybinds.gmap("n", "<leader>rp", "<cmd>lua require('spectre').open()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-R>", "<cmd>lua require('spectre').open()<CR>", vim.keybinds.opts)
 -- 只替换当前文件
-vim.keybinds.gmap("n", "<leader>rf", "viw:lua require('spectre').open_file_search()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-r>", "viw:lua require('spectre').open_file_search()<CR>", vim.keybinds.opts)
 -- 全项目中搜索当前单词
 vim.keybinds.gmap("n", "<leader>rw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", vim.keybinds.opts)
 -- 查找文件
-vim.keybinds.gmap("n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-F>", "<cmd>Telescope find_files theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找文字
-vim.keybinds.gmap("n", "<leader>fg", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-f>", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找特殊符号
 vim.keybinds.gmap("n", "<leader>fb", "<cmd>Telescope buffers theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找帮助文档
 vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找最近打开的文件
-vim.keybinds.gmap("n", "<leader>fo", "<cmd>Telescope oldfiles theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-o>", "<cmd>Telescope oldfiles theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找 marks 标记
 vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks theme=dropdown<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
@@ -160,12 +156,11 @@ vim.keybinds.gmap("n", "E", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 -- 退出终端插入模式
 vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
 -- 打开普通终端
-vim.keybinds.gmap("n", "<leader>tt", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-t>", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.opts)
 -- 打开浮动终端
-vim.keybinds.gmap("n", "<leader>tf", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-t>", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
 -- 打开lazy git 终端
-vim.keybinds.gmap("n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<M-G>", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
 -- 打开或关闭所有终端
 vim.keybinds.gmap("n", "<leader>ta", "<cmd>ToggleTermToggleAll<CR>", vim.keybinds.opts)
 -- 要需创建多个终端，可：
