@@ -1,17 +1,17 @@
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#ccrust-via-lldb-vscode
 return {
-    adapters = {
-        codelldb = {
-            type = 'server',
-            port = "${port}",
-            executable = {
-                command = vim.env.HOME .. '/.local/share/nvim/dapinstall/codelldb/extension/adapter/codelldb',
-                args = {"--port", "${port}"},
-                -- On windows you may have to uncomment this:
-                -- detached = false,
-            },
-        },
-    },
+    -- adapters = {
+    --     codelldb = {
+    --     type = 'server',
+    --     port = "${port}",
+    --     executable = {
+    --         command = vim.env.HOME .. '/.local/share/nvim/dapinstall/codelldb/extension/adapter/codelldb',
+    --         args = { "--port", "${port}" },
+    --         -- On windows you may have to uncomment this:
+    --         -- detached = false,
+    --     },
+    --     },
+    -- },
     -- adapters = {
     --     codelldb = function(on_adapter)
     --         local stdout = vim.loop.new_pipe(false)

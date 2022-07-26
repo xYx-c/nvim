@@ -1,4 +1,4 @@
 return {
-    adapters = {},
-    configurations = {}
+    -- adapters = {},
+    -- configurations = {}
 }
