@@ -12,6 +12,30 @@ require("nvim-tree").setup({
         group_empty = true,
         icons = {
             webdev_colors = false,
+            glyphs = {
+                default = "",
+                symlink = "",
+                bookmark = "",
+                folder = {
+                    arrow_closed = "",
+                    arrow_open = "",
+                    default = "",
+                    open = "",
+                    empty = "",
+                    empty_open = "",
+                    symlink = "",
+                    symlink_open = "",
+                },
+                git = {
+                    unstaged = "",
+                    staged = "✓",
+                    unmerged = "",
+                    renamed = "➜",
+                    untracked = "",
+                    deleted = "",
+                    ignored = "◌",
+                },
+            }
         },
     },
     diagnostics = {
@@ -31,31 +55,6 @@ require("nvim-tree").setup({
         timeout = 500
     }
 })
--- 默认图标，可自行修改
-vim.g.nvim_tree_icons = {
-    default = "",
-    symlink = "",
-    git = {
-        unstaged = "",
-        staged = "✓",
-        unmerged = "",
-        renamed = "➜",
-        untracked = "",
-        deleted = "",
-        ignored = ""
-    },
-    folder = {
-        arrow_open = "",
-        arrow_closed = "",
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-        symlink_open = ""
-    }
-}
-
 -- 默认按键
 -- o     ：打开目录或文件
 -- a     ：新增目录或文件

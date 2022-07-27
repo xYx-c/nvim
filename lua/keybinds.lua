@@ -32,10 +32,10 @@ vim.keybinds.gmap("i", "<M-j>", "<down>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "<M-h>", "<left>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "<M-l>", "<right>", vim.keybinds.opts)
 -- 修改分屏大小
-vim.keybinds.gmap("n", "<M-up>", "<cmd>res +1<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<M-down>", "<cmd>res -1<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<M-left>", "<cmd>vertical resize-1<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<M-right>", "<cmd>vertical resize+1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<S-up>", "<cmd>res +1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<S-down>", "<cmd>res -1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<S-left>", "<cmd>vertical resize-1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<S-right>", "<cmd>vertical resize+1<CR>", vim.keybinds.opts)
 -- 正常模式下按 ESC 取消高亮显示
 vim.keybinds.gmap("n", "<ESC>", ":nohlsearch<CR>", vim.keybinds.opts)
 -- 通过 leader cs 切换拼写检查
@@ -48,8 +48,8 @@ vim.keybinds.gmap("n", "<leader>ft", "<cmd>TodoTelescope theme=dropdown<CR>", vi
 -- lsp
 ---------------------------------------------------------------------------
 vim.keybinds.gmap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
-vim.keybinds.gmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
-vim.keybinds.gmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
+-- vim.keybinds.gmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
+-- vim.keybinds.gmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
 vim.keybinds.gmap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)
 vim.keybinds.gmap('n', 'go', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
 local on_attach = function(_, bufnr)
@@ -77,7 +77,7 @@ local on_attach = function(_, bufnr)
     vim.keybinds.bmap(bufnr, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
         vim.keybinds.opts)
 
-    vim.keybinds.bmap(bufnr, 'n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', vim.keybinds.opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 ---------------------------------------------------------------------------
@@ -140,7 +140,7 @@ vim.keybinds.gmap("n", "<leader>fb", "<cmd>Telescope buffers theme=dropdown<CR>"
 -- 查找帮助文档
 vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找最近打开的文件
-vim.keybinds.gmap("n", "<C-e>", "<cmd>Telescope oldfiles theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", ";", "<cmd>Telescope oldfiles theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找 marks 标记
 vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks theme=dropdown<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------

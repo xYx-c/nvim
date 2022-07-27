@@ -83,7 +83,7 @@ return require('packer').startup(function(use)
         requires = {
             "nvim-lua/plenary.nvim", -- Lua 开发模块
             "BurntSushi/ripgrep", -- 文字查找
-            "sharkdp/fd" -- 文件查找
+            "sharkdp/fd", -- 文件查找
         },
         config = function()
             require("conf.telescope")
