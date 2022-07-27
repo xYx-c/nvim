@@ -208,9 +208,22 @@ return require('packer').startup(function(use)
             require("conf.rust-tools")
         end
     }
+    -- clangd
+    use {"p00f/clangd_extensions.nvim",
+        config = function()
+            require("conf.clangd_extensions")
+        end
+    }
     -- java
     use {
         "mfussenegger/nvim-jdtls",
+    }
+    -- go
+    use {
+        "ray-x/go.nvim",
+        config = function()
+            require("conf.go")
+        end
     }
     -- debug
     use {
@@ -239,6 +252,7 @@ return require('packer').startup(function(use)
             require("conf.nvim-dap-ui")
         end
     }
+    use "nvim-telescope/telescope-dap.nvim"
     use {
         "ravenxrz/DAPInstall.nvim",
         config = function()

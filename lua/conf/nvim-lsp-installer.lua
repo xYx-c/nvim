@@ -7,8 +7,8 @@ local servers = {
     -- 语言服务器名称：配置选项
     -- rust_analyzer = require("lsp.rust_analyzer"),
     -- jdtls = require("lsp.jdtls"),
-    clangd = require("lsp.clangd"),
-    gopls = require("lsp.gopls"),
+    -- clangd = require("lsp.clangd"),
+    -- gopls = require("lsp.gopls"),
     sumneko_lua = require("lsp.sumneko_lua"),
     pyright = require("lsp.pyright"),
     volar = require("lsp.volar"),

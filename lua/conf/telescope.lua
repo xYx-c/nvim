@@ -7,7 +7,9 @@
 -- macOS
 -- brew install fd
 -- https://github.com/BurntSushi/ripgrep
-require("telescope").setup({
+local telescope = require('telescope')
+telescope.load_extension("dap")
+telescope.setup({
     pickers = {
         find_files = {
             theme = "dropdown",

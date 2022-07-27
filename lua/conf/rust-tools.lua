@@ -27,4 +27,8 @@ if flag then
             require("rust-tools").start_standalone_if_required()
         end
     )
+    if not server:is_installed() then
+        vim.notify("Installing rust_analyzer...")
+        server:install()
+    end
 end
