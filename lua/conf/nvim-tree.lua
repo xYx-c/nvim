@@ -28,8 +28,8 @@ require("nvim-tree").setup({
                 },
                 git = {
                     unstaged = "",
-                    staged = "✓",
-                    unmerged = "",
+                    staged = "",
+                    unmerged = "",
                     renamed = "➜",
                     untracked = "",
                     deleted = "",
