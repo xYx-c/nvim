@@ -11,7 +11,6 @@ local notify_opts = {
 
     -- 超时时间，默认 5s
     -- timeout = 5000
-    background_colour = "#000000",
 }
 
 -- 如果是透明背景，则需要设置背景色
