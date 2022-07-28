@@ -6,6 +6,7 @@ require("bufferline").setup(
             numbers = "ordinal",
             -- 使用内置 LSP 进行诊断
             diagnostics = "nvim_lsp",
+            enforce_regular_tabs = false,
 
             -- 是否添加文件类型图标高
             color_icons = false,

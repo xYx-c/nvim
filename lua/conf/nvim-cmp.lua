@@ -19,13 +19,6 @@
 
 local lspkind = require("lspkind")
 local cmp = require("cmp")
-local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
 vim.g.vsnip_snippet_dir = "~/.config/nvim/snippets"
 cmp.setup(
 ---@diagnostic disable-next-line: redundant-parameter
@@ -79,14 +72,26 @@ cmp.setup(
         },
         -- 绑定补全相关的按键
         mapping = {
+            ["<Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    local entry = cmp.get_selected_entry()
+                    if not entry then
+                        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                    else
+                        cmp.confirm()
+                    end
+                else
+                    fallback()
+                end
+            end, { "i", "s", "c", }),
             -- 上一个
-            -- ["<C-p>"] = cmp.mapping.select_prev_item(),
+            ["<C-k>"] = cmp.mapping.select_prev_item(),
             -- 下一个
-            -- ["<C-n>"] = cmp.mapping.select_next_item(),
+            ["<C-j>"] = cmp.mapping.select_next_item(),
             -- 选择补全
             ["<CR>"] = cmp.mapping.confirm(),
             --  出现或关闭补全
-            ["<C-k>"] = cmp.mapping(
+            ["<C-h>"] = cmp.mapping(
                 {
                     i = function()
                         if cmp.visible() then
@@ -104,24 +109,6 @@ cmp.setup(
                     end
                 }
             ),
-            ["<Tab>"] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item()
-                elseif vim.fn["vsnip#available"](1) == 1 then
-                    feedkey("<Plug>(vsnip-expand-or-jump)", "")
-                elseif has_words_before() then
-                    cmp.complete()
-                else
-                    fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-                end
-            end, { "i", "s" }),
-            ["<S-Tab>"] = cmp.mapping(function()
-                if cmp.visible() then
-                    cmp.select_prev_item()
-                elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                    feedkey("<Plug>(vsnip-jump-prev)", "")
-                end
-            end, { "i", "s" }),
         }
     }
 )

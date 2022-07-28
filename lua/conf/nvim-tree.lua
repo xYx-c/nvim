@@ -4,9 +4,19 @@ require("nvim-tree").setup({
     -- 视图
     view = {
         -- 宽度
-        width = 45,
+        -- width = 45,
+        adaptive_size = true,
+        mappings = {
+            list = {
+                { key = "u", action = "dir_up" },
+                { key = "i", action = "cd" },
+            },
+        },
         -- 隐藏顶部的根目录显示
-        hide_root_folder = false,
+        hide_root_folder = true,
+    },
+    filters = {
+        dotfiles = true,
     },
     renderer = {
         group_empty = true,
