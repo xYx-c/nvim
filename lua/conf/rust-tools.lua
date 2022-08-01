@@ -23,8 +23,8 @@ if flag then
                     adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
                 }
             })
-            server:attach_buffers()
-            require("rust-tools").start_standalone_if_required()
+            -- server:attach_buffers()
+            -- require("rust-tools").start_standalone_if_required()
         end
     )
     if not server:is_installed() then

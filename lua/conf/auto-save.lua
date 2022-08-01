@@ -1,6 +1,6 @@
 -- https://github.com/Pocco81/AutoSave.nvim
 
-require("autosave").setup(
+require("auto-save").setup(
     {
         enabled = true,
         -- 触发自动保存的事件（退出插入模式或者普通模式下文本内容发生改变）

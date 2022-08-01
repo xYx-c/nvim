@@ -170,4 +170,9 @@ vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybind
 -- ... <键位>
 -- 另外，上面我们新建了 2 个特殊终端，所以普通终端的顺序应该是从 3 开始
 
+---------------------------------------------------------------------------
+-- 翻译
+---------------------------------------------------------------------------
+-- vim.keybinds.gmap("x", "mef", "<cmd>Translate zh-CN -source=EN -parse_after=window -output=floating<CR>", vim.keybinds.opts)
+
 return M

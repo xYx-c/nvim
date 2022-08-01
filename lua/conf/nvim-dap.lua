@@ -14,11 +14,11 @@ dap.adapters.codelldb = {
     },
 }
 -- 设置断点样式
-vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "TodoFgFIX", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl = "", numhl = "" })
 -- 加载调试器配置
 local dap_config = {
     -- java = require("dap.java"),
-    rust = require("dap.lldb"),
+    -- rust = require("dap.lldb"),
     cpp = require("dap.lldb"),
     c = require("dap.lldb"),
     -- go = require("dap.go"),

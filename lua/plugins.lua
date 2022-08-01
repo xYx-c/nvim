@@ -195,11 +195,18 @@ return require('packer').startup(function(use)
     }
     -- 自动保存
     use {
-        "Pocco81/AutoSave.nvim",
+        "Pocco81/auto-save.nvim",
         config = function()
-            require("conf.AutoSave")
+            require("conf.auto-save")
         end
     }
+    -- 翻译
+    -- use {
+    --     "uga-rosa/translate.nvim",
+    --     config = function()
+    --         require("conf.translate")
+    --     end
+    -- }
     -- rust
     use "nvim-lua/plenary.nvim"
     use {

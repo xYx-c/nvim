@@ -5,12 +5,12 @@ go.setup({
     gopls_cmd = { vim.env.HOME .. '/.local/share/nvim/lsp_servers' .. '/go/gopls' },
     fillstruct = 'gopls',
     dap_debug = true,
-    dap_debug_gui = true
+    dap_debug_gui = true,
 })
 
 local lsp_installer_servers = require 'nvim-lsp-installer.servers'
-
 local available, server = lsp_installer_servers.get_server("gopls")
+
 if available then
     server:on_ready(
         function()
