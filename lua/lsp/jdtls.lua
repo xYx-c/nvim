@@ -11,29 +11,10 @@ end
 local workspace_dir = '.jdtls_data'
 
 local on_attach = function(_, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
     -- Mappings.
-    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', 'K', '<cmd>Lspsaga hover_doc<cr>', vim.keybinds.opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
-    -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', vim.keybinds.opts)
-    -- buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', vim.keybinds.opts)
-    -- buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', '<leader>rn', '<cmd>Lspsaga rename<cr>', vim.keybinds.opts)
-    buf_set_keymap('n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', vim.keybinds.opts)
-    buf_set_keymap('v', '<leader>ca', ':<c-u>Lspsaga range_code_action<cr>', vim.keybinds.opts)
-    buf_set_keymap('n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', vim.keybinds.opts)
-    buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', vim.keybinds.opts)
+    require('keybinds').on_attach(_, bufnr)
+
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     -- Java specific
     buf_set_keymap("n", "<leader>di", "<Cmd>lua require'jdtls'.organize_imports()<CR>", vim.keybinds.opts)
     buf_set_keymap("n", "<leader>dt", "<Cmd>lua require'jdtls'.test_class()<CR>", vim.keybinds.opts)
@@ -41,9 +22,6 @@ local on_attach = function(_, bufnr)
     buf_set_keymap("v", "<leader>de", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", vim.keybinds.opts)
     buf_set_keymap("n", "<leader>de", "<Cmd>lua require('jdtls').extract_variable()<CR>", vim.keybinds.opts)
     buf_set_keymap("v", "<leader>dm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", vim.keybinds.opts)
-
-    buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", vim.keybinds.opts)
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
     -- debug
     -- require('jdtls').setup_dap({ hotcodereplace = 'auto' })
@@ -53,9 +31,9 @@ local on_attach = function(_, bufnr)
 end
 
 local bundles = {
-  vim.fn.glob(home .. "/.config/nvim/dap/java_debug/com.microsoft.java.debug.plugin-*.jar"),
+  vim.fn.glob(home .. "/.config/nvim/adapters/java_debug/com.microsoft.java.debug.plugin-*.jar"),
 };
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/dap/java_test/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/adapters/java_test/*.jar"), "\n"))
 
 return {
     flags = {allow_incremental_sync = true},

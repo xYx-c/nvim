@@ -173,12 +173,12 @@ return require('packer').startup(function(use)
         end
     }
     -- todo tree
-    -- use {
-    --     "folke/todo-comments.nvim",
-    --     config = function()
-    --         require("conf.todo-comments")
-    --     end
-    -- }
+    use {
+        "folke/todo-comments.nvim",
+        config = function()
+            require("conf.todo-comments")
+        end
+    }
     -- 灯泡提示代码行为
     -- use {
     --     "kosayoda/nvim-lightbulb",

@@ -9,6 +9,7 @@ vim.o.termguicolors = true                          -- 是否开启 xterm 兼容
 vim.o.cursorline = true                             -- 是否高亮当前文本行
 -- vim.o.syntax = "enable"                          -- 是否开启语法高亮
 vim.o.number = true                                 -- 是否显示绝对行号
+vim.o.signcolumn = "yes"                            -- 是否显示标记列
 vim.o.relativenumber = false                        -- 是否显示相对行号
 vim.o.scrolloff = 10                                -- 设定光标上下两侧最少保留的屏幕行数
 -- vim.o.mouse = "a"                                -- 是否支持鼠标操作

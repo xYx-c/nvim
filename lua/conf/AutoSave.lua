@@ -15,7 +15,7 @@ require("autosave").setup(
             modifiable = true
         },
         -- 保存时写入全部的 Buffer
-        write_all_buffers = true,
+        write_all_buffers = false,
         on_off_commands = false,
         clean_command_line_interval = 0,
         debounce_delay = 135

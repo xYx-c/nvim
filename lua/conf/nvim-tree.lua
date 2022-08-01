@@ -17,6 +17,7 @@ require("nvim-tree").setup({
     },
     filters = {
         dotfiles = true,
+        -- custom = { "^logs$" }
     },
     renderer = {
         group_empty = true,

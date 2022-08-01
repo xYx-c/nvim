@@ -8,6 +8,7 @@ vim.keybinds = {
     dbmap = vim.api.nvim_buf_del_keymap,
     opts = { noremap = true, silent = true }
 }
+local M = {}
 ---------------------------------------------------------------------------
 -- 基础键位设置
 ---------------------------------------------------------------------------
@@ -18,11 +19,11 @@ vim.keybinds.gmap("n", "<C-k>", "<c-w>k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-j>", "<c-w>j", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-h>", "<c-w>h", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-l>", "<c-w>l", vim.keybinds.opts)
--- 用 H 和 L 代替 ^ 与 $
+-- H 和 L 代替 ^ 与 $
 -- vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
--- vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
+vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
 -- vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
--- vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
+vim.keybinds.gmap("v", "L", "$h", vim.keybinds.opts)
 -- 将 C-u 和 C-d 调整为上下滑动 10 行而不是半页
 vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
@@ -47,12 +48,12 @@ vim.keybinds.gmap("n", "<leader>ft", "<cmd>TodoTelescope theme=dropdown<CR>", vi
 ---------------------------------------------------------------------------
 -- lsp
 ---------------------------------------------------------------------------
-vim.keybinds.gmap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
--- vim.keybinds.gmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
--- vim.keybinds.gmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
-vim.keybinds.gmap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)
-vim.keybinds.gmap('n', 'go', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
-local on_attach = function(_, bufnr)
+M.on_attach = function(_, bufnr)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', 'go', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     -- Mappings.
@@ -62,7 +63,7 @@ local on_attach = function(_, bufnr)
     -- vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>Telescope lsp_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<C-x>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', vim.keybinds.opts)
@@ -135,7 +136,7 @@ vim.keybinds.gmap("n", "<leader>rw", "<cmd>lua require('spectre').open_visual({s
 vim.keybinds.gmap("n", "F", "<cmd>Telescope find_files theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找文字
 vim.keybinds.gmap("n", "<C-f>", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.opts)
--- 查找特殊符号
+-- 查找Buffer
 vim.keybinds.gmap("n", "<leader>fb", "<cmd>Telescope buffers theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找帮助文档
 vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags theme=dropdown<CR>", vim.keybinds.opts)
@@ -169,8 +170,4 @@ vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybind
 -- ... <键位>
 -- 另外，上面我们新建了 2 个特殊终端，所以普通终端的顺序应该是从 3 开始
 
-
-
-return {
-    on_attach = on_attach,
-}
+return M
