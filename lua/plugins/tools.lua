@@ -54,7 +54,7 @@ M.setup = function (use)
             require("conf.tools.nvim-dap")
         end
     }
-    -- debu适配器下载
+    -- debug适配器下载
     use {
         "ravenxrz/DAPInstall.nvim",
         config = function()

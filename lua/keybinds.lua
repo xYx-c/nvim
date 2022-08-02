@@ -148,9 +148,9 @@ vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks theme=dropdown<CR>", 
 -- file-tree
 ---------------------------------------------------------------------------
 -- 打开文件树
-vim.keybinds.gmap("n", "<space>e", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-a>", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
 -- 按 leader fc 在文件树中找到当前以打开文件的位置
-vim.keybinds.gmap("n", "E", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-x>", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- terminal
 ---------------------------------------------------------------------------
@@ -161,7 +161,7 @@ vim.keybinds.gmap("n", "~", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.op
 -- 打开浮动终端
 vim.keybinds.gmap("n", "<C-t>", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
 -- 打开lazy git 终端
-vim.keybinds.gmap("n", "<space>g", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-g>", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
 -- 打开或关闭所有终端
 vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybinds.opts)
 -- 要需创建多个终端，可：
