@@ -17,12 +17,12 @@ dap.adapters.codelldb = {
 vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl = "", numhl = "" })
 -- 加载调试器配置
 local dap_config = {
-    -- java = require("dap.java"),
-    -- rust = require("dap.lldb"),
-    cpp = require("dap.lldb"),
-    c = require("dap.lldb"),
-    -- go = require("dap.go"),
-    -- python = require("dap.python"),
+    -- java = require("conf.dap.java"),
+    -- rust = require("conf,dap.lldb"),
+    cpp = require("conf.dap.lldb"),
+    c = require("conf.dap.lldb"),
+    -- go = require("conf,dap.go"),
+    -- python = require("conf.dap.python"),
 }
 -- 设置调试器
 for dap_name, dap_options in pairs(dap_config) do

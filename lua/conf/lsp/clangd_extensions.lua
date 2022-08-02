@@ -1,7 +1,10 @@
+-- https://github.com/p00f/clangd_extensions.nvim
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local clangd = vim.env.HOME .. '/.local/share/nvim/lsp_servers/clangd/clangd/bin/clangd'
-return {
+
+local options = {
     root_dir = function()
         return vim.fn.getcwd()
     end,
@@ -13,3 +16,6 @@ return {
         "--clang-tidy-checks=performance-*,bugprone-*", "--all-scopes-completion", "--pch-storage=disk",
     },
 }
+require("clangd_extensions").setup({
+    server = options,
+})

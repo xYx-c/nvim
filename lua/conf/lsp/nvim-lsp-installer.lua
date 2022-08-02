@@ -9,14 +9,14 @@ local servers = {
     -- jdtls = require("lsp.jdtls"),
     -- clangd = require("lsp.clangd"),
     -- gopls = require("lsp.gopls"),
-    sumneko_lua = require("lsp.sumneko_lua"),
-    pyright = require("lsp.pyright"),
-    volar = require("lsp.volar"),
-    tsserver = require("lsp.tsserver"),
-    jsonls = require("lsp.jsonls"),
-    cssls = require("lsp.cssls"),
-    html = require("lsp.html"),
-    sqls = require("lsp.sqls"),
+    sumneko_lua = require("conf.lsp.sumneko_lua"),
+    pyright = require("conf.lsp.pyright"),
+    volar = require("conf.lsp.volar"),
+    tsserver = require("conf.lsp.tsserver"),
+    jsonls = require("conf.lsp.jsonls"),
+    cssls = require("conf.lsp.cssls"),
+    html = require("conf.lsp.html"),
+    sqls = require("conf.lsp.sqls"),
 }
 
 -- 使用 cmp_nvim_lsp 代替内置 omnifunc，获得更强的补全体验

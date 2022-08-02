@@ -30,6 +30,9 @@ vim.o.foldenable = true                             -- 是否开启代码折叠
 vim.o.foldmethod = "indent"                         -- 指定代码折叠的策略是按照缩进进行的
 vim.o.foldlevel = 100                               -- 指定代码折叠的最高层级为 100
 
+vim.ui.select = require"popui.ui-overrider"
+vim.ui.input = require"popui.input-overrider"
+
 local system = io.popen("uname -s"):read("*l")
 if system == "Darwin" then
     vim.cmd[[

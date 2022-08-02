@@ -7,6 +7,17 @@ go.setup({
     dap_debug = true,
     dap_debug_gui = true,
 })
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+local options =  {
+    root_dir = function()
+        return vim.fn.getcwd()
+    end,
+    on_attach = require('keybinds').on_attach,
+    capabilities = capabilities,
+    -- cmd = { vim.env.HOME, '/.local/share/nvim/lsp_servers/go/gopls' }
+}
 
 local lsp_installer_servers = require 'nvim-lsp-installer.servers'
 local available, server = lsp_installer_servers.get_server("gopls")
@@ -15,7 +26,7 @@ if available then
     server:on_ready(
         function()
             -- local opts = vim.tbl_deep_extend("force", require('go.lsp'), require('lsp.gopls'))
-            local opts = vim.tbl_deep_extend("force", server:get_default_options(), require("lsp.gopls"))
+            local opts = vim.tbl_deep_extend("force", server:get_default_options(), options)
             server:setup(opts)
         end
 
