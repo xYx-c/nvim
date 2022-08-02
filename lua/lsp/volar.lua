@@ -2,6 +2,6 @@ return {
     root_dir = function()
         return vim.fn.getcwd()
     end,
-
-    filetypes = { 'vue' }
+    filetypes = { 'vue' },
+    on_attach = require('keybinds').on_attach,
 }

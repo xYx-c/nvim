@@ -207,6 +207,8 @@ return require('packer').startup(function(use)
     --         require("conf.translate")
     --     end
     -- }
+    -- sqls
+    use 'nanotee/sqls.nvim'
     -- rust
     use "nvim-lua/plenary.nvim"
     use {
@@ -216,7 +218,7 @@ return require('packer').startup(function(use)
         end
     }
     -- clangd
-    use {"p00f/clangd_extensions.nvim",
+    use { "p00f/clangd_extensions.nvim",
         config = function()
             require("conf.clangd_extensions")
         end
