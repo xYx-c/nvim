@@ -1,3 +1,5 @@
+-- https://github.com/nanotee/sqls.nvim
+
 return {
     root_dir = function()
         return vim.fn.getcwd()
