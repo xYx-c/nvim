@@ -41,14 +41,18 @@ vim.keybinds.gmap("n", "<S-right>", "<cmd>vertical resize+1<CR>", vim.keybinds.o
 vim.keybinds.gmap("n", "<ESC>", ":nohlsearch<CR>", vim.keybinds.opts)
 -- 通过 leader cs 切换拼写检查
 vim.keybinds.gmap("n", "<leader>cs", "<cmd>set spell!<CR>", vim.keybinds.opts)
+
+
 -- 显示历史弹窗记录
 vim.keybinds.gmap("n", "<leader>nh", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
 -- 查找 TODO 标签
 vim.keybinds.gmap("n", "<leader>ft", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
+-- copilot 快捷键设置
+vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", {silent = true, expr = true})
 ---------------------------------------------------------------------------
 -- lsp
 ---------------------------------------------------------------------------
-M.on_attach = function(_, bufnr)
+M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
@@ -80,6 +84,14 @@ M.on_attach = function(_, bufnr)
 
     vim.keybinds.bmap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', vim.keybinds.opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+end
+---------------------------------------------------------------------------
+-- sql_maps
+---------------------------------------------------------------------------
+M.sql_maps = function(_, bufnr)
+    vim.keybinds.bmap(bufnr, 'n', '%', "<cmd>SqlsExecuteQuery<cr>", vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'v', '<cr>', ":'<,'>SqlsExecuteQuery<cr>", vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'v', '<c-r>', ":'<,'>SqlsExecuteQueryVertical<cr>", vim.keybinds.opts)
 end
 ---------------------------------------------------------------------------
 -- buffer

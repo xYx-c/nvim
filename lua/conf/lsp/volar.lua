@@ -3,5 +3,7 @@ return {
         return vim.fn.getcwd()
     end,
     filetypes = { 'vue' },
-    on_attach = require('keybinds').on_attach,
+    on_attach = function (client, bufnr)
+        require('keybinds').lsp_maps(client, bufnr)
+    end,
 }

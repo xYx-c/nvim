@@ -73,9 +73,9 @@ cmp.setup(
         -- 绑定补全相关的按键
         mapping = {
             -- 上一个
-            ["<C-k>"] = cmp.mapping.select_prev_item(),
+            ["<C-p>"] = cmp.mapping.select_prev_item(),
             -- 下一个
-            ["<C-j>"] = cmp.mapping.select_next_item(),
+            ["<C-n>"] = cmp.mapping.select_next_item(),
             -- 选择补全
             ["<CR>"] = cmp.mapping.confirm(),
             --  出现或关闭补全

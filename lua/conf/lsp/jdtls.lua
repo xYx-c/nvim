@@ -10,9 +10,9 @@ elseif system == "Linux" then
 end
 local workspace_dir = '.jdtls_data'
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
     -- Mappings.
-    require('keybinds').on_attach(_, bufnr)
+    require('keybinds').lsp_maps(client, bufnr)
 
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     -- Java specific

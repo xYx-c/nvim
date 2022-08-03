@@ -16,7 +16,9 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local opts = {
-    on_attach = require('keybinds').on_attach,
+    on_attach = function (client, bufnr)
+        require('keybinds').lsp_maps(client, bufnr)
+    end,
     capabilities = capabilities
 }
 

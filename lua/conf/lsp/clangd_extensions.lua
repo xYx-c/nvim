@@ -9,7 +9,9 @@ local options = {
         return vim.fn.getcwd()
     end,
     filetype = { "c", "cc", "oc", "cpp", "objc", "objcpp", "cuda" },
-    on_attach = require('keybinds').on_attach,
+    on_attach = function(client, bufnr)
+        require('keybinds').lsp_maps(client, bufnr)
+    end,
     capabilities = capabilities,
     cmd = {
         clangd, "--offset-encoding=utf-16", "--background-index", "--clang-tidy",
