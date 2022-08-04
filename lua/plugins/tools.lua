@@ -75,11 +75,11 @@ M.setup = function (use)
     --     end
     -- }
     -- 翻译
-    -- use {
-    --     "uga-rosa/translate.nvim",
-    --     config = function()
-    --         require("conf.tools.translate")
-    --     end
-    -- }
+    use {
+        "uga-rosa/translate.nvim",
+        config = function()
+            require("conf.tools.translate")
+        end
+    }
 end
 return M

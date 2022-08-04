@@ -200,6 +200,7 @@ vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybind
 ---------------------------------------------------------------------------
 -- 翻译
 ---------------------------------------------------------------------------
--- vim.keybinds.gmap("x", "mef", "<cmd>Translate zh-CN -source=EN -parse_after=window -output=floating<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("v", "t", "<Cmd>Translate ZH<CR><Esc>", vim.keybinds.opts)
+vim.keybinds.gmap("v", "T", "<Cmd>Translate EN<CR><Esc>", vim.keybinds.opts)
 
 return M
