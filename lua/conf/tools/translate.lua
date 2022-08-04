@@ -1,6 +1,7 @@
 -- https://github.com/uga-rosa/translate.nvim
 
 -- 安装trans命令行工具
+-- brew install gawk
 -- $ git clone https://github.com/soimort/translate-shell
 -- $ cd translate-shell/
 -- $ make
