@@ -54,6 +54,7 @@ vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", {silent = true, expr = tru
 ---------------------------------------------------------------------------
 M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)

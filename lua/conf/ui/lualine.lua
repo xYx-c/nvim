@@ -5,7 +5,8 @@
 require('lualine').setup {
     options = {
         -- theme = custom_gruvbox,
-        component_separators = { right = '|' }
+        component_separators = { right = '|' },
+        globalstatus = true,
     },
     sections = {
         lualine_a = { 'mode' },

@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -36,10 +36,26 @@ packer.init {
     }
 }
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-    require('plugins.edit').setup(use)
-    require('plugins.ui').setup(use)
-    require('plugins.tools').setup(use)
-    require('plugins.lsp').setup(use)
-end)
+return require('packer').startup({
+    function(use)
+        use 'wbthomason/packer.nvim'
+        require('plugins.tools').setup(use)
+        require('plugins.edit').setup(use)
+        require('plugins.ui').setup(use)
+        require('plugins.lsp').setup(use)
+    end,
+    config = {
+        git = {
+            clone_timeout = 180,
+        },
+        display = {
+            open_fn = function()
+                return require('packer.util').float({ border = 'single' })
+            end
+        },
+        profile = {
+            enable = true,
+            threshold = 1 -- the amount in ms that a plugins load time must be over for it to be included in the profile
+        },
+    }
+})
