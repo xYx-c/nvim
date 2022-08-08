@@ -54,7 +54,6 @@ vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", {silent = true, expr = tru
 ---------------------------------------------------------------------------
 M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)
@@ -64,15 +63,17 @@ M.lsp_maps = function(_, bufnr)
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.keybinds.bmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>Telescope lsp_definitions theme=dropdown<CR>', vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>Telescope lsp_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>Telescope lsp_implementations theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>rn', '<cmd>Lspsaga rename<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'v', '<leader>ca', ':<c-u>Lspsaga range_code_action<cr>', vim.keybinds.opts)
@@ -200,7 +201,8 @@ vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybind
 ---------------------------------------------------------------------------
 -- 翻译
 ---------------------------------------------------------------------------
-vim.keybinds.gmap("v", "t", "<Cmd>Translate ZH<CR><Esc>", vim.keybinds.opts)
-vim.keybinds.gmap("v", "T", "<Cmd>Translate EN<CR><Esc>", vim.keybinds.opts)
+vim.keybinds.gmap("x", "t", "<Cmd>Translate ZH<CR><Esc>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-e>", "<Cmd>Translate ZH -comment<CR><Esc>", vim.keybinds.opts)
+vim.keybinds.gmap("x", "T", "<Cmd>Translate EN<CR><Esc>", vim.keybinds.opts)
 
 return M
