@@ -41,43 +41,43 @@ vim.keybinds.gmap("n", "<S-right>", "<cmd>vertical resize+1<CR>", vim.keybinds.o
 vim.keybinds.gmap("n", "<ESC>", ":nohlsearch<CR>", vim.keybinds.opts)
 -- 通过 leader cs 切换拼写检查
 vim.keybinds.gmap("n", "<leader>cs", "<cmd>set spell!<CR>", vim.keybinds.opts)
-
-
+---------------------------------------------------------------------------
 -- 显示历史弹窗记录
 vim.keybinds.gmap("n", "<leader>nh", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
 -- 查找 TODO 标签
 vim.keybinds.gmap("n", "<leader>ft", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
 -- copilot 快捷键设置
-vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", {silent = true, expr = true})
+vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
 ---------------------------------------------------------------------------
 -- lsp
 ---------------------------------------------------------------------------
 M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', 'go', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.keybinds.bmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>Telescope lsp_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>Telescope lsp_implementations theme=dropdown<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', 'go', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>', vim.keybinds.opts)
+
+    vim.keybinds.bmap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
+        vim.keybinds.opts)
+
+    vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>',
+        vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>rn', '<cmd>Lspsaga rename<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'v', '<leader>ca', ':<c-u>Lspsaga range_code_action<cr>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', vim.keybinds.opts)
 
     vim.keybinds.bmap(bufnr, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
         vim.keybinds.opts)
@@ -114,6 +114,7 @@ vim.keybinds.gmap("n", "L", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
 -- 关闭右侧缓冲区
 vim.keybinds.gmap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>bc", "<leader>bh<leader>bl<CR>", vim.keybinds.opts)
 -- 移动缓冲区
 vim.keybinds.gmap("n", "<leader>bn", "<cmd>BufferLineMoveNext<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>bp", "<cmd>BufferLineMovePrev<CR>", vim.keybinds.opts)
@@ -189,7 +190,7 @@ vim.keybinds.gmap("n", "~", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.op
 -- 打开浮动终端
 vim.keybinds.gmap("n", "<C-t>", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
 -- 打开lazy git 终端
-vim.keybinds.gmap("n", "<C-g>", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>tg>", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
 -- 打开或关闭所有终端
 vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybinds.opts)
 -- 要需创建多个终端，可：
