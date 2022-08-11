@@ -19,7 +19,8 @@ local opts = {
     on_attach = function (client, bufnr)
         require('keybinds').lsp_maps(client, bufnr)
     end,
-    capabilities = capabilities
+    capabilities = capabilities,
+    standalone = false,
 }
 
 local lsp_installer_servers = require("nvim-lsp-installer.servers")
@@ -33,7 +34,7 @@ if flag then
                     adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
                 }
             })
-            -- server:attach_buffers()
+            server:attach_buffers()
             -- require("rust-tools").start_standalone_if_required()
         end
     )
