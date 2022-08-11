@@ -114,7 +114,7 @@ vim.keybinds.gmap("n", "L", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.opts)
 -- 关闭右侧缓冲区
 vim.keybinds.gmap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>bc", "<leader>bh<leader>bl<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>bc", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>", vim.keybinds.opts)
 -- 移动缓冲区
 vim.keybinds.gmap("n", "<leader>bn", "<cmd>BufferLineMoveNext<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>bp", "<cmd>BufferLineMovePrev<CR>", vim.keybinds.opts)
