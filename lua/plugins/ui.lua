@@ -1,5 +1,5 @@
 local M = {}
-M.setup = function (use)
+M.setup = function(use)
     -- 界面美化
     use 'hood/popui.nvim'
     use 'RishabhRD/popfix'

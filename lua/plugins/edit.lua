@@ -27,6 +27,13 @@ M.setup = function (use)
             require("conf.edit.nvim-autopairs")
         end
     }
+    -- 自动闭合标签
+    use {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("conf.edit.nvim-ts-autotag")
+        end
+    }
     -- 插入模式获得函数签名
     use {
         "ray-x/lsp_signature.nvim",

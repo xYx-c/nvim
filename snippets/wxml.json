@@ -1,4 +1,8 @@
 {
+  "log": {
+    "prefix": ["log"],
+    "body": "console.log(${1:$TM_SELECTED_TEXT});"
+  },
   "view": {
     "prefix": ["view"],
     "body": ["<view>$0</view>"]

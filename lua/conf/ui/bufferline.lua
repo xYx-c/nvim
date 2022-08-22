@@ -10,11 +10,11 @@ require("bufferline").setup(
 
             -- 是否添加文件类型图标高
             color_icons = false,
-
             show_buffer_icons = false,
             show_buffer_close_icons = false,
             show_buffer_default_icon = false,
             show_close_icon = false,
+
             groups = {
                 options = {
                     toggle_hidden_on_enter = true -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
@@ -44,6 +44,7 @@ require("bufferline").setup(
             },
             -- 分割符样式："slant" | "thick" | "thin"
             -- separator_style = "slant",
+
             -- 左侧让出 nvim-tree 的位置
             -- offsets = {
             --     {
@@ -53,6 +54,7 @@ require("bufferline").setup(
             --         text_align = "left"
             --     }
             -- },
+
             -- custom_filter = function(buf_number, _)
             --     if string.find(vim.fn.bufname(buf_number), 'term://') == nil then
             --         return true
@@ -62,7 +64,7 @@ require("bufferline").setup(
             -- end,
             -- 显示 LSP 报错图标
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
-                local icon = level:match("error") and " " or " "
+                local icon = level:match("error") and "" or ""
                 if context.buffer:current() then
                     return ''
                 end
