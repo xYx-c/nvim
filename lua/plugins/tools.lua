@@ -55,12 +55,12 @@ M.setup = function (use)
         end
     }
     -- debug适配器下载
-    use {
-        "ravenxrz/DAPInstall.nvim",
-        config = function()
-            require("conf.tools.dap-install")
-        end
-    }
+    -- use {
+    --     "ravenxrz/DAPInstall.nvim",
+    --     config = function()
+    --         require("conf.tools.dap-install")
+    --     end
+    -- }
     -- 启动加速
     use { 'lewis6991/impatient.nvim',
         config = function()

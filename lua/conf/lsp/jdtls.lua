@@ -50,14 +50,15 @@ return {
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-        '-javaagent:' .. home .. '/.local/share/nvim/lsp_servers/jdtls/lombok.jar',
+        '-javaagent:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
         -- '-Xbootclasspath/a:' .. home .. '/.local/share/nvim/lsp_servers/jdtls/lombok.jar',
-        '-jar', home .. '/.local/share/nvim/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-        '-configuration', home .. '/.local/share/nvim/lsp_servers/jdtls/config_' .. system,
+        '-jar', home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        '-configuration', home .. '/.local/share/nvim/mason/packages/jdtls/config_' .. system,
         '-data', workspace_dir,
     },
 
     on_attach = on_attach,
+    capabilities = require"cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir

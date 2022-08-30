@@ -1,40 +1,20 @@
 -- https://github.com/ray-x/go.nvim
 
-local go = require('go')
-go.setup({
-    gopls_cmd = { vim.env.HOME .. '/.local/share/nvim/lsp_servers' .. '/go/gopls' },
+require('go').setup({
+    gopls_cmd = { vim.env.HOME .. '/.local/share/nvim/mason/bin/' .. 'gopls' },
     fillstruct = 'gopls',
     dap_debug = true,
     dap_debug_gui = true,
 })
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local options =  {
-    root_dir = function()
-        return vim.fn.getcwd()
-    end,
-    on_attach = function (client, bufnr)
-        require('keybinds').lsp_maps(client, bufnr)
-    end,
-    capabilities = capabilities,
-    -- cmd = { vim.env.HOME, '/.local/share/nvim/lsp_servers/go/gopls' }
+local opts =  {
+    -- root_dir = function()
+    --     return vim.fn.getcwd()
+    -- end,
+    -- on_attach = function (client, bufnr)
+    --     require('keybinds').lsp_maps(client, bufnr)
+    -- end,
+    -- capabilities = require"cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 }
 
-local lsp_installer_servers = require 'nvim-lsp-installer.servers'
-local available, server = lsp_installer_servers.get_server("gopls")
-
-if available then
-    server:on_ready(
-        function()
-            -- local opts = vim.tbl_deep_extend("force", require('go.lsp'), require('lsp.gopls'))
-            local opts = vim.tbl_deep_extend("force", server:get_default_options(), options)
-            server:setup(opts)
-        end
-
-    )
-    if not server:is_installed() then
-        vim.notify("Installing gopls...")
-        server:install()
-    end
-end
+return opts

@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function (use)
+M.setup = function(use)
     -- sqls
     use 'nanotee/sqls.nvim'
     -- rust
@@ -14,7 +14,7 @@ M.setup = function (use)
     -- clangd
     use { "p00f/clangd_extensions.nvim",
         config = function()
-            require("conf.lsp.clangd_extensions")
+            require("conf.lsp.clangd")
         end
     }
     -- java
@@ -29,16 +29,12 @@ M.setup = function (use)
         end
     }
     -- LSP 基础服务
+    use { "neovim/nvim-lspconfig" }
+    -- 安装 LSP/DAP
     use {
-        "neovim/nvim-lspconfig",
+        "williamboman/mason.nvim",
         config = function()
-            require("conf.lsp.nvim-lspconfig")
-        end
-    }
-    -- 自动安装 LSP
-    use { "williamboman/nvim-lsp-installer",
-        config = function()
-            require("conf.lsp.nvim-lsp-installer")
+            require("conf.lsp.mason")
         end
     }
 end

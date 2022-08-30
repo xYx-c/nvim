@@ -39,3 +39,16 @@ if system == "Darwin" then
         let $LANG = 'en_US.UTF-8'
     ]]
 end
+
+vim.diagnostic.config({
+    -- 诊断的虚拟文本
+    virtual_text = {
+        source = "always"
+    },
+    float = {
+        -- 是否显示诊断来源？是的
+        source = "always"
+    },
+    -- 在插入模式下是否显示诊断？不要
+    update_in_insert = false
+})

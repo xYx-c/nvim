@@ -1,9 +1,4 @@
-return {
-    root_dir = function()
-        return vim.fn.getcwd()
-    end,
+local opts = {
     filetypes = { "css", "scss", "less", "wxss" },
-    on_attach = function (client, bufnr)
-        require('keybinds').lsp_maps(client, bufnr)
-    end,
 }
+return opts

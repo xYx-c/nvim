@@ -1,9 +1,10 @@
-return {
-    root_dir = function()
-        return vim.fn.getcwd()
-    end,
+local opts = {
     filetypes = { 'vue' },
-    on_attach = function (client, bufnr)
-        require('keybinds').lsp_maps(client, bufnr)
-    end,
+    init_options = {
+        typescript = {
+            serverPath = ""
+        }
+    }
 }
+
+return opts;
