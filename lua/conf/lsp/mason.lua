@@ -4,12 +4,13 @@
 local lspconfig = require('lspconfig')
 require("mason").setup()
 
--- require("mason-lspconfig").setup({
---     ensure_installed = { "rust_analyzer", "jdtls", "clangd", "gopls", "pyright", "volar", "tsserver", "jsonls", "cssls",
---         "html", "sqls", "sumneko_lua" },
---     automatic_installation = true,
--- })
-
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "rust_analyzer", "jdtls", "clangd", "gopls",
+        "pyright", "volar", "tsserver", "jsonls", "cssls",
+        "html", "sqls", "sumneko_lua"
+    },
+})
 
 local M = {}
 
@@ -20,8 +21,7 @@ M.servers = {
     gopls = require("conf.lsp.go"),
     sumneko_lua = require("conf.lsp.sumneko_lua"),
     pyright = require("conf.lsp.pyright"),
-    -- volar = require("conf.lsp.volar"),
-    -- vuels = require("conf.lsp.volar"),
+    volar = require("conf.lsp.volar"),
     tsserver = require("conf.lsp.tsserver"),
     jsonls = require("conf.lsp.jsonls"),
     cssls = require("conf.lsp.cssls"),
@@ -49,11 +49,11 @@ for server_name, server_options in pairs(M.servers) do
         require('rust-tools').setup({
             server = opts,
         })
+    -- elseif server_name == "jdtls" then
+    --     require('jdtls').start_or_attach(opts)
     else
         lspconfig[server_name].setup(opts)
     end
 end
-
-require'lspconfig'.volar.setup{}
 
 return M

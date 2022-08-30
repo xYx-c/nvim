@@ -2,9 +2,8 @@ local M = {}
 
 M.setup = function(use)
     -- sqls
-    use 'nanotee/sqls.nvim'
+    use { 'nanotee/sqls.nvim' }
     -- rust
-    use "nvim-lua/plenary.nvim"
     use {
         "simrat39/rust-tools.nvim",
         config = function()
@@ -30,9 +29,11 @@ M.setup = function(use)
     }
     -- LSP 基础服务
     use { "neovim/nvim-lspconfig" }
+    use { "nvim-lua/plenary.nvim" }
     -- 安装 LSP/DAP
     use {
         "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
         config = function()
             require("conf.lsp.mason")
         end

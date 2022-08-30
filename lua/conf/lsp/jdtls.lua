@@ -1,3 +1,4 @@
+-- https://github.com/mfussenegger/nvim-jdtls
 local java = os.getenv("JDK_HOME")
 local home = os.getenv("HOME")
 local system = io.popen("uname -s"):read("*l")
@@ -10,11 +11,48 @@ elseif system == "Linux" then
 end
 local workspace_dir = '.jdtls_data'
 
+local function progress_report(_, result, ctx)
+    local lsp = vim.lsp
+    local info = {
+        client_id = ctx.client_id,
+    }
+
+    local kind = "report"
+    if result.complete then
+        kind = "end"
+    elseif result.workDone == 0 then
+        kind = "begin"
+    elseif result.workDone > 0 and result.workDone < result.totalWork then
+        kind = "report"
+    else
+        kind = "end"
+    end
+
+    local percentage = 0
+    if result.totalWork > 0 and result.workDone >= 0 then
+        percentage = result.workDone / result.totalWork * 100
+    end
+
+    local msg = {
+        token = result.id,
+        value = {
+            kind = kind,
+            percentage = percentage,
+            title = result.subTask,
+            message = result.subTask,
+        },
+    }
+    -- print(vim.inspect(result))
+
+    lsp.handlers["$/progress"](nil, msg, info)
+end
+
 local on_attach = function(client, bufnr)
     -- Mappings.
     require('keybinds').lsp_maps(client, bufnr)
 
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
     -- Java specific
     buf_set_keymap("n", "<leader>di", "<Cmd>lua require'jdtls'.organize_imports()<CR>", vim.keybinds.opts)
     buf_set_keymap("n", "<leader>dt", "<Cmd>lua require'jdtls'.test_class()<CR>", vim.keybinds.opts)
@@ -31,14 +69,14 @@ local on_attach = function(client, bufnr)
 end
 
 local bundles = {
-  vim.fn.glob(home .. "/.config/nvim/adapters/java_debug/com.microsoft.java.debug.plugin-*.jar"),
+    vim.fn.glob(home .. "/.config/nvim/adapters/java_debug/com.microsoft.java.debug.plugin-*.jar"),
 };
 vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/adapters/java_test/*.jar"), "\n"))
 
 return {
-    flags = {allow_incremental_sync = true},
+    flags = { allow_incremental_sync = true },
     name = 'jdtls',
-    filetypes = {'java'},
+    filetypes = { 'java' },
     cmd = {
         java .. '/bin/java',
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -51,14 +89,16 @@ return {
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
         '-javaagent:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
-        -- '-Xbootclasspath/a:' .. home .. '/.local/share/nvim/lsp_servers/jdtls/lombok.jar',
-        '-jar', home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        '-Xbootclasspath/a:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
+        '-jar',
+        home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         '-configuration', home .. '/.local/share/nvim/mason/packages/jdtls/config_' .. system,
         '-data', workspace_dir,
     },
 
     on_attach = on_attach,
-    capabilities = require"cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require "cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+
 
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
@@ -92,6 +132,13 @@ return {
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
-        bundles = bundles;
+        bundles = bundles,
+        -- extendedClientCapabilities = {
+        --     progressReportProvider = false,
+        -- },
     },
+
+    -- handlers = {
+    --     ["language/progressReport"] = progress_report,
+    -- },
 }
