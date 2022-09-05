@@ -1,5 +1,5 @@
 local M = {}
-M.setup = function (use)
+M.setup = function(use)
     -- 微信小程序插件
     use 'chemzqm/wxapp.vim'
     -- copilot 自动补全
