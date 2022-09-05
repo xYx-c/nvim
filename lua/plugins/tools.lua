@@ -1,5 +1,5 @@
 local M = {}
-M.setup = function (use)
+M.setup = function(use)
     -- 内置终端增强
     use {
         "akinsho/toggleterm.nvim",
@@ -46,6 +46,11 @@ M.setup = function (use)
         config = function()
             require("conf.tools.auto-save")
         end
+    }
+    -- 智能缩进
+    use {
+        'nmac427/guess-indent.nvim',
+        config = function() require('guess-indent').setup {} end,
     }
     -- debug
     use {
