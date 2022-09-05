@@ -47,11 +47,6 @@ M.setup = function(use)
             require("conf.tools.auto-save")
         end
     }
-    -- 智能缩进
-    use {
-        'nmac427/guess-indent.nvim',
-        config = function() require('guess-indent').setup {} end,
-    }
     -- debug
     use {
         "mfussenegger/nvim-dap",
@@ -59,13 +54,6 @@ M.setup = function(use)
             require("conf.tools.nvim-dap")
         end
     }
-    -- debug适配器下载
-    -- use {
-    --     "ravenxrz/DAPInstall.nvim",
-    --     config = function()
-    --         require("conf.tools.dap-install")
-    --     end
-    -- }
     -- 启动加速
     use { 'lewis6991/impatient.nvim',
         config = function()
