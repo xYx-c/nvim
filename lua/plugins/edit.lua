@@ -34,6 +34,13 @@ M.setup = function(use)
             require("conf.edit.nvim-ts-autotag")
         end
     }
+    -- 自动缩进
+    -- use {
+    --     'nmac427/guess-indent.nvim',
+    --     config = function()
+    --         require('guess-indent').setup {}
+    --     end,
+    -- }
     -- 插入模式获得函数签名
     use {
         "ray-x/lsp_signature.nvim",

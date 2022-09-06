@@ -82,6 +82,7 @@ M.setup = function(use)
             require("conf.ui.nvim-treesitter")
         end
     }
-    -- use 'kyazdani42/nvim-web-devicons'
+    -- 图标
+    use 'kyazdani42/nvim-web-devicons'
 end
 return M
