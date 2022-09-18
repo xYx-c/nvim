@@ -56,15 +56,17 @@ vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = tr
 -- lsp
 ---------------------------------------------------------------------------
 M.lsp_maps = function(_, bufnr)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>ds', '<cmd>Telescope lsp_document_symbols theme=dropdown<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols theme=dropdown<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>Telescope diagnostics bufnr=0<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>Q', '<cmd>Telescope diagnostics<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.keybinds.opts)
-    -- vim.keybinds.bmap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.keybinds.opts)
     -- Enable completion triggered by <c-x><c-o>
     -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.keybinds.bmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', 'gt', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>Telescope lsp_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>Telescope lsp_implementations theme=dropdown<CR>', vim.keybinds.opts)
