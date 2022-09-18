@@ -12,12 +12,12 @@ vim.o.number = true                                 -- 是否显示行号
 vim.o.relativenumber = true                         -- 是否显示相对行号
 vim.o.signcolumn = "yes"                            -- 是否显示标记列
 vim.o.scrolloff = 10                                -- 设定光标上下两侧最少保留的屏幕行数
--- vim.o.mouse = "a"                                -- 是否支持鼠标操作
+-- vim.o.mouse = "a"                                   -- 是否支持鼠标操作
 vim.o.clipboard = "unnamedplus"                     -- 是否启用系统剪切板
 vim.o.backup = false                                -- 是否开启备份文件
 vim.o.swapfile = false                              -- 是否开启交换文件
 -- vim.o.list = true                                -- 是否特殊显示空格等字符
-vim.o.autoindent = true                             -- 是否开启自动缩进对齐上一行缩进
+-- vim.o.autoindent = true                          -- 是否开启自动缩进对齐上一行缩进
 vim.o.smartindent = true                            -- 是否开启智能缩进
 -- vim.o.cindent = true                                -- 是否开启 C 语言风格的缩进
 -- vim.o.indentexpr = ""                               -- 设定缩进表达式
@@ -30,15 +30,19 @@ vim.o.smartcase = true                              -- 是否开启在搜索时�
 -- vim.o.spell = true                               -- 是否开启单词拼写检查
 -- vim.o.spelllang = "en_us,cjk"                    -- 设定单词拼写检查的语言
 vim.o.foldenable = true                             -- 是否开启代码折叠
-vim.o.foldmethod = "indent"                         -- 指定代码折叠的策略是按照缩进进行的
+-- vim.o.foldmethod = "indent"                         -- 指定代码折叠的策略是按照缩进进行的
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 100                               -- 指定代码折叠的最高层级为 100
+
+vim.o.completeopt = "menu,menuone,noselect"         -- 设定补全菜单的显示方式
 
 vim.ui.select = require"popui.ui-overrider"
 vim.ui.input = require"popui.input-overrider"
 
-local system = io.popen("uname -s"):read("*l")
-if system == "Darwin" then
-    vim.cmd[[
-        let $LANG = 'en_US.UTF-8'
-    ]]
-end
+-- local system = io.popen("uname -s"):read("*l")
+-- if system == "Darwin" then
+--     vim.cmd[[
+--         let $LANG = 'en_US.UTF-8'
+--     ]]
+-- end
