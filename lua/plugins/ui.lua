@@ -53,34 +53,17 @@ M.setup = function(use)
             require("conf.ui.fidget")
         end
     }
-    -- 为代码调试提供内联文本
-    use {
-        "theHamsta/nvim-dap-virtual-text",
-        requires = {
-            "mfussenegger/nvim-dap"
-        },
-        config = function()
-            require("conf.ui.nvim-dap-virtual-text")
-        end
-    }
-    -- 为代码调试提供 UI 界面
-    use {
-        "rcarriga/nvim-dap-ui",
-        requires = {
-            "mfussenegger/nvim-dap"
-        },
-        config = function()
-            require("conf.ui.nvim-dap-ui")
-        end
-    }
-    use "nvim-telescope/telescope-dap.nvim"
     -- 代码高亮
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         config = function()
             require("conf.ui.nvim-treesitter")
-        end
+        end,
+        requires = {
+            -- 智能缩进
+            "yioneko/nvim-yati",
+        }
     }
     -- 图标
     use 'kyazdani42/nvim-web-devicons'

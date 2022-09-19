@@ -55,7 +55,7 @@ local new_maker = function(filepath, bufnr, opts)
 end
 
 local telescope = require('telescope')
-telescope.load_extension("dap")
+-- telescope.load_extension("dap")
 telescope.setup({
     pickers = {
         find_files = {

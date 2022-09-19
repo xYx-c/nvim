@@ -20,6 +20,7 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -35,6 +36,7 @@ cmp.event:on(
 )
 
 vim.g.vsnip_snippet_dir = "~/.config/nvim/snippets"
+
 cmp.setup(
 ---@diagnostic disable-next-line: redundant-parameter
     {
@@ -51,8 +53,6 @@ cmp.setup(
                 { name = "nvim_lsp" },
                 { name = "vsnip" },
                 { name = "path" },
-                { name = "buffer" },
-                { name = "cmdline" },
                 { name = "spell" },
                 -- {name = "cmp_tabnine"}
             }
@@ -136,9 +136,10 @@ cmp.setup(
                 elseif has_words_before() then
                     cmp.complete()
                 else
-                    fallback()
+                    fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
                 end
             end, { "i", "s" }),
+
             ["<S-Tab>"] = cmp.mapping(function()
                 if cmp.visible() then
                     cmp.select_prev_item()

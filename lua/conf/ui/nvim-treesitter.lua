@@ -1,4 +1,5 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
+-- https://github.com/yioneko/nvim-yati
 
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "cpp", "rust", "java", "sql", "go", "lua", "vue", "javascript", "css", "html", "tsx",
@@ -36,5 +37,6 @@ require 'nvim-treesitter.configs'.setup {
         --         spread_element = { __default = '// %s', __multiline = '/* %s */' },
         --     },
         -- }
-    }
+    },
+    yati = { enable = true },
 }

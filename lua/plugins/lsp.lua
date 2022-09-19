@@ -30,13 +30,15 @@ M.setup = function(use)
     -- LSP 基础服务
     use { "neovim/nvim-lspconfig" }
     use { "nvim-lua/plenary.nvim" }
-    use { "williamboman/mason-lspconfig.nvim" }
     -- 安装 LSP/DAP
     use {
         "williamboman/mason.nvim",
         config = function()
             require("conf.lsp.mason")
-        end
+        end,
+        requires = {
+            "williamboman/mason-lspconfig.nvim",
+        }
     }
 end
 

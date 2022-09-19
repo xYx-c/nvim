@@ -3,6 +3,7 @@ M.setup = function(use)
     -- 内置终端增强
     use {
         "akinsho/toggleterm.nvim",
+        tag = '*',
         config = function()
             require("conf.tools.toggleterm")
         end
@@ -21,6 +22,7 @@ M.setup = function(use)
             "nvim-lua/plenary.nvim", -- Lua 开发模块
             "BurntSushi/ripgrep", -- 文字查找
             "sharkdp/fd", -- 文件查找
+            -- "nvim-telescope/telescope-dap.nvim", -- DAP 调试
         },
         config = function()
             require("conf.tools.telescope")
@@ -50,6 +52,12 @@ M.setup = function(use)
     -- debug
     use {
         "mfussenegger/nvim-dap",
+        requires = {
+            -- 为代码调试提供 UI 界面
+            "rcarriga/nvim-dap-ui",
+            -- 为代码调试提供内联文本
+            "theHamsta/nvim-dap-virtual-text",
+        },
         config = function()
             require("conf.tools.nvim-dap")
         end
