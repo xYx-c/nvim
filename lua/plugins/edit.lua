@@ -63,8 +63,8 @@ M.setup = function(use)
             { "rafamadriz/friendly-snippets" }, -- 提供多种语言的代码片段
             { "hrsh7th/vim-vsnip" }, -- vsnip 引擎，用于获得代码片段支持
             { "hrsh7th/cmp-vsnip" }, -- 适用于 vsnip 的代码片段源
-            -- { "f3fora/cmp-spell" }, -- 拼写建议
             -- { "L3MON4D3/LuaSnip", tag = "v1.*" }, -- 代码片段
+            -- { "f3fora/cmp-spell" }, -- 拼写建议
             { "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
             -- {"tzachar/cmp-tabnine", run = "./install.sh"} -- tabnine 源,提供基于 AI 的智能补全
         },

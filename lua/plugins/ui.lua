@@ -32,7 +32,7 @@ M.setup = function(use)
     use {
         "kyazdani42/nvim-tree.lua",
         requires = {
-            -- 依赖一个图标插件
+            -- 依赖图标插件
             "kyazdani42/nvim-web-devicons"
         },
         config = function()
@@ -57,15 +57,13 @@ M.setup = function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        config = function()
-            require("conf.ui.nvim-treesitter")
-        end,
         requires = {
             -- 智能缩进
             "yioneko/nvim-yati",
-        }
+        },
+        config = function()
+            require("conf.ui.nvim-treesitter")
+        end,
     }
-    -- 图标
-    use 'kyazdani42/nvim-web-devicons'
 end
 return M
