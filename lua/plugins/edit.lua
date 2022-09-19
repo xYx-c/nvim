@@ -61,9 +61,10 @@ M.setup = function(use)
             { "hrsh7th/cmp-cmdline" }, -- 命令补全
             { "onsails/lspkind-nvim" }, -- 为补全添加类似 vscode 的图标
             { "rafamadriz/friendly-snippets" }, -- 提供多种语言的代码片段
-            { "hrsh7th/vim-vsnip" }, -- vsnip 引擎，用于获得代码片段支持
-            { "hrsh7th/cmp-vsnip" }, -- 适用于 vsnip 的代码片段源
-            -- { "L3MON4D3/LuaSnip", tag = "v1.*" }, -- 代码片段
+            { "saadparwaiz1/cmp_luasnip" }, -- 适用于 luasnip 的代码片段源
+            { "L3MON4D3/LuaSnip", tag = "v1.*" },
+            -- { "hrsh7th/vim-vsnip" }, -- vsnip 引擎，用于获得代码片段支持
+            -- { "hrsh7th/cmp-vsnip" }, -- 适用于 vsnip 的代码片段源
             -- { "f3fora/cmp-spell" }, -- 拼写建议
             { "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
             -- {"tzachar/cmp-tabnine", run = "./install.sh"} -- tabnine 源,提供基于 AI 的智能补全
