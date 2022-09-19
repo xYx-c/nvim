@@ -3,6 +3,8 @@ M.setup = function(use)
     -- 界面美化
     use 'hood/popui.nvim'
     use 'RishabhRD/popfix'
+    -- 图标插件
+    use 'kyazdani42/nvim-web-devicons'
     -- 主题
     use {
         "eddyekofo94/gruvbox-flat.nvim",
@@ -31,10 +33,6 @@ M.setup = function(use)
     -- 目录树
     use {
         "kyazdani42/nvim-tree.lua",
-        requires = {
-            -- 依赖图标插件
-            "kyazdani42/nvim-web-devicons"
-        },
         config = function()
             require("conf.ui.nvim-tree")
         end
