@@ -21,13 +21,13 @@ local conds = require("luasnip.extras.expand_conditions")
 -- local utils = require("luasnip_snippets.utils")
 
 local function package_str(_, snip)
-    return "package " .. string.gsub(string.match(snip.env.TM_FILEPATH, "java/(.*)/.*java"), "/", ".") .. ";"
+    return "package " .. string.gsub(string.match(snip.env.TM_FILEPATH, "/src/main/java/(.*)/.*java"), "/", ".") .. ";"
 end
 
 return {
     s("cls", {
         f(package_str),
-        t({ "", "" }),
+        t({ "", "", "" }),
         t({ "/**", "" }),
         t({ "* @author: xYx", "" }),
         t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
@@ -41,7 +41,7 @@ return {
     }),
     s("iface", {
         f(package_str),
-        t({ "", "" }),
+        t({ "", "", "" }),
         t({ "/**", "" }),
         t({ "* @author: xYx", "" }),
         t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
@@ -55,7 +55,7 @@ return {
     }),
     s("em", {
         f(package_str),
-        t({ "", "" }),
+        t({ "", "", "" }),
         t({ "/**", "" }),
         t({ "* @author: xYx", "" }),
         t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
