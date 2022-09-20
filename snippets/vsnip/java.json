@@ -1,0 +1,12 @@
+{
+  "sql": {
+    "prefix": [
+      "rsql"
+    ],
+    "body": [
+      "return new SQL(){{",
+      "\t$0",
+      "}}.toString();"
+    ]
+  }
+}

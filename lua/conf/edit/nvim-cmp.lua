@@ -1,12 +1,18 @@
 -- https://github.com/hrsh7th/nvim-cmp
--- https://github.com/hrsh7th/vim-vsnip
--- https://github.com/hrsh7th/cmp-vsnip
 -- https://github.com/hrsh7th/cmp-nvim-lsp
 -- https://github.com/hrsh7th/cmp-path
 -- https://github.com/hrsh7th/cmp-buffer
 -- https://github.com/hrsh7th/cmp-cmdline
--- https://github.com/f3fora/cmp-spell
+
+-- https://github.com/hrsh7th/vim-vsnip
+-- https://github.com/hrsh7th/cmp-vsnip
 -- https://github.com/rafamadriz/friendly-snippets
+
+-- https://github.com/L3MON4D3/LuaSnip
+-- https://github.com/saadparwaiz1/cmp_luasnip
+-- https://github.com/molleweide/LuaSnip-snippets.nvim
+
+-- https://github.com/f3fora/cmp-spell
 -- https://github.com/lukas-reineke/cmp-under-comparator
 
 -- https://github.com/tzachar/cmp-tabnine
@@ -24,35 +30,32 @@ local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
--- local feedkey = function(key, mode)
---     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
--- end
 
+-- 加载代码片段
 local luasnip = require("luasnip")
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
-luasnip.filetype_extend("vue", { "vue" })
-
+-- luasnip.snippets = require("luasnip_snippets").load_snippets()
+require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/snippets/luasnip" } })
+require("luasnip.loaders.from_vscode").lazy_load({ paths = {
+    "~/.config/nvim/snippets/vsnip",
+    -- "~/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+} })
+-- 自动补充括号
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
     'confirm_done',
     cmp_autopairs.on_confirm_done()
 )
 
--- vim.g.vsnip_snippet_dir = "~/.config/nvim/"
-
 cmp.setup({
     -- 指定补全引擎
     snippet = {
         expand = function(args)
-            -- 使用 vsnip 引擎
-            -- vim.fn["vsnip#anonymous"](args.body)
             luasnip.lsp_expand(args.body)
         end
     },
     -- 指定补全源（安装了补全源插件就在这里指定）
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        -- { name = "vsnip" },
         { name = "luasnip" },
         { name = "path" },
         { name = "spell" },
@@ -61,16 +64,14 @@ cmp.setup({
     }),
     -- 格式化补全菜单
     formatting = {
-        format = lspkind.cmp_format(
-            {
-                with_text = true,
-                maxwidth = 50,
-                before = function(entry, vim_item)
-                    vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-                    return vim_item
-                end
-            }
-        )
+        format = lspkind.cmp_format({
+            with_text = true,
+            maxwidth = 50,
+            before = function(entry, vim_item)
+                vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+                return vim_item
+            end
+        })
     },
     -- 对补全建议排序
     sorting = {
@@ -98,24 +99,22 @@ cmp.setup({
         -- 选择补全
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         --  出现或关闭补全
-        ["<C-h>"] = cmp.mapping(
-            {
-                i = function()
-                    if cmp.visible() then
-                        cmp.abort()
-                    else
-                        cmp.complete()
-                    end
-                end,
-                c = function()
-                    if cmp.visible() then
-                        cmp.close()
-                    else
-                        cmp.complete()
-                    end
+        ["<C-h>"] = cmp.mapping({
+            i = function()
+                if cmp.visible() then
+                    cmp.abort()
+                else
+                    cmp.complete()
                 end
-            }
-        ),
+            end,
+            c = function()
+                if cmp.visible() then
+                    cmp.close()
+                else
+                    cmp.complete()
+                end
+            end
+        }),
         -- ["<Tab>"] = cmp.mapping(
         --     function(fallback)
         --         if cmp.visible() then
@@ -133,7 +132,8 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
+            -- elseif luasnip.expand_or_jumpable() then
+            elseif luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
             elseif has_words_before() then
                 cmp.complete()
@@ -154,25 +154,6 @@ cmp.setup({
     }
 })
 -- 命令行 / 模式提示
-cmp.setup.cmdline(
-    "/",
-    {
-        sources = {
-            { name = "buffer" }
-        }
-    }
-)
+cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
 -- 命令行 : 模式提示
-cmp.setup.cmdline(
-    ":",
-    {
-        sources = cmp.config.sources(
-            {
-                { name = "path" }
-            },
-            {
-                { name = "cmdline" }
-            }
-        )
-    }
-)
+cmp.setup.cmdline(":", { sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }) })

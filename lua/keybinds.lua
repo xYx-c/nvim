@@ -56,8 +56,10 @@ vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = tr
 -- lsp
 ---------------------------------------------------------------------------
 M.lsp_maps = function(_, bufnr)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>ds', '<cmd>Telescope lsp_document_symbols theme=dropdown<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols theme=dropdown<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>ds', '<cmd>Telescope lsp_document_symbols theme=dropdown<CR>',
+        vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols theme=dropdown<CR>',
+        vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>Telescope diagnostics bufnr=0<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>Q', '<cmd>Telescope diagnostics<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
@@ -92,6 +94,10 @@ M.lsp_maps = function(_, bufnr)
 
     vim.keybinds.bmap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', vim.keybinds.opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, "i", "<C-p>", "<Plug>luasnip-prev-choice", vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, "s", "<C-p>", "<Plug>luasnip-prev-choice", vim.keybinds.opts)
 end
 ---------------------------------------------------------------------------
 -- sql_maps
