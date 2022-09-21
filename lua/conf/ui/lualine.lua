@@ -1,10 +1,8 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 
--- local custom_gruvbox = require 'lualine.themes.gruvbox'
-
 require('lualine').setup {
     options = {
-        -- theme = custom_gruvbox,
+        -- theme = 'gruvbox-flat',
         component_separators = { right = '|' },
         globalstatus = true,
     },

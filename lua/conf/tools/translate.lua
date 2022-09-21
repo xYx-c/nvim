@@ -18,7 +18,10 @@ local options = {
         output = {
             split = {
                 min_size = 8
-            }
+            },
+            floating = {
+                zindex = 9999, -- a large number
+            },
         }
     }
 }

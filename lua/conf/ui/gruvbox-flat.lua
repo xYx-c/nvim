@@ -10,5 +10,6 @@ vim.g.gruvbox_colors = {
 
 vim.g.gruvbox_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 -- vim.g.gruvbox_hide_inactive_statusline = true
+-- vim.cmd("highlight NonText guifg=bg")
 vim.g.gruvbox_flat_style = "hard"
 vim.cmd[[colorscheme gruvbox-flat]]
