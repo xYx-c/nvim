@@ -82,5 +82,9 @@ M.setup = function(use)
             require("conf.tools.translate")
         end
     }
+    -- 预览markdown
+    use { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
+    -- 预览图片
+    -- use {'edluffy/hologram.nvim', config = function() require("conf.tools.hologram") end }
 end
 return M
