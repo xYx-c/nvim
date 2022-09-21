@@ -20,49 +20,42 @@ local conds = require("luasnip.extras.expand_conditions")
 
 -- local utils = require("luasnip_snippets.utils")
 
-local function package_str(_, snip)
-    return "package " .. string.gsub(string.match(snip.env.TM_FILEPATH, "/src/main/java/(.*)/.*java"), "/", ".") .. ";"
-end
+local package_str = "package " .. string.gsub(string.match(vim.fn.expand('%:p'), "/src/main/java/(.*)/.*java"), "/", ".") .. ";"
+local file_base_name = vim.fn.expand('%:t:r')
 
 return {
-    s("cls", {
-        f(package_str),
+    s("clas", {
+        t(package_str),
         t({ "", "", "" }),
         t({ "/**", "" }),
         t({ "* @author: xYx", "" }),
         t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
         t({ "*/", "" }),
-        f(function(_, snip)
-            return "public class " .. snip.env.TM_FILENAME_BASE .. "{"
-        end),
+        t({ "public class " .. file_base_name .. " {" }),
         t({ "", "\t" }),
         i(0),
         t({ "", "}" }),
     }),
     s("iface", {
-        f(package_str),
+        t(package_str),
         t({ "", "", "" }),
         t({ "/**", "" }),
         t({ "* @author: xYx", "" }),
         t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
         t({ "*/", "" }),
-        f(function(_, snip)
-            return "public interface " .. snip.env.TM_FILENAME_BASE .. "{"
-        end),
+        t({ "public interface " .. file_base_name .. " {" }),
         t({ "", "\t" }),
         i(0),
         t({ "", "}" }),
     }),
-    s("em", {
-        f(package_str),
+    s("enu", {
+        t(package_str),
         t({ "", "", "" }),
         t({ "/**", "" }),
         t({ "* @author: xYx", "" }),
         t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
         t({ "*/", "" }),
-        f(function(_, snip)
-            return "public enum " .. snip.env.TM_FILENAME_BASE .. "{"
-        end),
+        t({ "public enum " .. file_base_name .. " {" }),
         t({ "", "\t" }),
         i(0),
         t({ "", "}" }),
