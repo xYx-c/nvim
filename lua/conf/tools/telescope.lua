@@ -25,28 +25,28 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.svn/*")
 
 local previewers = require("telescope.previewers")
-local Job = require("plenary.job")
+-- local Job = require("plenary.job")
 local new_maker = function(filepath, bufnr, opts)
     opts = opts or {}
-    Job:new({
-        command = "file",
-        args = { "--mime-type", "-b", filepath },
-        on_exit = function(j)
-            local mime_type = vim.split(j:result()[1], "/")[1]
-            if mime_type == "text" then
-                previewers.buffer_previewer_maker(filepath, bufnr, opts)
-            else
-                vim.schedule(function()
-                    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
-                end)
-            end
-        end
-    }):sync()
+    -- Job:new({
+    --     command = "file",
+    --     args = { "--mime-type", "-b", filepath },
+    --     on_exit = function(j)
+    --         local mime_type = vim.split(j:result()[1], "/")[1]
+    --         if mime_type == "text" then
+    --             previewers.buffer_previewer_maker(filepath, bufnr, opts)
+    --         else
+    --             vim.schedule(function()
+    --                 vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
+    --             end)
+    --         end
+    --     end
+    -- }):sync()
 
     filepath = vim.fn.expand(filepath)
     vim.loop.fs_stat(filepath, function(_, stat)
         if not stat then return end
-        if stat.size > 1000 then
+        if stat.size > 100000 then
             return
         else
             previewers.buffer_previewer_maker(filepath, bufnr, opts)
