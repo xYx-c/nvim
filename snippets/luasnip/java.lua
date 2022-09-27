@@ -34,10 +34,10 @@ return {
             return "package " .. string.gsub(string.match(snip.env.TM_FILEPATH, "/src/main/java/(.*)/.*java"), "/", ".") .. ";"
         end, {}),
         t({ "", "", "" }),
-        t({ "/**", "" }),
-        t({ "* @author: xYx", "" }),
-        t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
-        t({ "*/", "" }),
+        t({ "/*", "" }),
+        t({ " * @author: xYx", "" }),
+        t({ " * @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
+        t({ " */", "" }),
         -- t({ "public class " .. file_base_name .. " {" }),
         f(function (_, snip)
             return "public class " .. snip.env.TM_FILENAME_BASE .. " {"

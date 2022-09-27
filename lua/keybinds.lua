@@ -104,8 +104,8 @@ end
 ---------------------------------------------------------------------------
 M.sql_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '%', "<cmd>SqlsExecuteQuery<cr>", vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'v', '<cr>', ":'<,'>SqlsExecuteQuery<cr>", vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'v', '<c-r>', ":'<,'>SqlsExecuteQueryVertical<cr>", vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'v', '<cr>', "<Plug>(sqls-execute-query)<cr>", vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'v', '<c-r>', "<Plug>(sqls-execute-query-vertical)<cr>", vim.keybinds.opts)
 end
 ---------------------------------------------------------------------------
 -- buffer
@@ -203,7 +203,7 @@ vim.keybinds.gmap("n", "~", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.op
 -- 打开浮动终端
 vim.keybinds.gmap("n", "<C-t>", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
 -- 打开lazy git 终端
-vim.keybinds.gmap("n", "<C-g>", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
 -- 打开或关闭所有终端
 vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybinds.opts)
 -- 要需创建多个终端，可：
