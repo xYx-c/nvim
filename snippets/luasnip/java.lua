@@ -20,7 +20,7 @@ local conds = require("luasnip.extras.expand_conditions")
 
 -- local utils = require("luasnip_snippets.utils")
 
-local package_str = "package " .. string.gsub(string.match(vim.fn.expand('%:p'), "/src/main/java/(.*)/.*java"), "/", ".") .. ";"
+local package_str = "package " .. string.gsub(string.match(vim.fn.expand('%'), "/src/main/java/(.*)/.*java"), "/", ".") .. ";"
 local file_base_name = vim.fn.expand('%:t:r')
 
 return {
