@@ -37,6 +37,14 @@ dapui.setup(
         layouts = {
             {
                 elements = {
+                    -- "repl",
+                    "console",
+                },
+                size = 0.25,
+                position = "bottom",
+            },
+            {
+                elements = {
                     -- Elements can be strings or table with id and size keys.
                     -- { id = "scopes", size = 0.55 },
                     -- { id = "breakpoints", size = 0.15 },
@@ -44,17 +52,8 @@ dapui.setup(
                     -- { id = "watches", size = 0.2 },
                     -- { id = "repl", size = 0.2 },
                 },
-                size = 55,
+                size = 0.2,
                 position = "right",
-            },
-            {
-                elements = {
-                    -- "repl",
-                    "console",
-                    { id = "scopes", size = 0.3 },
-                },
-                size = 0.25,
-                position = "bottom",
             },
         },
     }
