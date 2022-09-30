@@ -92,7 +92,7 @@ M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
         vim.keybinds.opts)
 
-    vim.keybinds.bmap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '=', '<cmd>lua vim.lsp.buf.formatting()<CR>', vim.keybinds.opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
     vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
