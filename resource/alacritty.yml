@@ -74,8 +74,6 @@ font:
     x: -1
     y: 0
 
-  # 细体字渲染（仅 mac 生效）
-  use_thin_strokes: true
   # 高亮渲染粗体字
   draw_bold_text_with_bright_colors: true
 

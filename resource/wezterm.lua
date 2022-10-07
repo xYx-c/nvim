@@ -6,7 +6,7 @@ return {
         'Fira Code',
         'DengXian',
     },
-    font_size = 12,
+    font_size = 13,
     cell_width = 0.8,
     color_scheme = "Gruvbox Dark",
     hide_tab_bar_if_only_one_tab = true,
