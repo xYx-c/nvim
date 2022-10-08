@@ -20,6 +20,7 @@ require('lualine').setup {
                 --     title = { pre = '', post = ': ' },
                 --     lsp_client_name = { pre = '[', post = ']' },
                 --     spinner = { pre = '', post = '' },
+                --     use = true,
                 --     message = { pre = '(', post = ')', commenced = 'In Progress', completed = 'Completed' },
                 -- },
                 -- display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' } },
