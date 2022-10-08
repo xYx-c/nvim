@@ -10,7 +10,7 @@ M.setup = function(use)
     -- 状态栏
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        requires = { 'arkav/lualine-lsp-progress' },
         config = function()
             require("conf.ui.lualine")
         end
@@ -40,12 +40,12 @@ M.setup = function(use)
         end
     }
     -- LSP 进度提示
-    use {
-        "j-hui/fidget.nvim",
-        config = function()
-            require("conf.ui.fidget")
-        end
-    }
+    -- use {
+    --     "j-hui/fidget.nvim",
+    --     config = function()
+    --         require("conf.ui.fidget")
+    --     end
+    -- }
     -- 代码高亮
     use {
         'nvim-treesitter/nvim-treesitter',
