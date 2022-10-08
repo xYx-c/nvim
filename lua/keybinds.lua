@@ -6,6 +6,7 @@ vim.keybinds = {
     bmap = vim.api.nvim_buf_set_keymap,
     dgmap = vim.api.nvim_del_keymap,
     dbmap = vim.api.nvim_buf_del_keymap,
+    set = vim.keymap.set,
     opts = { noremap = true, silent = true }
 }
 local M = {}
@@ -56,6 +57,7 @@ vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = tr
 -- lsp
 ---------------------------------------------------------------------------
 M.lsp_maps = function(_, bufnr)
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keybinds.bmap(bufnr, 'n', '<leader>ds', '<cmd>Telescope lsp_document_symbols theme=dropdown<CR>',
         vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols theme=dropdown<CR>',
@@ -64,7 +66,7 @@ M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '<leader>Q', '<cmd>Telescope diagnostics<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
     -- Enable completion triggered by <c-x><c-o>
-    -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.keybinds.bmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', vim.keybinds.opts)
@@ -92,8 +94,9 @@ M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
         vim.keybinds.opts)
 
-    vim.keybinds.bmap(bufnr, 'n', '=', '<cmd>lua vim.lsp.buf.formatting()<CR>', vim.keybinds.opts)
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true } end, bufopts)
+    -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+
     vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, "i", "<C-p>", "<Plug>luasnip-prev-choice", vim.keybinds.opts)
