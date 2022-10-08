@@ -33,9 +33,9 @@ local on_attach = function(client, bufnr)
 end
 
 local bundles = {
-    vim.fn.glob(home .. "/.config/nvim/adapters/java_debug/com.microsoft.java.debug.plugin-*.jar"),
+    vim.fn.glob(home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
 };
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/adapters/java_test/*.jar"), "\n"))
+-- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/adapters/java_test/*.jar"), "\n"))
 
 return {
     flags = { allow_incremental_sync = true },
@@ -98,8 +98,8 @@ return {
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = bundles,
-        -- extendedClientCapabilities = {
-        --     progressReportProvider = false,
-        -- },
+        extendedClientCapabilities = {
+            progressReportProvider = false,
+        },
     },
 }
