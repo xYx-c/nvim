@@ -1,7 +1,7 @@
 {
   "log": {
     "prefix": ["log"],
-    "body": "console.log(${1:$TM_SELECTED_TEXT});"
+    "body": "console.log($0);"
   },
   "view": {
     "prefix": ["view"],

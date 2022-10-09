@@ -83,10 +83,10 @@ M.setup = function(use)
         end
     }
     -- 智能缩进
-    use {
-        'nmac427/guess-indent.nvim',
-        config = function() require('conf.tools.guess-indent') end,
-    }
+    -- use {
+    --     'nmac427/guess-indent.nvim',
+    --     config = function() require('conf.tools.guess-indent') end,
+    -- }
     -- 预览markdown
     use { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
     -- 预览图片

@@ -49,9 +49,9 @@ M.setup = function(use)
     -- 代码高亮
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
         requires = {
-            -- 智能缩进
+            -- 依赖nvim-treesitter的智能缩进
             "yioneko/nvim-yati",
         },
         config = function()
