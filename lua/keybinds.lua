@@ -115,6 +115,7 @@ end
 ---------------------------------------------------------------------------
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
 vim.keybinds.gmap("n", "<C-w>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<C-w>", "<cmd>BufferLinePickClose<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
 vim.keybinds.gmap("n", "<leader>bu", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("t", "<leader>bu", "<C-\\><C-n><cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)

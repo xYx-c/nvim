@@ -1,4 +1,7 @@
 -- https://github.com/akinsho/bufferline.nvim
+-- https://github.com/famiu/bufdelete.nvim
+
+vim.opt.termguicolors = true
 require("bufferline").setup(
     {
         options = {
