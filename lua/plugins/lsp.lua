@@ -40,6 +40,12 @@ M.setup = function(use)
             "williamboman/mason-lspconfig.nvim",
         }
     }
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require("conf.lsp.null-ls")
+        end,
+    }
 end
 
 return M
