@@ -30,9 +30,9 @@ M.servers = {
 }
 
 M.opts = {
-    root_dir = function()
-        return vim.fn.getcwd()
-    end,
+    -- root_dir = function()
+    --     return vim.fn.getcwd()
+    -- end,
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     on_attach = function(client, bufnr)
         require('keybinds').lsp_maps(client, bufnr)
@@ -48,6 +48,7 @@ for server_name, server_options in pairs(M.servers) do
     elseif server_name == "rust_analyzer" then
         require('rust-tools').setup({
             server = opts,
+            dap = opts.dap,
         })
     -- elseif server_name == "jdtls" then
     --     require('jdtls').start_or_attach(opts)
