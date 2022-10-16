@@ -14,7 +14,6 @@ local opts = {
         clangd, "--offset-encoding=utf-16", "--background-index", "--clang-tidy",
         "--clang-tidy-checks=performance-*,bugprone-*", "--all-scopes-completion", "--pch-storage=disk",
     },
-    -- capabilities = require"cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 }
 
 return opts
