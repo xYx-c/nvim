@@ -20,6 +20,7 @@ M.setup = function(use)
         "akinsho/bufferline.nvim",
         requires = {
             "famiu/bufdelete.nvim" -- 删除 buffer 时不影响现有布局
+            -- "kazhala/close-buffers.nvim"
         },
         config = function()
             require("conf.ui.bufferline")

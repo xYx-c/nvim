@@ -94,7 +94,7 @@ M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
         vim.keybinds.opts)
 
-    vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true, bufnr = bufnr } end, bufopts)
     -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
     vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
@@ -115,6 +115,7 @@ end
 ---------------------------------------------------------------------------
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法
 vim.keybinds.gmap("n", "<C-w>", "<cmd>Bdelete!<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<C-w>", "[[<CMD>lua require('close_buffers').delete({type = 'this'})<CR>]]", vim.keybinds.opts)
 -- vim.keybinds.gmap("n", "<C-w>", "<cmd>BufferLinePickClose<CR>", vim.keybinds.opts)
 -- 切换上一个缓冲区
 vim.keybinds.gmap("n", "<leader>bu", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.opts)

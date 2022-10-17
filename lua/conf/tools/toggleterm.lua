@@ -28,7 +28,7 @@ Toggleterm.setup(
             vim.cmd("setlocal nospell")
             inInsert()
             vim.keybinds.bmap(term.bufnr, "t", "<C-t>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
-            vim.keybinds.bmap(term.bufnr, "t", "<C-q>", "<C-\\><C-n>", vim.keybinds.opts)
+            vim.keybinds.bmap(term.bufnr, "t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
         end,
         on_close = function()
             -- 重新映射 Esc
