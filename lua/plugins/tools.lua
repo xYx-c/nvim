@@ -8,6 +8,14 @@ M.setup = function(use)
             require("conf.tools.toggleterm")
         end
     }
+    -- http客户端
+    use {
+        "NTBBloodbath/rest.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("conf.tools.rest")
+        end
+    }
     -- 消息提示
     use {
         'rcarriga/nvim-notify',

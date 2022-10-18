@@ -29,6 +29,7 @@ M.setup = function(use)
     }
     -- LSP 基础服务
     use { "neovim/nvim-lspconfig" }
+    -- lua 开发模块
     use { "nvim-lua/plenary.nvim" }
     -- 安装 LSP/DAP
     use {
