@@ -199,6 +199,12 @@ vim.keybinds.gmap("n", "<C-a>", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
 -- 按 leader fc 在文件树中找到当前以打开文件的位置
 vim.keybinds.gmap("n", "<C-x>", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
+-- http_client
+---------------------------------------------------------------------------
+vim.keybinds.gmap("n", "<C-s>", "<Plug>RestNvim", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hh", "<Plug>RestNvimPreview", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>hl", "<Plug>RestNvimLast", vim.keybinds.opts)
+---------------------------------------------------------------------------
 -- terminal
 ---------------------------------------------------------------------------
 -- 退出终端插入模式

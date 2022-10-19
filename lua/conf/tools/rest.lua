@@ -1,4 +1,5 @@
 -- https://github.com/rest-nvim/rest.nvim
+-- sudo apt install tidy
 
 require("rest-nvim").setup({
     -- Open request results in a horizontal split
