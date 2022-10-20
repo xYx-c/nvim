@@ -1,5 +1,6 @@
 -- https://github.com/rest-nvim/rest.nvim
--- sudo apt install tidy
+-- sudo apt install tidy jq
+-- brew install tidy-html5 jq
 
 require("rest-nvim").setup({
     -- Open request results in a horizontal split

@@ -1,4 +1,7 @@
 local opts = {
+    root_dir = function()
+        return vim.fn.getcwd()
+    end,
     filetypes = { 'vue' },
     -- init_options = {
     --     typescript = {
