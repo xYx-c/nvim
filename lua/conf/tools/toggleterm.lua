@@ -11,11 +11,6 @@
 -- sudo apt-get update
 -- sudo apt-get install lazygit
 
-local function inInsert()
-    -- 删除 Esc 的映射
-    vim.keybinds.dgmap("t", "<Esc>")
-end
-
 local Toggleterm = require("toggleterm")
 Toggleterm.setup(
     {
@@ -26,9 +21,7 @@ Toggleterm.setup(
         -- 打开普通终端时，关闭拼写检查
         on_open = function(term)
             vim.cmd("setlocal nospell")
-            inInsert()
-            vim.keybinds.bmap(term.bufnr, "t", "<C-t>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
-            vim.keybinds.bmap(term.bufnr, "t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
+            vim.keybinds.bmap(term.bufnr, "t", "~", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
         end,
         on_close = function()
             -- 重新映射 Esc
@@ -49,7 +42,7 @@ Terminal:new(
             border = "single"
         },
         on_open = function(term)
-            inInsert()
+            vim.keybinds.dgmap("t", "<Esc>")
             vim.keybinds.bmap(term.bufnr, "t", "<C-t>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
             vim.keybinds.bmap(term.bufnr, "t", "<C-q>", "<C-\\><C-n>", vim.keybinds.opts)
         end,
