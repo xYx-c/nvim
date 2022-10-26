@@ -20,13 +20,13 @@ Toggleterm.setup(
         size = 10,
         -- 打开普通终端时，关闭拼写检查
         on_open = function(term)
-            vim.cmd("setlocal nospell")
-            vim.keybinds.bmap(term.bufnr, "t", "~", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
+            -- vim.cmd("setlocal nospell")
+            vim.keybinds.bmap(term.bufnr, "t", "`", "<C-\\><C-n><cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.opts)
         end,
-        on_close = function()
-            -- 重新映射 Esc
-            vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
-        end
+        -- on_close = function()
+        --     -- 重新映射 Esc
+        --     vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
+        -- end
 
     }
 )
@@ -43,7 +43,7 @@ Terminal:new(
         },
         on_open = function(term)
             vim.keybinds.dgmap("t", "<Esc>")
-            vim.keybinds.bmap(term.bufnr, "t", "<C-t>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
+            vim.keybinds.bmap(term.bufnr, "t", "`", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
             vim.keybinds.bmap(term.bufnr, "t", "<C-q>", "<C-\\><C-n>", vim.keybinds.opts)
         end,
         on_close = function()
@@ -63,7 +63,6 @@ Terminal:new(
             border = "double"
         },
         on_open = function(term)
-            inInsert()
             -- lazygit 中 q 是退出
             vim.keybinds.bmap(term.bufnr, "i", "q", "<cmd>close<CR>", vim.keybinds.opts)
         end,
