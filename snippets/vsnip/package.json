@@ -39,6 +39,10 @@
         "path": "./typescript.json"
       },
       {
+        "language": "typescriptreact",
+        "path": "./typescriptreact.json"
+      },
+      {
         "language": "css",
         "path": "./css.json"
       },

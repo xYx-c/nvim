@@ -1,0 +1,10 @@
+{
+  "div": {
+    "prefix": ["div", "di"],
+    "body": "<div>$0</div>"
+  },
+  "span": {
+    "prefix": ["span", "sp"],
+    "body": "<span>$0</span>"
+  }
+}
