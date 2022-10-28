@@ -9,4 +9,19 @@ require("noice").setup({
     health = {
         checker = false, -- Disable if you don't want health checks to run
     },
+    views = {
+        cmdline_popup = {
+            border = {
+                style = "rounded",
+            },
+            filter_options = {},
+            win_options = {},
+        },
+        input = {
+            border = {
+                style = "rounded",
+            },
+            win_options = {},
+        }
+    }
 })

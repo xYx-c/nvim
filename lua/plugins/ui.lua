@@ -26,7 +26,8 @@ M.setup = function(use)
     -- 图标插件
     use 'kyazdani42/nvim-web-devicons'
     -- 主题
-    use { "eddyekofo94/gruvbox-flat.nvim", config = function() require("conf.ui.gruvbox-flat") end }
+    -- use { "eddyekofo94/gruvbox-flat.nvim", config = function() require("conf.ui.gruvbox-flat") end }
+    use { "folke/tokyonight.nvim", config = function() require("conf.ui.tokyonight") end }
     -- 状态栏
     use {
         'nvim-lualine/lualine.nvim',
