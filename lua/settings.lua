@@ -37,9 +37,6 @@ vim.o.foldlevel = 100                               -- 指定代码折叠的最�
 
 vim.o.completeopt = "menu,menuone,noselect"         -- 设定补全菜单的显示方式
 
-vim.ui.select = require"popui.ui-overrider"
-vim.ui.input = require"popui.input-overrider"
-
 -- local system = io.popen("uname -s"):read("*l")
 -- if system == "Darwin" then
 --     vim.cmd[[

@@ -1,8 +1,28 @@
 local M = {}
 M.setup = function(use)
     -- 界面美化
-    use 'hood/popui.nvim'
-    use 'RishabhRD/popfix'
+    -- use { 'hood/popui.nvim',
+    --     requires = { 'RishabhRD/popfix' },
+    --     config = function()
+    --     vim.ui.select = require "popui.ui-overrider"
+    --     vim.ui.input = require "popui.input-overrider"
+    -- end }
+
+    -- use { 'stevearc/dressing.nvim', config = function()
+    --     require('conf.ui.dressing')
+    -- end }
+
+    -- 界面美化
+    use{
+        "folke/noice.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+        config = function()
+            require("conf.ui.noice")
+        end,
+    }
     -- 图标插件
     use 'kyazdani42/nvim-web-devicons'
     -- 主题
@@ -10,7 +30,8 @@ M.setup = function(use)
     -- 状态栏
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'arkav/lualine-lsp-progress' },
+        -- LSP 进度提示
+        -- requires = { 'arkav/lualine-lsp-progress' },
         config = function()
             require("conf.ui.lualine")
         end

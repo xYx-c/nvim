@@ -49,6 +49,7 @@ Terminal:new(
         on_close = function()
             -- 重新映射 Esc
             vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
+            vim.keybinds.gmap("t", "`", "<Esc><cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
         end
     }
 )
