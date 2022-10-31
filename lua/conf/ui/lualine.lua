@@ -3,7 +3,7 @@
 require('lualine').setup {
     options = {
         -- theme = 'gruvbox-flat',
-        theme = 'tokyonight',
+        -- theme = 'tokyonight',
         component_separators = { right = '|' },
         globalstatus = true,
     },
