@@ -76,13 +76,6 @@ M.setup = function(use)
             require("conf.tools.impatient")
         end
     }
-    -- 灯泡提示代码行为
-    -- use {
-    --     "kosayoda/nvim-lightbulb",
-    --     config = function()
-    --         require("conf.tools.nvim-lightbulb")
-    --     end
-    -- }
     -- 翻译
     use {
         "uga-rosa/translate.nvim",
@@ -90,14 +83,9 @@ M.setup = function(use)
             require("conf.tools.translate")
         end
     }
-    -- 智能缩进
-    -- use {
-    --     'nmac427/guess-indent.nvim',
-    --     config = function() require('conf.tools.guess-indent') end,
-    -- }
     -- 预览markdown
     use { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
     -- 预览图片
-    -- use {'edluffy/hologram.nvim', config = function() require("conf.tools.hologram") end }
+    -- use { 'edluffy/hologram.nvim', config = function() require("conf.tools.hologram") end }
 end
 return M
