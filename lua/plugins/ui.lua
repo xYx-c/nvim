@@ -4,7 +4,7 @@ M.setup = function(use)
     use { 'stevearc/dressing.nvim', config = function()
         require('conf.ui.dressing')
     end }
-    use{
+    use {
         "folke/noice.nvim",
         requires = {
             "MunifTanjim/nui.nvim",
@@ -18,6 +18,7 @@ M.setup = function(use)
     use 'kyazdani42/nvim-web-devicons'
     -- 主题
     -- use { "eddyekofo94/gruvbox-flat.nvim", config = function() require("conf.ui.gruvbox-flat") end }
+    -- use { "catppuccin/nvim", as = "catppuccin", config = function() require("conf.ui.catppuccin") end }
     use { "folke/tokyonight.nvim", config = function() require("conf.ui.tokyonight") end }
     -- 状态栏
     use {
