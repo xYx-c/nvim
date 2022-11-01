@@ -1,18 +1,9 @@
 local M = {}
 M.setup = function(use)
     -- 界面美化
-    -- use { 'hood/popui.nvim',
-    --     requires = { 'RishabhRD/popfix' },
-    --     config = function()
-    --     vim.ui.select = require "popui.ui-overrider"
-    --     vim.ui.input = require "popui.input-overrider"
-    -- end }
-
-    -- use { 'stevearc/dressing.nvim', config = function()
-    --     require('conf.ui.dressing')
-    -- end }
-
-    -- 界面美化
+    use { 'stevearc/dressing.nvim', config = function()
+        require('conf.ui.dressing')
+    end }
     use{
         "folke/noice.nvim",
         requires = {

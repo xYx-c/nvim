@@ -23,5 +23,21 @@ require("noice").setup({
             },
             win_options = {},
         }
+    },
+    lsp = {
+        progress = {
+            format = {
+                { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+                { "{spinner} ", hl_group = "NoiceLspProgressSpinner" },
+                { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+                { "{data.progress.message} ", hl_group = "NoiceLspProgressTitle" },
+                "{data.progress.percentage}% ",
+            },
+            format_done = {
+                { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+                { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+                { "✔ ", hl_group = "NoiceLspProgressSpinner" },
+            },
+        }
     }
 })
