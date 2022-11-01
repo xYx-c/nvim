@@ -35,12 +35,12 @@ M.setup = function(use)
         end
     }
     -- 插入模式获得函数签名
-    use {
-        "ray-x/lsp_signature.nvim",
-        config = function()
-            require("conf.edit.lsp_signature")
-        end
-    }
+    -- use {
+    --     "ray-x/lsp_signature.nvim",
+    --     config = function()
+    --         require("conf.edit.lsp_signature")
+    --     end
+    -- }
     -- 代码注释
     use {
         "numToStr/Comment.nvim",

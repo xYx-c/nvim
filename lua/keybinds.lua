@@ -72,10 +72,9 @@ M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gt', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gd', '<cmd>Telescope lsp_definitions theme=dropdown<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', vim.keybinds.opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>Telescope lsp_implementations theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', 'go', '<cmd>Lspsaga show_line_diagnostics<cr>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
 
     vim.keybinds.bmap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', vim.keybinds.opts)
@@ -85,17 +84,10 @@ M.lsp_maps = function(_, bufnr)
 
     vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>',
         vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>rn', '<cmd>Lspsaga rename<cr>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'v', '<leader>ca', ':<c-u>Lspsaga range_code_action<cr>', vim.keybinds.opts)
-
-    vim.keybinds.bmap(bufnr, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
-        vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
-        vim.keybinds.opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 
     vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true, bufnr = bufnr } end, bufopts)
-    -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
     vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)

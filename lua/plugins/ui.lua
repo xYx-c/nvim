@@ -47,12 +47,12 @@ M.setup = function(use)
         end
     }
     -- LSP UI 美化
-    use {
-        "tami5/lspsaga.nvim",
-        config = function()
-            require("conf.ui.lspsaga")
-        end
-    }
+    -- use {
+    --     "tami5/lspsaga.nvim",
+    --     config = function()
+    --         require("conf.ui.lspsaga")
+    --     end
+    -- }
     -- LSP 进度提示
     -- use {
     --     "j-hui/fidget.nvim",
