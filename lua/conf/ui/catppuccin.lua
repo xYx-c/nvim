@@ -1,5 +1,8 @@
 -- https://github.com/catppuccin/nvim
 require("catppuccin").setup {
-    flavour = "frappe" -- mocha, macchiato, frappe, latte
+    -- mocha, macchiato, frappe, latte
+    flavour = "frappe",
+    transparent_background = true,
+    -- term_colors = true,
 }
 vim.api.nvim_command "colorscheme catppuccin"
