@@ -45,13 +45,12 @@ Terminal:new(
         },
         on_open = function(term)
             vim.keybinds.dgmap("t", "<Esc>")
-            vim.keybinds.bmap(term.bufnr, "t", "`", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
+            vim.keybinds.bmap(term.bufnr, "t", "<C-t>", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
             vim.keybinds.bmap(term.bufnr, "t", "<C-q>", "<C-\\><C-n>", vim.keybinds.opts)
         end,
         on_close = function()
             -- 重新映射 Esc
             vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
-            -- vim.keybinds.gmap("t", "`", "<Esc><cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
         end
     }
 )
