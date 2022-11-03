@@ -14,6 +14,8 @@
 local Toggleterm = require("toggleterm")
 Toggleterm.setup(
     {
+        -- 设置终端背景颜色
+        shade_terminals = false,
         --  开启的终端默认进入插入模式
         start_in_insert = true,
         -- 设置终端打开的大小
@@ -49,7 +51,7 @@ Terminal:new(
         on_close = function()
             -- 重新映射 Esc
             vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
-            vim.keybinds.gmap("t", "`", "<Esc><cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
+            -- vim.keybinds.gmap("t", "`", "<Esc><cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
         end
     }
 )

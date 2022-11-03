@@ -3,7 +3,6 @@
 vim.g.gruvbox_dark_sidebar = false
 vim.g.gruvbox_italic_keywords = false
 vim.g.gruvbox_italic_functions = false
-vim.g.gruvbox_transparent = true
 -- vim.g.gruvbox_hide_inactive_statusline = true
 
 -- vim.g.gruvbox_colors = {
