@@ -4,16 +4,6 @@
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 
 local dap = require("dap")
--- dap.adapters.codelldb = {
---     type = 'server',
---     port = "${port}",
---     executable = {
---         command = vim.env.HOME .. '/.local/share/nvim/dapinstall/codelldb/extension/adapter/codelldb',
---         args = { "--port", "${port}" },
---         -- On windows you may have to uncomment this:
---         -- detached = false,
---     },
--- }
 dap.adapters.codelldb = require("conf.dap.lldb").adapters.codelldb
 
 -- 设置断点样式
@@ -35,32 +25,30 @@ end
 
 local dapui = require("dapui")
 -- 初始化调试界面
-dapui.setup(
-    {
-        layouts = {
-            {
-                elements = {
-                    -- "repl",
-                    "console",
-                },
-                size = 0.25,
-                position = "bottom",
+dapui.setup({
+    layouts = {
+        {
+            elements = {
+                -- "repl",
+                "console",
             },
-            {
-                elements = {
-                    -- Elements can be strings or table with id and size keys.
-                    -- { id = "scopes", size = 0.55 },
-                    -- { id = "breakpoints", size = 0.15 },
-                    -- { id = "stacks", size = 0.1 },
-                    -- { id = "watches", size = 0.2 },
-                    -- { id = "repl", size = 0.2 },
-                },
-                size = 0.2,
-                position = "right",
-            },
+            size = 0.25,
+            position = "bottom",
         },
-    }
-)
+        {
+            elements = {
+                -- Elements can be strings or table with id and size keys.
+                -- { id = "scopes", size = 0.55 },
+                -- { id = "breakpoints", size = 0.15 },
+                -- { id = "stacks", size = 0.1 },
+                -- { id = "watches", size = 0.2 },
+                -- { id = "repl", size = 0.2 },
+            },
+            size = 0.2,
+            position = "right",
+        },
+    },
+})
 local opts = {};
 -- 如果开启或关闭调试，则自动打开或关闭调试界面
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -75,5 +63,4 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     -- dap.repl.close()
 end
 
-require"nvim-dap-virtual-text".setup {}
-
+require "nvim-dap-virtual-text".setup {}

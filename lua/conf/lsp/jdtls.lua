@@ -26,8 +26,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("v", "<leader>dm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", vim.keybinds.opts)
 
     -- debug
-    -- require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-    require('jdtls').setup_dap()
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    -- require('jdtls').setup_dap()
     require('jdtls.dap').setup_dap_main_class_configs()
     require('jdtls.setup').add_commands()
 end

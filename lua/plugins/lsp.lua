@@ -10,6 +10,19 @@ M.setup = function(use)
             require("conf.lsp.rust-tools")
         end
     }
+    -- use {
+    --     'saecki/crates.nvim',
+    --     event = { "BufRead Cargo.toml" },
+    --     requires = { { 'nvim-lua/plenary.nvim' } },
+    --     config = function()
+    --         require('crates').setup({
+    --             null_ls = {
+    --                 enabled = true,
+    --                 name = "crates.nvim",
+    --             },
+    --         })
+    --     end,
+    -- }
     -- clangd
     use { "p00f/clangd_extensions.nvim",
         config = function()
