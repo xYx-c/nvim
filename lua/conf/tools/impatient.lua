@@ -2,4 +2,4 @@
 
 -- 加快 Neovim 加载
 require('impatient')
-require'impatient'.enable_profile()
+-- require'impatient'.enable_profile()
