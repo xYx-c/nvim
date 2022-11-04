@@ -2,7 +2,13 @@
 
 require("noice").setup({
     messages = {
-        view = "mini", -- default view for messages
+        view = "mini",
+        view_error = "mini",
+        view_warn = "mini",
+        view_history = "mini",
+    },
+    notify = {
+        view = "mini",
     },
     health = {
         checker = false, -- Disable if you don't want health checks to run
@@ -15,6 +21,9 @@ require("noice").setup({
         }
     },
     lsp = {
+        message = {
+            view = "mini",
+        },
         progress = {
             format = {
                 { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
