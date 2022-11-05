@@ -1,11 +1,11 @@
 -- https://github.com/nanotee/sqls.nvim
 
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'SqlsConnectionChoice',
-    callback = function(event)
-        vim.notify(event.data.choice)
-    end,
-})
+-- vim.api.nvim_create_autocmd('User', {
+--     pattern = 'SqlsConnectionChoice',
+--     callback = function(event)
+--         vim.notify(event.data.choice)
+--     end,
+-- })
 
 local opts = {
     cmd = { "sqls", "-config=" .. vim.fn.getcwd() .. "/.sqls.yml" },

@@ -101,6 +101,8 @@ M.sql_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '%', "<cmd>SqlsExecuteQuery<cr>", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'v', '<cr>', "<Plug>(sqls-execute-query)<cr>", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'v', '<c-r>', "<Plug>(sqls-execute-query-vertical)<cr>", vim.keybinds.opts)
+    vim.keymap.set('i', "<right>", "<right>",{ noremap = true, silent = true, buffer = bufnr })
+    vim.keymap.set('i', "<left>", "<left>",{ noremap = true, silent = true, buffer = bufnr })
 end
 ---------------------------------------------------------------------------
 -- buffer
