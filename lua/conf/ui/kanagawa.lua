@@ -15,6 +15,9 @@ require('kanagawa').setup({
     globalStatus = false, -- adjust window separators highlight for laststatus=3
     terminalColors = true, -- define vim.g.terminal_color_{0,17}
     colors = {
+        -- 状态栏
+        -- sumiInk2 = "#1F1F28",
+        -- 光标行
         sumiInk3 = '#252535',
     },
     overrides = {},

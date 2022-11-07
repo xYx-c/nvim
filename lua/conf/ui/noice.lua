@@ -15,6 +15,9 @@ require("noice").setup({
     },
     views = {
         mini = {
+            position = {
+                row = "99%",
+            },
             win_options = {
                 winblend = 0,
             },

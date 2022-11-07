@@ -77,10 +77,9 @@ M.lsp_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
 
-    vim.keybinds.bmap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
-        vim.keybinds.opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
 
     vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>',
         vim.keybinds.opts)
@@ -101,8 +100,8 @@ M.sql_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'n', '%', "<cmd>SqlsExecuteQuery<cr>", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'v', '<cr>', "<Plug>(sqls-execute-query)<cr>", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'v', '<c-r>', "<Plug>(sqls-execute-query-vertical)<cr>", vim.keybinds.opts)
-    vim.keymap.set('i', "<right>", "<right>",{ noremap = true, silent = true, buffer = bufnr })
-    vim.keymap.set('i', "<left>", "<left>",{ noremap = true, silent = true, buffer = bufnr })
+    vim.keymap.set('i', "<right>", "<right>", { noremap = true, silent = true, buffer = bufnr })
+    vim.keymap.set('i', "<left>", "<left>", { noremap = true, silent = true, buffer = bufnr })
 end
 ---------------------------------------------------------------------------
 -- buffer
