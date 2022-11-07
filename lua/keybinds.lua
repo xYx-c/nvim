@@ -129,16 +129,16 @@ vim.keybinds.gmap("n", "<leader>bc", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLin
 vim.keybinds.gmap("n", "<leader>bn", "<cmd>BufferLineMoveNext<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>bp", "<cmd>BufferLineMovePrev<CR>", vim.keybinds.opts)
 -- 跳转到缓冲区
-vim.keybinds.gmap("n", "<leader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>$", "<cmd>lua require('bufferline').go_to_buffer(-1, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<space>$", "<cmd>lua require('bufferline').go_to_buffer(-1, true)<cr>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- dap-debug
 ---------------------------------------------------------------------------
