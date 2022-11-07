@@ -106,6 +106,9 @@ cmp.setup({
         ["<down>"] = cmp.mapping.select_next_item(),
         -- 选择补全
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        -- 文档翻页
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
         --  出现或关闭补全
         ["<C-h>"] = cmp.mapping({
             i = function()
@@ -123,20 +126,6 @@ cmp.setup({
                 end
             end
         }),
-        -- ["<Tab>"] = cmp.mapping(
-        --     function(fallback)
-        --         if cmp.visible() then
-        --             local entry = cmp.get_selected_entry()
-        --             if not entry then
-        --                 cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        --             end
-        --             cmp.confirm()
-        --         else
-        --             fallback()
-        --         end
-        --     end,
-        --     { "i", "s", "c" }
-        -- )
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()

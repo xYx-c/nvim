@@ -18,6 +18,12 @@ require("noice").setup({
             win_options = {
                 winblend = 0,
             },
+        },
+        hover = {
+            border = {
+                style = "rounded",
+                padding = { 0 },
+            }
         }
     },
     lsp = {
