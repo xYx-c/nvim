@@ -8,7 +8,7 @@ if system == "Darwin" then
     liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
 elseif system == "Linux" then
     liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-elseif system == "Linux" then
+else
     liblldb_path = extension_path .. 'lldb/lib/liblldb.dll'
 end
 

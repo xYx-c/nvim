@@ -62,6 +62,7 @@ Terminal:new({
     },
     on_open = function(term)
         -- lazygit 中 q 是退出
+        vim.keybinds.dgmap("t", "<Esc>")
         vim.keybinds.bmap(term.bufnr, "i", "q", "<cmd>close<CR>", vim.keybinds.opts)
     end,
     on_close = function()
