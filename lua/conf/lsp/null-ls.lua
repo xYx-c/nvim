@@ -18,6 +18,9 @@ null_ls.setup({
                 }
             }
         }),
-        null_ls.builtins.formatting.sql_formatter,
+        -- null_ls.builtins.formatting.sql_formatter,
+        -- null_ls.builtins.diagnostics.sqlfluff.with({
+        --     extra_args = { "--dialect", "postgres" }, -- change to your dialect
+        -- }),
     },
 })

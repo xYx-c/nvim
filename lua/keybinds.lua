@@ -87,6 +87,7 @@ M.lsp_maps = function(_, bufnr)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 
     vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true, bufnr = bufnr } end, bufopts)
+    vim.cmd [[command! -buffer Format execute 'lua vim.lsp.buf.format{ async = true, bufnr = bufnr }']]
 
     vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
@@ -102,6 +103,7 @@ M.sql_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'v', '<c-r>', "<Plug>(sqls-execute-query-vertical)<cr>", vim.keybinds.opts)
     vim.keymap.set('i', "<right>", "<right>", { noremap = true, silent = true, buffer = bufnr })
     vim.keymap.set('i', "<left>", "<left>", { noremap = true, silent = true, buffer = bufnr })
+    vim.cmd [[command! -buffer Format execute 'lua vim.lsp.buf.format{ async = true, bufnr = bufnr }']]
 end
 ---------------------------------------------------------------------------
 -- buffer
