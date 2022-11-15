@@ -49,7 +49,7 @@ vim.keybinds.gmap("v", "<c-p>", ":move'< -2<CR>`<my`>mzgv`yo`z", vim.keybinds.op
 ---------------------------------------------------------------------------
 -- 显示历史弹窗记录
 vim.keybinds.gmap("n", "<leader>nh", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
--- 查找 TODO 标签
+-- 查找TODO标签
 vim.keybinds.gmap("n", "<leader>ft", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
 -- copilot 快捷键设置
 vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
@@ -103,7 +103,6 @@ M.sql_maps = function(_, bufnr)
     vim.keybinds.bmap(bufnr, 'v', '<c-r>', "<Plug>(sqls-execute-query-vertical)<cr>", vim.keybinds.opts)
     vim.keymap.set('i', "<right>", "<right>", { noremap = true, silent = true, buffer = bufnr })
     vim.keymap.set('i', "<left>", "<left>", { noremap = true, silent = true, buffer = bufnr })
-    vim.cmd [[command! -buffer Format execute 'lua vim.lsp.buf.format{ async = true, bufnr = bufnr }']]
 end
 ---------------------------------------------------------------------------
 -- buffer
