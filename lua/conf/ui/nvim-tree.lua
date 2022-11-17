@@ -3,8 +3,6 @@
 require("nvim-tree").setup({
     -- 视图
     view = {
-        -- 宽度
-        -- width = 45,
         adaptive_size = true,
         mappings = {
             list = {
@@ -52,18 +50,11 @@ require("nvim-tree").setup({
     diagnostics = {
         -- 是否启用文件诊断信息
         enable = true,
-        icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = ""
-        }
     },
     git = {
         -- 是否启用 git 信息
-        enable = true,
-        ignore = true,
-        timeout = 500
+        ignore = false,
+        timeout = 5000
     }
 })
 -- 默认按键
