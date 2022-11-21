@@ -1,3 +1,15 @@
+---------------------------------------------------------------------------
+-- Sign Setting
+---------------------------------------------------------------------------
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+-- 设置断点样式
+vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl = "", numhl = "" })
+---------------------------------------------------------------------------
+-- Basic Setting
+---------------------------------------------------------------------------
 vim.o.encoding = "utf-8"                            -- 设定各种文本的字符编码
 vim.o.termencoding = "utf-8"                        -- 设定终端的字符编码
 vim.o.wrap = false                                  -- 自动换行
@@ -43,3 +55,4 @@ vim.o.completeopt = "menu,menuone,noselect"         -- 设定补全菜单的显�
 --         let $LANG = 'en_US.UTF-8'
 --     ]]
 -- end
+

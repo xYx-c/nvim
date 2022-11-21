@@ -6,8 +6,6 @@
 local dap = require("dap")
 dap.adapters.codelldb = require("conf.dap.lldb").adapters.codelldb
 
--- 设置断点样式
-vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl = "", numhl = "" })
 -- 加载调试器配置
 local dap_config = {
     -- java = require("conf.dap.java"),
