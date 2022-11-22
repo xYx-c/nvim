@@ -26,10 +26,10 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
-local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
+-- local has_words_before = function()
+--     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+--     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+-- end
 
 -- 加载代码片段
 local luasnip = require("luasnip")
@@ -66,7 +66,7 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
-        { name = "spell" },
+        -- { name = "spell" },
         -- { name = 'buffer' },
         -- {name = "cmp_tabnine"}
     }),
@@ -82,20 +82,20 @@ cmp.setup({
         })
     },
     -- 对补全建议排序
-    sorting = {
-        comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.score,
-            cmp.config.compare.recently_used,
-            require("cmp-under-comparator").under,
-            -- require("cmp_tabnine.compare"),
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order
-        }
-    },
+    -- sorting = {
+    --     comparators = {
+    --         cmp.config.compare.offset,
+    --         cmp.config.compare.exact,
+    --         cmp.config.compare.score,
+    --         cmp.config.compare.recently_used,
+    --         -- require("cmp-under-comparator").under,
+    --         -- require("cmp_tabnine.compare"),
+    --         cmp.config.compare.kind,
+    --         cmp.config.compare.sort_text,
+    --         cmp.config.compare.length,
+    --         cmp.config.compare.order
+    --     }
+    -- },
     -- 绑定补全相关的按键
     mapping = {
         -- 上一个
@@ -107,33 +107,32 @@ cmp.setup({
         -- 选择补全
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         -- 文档翻页
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         --  出现或关闭补全
-        ["<C-h>"] = cmp.mapping({
+        ["<C-c>"] = cmp.mapping({
             i = function()
                 if cmp.visible() then
                     cmp.abort()
                 else
-                    cmp.complete()
+                    cmp.complete({})
                 end
             end,
             c = function()
                 if cmp.visible() then
                     cmp.close()
                 else
-                    cmp.complete()
+                    cmp.complete({})
                 end
             end
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-                -- elseif luasnip.expand_or_jumpable() then
-            elseif luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-            elseif has_words_before() then
-                cmp.complete()
+            -- elseif luasnip.expand_or_locally_jumpable() then
+            --     luasnip.expand_or_jump()
+            -- elseif has_words_before() then
+            --     cmp.complete({})
             else
                 fallback()
             end
@@ -141,14 +140,33 @@ cmp.setup({
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+                -- elseif luasnip.jumpable(-1) then
+                --     luasnip.jump(-1)
             else
                 fallback()
             end
-        end, { "i", "s" }),
+        end, { "i", "s", "c" }),
     }
 })
+-- Keymaps for Luasnip
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+    if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+    end
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+    if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+    end
+end, { silent = true })
+
+vim.keymap.set("i", "<C-n>", function()
+    if luasnip.choice_active() then
+        luasnip.change_choice(1)
+    end
+end)
+
 -- 命令行 / 模式提示
 -- cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
 -- 命令行 : 模式提示

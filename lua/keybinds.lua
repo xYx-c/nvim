@@ -25,7 +25,7 @@ vim.keybinds.gmap("n", "<C-l>", "<c-w>l", vim.keybinds.opts)
 vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
 -- vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
 vim.keybinds.gmap("v", "L", "$h", vim.keybinds.opts)
--- 将 C-u 和 C-d 调整为上下滑动 10 行而不是半页
+-- 将 C-u 和 C-d 调整为上下滑动 10 行
 vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
 -- 插入模式下的上下左右移动
@@ -42,6 +42,7 @@ vim.keybinds.gmap("n", "<S-right>", "<cmd>vertical resize+1<CR>", vim.keybinds.o
 vim.keybinds.gmap("n", "<ESC>", ":nohlsearch<CR>", vim.keybinds.opts)
 -- 通过 leader cs 切换拼写检查
 vim.keybinds.gmap("n", "<leader>cs", "<cmd>set spell!<CR>", vim.keybinds.opts)
+-- 上下移动行内容
 vim.keybinds.gmap("n", "<c-n>", ":move +1<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<c-p>", ":move -2<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("v", "<c-n>", ":move'> +1<CR>`<my`>mzgv`yo`z", vim.keybinds.opts)
@@ -50,7 +51,7 @@ vim.keybinds.gmap("v", "<c-p>", ":move'< -2<CR>`<my`>mzgv`yo`z", vim.keybinds.op
 -- 显示历史弹窗记录
 vim.keybinds.gmap("n", "<leader>nh", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
 -- 查找TODO标签
-vim.keybinds.gmap("n", "<leader>ft", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-b>", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
 -- copilot 快捷键设置
 vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
 ---------------------------------------------------------------------------
@@ -75,7 +76,7 @@ M.lsp_maps = function(_, bufnr)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keybinds.bmap(bufnr, 'n', 'gi', '<cmd>Telescope lsp_implementations theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'i', '<C-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', vim.keybinds.opts)
 
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -89,10 +90,10 @@ M.lsp_maps = function(_, bufnr)
     vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true, bufnr = bufnr } end, bufopts)
     vim.cmd [[command! -buffer Format execute 'lua vim.lsp.buf.format{ async = true, bufnr = bufnr }']]
 
-    vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, "i", "<C-p>", "<Plug>luasnip-prev-choice", vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, "s", "<C-p>", "<Plug>luasnip-prev-choice", vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, "i", "<C-p>", "<Plug>luasnip-prev-choice", vim.keybinds.opts)
+    -- vim.keybinds.bmap(bufnr, "s", "<C-p>", "<Plug>luasnip-prev-choice", vim.keybinds.opts)
 end
 ---------------------------------------------------------------------------
 -- sql_maps
