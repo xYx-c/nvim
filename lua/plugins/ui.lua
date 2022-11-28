@@ -28,6 +28,8 @@ M.setup = function(use)
             require("conf.ui.lualine")
         end
     }
+    -- css #ffffff / #666 / Blue 样式着色
+    use { "norcalli/nvim-colorizer.lua", config = function() require("conf.ui.colorizer") end }
     -- 支持 LSP 状态的 buffer 栏
     use {
         "akinsho/bufferline.nvim",
