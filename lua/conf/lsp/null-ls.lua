@@ -16,7 +16,8 @@ null_ls.setup({
                     tabWidth = 2,
                     useTabs = false,
                 }
-            }
+            },
+            -- filetype = { "vue" }
         }),
         -- null_ls.builtins.formatting.sql_formatter,
         -- null_ls.builtins.diagnostics.sqlfluff.with({
