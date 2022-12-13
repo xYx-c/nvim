@@ -24,6 +24,7 @@ end
 local dapui = require("dapui")
 -- 初始化调试界面
 dapui.setup({
+    icons = { expanded = "", collapsed = "", current_frame = "" },
     layouts = {
         {
             elements = {

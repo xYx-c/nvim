@@ -157,12 +157,12 @@ vim.keybinds.gmap("n", "[", "<cmd>lua require'dap'.step_over()<CR>", vim.keybind
 -- 步出当前函数
 vim.keybinds.gmap("n", "]", "<cmd>lua require'dap'.step_out()<CR>", vim.keybinds.opts)
 -- 重启调试
-vim.keybinds.gmap("n", "}", "<cmd>lua require'dap'.run_last()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "}", "<cmd>DapStop<CR><cmd>DapContinue<CR>", vim.keybinds.opts)
 -- 显示或隐藏调试界面
 vim.keybinds.gmap("n", "W", "<cmd>lua require('dapui').toggle()<CR>", vim.keybinds.opts)
 -- 退出调试（关闭调试，关闭 repl，关闭 ui，清除内联文本）
 vim.keybinds.gmap("n", "Q",
-    "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>"
+    "<cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>"
     , vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- search-file or replace-file
