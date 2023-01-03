@@ -46,12 +46,12 @@ for server_name, server_options in pairs(M.servers) do
             server = opts,
         }
     elseif server_name == "rust_analyzer" then
-        require('rust-tools').setup({
+        require('rust-tools').setup {
             server = opts,
             dap = opts.dap,
-        })
-    -- elseif server_name == "jdtls" then
-    --     require('jdtls').start_or_attach(opts)
+        }
+        -- elseif server_name == "jdtls" then
+        --     require('jdtls').start_or_attach(opts)
     else
         lspconfig[server_name].setup(opts)
     end
