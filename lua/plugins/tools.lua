@@ -1,5 +1,17 @@
 local M = {}
 M.setup = function(use)
+    -- OpenAi
+    use({
+        "jackMort/ChatGPT.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        },
+        config = function()
+            require("conf.tools.ChatGPT")
+        end,
+    })
     -- 内置终端增强
     use {
         "akinsho/toggleterm.nvim",
