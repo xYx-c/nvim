@@ -34,9 +34,11 @@ local on_attach = function(client, bufnr)
 end
 
 local bundles = {
-    vim.fn.glob(home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+    vim.fn.glob(home ..
+        "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
 };
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. ".local/share/nvim/mason/packages/java-test/extension/server/*.jar"), "\n"))
+vim.list_extend(bundles,
+    vim.split(vim.fn.glob(home .. ".local/share/nvim/mason/packages/java-test/extension/server/*.jar"), "\n"))
 
 return {
     flags = { allow_incremental_sync = true },
@@ -100,7 +102,7 @@ return {
     init_options = {
         bundles = bundles,
         -- extendedClientCapabilities = {
-        --     progressReportProvider = false,
+        --     progressReportProvider = true,
         -- },
     },
 }
