@@ -16,11 +16,6 @@ local opts = {
     -- server = {
     standalone = false,
     -- },
-    settings = {
-        ["rust-analyzer"] = {
-            inlayHints = { locationLinks = false },
-        },
-    },
     dap = {
         adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
     }
