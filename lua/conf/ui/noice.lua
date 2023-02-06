@@ -15,9 +15,9 @@ require("noice").setup({
     },
     views = {
         mini = {
-            position = {
-                row = "99%",
-            },
+            -- position = {
+            --     row = "99%",
+            -- },
             win_options = {
                 winblend = 100,
             },
@@ -39,6 +39,7 @@ require("noice").setup({
             view = "mini",
         },
         progress = {
+            -- enabled = false,
             format = {
                 { "{spinner} ", hl_group = "NoiceLspProgressSpinner" },
                 "{data.progress.percentage}% ",

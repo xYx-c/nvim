@@ -225,8 +225,9 @@ vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], { buffer = 0 })
 ---------------------------------------------------------------------------
 -- 翻译
 ---------------------------------------------------------------------------
-vim.keybinds.gmap("x", "t", "<Cmd>Translate ZH<CR><Esc>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<C-e>", "<Cmd>Translate ZH -comment<CR><Esc>", vim.keybinds.opts)
-vim.keybinds.gmap("x", "T", "<Cmd>Translate EN<CR><Esc>", vim.keybinds.opts)
+-- vim.keybinds.gmap("x", "t", "<Cmd>Translate ZH<CR><Esc>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<C-e>", "<Cmd>Translate ZH -comment<CR><Esc>", vim.keybinds.opts)
+-- vim.keybinds.gmap("x", "T", "<Cmd>Translate EN<CR><Esc>", vim.keybinds.opts)
+vim.keymap.set({'n', 'x'}, "mm", "<Cmd>Translate<CR>", vim.keybinds.opts)
 
 return M

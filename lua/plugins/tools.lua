@@ -91,10 +91,25 @@ M.setup = function(use)
         end
     }
     -- 翻译
+    -- use {
+    --     "uga-rosa/translate.nvim",
+    --     config = function()
+    --         require("conf.tools.translate")
+    --     end
+    -- }
+    -- use {
+    --     "potamides/pantran.nvim",
+    --     config = function()
+    --         require("conf.tools.pantran")
+    --     end
+    -- }
     use {
-        "uga-rosa/translate.nvim",
-        config = function()
-            require("conf.tools.translate")
+        'JuanZoran/Trans.nvim',
+        run = 'bash ./install.sh',
+        requires = 'kkharji/sqlite.lua',
+        config =
+        function()
+            require("conf.tools.Trans")
         end
     }
     -- 预览markdown
