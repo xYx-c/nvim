@@ -10,6 +10,7 @@ local opts = {
     },
     documentFeatures = {
         documentFormatting = {
+            defaultTabWidth = 2,
             defaultPrintWidth = 120
         },
     }

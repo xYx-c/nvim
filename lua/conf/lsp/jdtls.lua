@@ -9,7 +9,8 @@ elseif system == "Linux" then
 elseif system == "Linux" then
     system = "windows"
 end
-local workspace_dir = '.jdtls_data'
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir = home .. '/.jdtls_data/' .. project_name
 
 local on_attach = function(client, bufnr)
     -- Mappings.
