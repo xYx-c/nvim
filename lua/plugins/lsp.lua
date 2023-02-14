@@ -29,6 +29,7 @@ M.setup = function(use)
             require("conf.lsp.clangd")
         end
     }
+    -- use 'Civitasv/cmake-tools.nvim'
     -- java
     use {
         "mfussenegger/nvim-jdtls",

@@ -1,4 +1,5 @@
 -- https://github.com/p00f/clangd_extensions.nvim
+-- https://github.com/Civitasv/cmake-tools.nvim
 
 local clangd = vim.env.HOME .. '/.local/share/nvim/mason/bin/clangd'
 
