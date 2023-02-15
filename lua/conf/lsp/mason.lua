@@ -8,7 +8,7 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "rust_analyzer", "jdtls", "clangd", "gopls",
         "pyright", "volar", "tsserver", "jsonls", "cssls",
-        "html", "sqls", "sumneko_lua"
+        "html", "sqls", "lua_ls"
     },
 })
 
@@ -19,7 +19,7 @@ M.servers = {
     -- jdtls = require("conf.lsp.jdtls"),
     clangd = require("conf.lsp.clangd"),
     gopls = require("conf.lsp.go"),
-    sumneko_lua = require("conf.lsp.sumneko_lua"),
+    lua_ls = require("conf.lsp.sumneko_lua"),
     pyright = require("conf.lsp.pyright"),
     volar = require("conf.lsp.volar"),
     tsserver = require("conf.lsp.tsserver"),
