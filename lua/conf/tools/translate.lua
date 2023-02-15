@@ -23,11 +23,11 @@ local options = {
                 zindex = 9999, -- a large number
             },
         },
-        command = {
-            translate_shell = {
-                args = { "-e", "bing" },
-            },
-        }
+        -- command = {
+        --     translate_shell = {
+        --         args = { "-e", "bing" },
+        --     },
+        -- }
     }
 }
 
