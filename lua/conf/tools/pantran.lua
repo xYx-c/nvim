@@ -10,5 +10,8 @@ require("pantran").setup {
         yandex = {
             default_target = "zh"
         },
+        google = {
+            default_target = "zh"
+        },
     },
 }
