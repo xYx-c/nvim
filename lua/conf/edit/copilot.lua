@@ -3,7 +3,7 @@ vim.g.copilot_no_tab_map = true
 
 if os.execute("cd /usr/local/node18 >/dev/null 2>&1") == 0 then
     vim.g.copilot_node_command = '/usr/local/node18/bin/node'
-elseif os.execute("cd /usr/local/node16 >/dev/null 2>&1") then
+elseif os.execute("cd /usr/local/node16 >/dev/null 2>&1") == 0 then
     vim.g.copilot_node_command = '/usr/local/node16/bin/node'
 else
     vim.g.copilot_node_command = 'node'
