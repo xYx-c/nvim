@@ -41,6 +41,8 @@ M.setup = function(use)
             require("conf.lsp.go")
         end
     }
+    -- python
+    -- use 'HallerPatrick/py_lsp.nvim'
     -- LSP 基础服务
     use { "neovim/nvim-lspconfig" }
     -- lua 开发模块
