@@ -44,7 +44,6 @@ M.setup = function(use)
             "BurntSushi/ripgrep", -- 文字查找
             "sharkdp/fd", -- 文件查找
             "nvim-telescope/telescope-ui-select.nvim", -- UI
-            "nvim-telescope/telescope-dap.nvim", -- DAP 调试
         },
         config = function()
             require("conf.tools.telescope")

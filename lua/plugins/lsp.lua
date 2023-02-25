@@ -14,14 +14,7 @@ M.setup = function(use)
         'saecki/crates.nvim',
         event = { "BufRead Cargo.toml" },
         requires = { { 'nvim-lua/plenary.nvim' } },
-        config = function()
-            require('crates').setup({
-                null_ls = {
-                    enabled = true,
-                    name = "crates.nvim",
-                },
-            })
-        end,
+        config = function() require('crates').setup() end,
     }
     -- clangd
     use { "p00f/clangd_extensions.nvim",
