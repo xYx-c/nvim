@@ -20,7 +20,6 @@ local notify_opts = {
 -- end
 
 vim.notify = require("notify")
-
 vim.notify.setup(notify_opts)
 -- 使用案例：
 -- 信息、级别、标题

@@ -49,7 +49,7 @@ vim.keybinds.gmap("v", "<c-n>", ":move'> +1<CR>`<my`>mzgv`yo`z", vim.keybinds.op
 vim.keybinds.gmap("v", "<c-p>", ":move'< -2<CR>`<my`>mzgv`yo`z", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- 显示历史弹窗记录
-vim.keybinds.gmap("n", "<leader>nh", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>nh", "<cmd>Telescope notify theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找TODO标签
 vim.keybinds.gmap("n", "<C-b>", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
 -- copilot 快捷键设置
