@@ -38,8 +38,7 @@ M.setup = function(use)
     -- 模糊查找
     use {
         "nvim-telescope/telescope.nvim",
-        tag = '0.1.0',
-        -- branch = '0.1.x',
+        tag = '0.1.1',
         requires = {
             "nvim-lua/plenary.nvim", -- Lua 开发模块
             "BurntSushi/ripgrep", -- 文字查找
