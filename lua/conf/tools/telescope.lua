@@ -1,12 +1,13 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 -- https://github.com/posva/catimg
--- WARN: telescope 手动安装依赖 fd 和 repgrep
+-- WARN: telescope 手动安装依赖 fd 和 ripgrep
 -- https://github.com/sharkdp/fd
 -- Debian
--- sudo apt-get install fd-find
-
+-- sudo apt-get install fd-find ripgrep
+-- sudo apt-get install ripgrep
 -- macOS
 -- brew install fd
+-- brew install ripgrep
 -- https://github.com/BurntSushi/ripgrep
 
 local telescopeConfig = require("telescope.config")
