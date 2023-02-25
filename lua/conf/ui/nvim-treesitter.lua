@@ -2,8 +2,8 @@
 -- https://github.com/yioneko/nvim-yati
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "cpp", "rust", "java", "sql", "go", "lua", "vue", "javascript", "css", "html", "tsx",
-        "typescript", "toml", "json", "yaml", "http" },
+    ensure_installed = { "c", "cpp", "rust", "java", "go", "lua", "vue", "javascript", "css", "html", "tsx",
+        "typescript", "toml", "json", "yaml", "http", "vim" },
 
     highlight = {
         -- `false` will disable the whole extension

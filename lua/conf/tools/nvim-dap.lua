@@ -8,10 +8,10 @@ dap.adapters.codelldb = require("conf.dap.lldb").adapters.codelldb
 
 -- 加载调试器配置
 local dap_config = {
-    -- java = require("conf.dap.java"),
     rust = require("conf.dap.lldb"),
     cpp = require("conf.dap.lldb"),
     c = require("conf.dap.lldb"),
+    -- java = require("conf.dap.java"),
     -- go = require("conf,dap.go"),
     -- python = require("conf.dap.python"),
 }
