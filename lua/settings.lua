@@ -47,7 +47,7 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 100                               -- 指定代码折叠的最高层级为 100
 vim.o.completeopt = "menu,menuone,noselect"         -- 设定补全菜单的显示方式
-vim.o.background = "dark"
+vim.o.background = "dark"                           -- 设定背景颜色
 
 -- local system = io.popen("uname -s"):read("*l")
 -- if system == "Darwin" then

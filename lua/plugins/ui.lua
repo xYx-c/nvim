@@ -1,9 +1,6 @@
 local M = {}
 M.setup = function(use)
     -- 界面美化
-    use { 'stevearc/dressing.nvim', config = function()
-        require('conf.ui.dressing')
-    end }
     use {
         "folke/noice.nvim",
         requires = {
@@ -14,6 +11,9 @@ M.setup = function(use)
             require("conf.ui.noice")
         end,
     }
+    -- use { 'stevearc/dressing.nvim', config = function()
+    --     require('conf.ui.dressing')
+    -- end }
     -- 图标插件
     use 'kyazdani42/nvim-web-devicons'
     -- 主题
