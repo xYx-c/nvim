@@ -7,13 +7,14 @@ local opts = {
         Lua = {
             runtime = {
                 version = "LuaJIT",
-                path = runtime_path
+                -- path = runtime_path
             },
             diagnostics = {
                 globals = { "vim" }
             },
             workspace = {
-                library = vim.api.nvim_get_runtime_file("", true)
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
             },
             telemetry = {
                 enable = false

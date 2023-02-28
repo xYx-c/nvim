@@ -4,6 +4,7 @@
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "cpp", "rust", "java", "go", "lua", "vue", "javascript", "css", "html", "tsx",
         "typescript", "toml", "json", "yaml", "http", "vim" },
+    auto_install = true,
     indent = {
         enable = true
     },

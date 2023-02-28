@@ -41,13 +41,23 @@ vim.o.ignorecase = true                             -- 是否在搜索时忽略�
 vim.o.smartcase = true                              -- 是否开启在搜索时如果有大写字母，则关闭忽略大小写的选项
 -- vim.o.spell = true                                   -- 是否开启单词拼写检查
 -- vim.o.spelllang = "en_us,cjk"                        -- 设定单词拼写检查的语言
-vim.o.foldenable = true                             -- 是否开启代码折叠
-vim.o.foldlevel = 99                               -- 指定代码折叠的最高层级为 99
-vim.o.foldmethod = "indent"                         -- 指定代码折叠的策略是按照缩进进行的
--- vim.o.foldmethod = "expr"
--- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.completeopt = "menu,menuone,noselect"         -- 设定补全菜单的显示方式
 vim.o.background = "dark"                           -- 设定背景颜色
+
+vim.o.foldenable = true                             -- 是否开启代码折叠
+vim.o.foldlevel = 99                               -- 指定代码折叠的最高层级为 99
+-- vim.o.foldmethod = "indent"                         -- 指定代码折叠的策略是按照缩进进行的
+
+----------------------------------------------------------------------------------------------
+-- 设置treesitter折叠
+----------------------------------------------------------------------------------------------
+vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+  callback = function()
+    vim.opt.foldmethod     = 'expr'
+    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+  end
+})
 
 -- local system = io.popen("uname -s"):read("*l")
 -- if system == "Darwin" then

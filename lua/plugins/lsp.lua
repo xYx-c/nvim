@@ -1,61 +1,32 @@
-local M = {}
-
-M.setup = function(use)
+return {
     -- sqls
-    use { 'nanotee/sqls.nvim' }
+    { 'nanotee/sqls.nvim' },
     -- rust
-    use {
+    {
         "simrat39/rust-tools.nvim",
-        config = function()
-            require("conf.lsp.rust-tools")
-        end
-    }
-    use {
+        -- priority = 1000,
+        config = function() require("conf.lsp.rust-tools") end
+    },
+    {
         'saecki/crates.nvim',
         event = { "BufRead Cargo.toml" },
-        requires = { { 'nvim-lua/plenary.nvim' } },
         config = function() require('crates').setup() end,
-    }
+    },
     -- clangd
-    use { "p00f/clangd_extensions.nvim",
-        config = function()
-            require("conf.lsp.clangd")
-        end
-    }
-    -- use 'Civitasv/cmake-tools.nvim'
+    { "p00f/clangd_extensions.nvim",
+        config = function() require("conf.lsp.clangd") end
+    },
+    -- Civitasv/cmake-tools.nvim',
     -- java
-    use {
+    {
         "mfussenegger/nvim-jdtls",
-    }
+    },
     -- go
-    use {
+    {
         "ray-x/go.nvim",
-        config = function()
-            require("conf.lsp.go")
-        end
-    }
+        -- priority = 1000,
+        config = function() require("conf.lsp.go") end
+    },
     -- python
-    -- use 'HallerPatrick/py_lsp.nvim'
-    -- LSP 基础服务
-    use { "neovim/nvim-lspconfig" }
-    -- lua 开发模块
-    use { "nvim-lua/plenary.nvim" }
-    -- 安装 LSP/DAP
-    use {
-        "williamboman/mason.nvim",
-        config = function()
-            require("conf.lsp.mason")
-        end,
-        requires = {
-            "williamboman/mason-lspconfig.nvim",
-        }
-    }
-    -- use {
-    --     "jose-elias-alvarez/null-ls.nvim",
-    --     config = function()
-    --         require("conf.lsp.null-ls")
-    --     end,
-    -- }
-end
-
-return M
+    -- 'HallerPatrick/py_lsp.nvim',
+}

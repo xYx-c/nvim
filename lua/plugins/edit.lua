@@ -1,60 +1,42 @@
-local M = {}
-M.setup = function(use)
+return {
     -- 微信小程序插件
-    use 'chemzqm/wxapp.vim'
+    'chemzqm/wxapp.vim',
     -- copilot 自动补全
-    use {
+    {
         "github/copilot.vim",
-        config = function()
-            require("conf.edit.copilot")
-        end
-    }
+        config = function() require("conf.edit.copilot") end
+    },
     -- 全局替换
-    use {
+    {
         "windwp/nvim-spectre",
-        requires = {
-            "nvim-lua/plenary.nvim", -- Lua 开发模块
+        dependencies = {
             "BurntSushi/ripgrep" -- 文字查找
         },
-        config = function()
-            require("conf.edit.nvim-spectre")
-        end
-    }
+        config = function() require("conf.edit.nvim-spectre") end
+    },
     -- 自动匹配括号
-    use {
+    {
         "windwp/nvim-autopairs",
-        config = function()
-            require("conf.edit.nvim-autopairs")
-        end
-    }
+        config = function() require("conf.edit.nvim-autopairs") end
+    },
     -- 自动闭合标签
-    use {
+    {
         "windwp/nvim-ts-autotag",
-        config = function()
-            require("conf.edit.nvim-ts-autotag")
-        end
-    }
-    -- 插入模式获得函数签名
-    -- use {
-    --     "ray-x/lsp_signature.nvim",
-    --     config = function()
-    --         require("conf.edit.lsp_signature")
-    --     end
-    -- }
+        config = function() require("conf.edit.nvim-ts-autotag") end
+    },
     -- 代码注释
-    use {
+    {
         "numToStr/Comment.nvim",
-        requires = {
+        dependencies = {
             "JoosepAlviste/nvim-ts-context-commentstring"
         },
-        config = function()
-            require("conf.edit.Comment")
-        end
-    }
+        config = function() require("conf.edit.Comment") end
+    },
     -- 自动代码补全系列插件
-    use {
+    {
         "hrsh7th/nvim-cmp", -- 代码补全核心插件，下面都是增强补全的体验插件
-        requires = {
+        event = "InsertEnter",
+        dependencies = {
             { "hrsh7th/cmp-nvim-lsp" }, -- 替换内置 omnifunc，获得更多补全
             { "hrsh7th/cmp-path" }, -- 路径补全
             -- { "hrsh7th/cmp-buffer" }, -- 缓冲区补全
@@ -70,9 +52,6 @@ M.setup = function(use)
             -- { "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
             -- {"tzachar/cmp-tabnine", run = "./install.sh"} -- tabnine 源,提供基于 AI 的智能补全
         },
-        config = function()
-            require("conf.edit.nvim-cmp")
-        end
-    }
-end
-return M
+        config = function() require("conf.edit.nvim-cmp") end
+    },
+}
