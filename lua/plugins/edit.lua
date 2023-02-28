@@ -20,7 +20,6 @@ M.setup = function(use)
             require("conf.edit.nvim-spectre")
         end
     }
-    use {'gabrielpoca/replacer.nvim'}
     -- 自动匹配括号
     use {
         "windwp/nvim-autopairs",
