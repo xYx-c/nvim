@@ -4,7 +4,9 @@
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "cpp", "rust", "java", "go", "lua", "vue", "javascript", "css", "html", "tsx",
         "typescript", "toml", "json", "yaml", "http", "vim" },
-
+    indent = {
+        enable = true
+    },
     highlight = {
         -- `false` will disable the whole extension
         enable = true,
@@ -20,7 +22,7 @@ require 'nvim-treesitter.configs'.setup {
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your edit, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = true,
+        additional_vim_regex_highlighting = false,
     },
     context_commentstring = {
         enable = true,
@@ -39,5 +41,6 @@ require 'nvim-treesitter.configs'.setup {
         --     },
         -- }
     },
-    yati = { enable = true },
+    -- 缩进
+    -- yati = { enable = true },
 }

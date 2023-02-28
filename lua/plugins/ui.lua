@@ -44,9 +44,10 @@ M.setup = function(use)
     -- 目录树
     use {
         "kyazdani42/nvim-tree.lua",
+        -- tag = 'nightly',
         config = function()
             require("conf.ui.nvim-tree")
-        end
+        end,
     }
     -- 代码高亮
     use {
@@ -54,7 +55,7 @@ M.setup = function(use)
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
         requires = {
             -- 依赖nvim-treesitter的智能缩进
-            "yioneko/nvim-yati",
+            -- "yioneko/nvim-yati",
         },
         config = function()
             require("conf.ui.nvim-treesitter")
