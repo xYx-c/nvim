@@ -18,4 +18,8 @@ require("lazy").setup({
     require('plugins.lsp'),
     require('plugins.tools'),
     require('plugins.edit'),
+}, {
+    defaults = {
+        -- version = '*',
+    }
 })

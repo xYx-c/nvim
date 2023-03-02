@@ -19,12 +19,13 @@ return {
     -- 消息提示
     {
         'rcarriga/nvim-notify',
+        lazy = true,
         config = function() require("conf.tools.nvim-notify") end
     },
     -- 模糊查找
     {
         "nvim-telescope/telescope.nvim",
-        tag = '0.1.1',
+        version = '*',
         dependencies = {
             "BurntSushi/ripgrep", -- 文字查找
             "sharkdp/fd", -- 文件查找
@@ -59,10 +60,9 @@ return {
     -- },
     -- {
     --     'JuanZoran/Trans.nvim',
-    --     run = 'bash ./install.sh',
+    --     build = 'bash ./install.sh',
     --     dependencies = 'kkharji/sqlite.lua',
-    --     config =
-    --     function() require("conf.tools.Trans") end
+    --     config = function() require("conf.tools.Trans") end
     -- },
     -- 预览markdown
     { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
