@@ -7,13 +7,12 @@
 -- $ make
 -- $ [sudo] make install
 
+local m = {};
+
 local proxy = os.execute("pgrep -x clash > /dev/null");
-local function args()
-    if proxy then
-        return { "-x", "http://127.0.0.1:7890" }
-    -- else
-        -- return { "-e", "bing" }
-    end
+local system = io.popen("uname -s"):read("*l")
+if system == "Linux" and proxy then
+    m = { "-x", "http://127.0.0.1:7890" }
 end
 
 local options = {
@@ -34,7 +33,7 @@ local options = {
         },
         command = {
             translate_shell = {
-                args = args(),
+                args = m,
             },
         }
     }
