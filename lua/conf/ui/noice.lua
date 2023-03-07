@@ -19,7 +19,7 @@ require("noice").setup({
             --     row = "99%",
             -- },
             win_options = {
-                winblend = 100,
+                winblend = 99,
             },
         },
         -- hover = {

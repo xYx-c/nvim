@@ -20,6 +20,8 @@ require('kanagawa').setup({
             -- sumiInk4 = '#1F1F28',
             -- 光标行
             -- sumiInk5 = '#252535',
+            -- falot bg
+            sumiInk0 = '#202020',
             -- 背景
             sumiInk3 = '#282727',
             sumiInk4 = '#282727',
