@@ -38,7 +38,7 @@ Terminal:new({
     hidden = true,
     direction = "float",
     float_opts = {
-        border = "single"
+        border = "curved"
     },
     on_open = function(term)
         vim.keybinds.dgmap("t", "<Esc>")

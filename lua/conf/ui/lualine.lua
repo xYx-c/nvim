@@ -1,11 +1,12 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 local colors = {
     blue   = '#80a0ff',
-    cyan   = '#79dac8',
-    black  = '#191919',
+    cyan   = '#6A9589',
+    black  = '#202020',
     white  = '#c6c6c6',
     red    = '#ff5189',
-    violet = '#d183e8',
+    -- violet = '#d183e8',
+    violet = '#957FB8',
     grey   = '#303030',
 }
 
@@ -36,7 +37,12 @@ require('lualine').setup {
         lualine_a = {
             { 'mode', separator = { left = '' }, right_padding = 2 },
         },
-        lualine_b = { 'filename', 'diff', 'branch', 'diagnostics' },
+        lualine_b = {
+            'filename',
+            -- 'diff',
+            'branch',
+            'diagnostics'
+        },
         lualine_c = { 'fileformat' },
         lualine_x = {},
         lualine_y = { 'encoding',
@@ -54,7 +60,9 @@ require('lualine').setup {
                 },
                 display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' } },
                 timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
-            }, 'filetype', 'progress',
+            },
+            'filetype',
+            'progress',
         },
         lualine_z = {
             { 'location', separator = { right = '' }, left_padding = 2 },

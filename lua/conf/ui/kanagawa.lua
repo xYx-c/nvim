@@ -16,16 +16,16 @@ require('kanagawa').setup({
     terminalColors = true,   -- define vim.g.terminal_color_{0,17}
     colors = {
         palette = {
-            -- 状态栏
+            -- 行号
             -- sumiInk4 = '#1F1F28',
             -- 光标行
             -- sumiInk5 = '#252535',
-            sumiInk0 = '#161616',
-            sumiInk3 = '#202020',
-            sumiInk4 = '#202020',
-            sumiInk5 = '#222222',
-            waveBlue1 = "#292931",
-            waveBlue2 = "#223249",
+            -- 背景
+            sumiInk3 = '#282727',
+            sumiInk4 = '#282727',
+            sumiInk5 = '#2D2C2C',
+            -- waveBlue1 = "#323235",
+            -- waveBlue2 = "#223249",
             dragonBlack4 = '#181616',
             dragonBlack5 = '#1E1C1C',
         },
