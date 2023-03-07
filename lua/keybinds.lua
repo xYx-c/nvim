@@ -15,6 +15,8 @@ local M = {}
 ---------------------------------------------------------------------------
 vim.keybinds.gmap("i", "jj", "<Esc>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "jk", "<Esc>", vim.keybinds.opts)
+vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
 -- 分屏窗口移动
 vim.keybinds.gmap("n", "<C-k>", "<c-w>k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<C-j>", "<c-w>j", vim.keybinds.opts)

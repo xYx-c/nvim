@@ -1,7 +1,7 @@
 -- https://github.com/rcarriga/nvim-notify
 
 local notify_opts = {
-    -- background_colour = "#000000",
+    background_colour = "#000000",
     -- 动画样式
     -- fade_in_slide_out
     -- fade
