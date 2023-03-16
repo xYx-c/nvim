@@ -3,31 +3,16 @@
 require("noice").setup({
     messages = {
         view = "mini",
-        view_error = "mini",
-        view_warn = "mini",
-        view_history = "mini",
-    },
-    notify = {
-        view = "mini",
     },
     health = {
         checker = false, -- Disable if you don't want health checks to run
     },
     views = {
-        mini = {
-            -- position = {
-            --     row = "99%",
-            -- },
-            win_options = {
-                winblend = 99,
-            },
-        },
-        -- hover = {
-        --     border = {
-        --         style = "rounded",
-        --         padding = { 0 },
-        --     }
-        -- }
+        -- mini = {
+        --     win_options = {
+        --         winblend = 99,
+        --     },
+        -- },
     },
     lsp = {
         override = {
