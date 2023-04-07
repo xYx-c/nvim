@@ -54,16 +54,6 @@ return {
         "uga-rosa/translate.nvim",
         config = function() require("conf.tools.translate") end
     },
-    -- {
-    --     "potamides/pantran.nvim",
-    --     config = function() require("conf.tools.pantran") end
-    -- },
-    -- {
-    --     'JuanZoran/Trans.nvim',
-    --     build = 'bash ./install.sh',
-    --     dependencies = 'kkharji/sqlite.lua',
-    --     config = function() require("conf.tools.Trans") end
-    -- },
     -- 预览markdown
     { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
     -- 预览图片

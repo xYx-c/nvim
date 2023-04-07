@@ -1,6 +1,9 @@
 return {
     -- 微信小程序插件
-    'chemzqm/wxapp.vim',
+    {
+        'chemzqm/wxapp.vim',
+        event = { "BufRead *.wxml" },
+    },
     -- copilot 自动补全
     {
         "github/copilot.vim",
