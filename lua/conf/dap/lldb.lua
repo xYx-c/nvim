@@ -12,17 +12,15 @@ elseif system == "Linux" then
     liblldb_path = extension_path .. 'lldb/lib/liblldb.dll'
 end
 return {
-    adapters = {
-        codelldb = {
-            type = 'server',
-            port = "${port}",
-            executable = {
-                -- command = vim.env.HOME .. '/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb',
-                command = codelldb_path,
-                args = { "--liblldb", liblldb_path, "--port", "${port}" },
-                -- On windows you may have to uncomment this:
-                -- detached = false,
-            },
+    adapter = {
+        type = 'server',
+        port = "${port}",
+        executable = {
+            -- command = vim.env.HOME .. '/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb',
+            command = codelldb_path,
+            args = { "--liblldb", liblldb_path, "--port", "${port}" },
+            -- On windows you may have to uncomment this:
+            -- detached = false,
         },
     },
     configurations = {

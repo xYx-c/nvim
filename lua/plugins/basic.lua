@@ -14,6 +14,7 @@ return {
         priority = 1,
         dependencies = { "williamboman/mason-lspconfig.nvim" },
         config = function() require("conf.lsp.mason") end,
+        build = ":MasonUpdate",
     },
     -- {
     --     "jose-elias-alvarez/null-ls.nvim",

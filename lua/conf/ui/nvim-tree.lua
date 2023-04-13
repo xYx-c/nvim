@@ -17,14 +17,14 @@ require("nvim-tree").setup({
                 { key = "i", action = "cd" },
             },
         },
-        -- 隐藏顶部的根目录显示
-        hide_root_folder = true,
     },
     filters = {
         dotfiles = true,
         -- custom = { "^logs$" }
     },
     renderer = {
+        -- 隐藏顶部的根目录显示
+        root_folder_label = false,
         group_empty = true,
         icons = {
             webdev_colors = false,
