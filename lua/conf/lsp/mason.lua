@@ -51,6 +51,12 @@ for server_name, server_options in pairs(M.servers) do
         -- elseif server_name == "jdtls" then
         --     require('jdtls').start_or_attach(opts)
     else
+        opts.on_attach = function(client, bufnr)
+            M.opts.on_attach(client, bufnr)
+            if server_options.on_attach then
+                server_options.on_attach(client, bufnr)
+            end
+        end
         lspconfig[server_name].setup(opts)
     end
 end

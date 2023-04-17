@@ -16,10 +16,10 @@ return {
         config = function() require("conf.lsp.mason") end,
         build = ":MasonUpdate",
     },
-    -- {
-    --     "jose-elias-alvarez/null-ls.nvim",
-    --     config = function() require("conf.lsp.null-ls") end,
-    -- },
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function() require("conf.lsp.null-ls") end,
+    },
     -- 自动恢复光标位置
     {
         "ethanholz/nvim-lastplace",

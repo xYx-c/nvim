@@ -16,9 +16,6 @@ return {
         "p00f/clangd_extensions.nvim",
         config = function() require("conf.lsp.clangd") end
     },
-    -- Civitasv/cmake-tools.nvim',
-    { 'Adversarr/xmake-nvim' },
-
     -- java
     { "mfussenegger/nvim-jdtls", },
     -- go

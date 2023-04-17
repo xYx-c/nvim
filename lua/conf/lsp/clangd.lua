@@ -8,9 +8,11 @@ local opts = {
     --     return vim.fn.getcwd()
     -- end,
     filetype = { "c", "cc", "oc", "cpp", "objc", "objcpp" },
-    -- on_attach = function(client, bufnr)
-    --     require('keybinds').lsp_maps(client, bufnr)
-    -- end,
+    on_attach = function(client, bufnr)
+        require('keybinds').lsp_maps(client, bufnr)
+        -- client.server_capabilities.documentFormattingProvider = false
+        -- client.server_capabilities.documentRangeFormattingProvider = false
+    end,
     cmd = {
         clangd, "--offset-encoding=utf-16", "--background-index", "--clang-tidy",
         "--clang-tidy-checks=performance-*,bugprone-*", "--all-scopes-completion", "--pch-storage=disk",
