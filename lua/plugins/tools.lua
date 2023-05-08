@@ -1,10 +1,10 @@
 return {
     -- OpenAi
-    {
-        "jackMort/ChatGPT.nvim",
-        dependencies = { "MunifTanjim/nui.nvim" },
-        config = function() require("conf.tools.ChatGPT") end,
-    },
+    -- {
+    --     "jackMort/ChatGPT.nvim",
+    --     dependencies = { "MunifTanjim/nui.nvim" },
+    --     config = function() require("conf.tools.ChatGPT") end,
+    -- },
     -- 内置终端增强
     {
         "akinsho/toggleterm.nvim",

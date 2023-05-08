@@ -5,7 +5,10 @@ return {
     -- Lua 开发模块
     "nvim-lua/plenary.nvim",
     -- LSP 基础服务
-    { "neovim/nvim-lspconfig", version = "*" },
+    {
+        "neovim/nvim-lspconfig",
+        version = "*"
+    },
     -- 图标插件
     'kyazdani42/nvim-web-devicons',
     -- 安装 LSP/DAP

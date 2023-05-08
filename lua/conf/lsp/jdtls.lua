@@ -6,7 +6,7 @@ if system == "Darwin" then
     system = "mac"
 elseif system == "Linux" then
     system = "linux"
-elseif system == "Linux" then
+else
     system = "windows"
 end
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
@@ -41,6 +41,8 @@ local bundles = {
 vim.list_extend(bundles,
     vim.split(vim.fn.glob(home .. ".local/share/nvim/mason/packages/java-test/extension/server/*.jar"), "\n"))
 
+local launcher = vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+
 return {
     flags = { allow_incremental_sync = true },
     name = 'jdtls',
@@ -59,8 +61,7 @@ return {
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
         '-javaagent:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
         -- '-Xbootclasspath/a:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
-        '-jar',
-        home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        '-jar', launcher,
         '-configuration', home .. '/.local/share/nvim/mason/packages/jdtls/config_' .. system,
         '-data', workspace_dir,
     },
@@ -81,14 +82,28 @@ return {
                 runtimes = {
                     {
                         name = "JavaSE-1.8",
-                        path = os.getenv("JAVA_HOME")
+                        path = os.getenv("JAVA_HOME"),
+                        default = true,
                     },
-                    -- {
-                    --     name = "JavaSE-17",
-                    --     path = os.getenv("JAVA_HOME")
-                    -- },
+                    {
+                        name = "JavaSE-17",
+                        path = os.getenv("JDK_HOME")
+                    },
+                },
+                maven = {
+                    userSettings = os.getenv("HOME") .. "/.m2/settings.xml",
+                    globalSettings = os.getenv("MAVEN_HOME") .. "/conf/settings.xml",
                 }
-            }
+            },
+            saveActions = {
+                organizeImports = true,
+            },
+            -- maven = {
+            --     downloadSources = true,
+            -- },
+            -- eclipse = {
+            --     downloadSources = true,
+            -- }
         },
     },
 

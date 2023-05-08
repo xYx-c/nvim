@@ -11,12 +11,12 @@ require("nvim-tree").setup({
     -- 视图
     view = {
         adaptive_size = true,
-        mappings = {
-            list = {
-                { key = "u", action = "dir_up" },
-                { key = "i", action = "cd" },
-            },
-        },
+        -- mappings = {
+        --     list = {
+        --         { key = "u", action = "dir_up" },
+        --         { key = "i", action = "cd" },
+        --     },
+        -- },
     },
     filters = {
         dotfiles = true,
