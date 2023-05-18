@@ -16,9 +16,9 @@ window:
 
   # 窗口大小
   dimensions:
-    columns: 120
+    columns: 140
     lines: 40
-  startup_mode: Maximized
+  # startup_mode: Maximized
 
   # 窗口内边距
   padding:
@@ -38,7 +38,7 @@ window:
   #   y: 80
 
   # 窗口标题栏和边框是否显示（full 或 None）
-  decorations: None
+  # decorations: None
 
   # 窗口透明度
   # opacity: 0.6
