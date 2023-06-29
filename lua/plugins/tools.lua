@@ -5,6 +5,13 @@ return {
     --     dependencies = { "MunifTanjim/nui.nvim" },
     --     config = function() require("conf.tools.ChatGPT") end,
     -- },
+    -- DB客户端
+    {
+        "kndndrj/nvim-dbee",
+        dependencies = { "MunifTanjim/nui.nvim" },
+        build = function() require("dbee").install() end,
+        config = function() require("conf.tools.dbee") end
+    },
     -- 内置终端增强
     {
         "akinsho/toggleterm.nvim",
@@ -27,8 +34,8 @@ return {
         "nvim-telescope/telescope.nvim",
         version = '*',
         dependencies = {
-            "BurntSushi/ripgrep", -- 文字查找
-            "sharkdp/fd", -- 文件查找
+            "BurntSushi/ripgrep",                      -- 文字查找
+            "sharkdp/fd",                              -- 文件查找
             "nvim-telescope/telescope-ui-select.nvim", -- UI
         },
         config = function() require("conf.tools.telescope") end

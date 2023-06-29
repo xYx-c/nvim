@@ -6,7 +6,7 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "rust_analyzer", "jdtls", "clangd", "gopls",
         "pyright", "volar", "tsserver", "jsonls", "cssls",
-        "html", "lua_ls", "sqls"
+        "html", "lua_ls"
     },
 })
 
@@ -24,7 +24,7 @@ local M = {
         jsonls = require("conf.lsp.jsonls"),
         cssls = require("conf.lsp.cssls"),
         html = require("conf.lsp.html"),
-        sqls = require("conf.lsp.sqls"),
+        -- sqls = require("conf.lsp.sqls"),
     },
     opts = {
         root_dir = function()

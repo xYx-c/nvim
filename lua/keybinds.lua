@@ -236,4 +236,10 @@ vim.keybinds.gmap("n", "<C-e>", "<Cmd>Translate ZH -comment<CR><Esc>", vim.keybi
 vim.keybinds.gmap("x", "T", "<Cmd>Translate EN<CR><Esc>", vim.keybinds.opts)
 -- vim.keymap.set({'n', 'x'}, "mm", "<Cmd>Translate<CR>", vim.keybinds.opts)
 
+---------------------------------------------------------------------------
+-- database
+---------------------------------------------------------------------------
+vim.keymap.set({'n', 'x'}, "<leader>db", "<cmd>lua require('dbee').open()<CR>", vim.keybinds.opts)
+vim.keymap.set({'n', 'x'}, "<C-q>", "<cmd>lua require('dbee').close()<CR>", vim.keybinds.opts)
+
 return M
