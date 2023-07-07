@@ -37,6 +37,11 @@ require("noice").setup({
                 { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
                 { "{data.progress.client}", hl_group = "NoiceLspProgressClient" },
             },
+        },
+        signature = {
+            auto_open = {
+                trigger = false,
+            }
         }
     },
     presets = {
