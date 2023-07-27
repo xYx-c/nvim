@@ -13,7 +13,7 @@ vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl
 vim.o.encoding = "utf-8"                            -- 设定各种文本的字符编码
 vim.o.termencoding = "utf-8"                        -- 设定终端的字符编码
 vim.o.wrap = false                                  -- 自动换行
-vim.o.updatetime = 100                              -- 设定在无操作时，交换文件刷写到磁盘的等待毫秒数（默认为 4000）
+vim.o.updatetime = 128                              -- 设定在无操作时，交换文件刷写到磁盘的等待毫秒数（默认为 4000）
 vim.o.timeoutlen = 256                              -- 设定等待按键时长的毫秒数
 vim.o.showcmd = true                                -- 是否在屏幕最后一行显示命令
 vim.o.hidden = true                                 -- 是否允许缓冲区未保存时就切换

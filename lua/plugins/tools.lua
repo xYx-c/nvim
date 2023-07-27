@@ -58,8 +58,8 @@ return {
     },
     -- 翻译
     {
-        "uga-rosa/translate.nvim",
-        config = function() require("conf.tools.translate") end
+        "potamides/pantran.nvim",
+        config = function() require("conf.tools.pantran") end
     },
     -- 预览markdown
     { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }

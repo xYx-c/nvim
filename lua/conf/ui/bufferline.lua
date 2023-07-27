@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- https://github.com/akinsho/bufferline.nvim
 -- https://github.com/famiu/bufdelete.nvim
 -- https://github.com/kazhala/close-buffers.nvim

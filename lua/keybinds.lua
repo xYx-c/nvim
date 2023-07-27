@@ -67,7 +67,8 @@ M.lsp_maps = function(_, bufnr)
         vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols theme=dropdown<CR>',
         vim.keybinds.opts)
-    vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>Telescope diagnostics bufnr=0 theme=dropdown<CR>', vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>q', '<cmd>Telescope diagnostics bufnr=0 theme=dropdown<CR>', vim.keybinds
+        .opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>Q', '<cmd>Telescope diagnostics theme=dropdown<CR>', vim.keybinds.opts)
     vim.keybinds.bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.keybinds.opts)
     -- Enable completion triggered by <c-x><c-o>
@@ -213,7 +214,7 @@ vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
 -- 打开普通终端
 vim.keybinds.gmap("n", "~", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.opts)
 -- 打开浮动终端
-vim.keybinds.gmap("n", "`", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "`", "<cmd>lua require('toggleterm').float_togglea()<CR>", vim.keybinds.opts)
 -- 打开lazy git 终端
 vim.keybinds.gmap("n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
 -- 打开或关闭所有终端
@@ -227,19 +228,14 @@ vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], { buffer = 0 })
 -- 2 <键位>
 -- ... <键位>
 -- 另外，上面我们新建了 2 个特殊终端，所以普通终端的顺序应该是从 3 开始
-
 ---------------------------------------------------------------------------
 -- 翻译
 ---------------------------------------------------------------------------
-vim.keybinds.gmap("x", "t", "<Cmd>Translate ZH<CR><Esc>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<C-e>", "<Cmd>Translate ZH -comment<CR><Esc>", vim.keybinds.opts)
-vim.keybinds.gmap("x", "T", "<Cmd>Translate EN<CR><Esc>", vim.keybinds.opts)
--- vim.keymap.set({'n', 'x'}, "mm", "<Cmd>Translate<CR>", vim.keybinds.opts)
-
+vim.keymap.set("x", "t", require('pantran').motion_translate, { noremap = true, silent = true, expr = true })
 ---------------------------------------------------------------------------
 -- database
 ---------------------------------------------------------------------------
-vim.keymap.set({'n', 'x'}, "<leader>db", "<cmd>lua require('dbee').open()<CR>", vim.keybinds.opts)
-vim.keymap.set({'n', 'x'}, "<C-q>", "<cmd>lua require('dbee').close()<CR>", vim.keybinds.opts)
+vim.keymap.set({ 'n', 'x' }, "<leader>db", "<cmd>lua require('dbee').open()<CR>", vim.keybinds.opts)
+vim.keymap.set({ 'n', 'x' }, "<C-q>", "<cmd>lua require('dbee').close()<CR>", vim.keybinds.opts)
 
 return M
