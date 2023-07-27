@@ -214,7 +214,7 @@ vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts)
 -- 打开普通终端
 vim.keybinds.gmap("n", "~", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.opts)
 -- 打开浮动终端
-vim.keybinds.gmap("n", "`", "<cmd>lua require('toggleterm').float_togglea()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "`", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
 -- 打开lazy git 终端
 vim.keybinds.gmap("n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
 -- 打开或关闭所有终端
