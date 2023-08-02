@@ -35,6 +35,8 @@ local Terminal = require("toggleterm.terminal").Terminal
 -- 新建浮动终端
 local floatTerm =
     Terminal:new({
+        cmd = vim.o.shell,
+        count = 99,
         hidden = true,
         direction = "float",
         float_opts = {
@@ -55,6 +57,7 @@ local floatTerm =
 local lazyGit =
     Terminal:new({
         cmd = "lazygit",
+        count = 88,
         hidden = true,
         direction = "float",
         float_opts = {
