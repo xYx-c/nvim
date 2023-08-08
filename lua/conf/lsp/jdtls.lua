@@ -31,7 +31,6 @@ local on_attach = function(client, bufnr)
     require('jdtls').setup_dap()
 
     require('jdtls.dap').setup_dap_main_class_configs()
-    require('jdtls.setup').add_commands()
 end
 
 local bundles = {
@@ -95,9 +94,9 @@ return {
                     globalSettings = os.getenv("MAVEN_HOME") .. "/conf/settings.xml",
                 }
             },
-            saveActions = {
-                organizeImports = true,
-            },
+            -- saveActions = {
+            --     organizeImports = true,
+            -- },
             -- maven = {
             --     downloadSources = true,
             -- },

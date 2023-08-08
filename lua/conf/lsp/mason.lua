@@ -39,11 +39,12 @@ local M = {
 
 for server_name, server_options in pairs(M.servers) do
     local opts = vim.tbl_deep_extend("force", M.opts, server_options)
-    if server_name == "clangd" then
-        require("clangd_extensions").setup {
-            server = opts,
-        }
-    elseif server_name == "rust_analyzer" then
+    -- if server_name == "clangd" then
+    --     require("clangd_extensions").setup {
+    --         server = opts,
+    --     }
+    -- else
+    if server_name == "rust_analyzer" then
         require('rust-tools').setup {
             server = opts,
             dap = opts.dap,

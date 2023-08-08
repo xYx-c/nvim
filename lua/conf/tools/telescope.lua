@@ -26,7 +26,11 @@ table.insert(vimgrep_arguments, "!**/dist/*")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.jdtls_data/*")
 table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/.settings/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.svn/*")
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**.class")
 
 local previewers = require("telescope.previewers")
 local Job = require("plenary.job")
@@ -83,7 +87,7 @@ telescope.setup({
     pickers = {
         find_files = {
             theme = "dropdown",
-            -- find_command = { "rg", "--files", "--hidden", "--glob", "!*/.git/*", "!*/node_modules/*", "!*/.jdtls_data/*", "!*/.svn/*" },
+            find_command = { "rg", "--files", "--hidden", "--glob", "!*/.git/*", "!*/node_modules/*", "!*/.jdtls_data/*", "!*/.svn/*" },
         }
     },
     defaults = {

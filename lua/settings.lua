@@ -11,7 +11,7 @@ vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl
 -- Basic Setting
 ---------------------------------------------------------------------------
 vim.o.encoding = "utf-8"                            -- 设定各种文本的字符编码
-vim.o.termencoding = "utf-8"                        -- 设定终端的字符编码
+-- vim.o.termencoding = "utf-8"                        -- 设定终端的字符编码
 vim.o.wrap = false                                  -- 自动换行
 vim.o.updatetime = 128                              -- 设定在无操作时，交换文件刷写到磁盘的等待毫秒数（默认为 4000）
 vim.o.timeoutlen = 256                              -- 设定等待按键时长的毫秒数
@@ -31,7 +31,7 @@ vim.o.swapfile = false                              -- 是否开启交换文件
 -- vim.o.list = true                                -- 是否特殊显示空格等字符
 -- vim.o.autoindent = true                             -- 是否开启自动缩进对齐上一行缩进
 -- vim.o.smartindent = true                            -- 是否开启智能缩进
--- vim.o.cindent = true                                -- 是否开启 C 语言风格的缩进
+vim.o.cindent = true                                -- 是否开启 C 语言风格的缩进
 -- vim.o.indentexpr = ""                               -- 设定缩进表达式
 -- vim.o.filetype = "plugin"                           -- 设定自动缩进的策略为 plugin
 vim.o.hlsearch = true                               -- 是否开启高亮搜索

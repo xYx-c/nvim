@@ -9,6 +9,8 @@ local opts = {
     -- end,
     filetype = { "c", "cc", "oc", "cpp", "objc", "objcpp" },
     on_attach = function(client, bufnr)
+        require("clangd_extensions.inlay_hints").setup_autocmd()
+        require("clangd_extensions.inlay_hints").set_inlay_hints()
         require('keybinds').lsp_maps(client, bufnr)
         -- client.server_capabilities.documentFormattingProvider = false
         -- client.server_capabilities.documentRangeFormattingProvider = false
