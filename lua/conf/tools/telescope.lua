@@ -1,13 +1,11 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 -- https://github.com/posva/catimg
--- WARN: telescope 手动安装依赖 fd 和 ripgrep
+-- WARN: telescope 手动安装依赖
 -- https://github.com/sharkdp/fd
 -- Debian
--- sudo apt-get install fd-find ripgrep
--- sudo apt-get install ripgrep
+-- sudo apt install fd-find ripgrep
 -- macOS
--- brew install fd
--- brew install ripgrep
+-- brew install fd ripgrep
 -- https://github.com/BurntSushi/ripgrep
 
 local telescopeConfig = require("telescope.config")
@@ -87,7 +85,15 @@ telescope.setup({
     pickers = {
         find_files = {
             theme = "dropdown",
-            find_command = { "rg", "--files", "--hidden", "--glob", "!*/.git/*", "!*/node_modules/*", "!*/.jdtls_data/*", "!*/.svn/*" },
+            find_command = {
+                "rg", "--files", "--hidden",
+                "--glob", "!**/.git/*",
+                "--glob", "!**/.svn/*",
+                "--glob", "!**/node_modules/*",
+                "--glob", "!**/.jdtls_data/*",
+                "--glob", "!**/.settings/*",
+                "--glob", "!**.class",
+            },
         }
     },
     defaults = {
@@ -125,4 +131,3 @@ telescope.setup({
 
 telescope.load_extension("ui-select")
 telescope.load_extension("notify")
-

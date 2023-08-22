@@ -150,7 +150,8 @@ vim.keybinds.gmap("n", "<space>$", "<cmd>lua require('bufferline').go_to_buffer(
 -- dap-debug
 ---------------------------------------------------------------------------
 -- 打开浮动窗口
-vim.keybinds.gmap("v", "K", "<Cmd>lua require('dapui').eval()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("v", "K", "<cmd>lua require('dapui').eval()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>sc", "<cmd>lua require('dapui').float_element('scopes')<CR>", vim.keybinds.opts)
 -- 打断点
 vim.keybinds.gmap("n", "@", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", vim.keybinds.opts)
 -- 开启调试或到下一个断点处
@@ -183,12 +184,12 @@ vim.keybinds.gmap("n", "F", "<cmd>Telescope find_files theme=dropdown<CR>", vim.
 -- 查找文字
 vim.keybinds.gmap("n", "<C-f>", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找Buffer
-vim.keybinds.gmap("n", "<leader>fb", "<cmd>Telescope buffers theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>b", "<cmd>Telescope buffers theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找帮助文档
 vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找最近打开的文件
 vim.keybinds.gmap("n", ";", "<cmd>Telescope oldfiles theme=dropdown<CR>", vim.keybinds.opts)
--- 查找 marks 标记
+-- 查找 marks标记
 vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks theme=dropdown<CR>", vim.keybinds.opts)
 -- vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
 
