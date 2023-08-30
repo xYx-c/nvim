@@ -56,11 +56,11 @@ vim.keybinds.gmap("v", "<c-p>", ":move'< -2<CR>`<my`>mzgv`yo`z", vim.keybinds.op
 vim.keybinds.gmap("n", "<leader>nh", "<cmd>Telescope notify theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找TODO标签
 vim.keybinds.gmap("n", "<C-b>", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
--- copilot 快捷键设置
+-- copilot AI提示
 -- vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
--- codeium
+-- codeium AI提示
 vim.keymap.set('i', '<c-l>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-vim.keymap.set('i', '<c-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+vim.keymap.set('i', '<c-]>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
 vim.keymap.set('i', '<c-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
 vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
 ---------------------------------------------------------------------------
