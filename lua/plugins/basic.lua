@@ -21,8 +21,8 @@ return {
     },
     -- 格式化
     {
-        "mhartington/formatter.nvim",
-        config = function() require("conf.edit.formatter") end
+        "nvimdev/guard.nvim",
+        config = function() require("conf.edit.guard") end
     },
     -- 自动恢复光标位置
     {
