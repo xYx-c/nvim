@@ -11,6 +11,7 @@ vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl
 -- Basic Setting
 ---------------------------------------------------------------------------
 vim.o.encoding = "utf-8"                            -- 设定各种文本的字符编码
+vim.o.fileencodings = "utf-8,gb18030"               -- 设定读取和写入文件的字符编码
 -- vim.o.termencoding = "utf-8"                        -- 设定终端的字符编码
 vim.o.wrap = false                                  -- 自动换行
 vim.o.updatetime = 128                              -- 设定在无操作时，交换文件刷写到磁盘的等待毫秒数（默认为 4000）

@@ -57,7 +57,12 @@ vim.keybinds.gmap("n", "<leader>nh", "<cmd>Telescope notify theme=dropdown<CR>",
 -- 查找TODO标签
 vim.keybinds.gmap("n", "<C-b>", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
 -- copilot 快捷键设置
-vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
+-- vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
+-- codeium
+vim.keymap.set('i', '<c-l>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+vim.keymap.set('i', '<c-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+vim.keymap.set('i', '<c-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
 ---------------------------------------------------------------------------
 -- lsp
 ---------------------------------------------------------------------------
@@ -93,7 +98,7 @@ M.lsp_maps = function(_, bufnr)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 
     vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true, bufnr = bufnr } end, bufopts)
-    vim.cmd [[command! -buffer Format execute 'lua vim.lsp.buf.format{ async = true, bufnr = bufnr }']]
+    -- vim.cmd [[command! -buffer Format execute 'lua vim.lsp.buf.format{ async = true, bufnr = bufnr }']]
 
     -- vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)

@@ -19,9 +19,10 @@ return {
         config = function() require("conf.lsp.mason") end,
         build = ":MasonUpdate",
     },
+    -- 格式化
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function() require("conf.lsp.null-ls") end,
+        "mhartington/formatter.nvim",
+        config = function() require("conf.edit.formatter") end
     },
     -- 自动恢复光标位置
     {

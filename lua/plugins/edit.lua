@@ -5,9 +5,14 @@ return {
         event = { "BufRead *.wxml" },
     },
     -- copilot 自动补全
+    -- {
+    --     "github/copilot.vim",
+    --     config = function() require("conf.edit.copilot") end
+    -- },
+    -- codeium 自动补全
     {
-        "github/copilot.vim",
-        config = function() require("conf.edit.copilot") end
+        'Exafunction/codeium.vim',
+        event = 'BufEnter'
     },
     -- markdown
     -- {
