@@ -90,8 +90,8 @@ return {
                     },
                 },
                 maven = {
-                    userSettings = os.getenv("HOME") .. "/.m2/settings.xml",
                     globalSettings = os.getenv("MAVEN_HOME") .. "/conf/settings.xml",
+                    userSettings = os.getenv("HOME") .. "/.m2/settings.xml",
                 }
             },
             -- saveActions = {
