@@ -14,6 +14,10 @@ return {
         'Exafunction/codeium.vim',
         event = 'BufEnter'
     },
+    {
+        'rareitems/printer.nvim',
+        config = function() require("conf.edit.printer") end
+    },
     -- markdown
     -- {
     --     'jakewvincent/mkdnflow.nvim',

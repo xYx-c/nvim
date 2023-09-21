@@ -51,6 +51,9 @@ vim.keybinds.gmap("n", "<c-n>", ":move +1<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<c-p>", ":move -2<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("v", "<c-n>", ":move'> +1<CR>`<my`>mzgv`yo`z", vim.keybinds.opts)
 vim.keybinds.gmap("v", "<c-p>", ":move'< -2<CR>`<my`>mzgv`yo`z", vim.keybinds.opts)
+-- 打印内容
+vim.keymap.set("n", "P", "<Plug>(printer_print)iw")
+vim.keymap.set("v", "P", "<Plug>(printer_print)")
 ---------------------------------------------------------------------------
 -- 显示历史弹窗记录
 vim.keybinds.gmap("n", "<leader>nh", "<cmd>Telescope notify theme=dropdown<CR>", vim.keybinds.opts)
