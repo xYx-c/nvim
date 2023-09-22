@@ -30,8 +30,8 @@ vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
 -- vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
 vim.keybinds.gmap("v", "L", "$h", vim.keybinds.opts)
 -- 将 C-u 和 C-d 调整为上下滑动 10 行
-vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
 -- 插入模式下的上下左右移动
 vim.keybinds.gmap("i", "<M-k>", "<up>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "<M-j>", "<down>", vim.keybinds.opts)
@@ -58,7 +58,7 @@ vim.keymap.set("v", "P", "<Plug>(printer_print)")
 -- 显示历史弹窗记录
 vim.keybinds.gmap("n", "<leader>nh", "<cmd>Telescope notify theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找TODO标签
-vim.keybinds.gmap("n", "<C-b>", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>b", "<cmd>TodoTelescope theme=dropdown<CR>", vim.keybinds.opts)
 -- copilot AI提示
 -- vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
 -- codeium AI提示
@@ -194,7 +194,7 @@ vim.keybinds.gmap("n", "F", "<cmd>Telescope find_files theme=dropdown<CR>", vim.
 -- 查找文字
 vim.keybinds.gmap("n", "<C-f>", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找Buffer
-vim.keybinds.gmap("n", "<leader>b", "<cmd>Telescope buffers theme=dropdown<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<c-b>", "<cmd>Telescope buffers theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找帮助文档
 vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找最近打开的文件
@@ -202,8 +202,6 @@ vim.keybinds.gmap("n", ";", "<cmd>Telescope oldfiles theme=dropdown<CR>", vim.ke
 -- 查找 marks标记
 vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks theme=dropdown<CR>", vim.keybinds.opts)
 -- vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
-
-
 ---------------------------------------------------------------------------
 -- file-tree
 ---------------------------------------------------------------------------
@@ -246,7 +244,6 @@ vim.keymap.set("x", "t", require('pantran').motion_translate, { noremap = true, 
 ---------------------------------------------------------------------------
 -- database
 ---------------------------------------------------------------------------
-vim.keymap.set({ 'n', 'x' }, "<leader>db", "<cmd>lua require('dbee').open()<CR>", vim.keybinds.opts)
-vim.keymap.set({ 'n', 'x' }, "<C-q>", "<cmd>lua require('dbee').close()<CR>", vim.keybinds.opts)
+vim.keymap.set({ 'n', 'x' }, "<C-e>", "<cmd>lua require('dbee').toggle()<CR>", vim.keybinds.opts)
 
 return M
