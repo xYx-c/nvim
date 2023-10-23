@@ -63,10 +63,10 @@ vim.keybinds.gmap("n", "<leader>b", "<cmd>TodoTelescope theme=dropdown<CR>", vim
 -- vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", { silent = true, expr = true })
 -- codeium AI提示
 vim.g.codeium_disable_bindings = 1
-vim.keymap.set('i', '<c-l>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-vim.keymap.set('i', '<m-]>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-vim.keymap.set('i', '<m-[>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+vim.keymap.set('i', '<c-l>', "codeium#Accept()", { silent = true, expr = true })
+vim.keymap.set('i', '<c-x>', "codeium#Clear()", { silent = true, expr = true })
+vim.keymap.set('i', '<c-j>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+vim.keymap.set('i', '<c-k>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { silent = true, expr = true })
 ---------------------------------------------------------------------------
 -- lsp
 ---------------------------------------------------------------------------
