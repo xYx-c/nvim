@@ -16,8 +16,13 @@ local opts = {
         -- client.server_capabilities.documentRangeFormattingProvider = false
     end,
     cmd = {
-        clangd, "--offset-encoding=utf-16", "--background-index", "--clang-tidy",
-        "--clang-tidy-checks=performance-*,bugprone-*", "--all-scopes-completion", "--pch-storage=disk",
+        clangd,
+        "--offset-encoding=utf-16",
+        "--background-index",
+        "--clang-tidy",
+        "--clang-tidy-checks=performance-*,bugprone-*",
+        "--all-scopes-completion",
+        "--pch-storage=disk",
     },
 }
 
