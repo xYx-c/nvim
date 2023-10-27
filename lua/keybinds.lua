@@ -186,7 +186,7 @@ vim.keybinds.gmap("n", "Q",
 -- 全项目替换
 vim.keybinds.gmap("n", "T", "<cmd>lua require('spectre').open()<CR>", vim.keybinds.opts)
 -- 只替换当前文件
-vim.keybinds.gmap("n", "t", "viw:lua require('spectre').open_file_search()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<c-t>", "viw:lua require('spectre').open_file_search()<CR>", vim.keybinds.opts)
 -- 全项目中搜索当前单词
 vim.keybinds.gmap("n", "R", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", vim.keybinds.opts)
 -- 查找文件
@@ -241,6 +241,7 @@ vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], { buffer = 0 })
 -- 翻译
 ---------------------------------------------------------------------------
 vim.keymap.set("x", "t", require('pantran').motion_translate, { noremap = true, silent = true, expr = true })
+vim.keymap.set("n", "t", "<cmd>Pantran source=zh target=en<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- database
 ---------------------------------------------------------------------------
