@@ -146,16 +146,16 @@ vim.keybinds.gmap("n", "<leader>bc", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLin
 vim.keybinds.gmap("n", "<leader>bn", "<cmd>BufferLineMoveNext<CR>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<leader>bp", "<cmd>BufferLineMovePrev<CR>", vim.keybinds.opts)
 -- 跳转到缓冲区
-vim.keybinds.gmap("n", "<space>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<space>$", "<cmd>lua require('bufferline').go_to_buffer(-1, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>$", "<cmd>lua require('bufferline').go_to_buffer(-1, true)<cr>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- dap-debug
 ---------------------------------------------------------------------------
@@ -225,13 +225,14 @@ vim.keybinds.gmap("n", "~", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.op
 -- 打开浮动终端
 vim.keybinds.gmap("n", "`", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.opts)
 -- 打开lazy git 终端
-vim.keybinds.gmap("n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>m", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.opts)
 -- 打开或关闭所有终端
 vim.keybinds.gmap("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", vim.keybinds.opts)
 vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], { buffer = 0 })
 vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], { buffer = 0 })
 vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], { buffer = 0 })
 vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], { buffer = 0 })
+vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], { buffer = 0 })
 -- 要需创建多个终端，可：
 -- 1 <键位> leader tt
 -- 2 <键位>
