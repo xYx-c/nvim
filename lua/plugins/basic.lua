@@ -7,7 +7,7 @@ return {
     -- LSP 基础服务
     {
         "neovim/nvim-lspconfig",
-        version = "*"
+        -- version = "*"
     },
     -- 图标插件
     'kyazdani42/nvim-web-devicons',

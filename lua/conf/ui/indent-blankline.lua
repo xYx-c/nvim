@@ -1,7 +1,14 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 
-vim.opt.termguicolors = true
-
-require("indent_blankline").setup {
-    show_end_of_line = true,
+local highlight = {
+    "CursorColumn",
+    "Whitespace",
+}
+require("ibl").setup {
+    indent = { highlight = highlight, char = "" },
+    whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = false,
+    },
+    scope = { enabled = false },
 }
