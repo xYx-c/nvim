@@ -1,9 +1,13 @@
 return {
     -- OpenAi
+    -- {
+    --     "jackMort/ChatGPT.nvim",
+    --     dependencies = { "MunifTanjim/nui.nvim" },
+    --     config = function() require("conf.tools.ChatGPT") end,
+    -- },
     {
-        "jackMort/ChatGPT.nvim",
-        dependencies = { "MunifTanjim/nui.nvim" },
-        config = function() require("conf.tools.ChatGPT") end,
+        "lewis6991/gitsigns.nvim",
+        config = function() require("conf.tools.gitsigns") end
     },
     -- DB客户端
     {
