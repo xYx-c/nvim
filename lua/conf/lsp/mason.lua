@@ -4,9 +4,18 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "rust_analyzer", "jdtls", "clangd", "gopls",
-        "pyright", "volar", "tsserver", "jsonls", "cssls",
-        "html", "lua_ls", "sqlls"
+        "rust_analyzer",
+        "jdtls",
+        "clangd",
+        "gopls",
+        "pyright",
+        "volar",
+        "tsserver",
+        "jsonls",
+        "cssls",
+        "html",
+        "lua_ls",
+        -- "sqlls"
     },
 })
 
@@ -24,7 +33,7 @@ local M = {
         jsonls = require("conf.lsp.jsonls"),
         cssls = require("conf.lsp.cssls"),
         html = require("conf.lsp.html"),
-        sqlls = require("conf.lsp.sqlls"),
+        -- sqlls = require("conf.lsp.sqlls"),
     },
     opts = {
         root_dir = function()
@@ -39,11 +48,6 @@ local M = {
 
 for server_name, server_options in pairs(M.servers) do
     local opts = vim.tbl_deep_extend("force", M.opts, server_options)
-    -- if server_name == "clangd" then
-    --     require("clangd_extensions").setup {
-    --         server = opts,
-    --     }
-    -- else
     if server_name == "rust_analyzer" then
         require('rust-tools').setup {
             server = opts,
