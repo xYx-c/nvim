@@ -1,78 +1,126 @@
-# 实时预览配置项
 live_config_reload = true
-# 环境变量
-[env]
-WINIT_UNIX_BACKEND = 'x11'
-WINIT_X11_SCALE_FACTOR = "1.0"
 # 窗口设置
 [window]
-# 窗口标题
-# title= Alacritty
-# 是否允许终端应用更改窗口标题
-dynamic_title = true
-  # 窗口大小
-dimensions = { columns= 140, lines= 40 }
-# startup_mode = Maximized
-# 窗口内边距
-padding = { x = 0, y=  0 }
-# 将终端内容平均分配给 padding
 dynamic_padding = true
-# 窗口位置（根据屏幕像素来调节）
-# 若想水平居中，就先测量出窗体的宽度
-# 然后 桌面宽度 /2 - 窗体宽度 / 2
-# 垂直居中同理
-# 下面是 2560 * 1080 的设置值
-# position:
-#   x: 730
-#   y: 80
+dynamic_title = true
 
-# 窗口标题栏和边框是否显示（full 或 None）
-# decorations = None
+[window.dimensions]
+columns = 140
+lines = 40
 
-# 窗口透明度
-# opacity = 0.6
-    
+[window.padding]
+x = 0
+y = 0
+
 # 滚动设置
 [scrolling]
-# 回滚缓冲区最大保存行数
 history = 10000
-# 一次回滚几行
 multiplier = 3
 
+# Kanagawa Alacritty Colors
+[colors.primary]
+background = "0x282727"
+foreground = "0xdcd7ba"
+[colors.selection]
+background = "0x2d4f67"
+foreground = "0xc8c093"
+[[colors.indexed_colors]]
+color = "0xffa066"
+index = 16
+[[colors.indexed_colors]]
+color = "0xff5d62"
+index = 17
+[colors.bright]
+black = "0x727169"
+blue = "0x7fb4ca"
+cyan = "0x7aa89f"
+green = "0x98bb6c"
+magenta = "0x938aa9"
+red = "0xe82424"
+white = "0xdcd7ba"
+yellow = "0xe6c384"
+[colors.normal]
+black = "0x090618"
+blue = "0x7e9cd8"
+cyan = "0x6a9589"
+green = "0x76946a"
+magenta = "0x957fb8"
+red = "0xc34043"
+white = "0xc8c093"
+yellow = "0xc0a36e"
+
+[cursor.style]
+shape = "Block"
+
+[env]
+TERM = "alacritty"
 
 # 字体设置
 [font]
-# 常规字体
-normal = { family = 'DroidSansMono Nerd Font Mono', style = 'Regular' }
-bold = { family = 'DroidSansMono Nerd Font Mono', style = 'Bold' }
-italic = { family = 'DroidSansMono Nerd Font Mono', style = 'Italic' }
-bold_italic = { family = 'DroidSansMono Nerd Font Mono', style = 'Bold Italic' }
-
-# 字大小
 size = 11.5
-
+[font.bold]
+family = "DroidSansMono Nerd Font Mono"
+style = "Bold"
+[font.bold_italic]
+family = "DroidSansMono Nerd Font Mono"
+style = "Bold Italic"
+[font.italic]
+family = "DroidSansMono Nerd Font Mono"
+style = "Italic"
+[font.normal]
+family = "DroidSansMono Nerd Font Mono"
+style = "Regular"
 # 字符间距
-offset = { x = -1, y = 0 }
+[font.offset]
+x = -1
+y = 0
 
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
 
-# 选择相关
-[selection]
-# 语义单词分割符号
-semantic_escape_chars = ",│`|:\"' ()[]{}<>\t@="
-# 选中文本是否复制到系统剪切板
-save_to_clipboard = true
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
 
-# 光标相关
-[cursor]
-# 窗口未聚焦时光标变为空心
-unfocused_hollow = true
-[cursor.style]
-# 光标形状
-shape = 'Block'
-# 是否闪烁
-# blinking = 'Always',
-# 闪烁间隔
-# blink_interval = 200
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "T"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "Minimize"
+key = "M"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Backslash"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "V"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "FirstOccupied"
+key = "H"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Last"
+key = "L"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Alt"
 
 # 鼠标配置
 [mouse]
@@ -80,57 +128,6 @@ shape = 'Block'
 hide_when_typing = true
 
 
-# Kanagawa Alacritty Colors
-[colors]
-draw_bold_text_with_bright_colors = true
-indexed_colors = [
-    { index = 16, color = '0xffa066' },
-    { index = 17, color = '0xff5d62' }
-]
-[colors.primary]
-# background = '#1a1b26'
-background = '0x282727'
-foreground = '#c8c093'
-[colors.normal]
-black = '#1a1b26'
-red = '#ff5d62'
-green = '#98bb6c'
-yellow = '#e6c384'
-blue = '#7fb4ca'
-magenta = '#938aa9'
-cyan = '#7aa89f'
-white = '#c8c093'
-[colors.bright]
-black = '#727169'
-red = '#ff5d62'
-green = '#98bb6c'
-yellow = '#e6c384'
-blue = '#7fb4ca'
-magenta = '#938aa9'
-cyan = '#7aa89f'
-white = '#c8c093'
-[colors.selection]
-background = '#2d4f67'
-foreground = '#c8c093'
-
-# 键绑定
-[keyboard]
-bindings = [
-  # 复制
-  { key = 'C', mods = 'Control|Shift', action = 'Copy' },
-  # 粘贴
-  { key = 'V', mods = 'Control|Shift', action = 'Paste' },
-  # 新终端
-  { key = 'T', mods = 'Control|Alt', action = 'SpawnNewInstance' },
-  # 最小化
-  { key = 'M', mods = 'Control|Alt', action = 'Minimize' },
-  # 清空选择
-  { key = 'Backslash', mods = 'Control|Alt', action = 'ClearSelection' },
-  # 开启 vi 模式
-  { key = 'V', mods = 'Control|Alt', action = 'ToggleViMode' },
-  # 到行首
-  { key = 'H', mods = 'Shift', mode = 'Vi', action = 'FirstOccupied' },
-  # 到行尾
-  { key = 'L', mods = 'Shift', mode = 'Vi', action = 'Last' },
-  { key = 'N', mods = 'Alt', action = 'CreateNewWindow' }
-]
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t@="
