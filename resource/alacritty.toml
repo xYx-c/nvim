@@ -57,7 +57,7 @@ TERM = "alacritty"
 
 # 字体设置
 [font]
-size = 13
+size = 11.75
 [font.bold]
 family = "DroidSansM Nerd Font Mono"
 style = "Bold"

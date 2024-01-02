@@ -15,7 +15,7 @@ require("mason-lspconfig").setup({
         "cssls",
         "html",
         "lua_ls",
-        -- "sqlls"
+        "sqlls"
     },
 })
 
@@ -33,7 +33,7 @@ local M = {
         jsonls = require("conf.lsp.jsonls"),
         cssls = require("conf.lsp.cssls"),
         html = require("conf.lsp.html"),
-        -- sqlls = require("conf.lsp.sqlls"),
+        sqlls = require("conf.lsp.sqlls"),
     },
     opts = {
         root_dir = function()
