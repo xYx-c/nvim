@@ -4,9 +4,9 @@
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "💡", texthl = "DiagnosticSignHint" })
 -- 设置断点样式
-vim.fn.sign_define("DapBreakpoint", { text = "⚫", texthl = "TodoFgFIX", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "TodoFgFIX", linehl = "", numhl = "" })
 ---------------------------------------------------------------------------
 -- Basic Setting
 ---------------------------------------------------------------------------

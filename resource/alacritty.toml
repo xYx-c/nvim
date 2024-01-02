@@ -58,18 +58,9 @@ TERM = "alacritty"
 # 字体设置
 [font]
 size = 11.75
-[font.bold]
-family = "DroidSansM Nerd Font Mono"
-style = "Bold"
-[font.bold_italic]
-family = "DroidSansM Nerd Font Mono"
-style = "Bold Italic"
-[font.italic]
-family = "DroidSansM Nerd Font Mono"
-style = "Italic"
 [font.normal]
-family = "DroidSansM Nerd Font Mono"
-style = "Regular"
+family = "JetBrainsMono Nerd Font"
+# style = "Regular"
 # 字符间距
 [font.offset]
 x = -1
