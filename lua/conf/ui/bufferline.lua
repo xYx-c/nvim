@@ -86,13 +86,20 @@ require("bufferline").setup({
         --     end
         --     return " " .. icon .. count
         -- end
-        diagnostics_indicator = function(_, _, diagnostics_dict, _)
-            local s = " "
-            for e, n in pairs(diagnostics_dict) do
-                local sym = e == "error" and "" or (e == "warning" and "" or "")
-                s = s .. n .. sym
+        -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        --     local s = " "
+        --     for e, n in pairs(diagnostics_dict) do
+        --         local sym = e == "error" and " "
+        --             or (e == "warning" and " " or "")
+        --         s = s .. n .. sym
+        --     end
+        --     return s
+        -- end
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            if context.buffer:current() then
+                return ''
             end
-            return s
+            return ''
         end
     }
 }
