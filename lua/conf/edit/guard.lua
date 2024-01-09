@@ -2,7 +2,7 @@
 
 local ft = require('guard.filetype')
 
-ft('vue,scss,css,less,json,markdown,yaml'):fmt({
+ft('vue,scss,css,less,json,markdown,yaml,typescriptreact,javascriptreact'):fmt({
     cmd = 'prettier',
     args = {
         "--print-width=120",

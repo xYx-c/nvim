@@ -35,10 +35,12 @@ local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 -- luasnip.snippets = require("luasnip_snippets").load_snippets()
 require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/snippets/luasnip" } })
-require("luasnip.loaders.from_vscode").lazy_load({ paths = {
-    "~/.config/nvim/snippets/vsnip",
-    -- "~/.local/share/nvim/site/pack/packer/start/friendly-snippets"
-} })
+require("luasnip.loaders.from_vscode").lazy_load({
+    paths = {
+        "~/.config/nvim/snippets/vsnip",
+        -- "~/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+    }
+})
 -- 自动补充括号
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
@@ -66,6 +68,7 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
+        { name = "cmp-dbee" },
         -- { name = "spell" },
         -- { name = 'buffer' },
         -- {name = "cmp_tabnine"}
@@ -129,10 +132,10 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            -- elseif luasnip.expand_or_locally_jumpable() then
-            --     luasnip.expand_or_jump()
-            -- elseif has_words_before() then
-            --     cmp.complete({})
+                -- elseif luasnip.expand_or_locally_jumpable() then
+                --     luasnip.expand_or_jump()
+                -- elseif has_words_before() then
+                --     cmp.complete({})
             else
                 fallback()
             end

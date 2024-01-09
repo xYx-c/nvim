@@ -16,6 +16,7 @@ local on_attach = function(client, bufnr)
     -- Mappings.
     require('keybinds').lsp_maps(client, bufnr)
 
+
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     -- Java specific
@@ -31,6 +32,8 @@ local on_attach = function(client, bufnr)
     require('jdtls').setup_dap()
 
     require('jdtls.dap').setup_dap_main_class_configs()
+
+    require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 local bundles = {

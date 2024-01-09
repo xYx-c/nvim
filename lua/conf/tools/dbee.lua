@@ -15,8 +15,8 @@ require("dbee").setup({
     },
     editor = {
         mappings = {
-            run_selection = { key = "<CR>", mode = "v" },
-            run_file = { key = "BB", mode = "n" },
+            { key = "<CR>", mode = "v", action = "run_selection" },
+            { key = "BB",   mode = "n", action = "run_file" },
         },
     },
 })

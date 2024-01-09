@@ -15,14 +15,14 @@ require("mason-lspconfig").setup({
         "cssls",
         "html",
         "lua_ls",
-        "sqlls"
+        -- "sqls"
     },
 })
 
 local lspconfig = require('lspconfig')
 local M = {
     servers = {
-        rust_analyzer = require("conf.lsp.rust-tools"),
+        -- rust_analyzer = require("conf.lsp.rust-tools"),
         -- jdtls = require("conf.lsp.jdtls"),
         clangd = require("conf.lsp.clangd"),
         gopls = require("conf.lsp.go"),
@@ -33,7 +33,7 @@ local M = {
         jsonls = require("conf.lsp.jsonls"),
         cssls = require("conf.lsp.cssls"),
         html = require("conf.lsp.html"),
-        sqlls = require("conf.lsp.sqlls"),
+        -- sqls = require("conf.lsp.sqls"),
     },
     opts = {
         root_dir = function()
@@ -48,22 +48,22 @@ local M = {
 
 for server_name, server_options in pairs(M.servers) do
     local opts = vim.tbl_deep_extend("force", M.opts, server_options)
-    if server_name == "rust_analyzer" then
-        require('rust-tools').setup {
-            server = opts,
-            dap = opts.dap,
-        }
-        -- elseif server_name == "jdtls" then
-        --     require('jdtls').start_or_attach(opts)
-    else
-        opts.on_attach = function(client, bufnr)
-            M.opts.on_attach(client, bufnr)
-            if server_options.on_attach then
-                server_options.on_attach(client, bufnr)
-            end
+    -- if server_name == "rust_analyzer" then
+    --     require('rust-tools').setup {
+    --         server = opts,
+    --         dap = opts.dap,
+    --     }
+    --     -- elseif server_name == "jdtls" then
+    --     --     require('jdtls').start_or_attach(opts)
+    -- else
+    -- end
+    opts.on_attach = function(client, bufnr)
+        M.opts.on_attach(client, bufnr)
+        if server_options.on_attach then
+            server_options.on_attach(client, bufnr)
         end
-        lspconfig[server_name].setup(opts)
     end
+    lspconfig[server_name].setup(opts)
 end
 
 return M

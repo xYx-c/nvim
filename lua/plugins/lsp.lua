@@ -2,10 +2,17 @@ return {
     -- sqls
     -- { 'nanotee/sqls.nvim' },
     -- rust
+    { 'lvimuser/lsp-inlayhints.nvim', config = function() require("lsp-inlayhints").setup() end },
     {
-        "simrat39/rust-tools.nvim",
-        config = function() require("conf.lsp.rust-tools") end
+        'mrcjkb/rustaceanvim',
+        version = '*',
+        config = function() require("conf.lsp.rustacean") end,
+        ft = { 'rust' },
     },
+    -- {
+    --     "simrat39/rust-tools.nvim",
+    --     config = function() require("conf.lsp.rust-tools") end
+    -- },
     {
         'saecki/crates.nvim',
         event = { "BufRead Cargo.toml" },

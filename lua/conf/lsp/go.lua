@@ -8,6 +8,10 @@
 --     dap_debug_gui = true,
 -- })
 
-local opts = {}
+local opts = {
+    on_attach = function(client, bufnr)
+        require("lsp-inlayhints").on_attach(client, bufnr)
+    end,
+}
 
 return opts
