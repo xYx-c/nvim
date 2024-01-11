@@ -1,16 +1,23 @@
 return {
     -- 界面美化
     {
+        "MunifTanjim/nui.nvim",
+        priority = 3,
+    },
+    {
         "folke/noice.nvim",
         dependencies = {
-            "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
         config = function() require("conf.ui.noice") end,
     },
     -- 主题
     -- { "eddyekofo94/gruvbox-flat.nvim", config = function() require("conf.ui.gruvbox-flat") end },
-    { "rebelot/kanagawa.nvim", config = function() require("conf.ui.kanagawa") end },
+    {
+        "rebelot/kanagawa.nvim",
+        priority = 999,
+        config = function() require("conf.ui.kanagawa") end
+    },
     -- 状态栏
     {
         'nvim-lualine/lualine.nvim',
@@ -49,9 +56,9 @@ return {
         config = function() require("conf.ui.nvim-treesitter") end,
     },
     -- 缩进线
-    -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     config = function() require("conf.ui.indent-blankline") end
-    -- }
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function() require("conf.ui.indent-blankline") end
+    }
 
 }
