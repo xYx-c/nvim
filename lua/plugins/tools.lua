@@ -12,6 +12,7 @@ return {
     -- DB客户端
     {
         "kndndrj/nvim-dbee",
+        version = "*",
         dependencies = { "MunifTanjim/nui.nvim" },
         build = function() require("dbee").install() end,
         config = function() require("conf.tools.dbee") end

@@ -56,9 +56,9 @@ return {
         config = function() require("conf.ui.nvim-treesitter") end,
     },
     -- 缩进线
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function() require("conf.ui.indent-blankline") end
-    }
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     config = function() require("conf.ui.indent-blankline") end
+    -- }
 
 }

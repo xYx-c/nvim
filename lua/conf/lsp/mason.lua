@@ -13,6 +13,7 @@ require("mason-lspconfig").setup({
         "tsserver",
         "jsonls",
         "cssls",
+        "tailwindcss",
         "html",
         "lua_ls",
         -- "sqls"
@@ -32,6 +33,7 @@ local M = {
         tsserver = require("conf.lsp.tsserver"),
         jsonls = require("conf.lsp.jsonls"),
         cssls = require("conf.lsp.cssls"),
+        tailwindcss = require("conf.lsp.tailwindcss"),
         html = require("conf.lsp.html"),
         -- sqls = require("conf.lsp.sqls"),
     },
