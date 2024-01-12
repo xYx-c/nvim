@@ -50,15 +50,6 @@ local M = {
 
 for server_name, server_options in pairs(M.servers) do
     local opts = vim.tbl_deep_extend("force", M.opts, server_options)
-    -- if server_name == "rust_analyzer" then
-    --     require('rust-tools').setup {
-    --         server = opts,
-    --         dap = opts.dap,
-    --     }
-    --     -- elseif server_name == "jdtls" then
-    --     --     require('jdtls').start_or_attach(opts)
-    -- else
-    -- end
     opts.on_attach = function(client, bufnr)
         M.opts.on_attach(client, bufnr)
         if server_options.on_attach then
