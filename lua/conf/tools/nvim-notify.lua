@@ -14,13 +14,10 @@ local notify_opts = {
     -- timeout = 5000
 }
 
--- 如果是透明背景，则需要设置背景色
--- if vim.u.background_transparency then
---     notify_opts.background_colour = "#ffffff"
--- end
-
 vim.notify = require("notify")
 vim.notify.setup(notify_opts)
+
+
 -- 使用案例：
 -- 信息、级别、标题
 -- 级别有：info、warn、error、debug、trace

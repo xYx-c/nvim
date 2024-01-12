@@ -1,6 +1,12 @@
 -- https://github.com/folke/noice.nvim
 
 require("noice").setup({
+    routes = {
+        {
+            filter = { event = "notify", find = "No information available" },
+            opts = { skip = true },
+        },
+    },
     messages = {
         view = "mini",
     },
@@ -26,11 +32,11 @@ require("noice").setup({
         progress = {
             -- enabled = false,
             format = {
-                { "{spinner} ", hl_group = "NoiceLspProgressSpinner" },
+                { "{spinner} ",               hl_group = "NoiceLspProgressSpinner" },
                 "{data.progress.percentage}% ",
-                { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+                { "{data.progress.title} ",   hl_group = "NoiceLspProgressTitle" },
                 { "{data.progress.message} ", hl_group = "NoiceLspProgressTitle" },
-                { "{data.progress.client}", hl_group = "NoiceLspProgressClient" },
+                { "{data.progress.client}",   hl_group = "NoiceLspProgressClient" },
             },
             format_done = {
                 { "✔ ", hl_group = "NoiceLspProgressSpinner" },
@@ -45,9 +51,9 @@ require("noice").setup({
         }
     },
     presets = {
-        command_palette = true, -- position the cmdline and popupmenu together
+        command_palette = true,       -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
+        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true,        -- add a border to hover docs and signature help
     },
 })

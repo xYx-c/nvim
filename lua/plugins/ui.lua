@@ -6,9 +6,6 @@ return {
     },
     {
         "folke/noice.nvim",
-        dependencies = {
-            "rcarriga/nvim-notify",
-        },
         config = function() require("conf.ui.noice") end,
     },
     -- 主题
