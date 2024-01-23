@@ -35,7 +35,7 @@ local M = {
         cssls = require("conf.lsp.cssls"),
         tailwindcss = require("conf.lsp.tailwindcss"),
         html = require("conf.lsp.html"),
-        -- sqls = require("conf.lsp.sqls"),
+        sqls = require("conf.lsp.sqls"),
     },
     opts = {
         root_dir = function()

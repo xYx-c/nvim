@@ -184,11 +184,13 @@ vim.keybinds.gmap("n", "Q",
 -- search-file or replace-file
 ---------------------------------------------------------------------------
 -- 全项目替换
-vim.keybinds.gmap("n", "T", "<cmd>lua require('spectre').open()<CR>", vim.keybinds.opts)
+vim.keymap.set("n", "<c-t>", "<cmd>lua require'rip'.replace_in_git()<CR>", vim.keybinds.opts)
+-- vim.keymap.set("n", "T", "<cmd>lua require'rip'.replace_in_project()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "T", "<cmd>lua require('spectre').open()<CR>", vim.keybinds.opts)
 -- 只替换当前文件
-vim.keybinds.gmap("n", "<c-t>", "viw:lua require('spectre').open_file_search()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<c-t>", "viw:lua require('spectre').open_file_search()<CR>", vim.keybinds.opts)
 -- 全项目中搜索当前单词
-vim.keybinds.gmap("n", "R", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "R", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", vim.keybinds.opts)
 -- 查找文件
 vim.keybinds.gmap("n", "F", "<cmd>Telescope find_files theme=dropdown<CR>", vim.keybinds.opts)
 -- 查找文字
@@ -246,6 +248,6 @@ vim.keymap.set("n", "t", "<cmd>Pantran source=zh target=en<CR>", vim.keybinds.op
 ---------------------------------------------------------------------------
 -- database
 ---------------------------------------------------------------------------
-vim.keymap.set({ 'n', 'x' }, "<C-e>", "<cmd>lua require('dbee').toggle()<CR>", vim.keybinds.opts)
+-- vim.keymap.set({ 'n', 'x' }, "<C-e>", "<cmd>lua require('dbee').toggle()<CR>", vim.keybinds.opts)
 
 return M

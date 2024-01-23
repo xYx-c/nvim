@@ -132,3 +132,4 @@ telescope.setup({
 telescope.load_extension("ui-select")
 telescope.load_extension("notify")
 telescope.load_extension("noice")
+-- telescope.load_extension('media_files')

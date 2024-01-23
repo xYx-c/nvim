@@ -10,13 +10,13 @@ return {
         config = function() require("conf.tools.gitsigns") end
     },
     -- DB客户端
-    {
-        "kndndrj/nvim-dbee",
-        version = "*",
-        dependencies = { "MunifTanjim/nui.nvim" },
-        build = function() require("dbee").install() end,
-        config = function() require("conf.tools.dbee") end
-    },
+    -- {
+    --     "kndndrj/nvim-dbee",
+    --     version = "*",
+    --     dependencies = { "MunifTanjim/nui.nvim" },
+    --     build = function() require("dbee").install() end,
+    --     config = function() require("conf.tools.dbee") end
+    -- },
     -- 内置终端增强
     {
         "akinsho/toggleterm.nvim",
@@ -42,6 +42,7 @@ return {
             "BurntSushi/ripgrep",                      -- 文字查找
             "sharkdp/fd",                              -- 文件查找
             "nvim-telescope/telescope-ui-select.nvim", -- UI
+            -- "nvim-telescope/telescope-media-files.nvim",
             -- 'nvim-lua/popup.nvim',
             -- -- 预览媒体文件
             -- 'nvim-telescope/telescope-media-files.nvim'

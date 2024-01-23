@@ -4,5 +4,4 @@ return {
         "react", "vue", "rust",
         "javascriptreact", "typescriptreact"
     },
-    on_attach = function() end
 }
