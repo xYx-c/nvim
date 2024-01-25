@@ -16,14 +16,13 @@ require("mason-lspconfig").setup({
         "tailwindcss",
         "html",
         "lua_ls",
-        -- "sqls"
+        "sqls"
     },
 })
 
 local lspconfig = require('lspconfig')
 local M = {
     servers = {
-        -- rust_analyzer = require("conf.lsp.rust-tools"),
         -- jdtls = require("conf.lsp.jdtls"),
         clangd = require("conf.lsp.clangd"),
         gopls = require("conf.lsp.go"),

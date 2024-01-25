@@ -1,7 +1,4 @@
 return {
-    -- 启动加速
-    -- https://github.com/lewis6991/impatient.nvim
-    -- { 'lewis6991/impatient.nvim', config = function() require("impatient") end },
     -- Lua 开发模块
     "nvim-lua/plenary.nvim",
     -- LSP 基础服务
