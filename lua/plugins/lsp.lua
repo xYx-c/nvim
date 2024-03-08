@@ -1,8 +1,4 @@
 return {
-    {
-        'lvimuser/lsp-inlayhints.nvim',
-        config = function() require("conf.lsp.lsp-inlayhints") end
-    },
     -- sqls
     { 'nanotee/sqls.nvim' },
     -- rust
