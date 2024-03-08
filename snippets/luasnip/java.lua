@@ -35,8 +35,8 @@ return {
         end, {}),
         t({ "", "", "" }),
         t({ "/**", "" }),
-        t({ " * @author: xYx", "" }),
-        t({ " * @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
+        t({ " * @Author: xYx", "" }),
+        t({ " * @Date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
         t({ " */", "" }),
         -- t({ "public class " .. file_base_name .. " {" }),
         f(function (_, snip)
@@ -52,8 +52,9 @@ return {
         end, {}),
         t({ "", "", "" }),
         t({ "/**", "" }),
-        t({ "* @author: xYx", "" }),
-        t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
+        t({ "* @Author: xYx", "" }),
+        t({ "* @Date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
+        -- t({ "* @email: xYx.c@outlook.com", "" }),
         t({ "*/", "" }),
         -- t({ "public interface " .. file_base_name .. " {" }),
         f(function (_, snip)
@@ -69,8 +70,8 @@ return {
         end, {}),
         t({ "", "", "" }),
         t({ "/**", "" }),
-        t({ "* @author: xYx", "" }),
-        t({ "* @date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
+        t({ "* @Author: xYx", "" }),
+        t({ "* @Date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
         t({ "*/", "" }),
         -- t({ "public enum " .. file_base_name .. " {" }),
         f(function (_, snip)

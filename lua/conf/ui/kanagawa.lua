@@ -25,7 +25,7 @@ require('kanagawa').setup({
             -- 背景
             sumiInk3 = '#282727',
             sumiInk4 = '#282727',
-            sumiInk5 = '#2B2A2A',
+            sumiInk5 = '#2F2D2D',
             -- waveBlue1 = "#323235",
             -- waveBlue2 = "#223249",
             dragonBlack4 = '#181616',

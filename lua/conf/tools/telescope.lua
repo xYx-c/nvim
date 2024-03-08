@@ -28,6 +28,10 @@ table.insert(vimgrep_arguments, "!**/.settings/*")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.svn/*")
 table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/Cargo.lock")
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/yarn.lock")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**.class")
 
 local previewers = require("telescope.previewers")
@@ -92,6 +96,8 @@ telescope.setup({
                 "--glob", "!**/node_modules/*",
                 "--glob", "!**/.jdtls_data/*",
                 "--glob", "!**/.settings/*",
+                "--glob", "!**/yarn.lock",
+                "--glob", "!**/Cargo.lock",
                 "--glob", "!**.class",
             },
         }

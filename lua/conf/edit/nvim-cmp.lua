@@ -85,20 +85,20 @@ cmp.setup({
         })
     },
     -- 对补全建议排序
-    -- sorting = {
-    --     comparators = {
-    --         cmp.config.compare.offset,
-    --         cmp.config.compare.exact,
-    --         cmp.config.compare.score,
-    --         cmp.config.compare.recently_used,
-    --         -- require("cmp-under-comparator").under,
-    --         -- require("cmp_tabnine.compare"),
-    --         cmp.config.compare.kind,
-    --         cmp.config.compare.sort_text,
-    --         cmp.config.compare.length,
-    --         cmp.config.compare.order
-    --     }
-    -- },
+    sorting = {
+        comparators = {
+            cmp.config.compare.sort_text,
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            -- require("cmp-under-comparator").under,
+            -- require("cmp_tabnine.compare"),
+            cmp.config.compare.kind,
+            cmp.config.compare.length,
+            cmp.config.compare.order
+        }
+    },
     -- 绑定补全相关的按键
     mapping = {
         -- 上一个
