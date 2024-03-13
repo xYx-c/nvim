@@ -32,8 +32,6 @@ local on_attach = function(client, bufnr)
     require('jdtls').setup_dap()
 
     require('jdtls.dap').setup_dap_main_class_configs()
-
-    require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 local bundles = {
