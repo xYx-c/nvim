@@ -6,13 +6,13 @@ return {
     --     config = function() require("conf.tools.ChatGPT") end,
     -- },
     -- DB客户端
-    -- {
-    --     "kndndrj/nvim-dbee",
-    --     version = "*",
-    --     dependencies = { "MunifTanjim/nui.nvim" },
-    --     build = function() require("dbee").install() end,
-    --     config = function() require("conf.tools.dbee") end
-    -- },
+    {
+        "kndndrj/nvim-dbee",
+        version = "*",
+        dependencies = { "MunifTanjim/nui.nvim" },
+        build = function() require("dbee").install() end,
+        config = function() require("conf.tools.dbee") end
+    },
     -- 内置终端增强
     {
         "akinsho/toggleterm.nvim",
@@ -21,7 +21,9 @@ return {
     },
     -- http客户端
     {
-        "NTBBloodbath/rest.nvim",
+        "rest-nvim/rest.nvim",
+        ft = "http",
+        -- dependencies = { "luarocks.nvim" },
         config = function() require("conf.tools.rest") end
     },
     -- 消息提示
@@ -56,6 +58,8 @@ return {
         dependencies = {
             -- 为代码调试提供 UI 界面
             "rcarriga/nvim-dap-ui",
+            -- 异步库
+            "nvim-neotest/nvim-nio",
             -- 为代码调试提供内联文本
             "theHamsta/nvim-dap-virtual-text",
         },

@@ -1,6 +1,6 @@
 return {
     -- sqls
-    { 'nanotee/sqls.nvim' },
+    -- { 'nanotee/sqls.nvim' },
     -- rust
     {
         'mrcjkb/rustaceanvim',

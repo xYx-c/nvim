@@ -88,9 +88,9 @@ cmp.setup({
     sorting = {
         comparators = {
             cmp.config.compare.sort_text,
+            cmp.config.compare.score,
             cmp.config.compare.offset,
             cmp.config.compare.exact,
-            cmp.config.compare.score,
             cmp.config.compare.recently_used,
             -- require("cmp-under-comparator").under,
             -- require("cmp_tabnine.compare"),
@@ -148,7 +148,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s", "c" }),
+        end, { "i", "s" }),
     }
 })
 -- Keymaps for Luasnip
