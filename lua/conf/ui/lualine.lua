@@ -2,12 +2,13 @@
 local colors = {
     blue   = '#80a0ff',
     cyan   = '#6A9589',
-    black  = '#202020',
+    -- black  = '#3c3836',
+    black  = '#32302f',
     white  = '#c6c6c6',
     red    = '#ff5189',
     -- violet = '#d183e8',
     violet = '#957FB8',
-    grey   = '#303030',
+    grey   = '#504945',
 }
 
 local bubbles_theme = {
@@ -25,11 +26,10 @@ local bubbles_theme = {
         c = { fg = colors.black, bg = colors.black },
     },
 }
--- local gruvbox = require 'lualine.themes.gruvbox'
 
 require('lualine').setup {
     options = {
-        theme = 'auto',
+        theme = bubbles_theme,
         component_separators = '|',
         section_separators = { left = '', right = '' },
         globalstatus = true,
@@ -45,8 +45,7 @@ require('lualine').setup {
             'branch',
             'diagnostics'
         },
-        -- lualine_c = { 'fileformat' },
-        lualine_c = { '' },
+        lualine_c = { 'fileformat' },
         lualine_x = {},
         lualine_y = { 'encoding',
             {
