@@ -14,10 +14,10 @@ return {
         config = function() require('crates').setup() end,
     },
     -- clangd
-    {
-        "p00f/clangd_extensions.nvim",
-        config = function() require("conf.lsp.clangd") end
-    },
+    -- {
+    --     "p00f/clangd_extensions.nvim",
+    --     config = function() require("conf.lsp.clangd") end
+    -- },
     -- java
     { "mfussenegger/nvim-jdtls", },
     -- go
