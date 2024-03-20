@@ -9,12 +9,8 @@ return {
         config = function() require("conf.ui.noice") end,
     },
     -- 主题
-    -- { "eddyekofo94/gruvbox-flat.nvim", config = function() require("conf.ui.gruvbox-flat") end },
-    {
-        "rebelot/kanagawa.nvim",
-        priority = 999,
-        config = function() require("conf.ui.kanagawa") end
-    },
+    { "ellisonleao/gruvbox.nvim", priority = 999, config = function() require("conf.ui.gruvbox") end },
+    -- { "rebelot/kanagawa.nvim",    priority = 999, config = function() require("conf.ui.kanagawa") end },
     -- 状态栏
     {
         'nvim-lualine/lualine.nvim',

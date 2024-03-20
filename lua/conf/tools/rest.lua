@@ -26,8 +26,22 @@ require("rest-nvim").setup({
         formatters = {
             json = "jq",
             html = function(body)
-                return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-            end
+                if vim.fn.executable("tidy") == 0 then
+                    return body, { found = false, name = "tidy" }
+                end
+                local fmt_body = vim.fn.system({
+                    "tidy",
+                    "-i",
+                    "-q",
+                    "--tidy-mark", "no",
+                    "--show-body-only", "auto",
+                    "--show-errors", "0",
+                    "--show-warnings", "0",
+                    "-",
+                }, body):gsub("\n$", "")
+
+                return fmt_body, { found = true, name = "tidy" }
+            end,
         },
     },
     -- Jump to request line on run

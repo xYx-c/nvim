@@ -25,17 +25,19 @@ local bubbles_theme = {
         c = { fg = colors.black, bg = colors.black },
     },
 }
+-- local gruvbox = require 'lualine.themes.gruvbox'
 
 require('lualine').setup {
     options = {
-        theme = bubbles_theme,
+        theme = 'auto',
         component_separators = '|',
         section_separators = { left = '', right = '' },
         globalstatus = true,
     },
     sections = {
         lualine_a = {
-            { 'mode', separator = { left = '' }, right_padding = 2 },
+            -- { 'mode', separator = { left = '' }, right_padding = 2 },
+            { 'mode', right_padding = 2 },
         },
         lualine_b = {
             'filename',
@@ -43,7 +45,8 @@ require('lualine').setup {
             'branch',
             'diagnostics'
         },
-        lualine_c = { 'fileformat' },
+        -- lualine_c = { 'fileformat' },
+        lualine_c = { '' },
         lualine_x = {},
         lualine_y = { 'encoding',
             {
@@ -65,7 +68,8 @@ require('lualine').setup {
             'progress',
         },
         lualine_z = {
-            { 'location', separator = { right = '' }, left_padding = 2 },
+            -- { 'location', separator = { right = '' }, left_padding = 2 },
+            { 'location', left_padding = 2 },
         },
     },
     inactive_sections = {

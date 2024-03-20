@@ -23,7 +23,7 @@ return {
     {
         "rest-nvim/rest.nvim",
         ft = "http",
-        -- dependencies = { "luarocks.nvim" },
+        version = "^1",
         config = function() require("conf.tools.rest") end
     },
     -- 消息提示
