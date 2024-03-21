@@ -23,17 +23,16 @@ require("mason-lspconfig").setup({
 local lspconfig = require('lspconfig')
 local M = {
     servers = {
-        -- jdtls = require("conf.lsp.jdtls"),
         clangd = require("conf.lsp.clangd"),
         gopls = require("conf.lsp.go"),
         lua_ls = require("conf.lsp.sumneko_lua"),
-        pyright = require("conf.lsp.pyright"),
-        volar = require("conf.lsp.volar"),
         tsserver = require("conf.lsp.tsserver"),
-        jsonls = require("conf.lsp.jsonls"),
         cssls = require("conf.lsp.cssls"),
         tailwindcss = require("conf.lsp.tailwindcss"),
         html = require("conf.lsp.html"),
+        jsonls = {},
+        pyright = {},
+        -- jdtls = require("conf.lsp.jdtls"),
         -- sqls = require("conf.lsp.sqls"),
     },
     opts = {

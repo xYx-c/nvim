@@ -72,7 +72,6 @@ return {
             -- { "hrsh7th/cmp-vsnip" }, -- 适用于 vsnip 的代码片段源
             -- { "f3fora/cmp-spell" }, -- 拼写建议
             -- { "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
-            -- {"tzachar/cmp-tabnine", run = "./install.sh"} -- tabnine 源,提供基于 AI 的智能补全
         },
         config = function() require("conf.edit.nvim-cmp") end
     },
