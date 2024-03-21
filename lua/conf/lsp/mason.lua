@@ -30,8 +30,9 @@ local M = {
         cssls = require("conf.lsp.cssls"),
         tailwindcss = require("conf.lsp.tailwindcss"),
         html = require("conf.lsp.html"),
-        jsonls = {},
-        pyright = {},
+        volar = require("conf.lsp.volar"),
+        jsonls = require("conf.lsp.jsonls"),
+        pyright = require("conf.lsp.pyright"),
         -- jdtls = require("conf.lsp.jdtls"),
         -- sqls = require("conf.lsp.sqls"),
     },
@@ -47,7 +48,7 @@ local M = {
 }
 
 for server_name, server_options in pairs(M.servers) do
-    local opts = vim.tbl_deep_extend("force", M.opts, server_options)
+    local opts = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), M.opts, server_options)
     opts.on_attach = function(client, bufnr)
         M.opts.on_attach(client, bufnr)
         if server_options.on_attach then

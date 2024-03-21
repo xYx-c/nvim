@@ -8,11 +8,11 @@ local opts = {
             {
                 name = '@vue/typescript-plugin',
                 location = ts_plugin_path,
-                languages = { "javascript", "typescript", "vue" },
+                languages = { "vue" },
             },
         },
     },
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 }
 
 return opts

@@ -87,16 +87,14 @@ cmp.setup({
     -- 对补全建议排序
     sorting = {
         comparators = {
-            cmp.config.compare.sort_text,
-            cmp.config.compare.exact,
-            cmp.config.compare.recently_used,
-            cmp.config.compare.kind,
-            cmp.config.compare.score,
             cmp.config.compare.offset,
-            -- require("cmp-under-comparator").under,
-            -- require("cmp_tabnine.compare"),
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            -- require "cmp-under-comparator".under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
             cmp.config.compare.length,
-            cmp.config.compare.order
+            cmp.config.compare.order,
         }
     },
     -- 绑定补全相关的按键

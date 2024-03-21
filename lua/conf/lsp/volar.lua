@@ -1,13 +1,13 @@
 local opts = {
-    -- root_dir = function()
-    --     return vim.fn.getcwd()
-    -- end,
-    -- filetypes = { 'vue' },
+    filetypes = { 'vue' },
     cmd = { 'vue-language-server', '--stdio', '--max-oldspace-size=4096' },
     init_options = {
-        -- typescript = {
-        --     tsdk = vim.env.HOME .. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib"
-        -- },
+        vue = {
+            hybridMode = false,
+        },
+        typescript = {
+            tsdk = vim.env.HOME .. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib"
+        },
         -- documentFeatures = {},
         -- languageFeatures = {}
     },
