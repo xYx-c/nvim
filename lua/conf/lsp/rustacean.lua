@@ -21,8 +21,8 @@ vim.g.rustaceanvim = function()
         server = {
             on_attach = function(client, bufnr)
                 require("keybinds").lsp_maps(client, bufnr)
-                vim.cmd [[command! -buffer RustDebuggables execute "lua vim.cmd.RustLsp { 'debuggables', 'bang = true' }"]]
-                vim.cmd [[command! -buffer RustRunnables execute "lua vim.cmd.RustLsp { 'runnables', 'bang = true' }"]]
+                vim.cmd [[command! -buffer RustDebuggables execute "lua vim.cmd.RustLsp { 'debuggables', 'bang=true' }"]]
+                vim.cmd [[command! -buffer RustRunnables execute "lua vim.cmd.RustLsp { 'runnables', 'bang=true' }"]]
             end,
         },
         dap = {

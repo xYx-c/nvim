@@ -1,18 +1,17 @@
 -- https://github.com/mfussenegger/nvim-dap
 
 local dap = require("dap")
-dap.adapters.codelldb = require("conf.dap.lldb").adapter
+dap.adapters.codelldb = require("conf.dap.rust").adapter
 dap.adapters.delve = require("conf.dap.go").adapter
 dap.adapters.python = require("conf.dap.python").adapter
 
 -- 加载调试器配置
 local dap_config = {
-    rust = require("conf.dap.lldb"),
-    cpp = require("conf.dap.lldb"),
-    c = require("conf.dap.lldb"),
-    -- java = require("conf.dap.java"),
+    rust = require("conf.dap.rust"),
+    cc = require("conf.dap.cc"),
     go = require("conf.dap.go"),
     python = require("conf.dap.python"),
+    -- java = require("conf.dap.java"),
 }
 -- 设置调试器
 for dap_name, dap_options in pairs(dap_config) do
