@@ -8,13 +8,7 @@ local opts = {
         typescript = {
             tsdk = vim.env.HOME .. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib"
         },
-        -- documentFeatures = {},
-        -- languageFeatures = {}
     },
-    -- on_attach = function(client, bufnr)
-    --     client.server_capabilities.documentFormattingProvider = false
-    --     client.server_capabilities.documentRangeFormattingProvider = false
-    -- end
 }
 
 return opts;
