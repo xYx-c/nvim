@@ -8,7 +8,7 @@ return {
     -- DB客户端
     {
         "kndndrj/nvim-dbee",
-        version = "*",
+        -- version = "*",
         dependencies = { "MunifTanjim/nui.nvim" },
         build = function() require("dbee").install() end,
         config = function() require("conf.tools.dbee") end
@@ -56,14 +56,16 @@ return {
     {
         "mfussenegger/nvim-dap",
         dependencies = {
-            -- 为代码调试提供 UI 界面
-            "rcarriga/nvim-dap-ui",
-            -- 异步库
-            "nvim-neotest/nvim-nio",
             -- 为代码调试提供内联文本
             "theHamsta/nvim-dap-virtual-text",
         },
         config = function() require("conf.tools.nvim-dap") end
+    },
+    -- 为代码调试提供 UI 界面
+    {
+        "rcarriga/nvim-dap-ui",
+        version = "*",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
     },
     -- 翻译
     {

@@ -41,11 +41,10 @@ return {
     {
         'nvim-treesitter/nvim-treesitter',
         build = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
-        -- version = '0.7.2',
-        dependencies = {
-            -- 依赖nvim-treesitter的智能缩进
-            -- "yioneko/nvim-yati",
-        },
+        -- dependencies = {
+        --     -- 依赖nvim-treesitter的智能缩进
+        --     "yioneko/nvim-yati",
+        -- },
         config = function() require("conf.ui.nvim-treesitter") end,
     },
     -- 缩进线

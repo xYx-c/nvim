@@ -36,7 +36,7 @@ return {
         t({ "", "", "" }),
         t({ "/**", "" }),
         t({ " * @Author: xYx", "" }),
-        t({ " * @Date: " .. os.date("%Y-%m-%d %H:%M:%S"), "" }),
+        t({ " * @Date: " .. os.date("%Y-%m-%d %H:%M:%S", os.time()), "" }),
         t({ " */", "" }),
         -- t({ "public class " .. file_base_name .. " {" }),
         f(function (_, snip)

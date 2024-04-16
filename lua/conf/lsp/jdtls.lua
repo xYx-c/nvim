@@ -55,7 +55,7 @@ return {
         '-Dlog.protocol=true',
         '-Dlog.level=ALL',
         '-Xms1G',
-        '-Xmx2G',
+        -- '-Xmx2G',
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
