@@ -64,7 +64,7 @@ return {
     -- 为代码调试提供 UI 界面
     {
         "rcarriga/nvim-dap-ui",
-        version = "*",
+        -- version = "*",
         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
     },
     -- 翻译
