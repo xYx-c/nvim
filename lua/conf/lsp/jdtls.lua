@@ -27,6 +27,9 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<leader>de", "<Cmd>lua require('jdtls').extract_variable()<CR>", vim.keybinds.opts)
     buf_set_keymap("v", "<leader>dm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", vim.keybinds.opts)
 
+    vim.cmd [[command! -buffer JavaTests execute "lua require('jdtls').test_class()"]]
+    vim.cmd [[command! -buffer JavaTest execute "lua require('jdtls').test_nearest_method()"]]
+
     -- debug
     -- require('jdtls').setup_dap({ hotcodereplace = 'auto' })
     require('jdtls').setup_dap()
@@ -34,14 +37,14 @@ local on_attach = function(client, bufnr)
     require('jdtls.dap').setup_dap_main_class_configs()
 end
 
-local bundles = {
-    vim.fn.glob(home ..
-        "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
-};
-vim.list_extend(bundles,
-    vim.split(vim.fn.glob(home .. ".local/share/nvim/mason/packages/java-test/extension/server/*.jar"), "\n"))
+local mason_registry = require('mason-registry')
+local java_test_path = mason_registry.get_package('java-test'):get_install_path()
+local java_debug_adapter_path = mason_registry.get_package('java-debug-adapter'):get_install_path()
+local jdtls_path = mason_registry.get_package('jdtls'):get_install_path()
+local bundles = { vim.fn.glob(java_debug_adapter_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1), };
+vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
 
-local launcher = vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
 return {
     flags = { allow_incremental_sync = true },

@@ -2,7 +2,8 @@
 -- https://github.com/lvimuser/lsp-inlayhints.nvim
 
 vim.g.rustaceanvim = function()
-    local extension_path = vim.env.HOME .. '/.local/share/nvim/mason/packages/codelldb/extension/'
+    local mason_registry = require('mason-registry')
+    local extension_path = mason_registry.get_package('codelldb'):get_install_path() .. '/extension/'
     local codelldb_path = extension_path .. 'adapter/codelldb'
     local liblldb_path = extension_path .. 'lldb/lib/liblldb'
 
