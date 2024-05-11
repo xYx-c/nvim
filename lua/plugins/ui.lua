@@ -40,6 +40,7 @@ return {
     -- 代码高亮
     {
         'nvim-treesitter/nvim-treesitter',
+        priority = 3,
         build = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
         -- dependencies = {
         --     -- 依赖nvim-treesitter的智能缩进

@@ -5,9 +5,6 @@ local opts = {
         vue = {
             hybridMode = false,
         },
-        typescript = {
-            tsdk = vim.env.HOME .. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib"
-        },
     },
 }
 
