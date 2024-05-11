@@ -7,7 +7,7 @@ require("mason-lspconfig").setup({
         "rust_analyzer",
         "jdtls",
         "clangd",
-        "gopls",
+        -- "gopls",
         "pyright",
         "volar",
         "tsserver",
