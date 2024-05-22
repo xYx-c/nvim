@@ -39,7 +39,7 @@ for _, program in ipairs(rust_programs) do
         request = "launch",
         program = "${workspaceFolder}/target/debug/" .. program,
         cwd = "${workspaceFolder}",
-        stopOnEntry = true,
+        stopOnEntry = false,
     })
 end
 

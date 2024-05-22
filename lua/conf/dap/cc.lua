@@ -27,7 +27,7 @@ for _, program in ipairs(cc_programs) do
         request = "launch",
         program = "${workspaceFolder}/build/linux/x86_64/release/" .. program,
         cwd = "${workspaceFolder}",
-        stopOnEntry = true,
+        stopOnEntry = false,
     })
 end
 
