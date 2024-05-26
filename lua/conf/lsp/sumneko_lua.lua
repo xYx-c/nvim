@@ -5,6 +5,9 @@ table.insert(runtime_path, "lua/?/init.lua")
 local opts = {
     settings = {
         Lua = {
+            -- hint = {
+            --     enable = true, -- necessary
+            -- },
             runtime = {
                 version = "LuaJIT",
                 path = runtime_path

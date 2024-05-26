@@ -81,6 +81,12 @@ return {
     -- for a list of options
     settings = {
         java = {
+            inlayHints = {
+                parameterNames = {
+                    enabled = "all",
+                    exclusions = { "this" },
+                },
+            },
             configuration = {
                 runtimes = {
                     {
@@ -119,8 +125,8 @@ return {
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = bundles,
-        -- extendedClientCapabilities = {
-        --     progressReportProvider = true,
-        -- },
+        extendedClientCapabilities = {
+            progressReportProvider = true,
+        },
     },
 }

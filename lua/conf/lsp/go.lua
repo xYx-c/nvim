@@ -12,6 +12,17 @@ local opts = {
     -- on_attach = function(client, bufnr)
     --     require("lsp-inlayhints").on_attach(client, bufnr)
     -- end,
+    settings = {
+        hints = {
+            rangeVariableTypes = true,
+            parameterNames = true,
+            constantValues = true,
+            assignVariableTypes = true,
+            compositeLiteralFields = true,
+            compositeLiteralTypes = true,
+            functionTypeParameters = true,
+        },
+    }
 }
 
 return opts
