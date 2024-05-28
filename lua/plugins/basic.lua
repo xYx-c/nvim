@@ -32,10 +32,10 @@ return {
         config = function() require("conf.tools.auto-save") end
     },
     -- jk加速
-    { 'rainbowhxch/accelerated-jk.nvim' },
+    -- { 'rainbowhxch/accelerated-jk.nvim' },
     -- 按键逃脱
-    {
-        "max397574/better-escape.nvim",
-        config = function() require("better_escape").setup() end
-    },
+    -- {
+    --     "max397574/better-escape.nvim",
+    --     config = function() require("better_escape").setup() end
+    -- },
 }

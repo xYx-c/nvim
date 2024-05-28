@@ -41,10 +41,10 @@ return {
         config = function() require("conf.edit.nvim-autopairs") end
     },
     -- 自动闭合标签
-    {
-        "windwp/nvim-ts-autotag",
-        config = function() require("conf.edit.nvim-ts-autotag") end
-    },
+    -- {
+    --     "windwp/nvim-ts-autotag",
+    --     config = function() require("conf.edit.nvim-ts-autotag") end
+    -- },
     -- 代码注释
     {
         "numToStr/Comment.nvim",

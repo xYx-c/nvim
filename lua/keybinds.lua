@@ -15,8 +15,8 @@ local M = {}
 ---------------------------------------------------------------------------
 vim.keybinds.gmap("i", "jj", "<Esc>", vim.keybinds.opts)
 vim.keybinds.gmap("i", "jk", "<Esc>", vim.keybinds.opts)
-vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
-vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+-- vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+-- vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
 -- 剪切单词
 vim.keymap.set('v', 'x', 'iws', vim.keymap.opts)
 -- 分屏窗口移动
@@ -214,9 +214,10 @@ vim.keybinds.gmap("n", "<C-x>", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- http_client
 ---------------------------------------------------------------------------
-vim.keybinds.gmap("n", "<C-s>", "<Plug>RestNvim", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hh", "<Plug>RestNvimPreview", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hl", "<Plug>RestNvimLast", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<C-s>", "<Plug>RestNvim", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<leader>hh", "<Plug>RestNvimPreview", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<leader>hl", "<Plug>RestNvimLast", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-s>", "<cmd>HurlRunnerAt<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- terminal
 ---------------------------------------------------------------------------
