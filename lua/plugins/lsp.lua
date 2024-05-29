@@ -1,6 +1,4 @@
 return {
-    -- sqls
-    -- { 'nanotee/sqls.nvim' },
     -- rust
     {
         'mrcjkb/rustaceanvim',
@@ -22,10 +20,6 @@ return {
     -- java
     { "mfussenegger/nvim-jdtls", },
     -- go
-    -- {
-    --     "ray-x/go.nvim",
-    --     config = function() require("conf.lsp.go") end
-    -- },
     -- { 'crispgm/nvim-go', }
 
     -- python

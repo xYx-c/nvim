@@ -1,5 +1,5 @@
 -- https://github.com/mfussenegger/nvim-jdtls
-local java = os.getenv("JDK_HOME")
+local java = os.getenv("JDK21")
 local home = os.getenv("HOME")
 local system = io.popen("uname -s"):read("*l")
 if system == "Darwin" then
@@ -91,12 +91,16 @@ return {
                 runtimes = {
                     {
                         name = "JavaSE-1.8",
-                        path = os.getenv("JAVA_HOME"),
+                        path = os.getenv("JDK8"),
                         default = true,
                     },
                     {
                         name = "JavaSE-17",
-                        path = os.getenv("JDK_HOME")
+                        path = os.getenv("JDK17")
+                    },
+                    {
+                        name = "JavaSE-21",
+                        path = os.getenv("JDK21")
                     },
                 },
                 maven = {
