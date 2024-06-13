@@ -13,7 +13,6 @@ return {
     {
         'Exafunction/codeium.vim',
         event = 'BufEnter',
-        version = "*"
     },
     {
         'rareitems/printer.nvim',
