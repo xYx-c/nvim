@@ -91,7 +91,7 @@ return {
                 runtimes = {
                     {
                         name = "JavaSE-1.8",
-                        path = os.getenv("JDK8"),
+                        path = os.getenv("JAVA_HOME"),
                         default = true,
                     },
                     {
@@ -129,8 +129,8 @@ return {
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = bundles,
-        extendedClientCapabilities = {
-            progressReportProvider = true,
-        },
+        -- extendedClientCapabilities = {
+        --     progressReportProvider = true,
+        -- },
     },
 }

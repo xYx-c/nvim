@@ -4,7 +4,14 @@ return {
     -- LSP 基础服务
     {
         "neovim/nvim-lspconfig",
-        -- version = "*"
+        version = "*"
+    },
+    -- 嵌入提示
+    {
+        "MysticalDevil/inlay-hints.nvim",
+        event = "LspAttach",
+        dependencies = { "neovim/nvim-lspconfig" },
+        config = function() require("inlay-hints").setup() end
     },
     -- 图标插件
     'kyazdani42/nvim-web-devicons',

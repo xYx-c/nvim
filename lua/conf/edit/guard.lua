@@ -19,6 +19,8 @@ ft('vue,scss,css,less,json,markdown,yaml,typescriptreact,javascriptreact'):fmt({
     stdin = true,
 })
 
+ft('java'):fmt('lsp')
+
 require('guard').setup({
     -- the only options for the setup function
     fmt_on_save = false,

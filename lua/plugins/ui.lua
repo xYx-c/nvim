@@ -8,13 +8,6 @@ return {
         "folke/noice.nvim",
         config = function() require("conf.ui.noice") end,
     },
-    -- 嵌入提示
-    {
-        "MysticalDevil/inlay-hints.nvim",
-        event = "LspAttach",
-        dependencies = { "neovim/nvim-lspconfig" },
-        config = function() require("inlay-hints").setup() end
-    },
     -- 主题
     { "ellisonleao/gruvbox.nvim", priority = 999, config = function() require("conf.ui.gruvbox") end },
     -- { "rebelot/kanagawa.nvim",    priority = 999, config = function() require("conf.ui.kanagawa") end },
