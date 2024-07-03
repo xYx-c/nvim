@@ -20,21 +20,21 @@ return {
         config = function() require("conf.tools.toggleterm") end
     },
     -- http客户端
-    -- {
-    --     "rest-nvim/rest.nvim",
-    --     ft = "http",
-    --     version = "^1",
-    --     config = function() require("conf.tools.rest") end
-    -- },
     {
-        "jellydn/hurl.nvim",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter"
-        },
-        config = function() require("conf.tools.hurl") end,
+        "rest-nvim/rest.nvim",
+        ft = "http",
+        version = "^1",
+        config = function() require("conf.tools.rest") end
     },
+    -- {
+    --     "jellydn/hurl.nvim",
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim",
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-treesitter/nvim-treesitter"
+    --     },
+    --     config = function() require("conf.tools.hurl") end,
+    -- },
     -- 消息提示
     {
         'rcarriga/nvim-notify',

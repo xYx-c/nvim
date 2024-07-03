@@ -37,6 +37,9 @@ for _, program in ipairs(rust_programs) do
         name = program,
         type = "codelldb",
         request = "launch",
+        cargo = {
+            args = { "test", "--no-run", "--lib" },
+        },
         program = "${workspaceFolder}/target/debug/" .. program,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
