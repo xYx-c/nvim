@@ -103,7 +103,8 @@ M.lsp_maps = function(_, bufnr)
 
     -- vim.keybinds.set('n', '=', function() vim.lsp.buf.format { async = true, bufnr = bufnr } end, bufopts)
     -- vim.cmd [[command! -buffer Format execute 'lua vim.lsp.buf.format{ async = true, bufnr = bufnr }']]
-    vim.keybinds.set('n', '=', '<cmd>GuardFmt<cr>', bufopts)
+    vim.keybinds.set('n', '=', function() vim.cmd [[Format]] end, bufopts)
+
 
     -- vim.keybinds.bmap(bufnr, "i", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)
     -- vim.keybinds.bmap(bufnr, "s", "<C-n>", "<Plug>luasnip-next-choice", vim.keybinds.opts)

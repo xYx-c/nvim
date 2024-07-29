@@ -26,8 +26,8 @@ return {
     },
     -- 格式化
     {
-        "nvimdev/guard.nvim",
-        config = function() require("conf.edit.guard") end
+        'stevearc/conform.nvim',
+        config = function() require("conf.edit.conform") end
     },
     -- 自动恢复光标位置
     {
