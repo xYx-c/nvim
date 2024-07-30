@@ -21,24 +21,9 @@ return {
     },
     -- http客户端
     {
-        "rest-nvim/rest.nvim",
-        ft = "http",
-        version = "^1",
-        config = function() require("conf.tools.rest") end
+        'mistweaverco/kulala.nvim',
+        config = function() require('conf.tools.kulala') end
     },
-    -- {
-    --     'mistweaverco/kulala.nvim',
-    --     config = function() require('kulala').setup() end
-    -- },
-    -- {
-    --     "jellydn/hurl.nvim",
-    --     dependencies = {
-    --         "MunifTanjim/nui.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-treesitter/nvim-treesitter"
-    --     },
-    --     config = function() require("conf.tools.hurl") end,
-    -- },
     -- 消息提示
     {
         'rcarriga/nvim-notify',
@@ -86,7 +71,7 @@ return {
         config = function() require("conf.tools.pantran") end
     },
     -- 预览markdown
-    { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
+    -- { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
     -- 预览图片
     -- { 'edluffy/hologram.nvim', config = function() require("conf.tools.hologram") end }
 }
