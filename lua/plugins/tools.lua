@@ -27,6 +27,10 @@ return {
         config = function() require("conf.tools.rest") end
     },
     -- {
+    --     'mistweaverco/kulala.nvim',
+    --     config = function() require('kulala').setup() end
+    -- },
+    -- {
     --     "jellydn/hurl.nvim",
     --     dependencies = {
     --         "MunifTanjim/nui.nvim",
