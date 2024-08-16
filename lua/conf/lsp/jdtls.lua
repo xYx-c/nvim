@@ -87,20 +87,27 @@ return {
                     exclusions = { "this" },
                 },
             },
+            format = {
+                enabled = true,
+                settings = {
+                    url = vim.fn.getcwd() .. '/.settings/format.xml',
+                    profile = "GoogleStyle",
+                },
+            },
             configuration = {
                 runtimes = {
                     {
                         name = "JavaSE-1.8",
-                        path = os.getenv("JAVA_HOME"),
-                        default = true,
+                        path = os.getenv("JDK8"),
                     },
                     {
                         name = "JavaSE-17",
-                        path = os.getenv("JDK17")
+                        path = os.getenv("JDK17"),
+                        default = true,
                     },
                     {
                         name = "JavaSE-21",
-                        path = os.getenv("JDK21")
+                        path = os.getenv("JDK21"),
                     },
                 },
                 maven = {
