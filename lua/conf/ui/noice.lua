@@ -1,12 +1,12 @@
 -- https://github.com/folke/noice.nvim
 
 require("noice").setup({
-    routes = {
-        {
-            filter = { event = "notify", find = "No information available" },
-            opts = { skip = true },
-        },
-    },
+    -- routes = {
+    --     {
+    --         filter = { event = "notify", find = "No information available" },
+    --         opts = { skip = true },
+    --     },
+    -- },
     messages = {
         view = "mini",
     },
@@ -16,7 +16,7 @@ require("noice").setup({
     views = {
         -- mini = {
         --     win_options = {
-        --         winblend = 99,
+        --         winblend = 100,
         --     },
         -- },
     },
@@ -28,6 +28,13 @@ require("noice").setup({
         },
         message = {
             view = "mini",
+        },
+        hover = {
+            enabled = true,
+            silent = true, -- set to true to not show a message if hover is not available
+            view = nil, -- when nil, use defaults from documentation
+            ---@type NoiceViewOptions
+            opts = {}, -- merged with defaults from documentation
         },
         progress = {
             -- enabled = false,
@@ -55,6 +62,6 @@ require("noice").setup({
         command_palette = true,       -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
         inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true,        -- add a border to hover docs and signature help
+        -- lsp_doc_border = true,        -- add a border to hover docs and signature help
     },
 })

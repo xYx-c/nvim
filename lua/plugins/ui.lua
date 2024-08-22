@@ -7,6 +7,7 @@ return {
     {
         "folke/noice.nvim",
         config = function() require("conf.ui.noice") end,
+        priority = 999,
     },
     -- 主题
     { "ellisonleao/gruvbox.nvim", priority = 999, config = function() require("conf.ui.gruvbox") end },

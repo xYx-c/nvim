@@ -7,12 +7,12 @@ return {
         version = "*"
     },
     -- 嵌入提示
-    -- {
-    --     "MysticalDevil/inlay-hints.nvim",
-    --     event = "LspAttach",
-    --     dependencies = { "neovim/nvim-lspconfig" },
-    --     config = function() require("inlay-hints").setup() end
-    -- },
+    {
+        "MysticalDevil/inlay-hints.nvim",
+        event = "LspAttach",
+        dependencies = { "neovim/nvim-lspconfig" },
+        -- config = function() require("inlay-hints").setup() end
+    },
     -- 图标插件
     'kyazdani42/nvim-web-devicons',
     -- 安装 LSP/DAP
