@@ -13,14 +13,16 @@ local opts = {
         require("inlay-hints").on_attach(client, bufnr)
     end,
     settings = {
-        hints = {
-            rangeVariableTypes = true,
-            parameterNames = true,
-            constantValues = true,
-            assignVariableTypes = true,
-            compositeLiteralFields = true,
-            compositeLiteralTypes = true,
-            functionTypeParameters = true,
+        gopls = {
+            hints = {
+                rangeVariableTypes = true,
+                parameterNames = true,
+                constantValues = true,
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                functionTypeParameters = true,
+            },
         },
     }
 }
