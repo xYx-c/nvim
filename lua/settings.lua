@@ -30,6 +30,7 @@ vim.o.clipboard = "unnamedplus"                     -- 是否启用系统剪切�
 vim.o.backup = false                                -- 是否开启备份文件
 vim.o.swapfile = false                              -- 是否开启交换文件
 -- vim.o.list = true                                -- 是否特殊显示空格等字符
+vim.o.fillchars='eob: '                             -- 空行填充字符
 vim.o.autoindent = true                             -- 是否开启自动缩进对齐上一行缩进
 vim.o.smartindent = true                            -- 是否开启智能缩进
 vim.o.cindent = true                                -- 是否开启 C 语言风格的缩进

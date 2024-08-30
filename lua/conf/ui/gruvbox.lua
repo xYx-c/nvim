@@ -24,7 +24,6 @@ require("gruvbox").setup({
     },
     overrides = {
         SignColumn = { bg = "#282828" },
-        NonText = { link = "GruvboxBg0" },
         CursorLine = { bg = "#303030" },
         NormalFloat = { bg = "#3c3836" },
     },
