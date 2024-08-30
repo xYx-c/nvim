@@ -66,7 +66,6 @@ return {
             -- { "rafamadriz/friendly-snippets" }, -- 提供多种语言的代码片段
             { "saadparwaiz1/cmp_luasnip" }, -- 适用于 luasnip 的代码片段源
             { "L3MON4D3/LuaSnip" },
-            { "MattiasMTS/cmp-dbee",     ft = "sql", },
             -- { "molleweide/LuaSnip-snippets.nvim" },
             -- { "hrsh7th/vim-vsnip" }, -- vsnip 引擎，用于获得代码片段支持
             -- { "hrsh7th/cmp-vsnip" }, -- 适用于 vsnip 的代码片段源

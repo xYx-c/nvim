@@ -68,7 +68,6 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
-        { name = "cmp-dbee" },
         { name = 'vim-dadbod-completion' },
         -- { name = "spell" },
         -- { name = 'buffer' },
