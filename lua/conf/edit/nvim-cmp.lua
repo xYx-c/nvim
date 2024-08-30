@@ -69,6 +69,7 @@ cmp.setup({
         { name = "luasnip" },
         { name = "path" },
         { name = "cmp-dbee" },
+        { name = 'vim-dadbod-completion' },
         -- { name = "spell" },
         -- { name = 'buffer' },
         -- {name = "cmp_tabnine"}

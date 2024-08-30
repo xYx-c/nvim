@@ -24,6 +24,7 @@ local opts = {
         "--clang-tidy-checks=performance-*,bugprone-*",
         "--all-scopes-completion",
         "--pch-storage=disk",
+        "--header-insertion=never",
     },
     settings = {
         clangd = {

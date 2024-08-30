@@ -249,6 +249,6 @@ vim.keymap.set("n", "t", "<cmd>Pantran source=zh target=en<CR>", vim.keybinds.op
 ---------------------------------------------------------------------------
 -- database
 ---------------------------------------------------------------------------
-vim.keymap.set({ 'n', 'x' }, "<C-e>", "<cmd>lua require('dbee').toggle()<CR>", vim.keybinds.opts)
+vim.keymap.set({ 'n', 'x' }, "<C-e>", "<cmd>DBUIToggle<CR>", vim.keybinds.opts)
 
 return M
