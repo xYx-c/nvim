@@ -38,7 +38,6 @@ return {
     {
         "Pocco81/auto-save.nvim",
         config = function() require("conf.tools.auto-save") end,
-        event = "InsertLeave",
     },
     -- jk加速
     -- { 'rainbowhxch/accelerated-jk.nvim' },

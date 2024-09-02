@@ -18,10 +18,7 @@ return {
             'DBUIAddConnection',
             'DBUIFindBuffer',
         },
-        init = function()
-            vim.g.db_ui_use_nerd_fonts = 1
-            vim.g.db_ui_win_position = 'right'
-        end,
+        init = function() require("conf.tools.dadbod") end,
     },
     -- 内置终端增强
     {

@@ -250,5 +250,6 @@ vim.keymap.set("n", "t", "<cmd>Pantran source=zh target=en<CR>", vim.keybinds.op
 -- database
 ---------------------------------------------------------------------------
 vim.keymap.set({ 'n', 'x' }, "<C-e>", "<cmd>DBUIToggle<CR>", vim.keybinds.opts)
+vim.keymap.set('v', "<Enter>", "<Plug>(DBUI_ExecuteQuery)", vim.keybinds.opts)
 
 return M
