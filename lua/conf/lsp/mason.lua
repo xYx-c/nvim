@@ -19,7 +19,7 @@ require("mason-lspconfig").setup({
         -- "pyright",
         "pylyzer",
         "volar",
-        "tsserver",
+        "ts_ls",
         "jsonls",
         "cssls",
         "tailwindcss",
