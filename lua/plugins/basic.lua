@@ -19,7 +19,7 @@ return {
     {
         "williamboman/mason.nvim",
         priority = 1,
-        version = "*",
+        -- version = "*",
         dependencies = { "williamboman/mason-lspconfig.nvim" },
         config = function() require("conf.lsp.mason") end,
         build = ":MasonUpdate",
