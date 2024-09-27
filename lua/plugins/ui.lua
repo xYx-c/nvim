@@ -35,7 +35,7 @@ return {
     -- 目录树
     {
         "kyazdani42/nvim-tree.lua",
-        -- version = 'nightly',
+        version = '*',
         config = function() require("conf.ui.nvim-tree") end,
     },
     -- 代码高亮
