@@ -14,33 +14,21 @@ return {
         },
     },
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    on_attach = function(client, bufnr)
-        require("inlay-hints").on_attach(client, bufnr)
-    end,
-    settings = {
-        typescript = {
-            inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-            },
-        },
-        javascript = {
-            inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-            },
-        },
-    }
+    -- on_attach = function(client, bufnr)
+    --     require("inlay-hints").on_attach(client, bufnr)
+    -- end,
+    -- settings = {
+    --     javascript = {
+    --         inlayHints = {
+    --             includeInlayParameterNameHints = "all",
+    --             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+    --             includeInlayFunctionParameterTypeHints = true,
+    --             includeInlayVariableTypeHints = true,
+    --             includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+    --             includeInlayPropertyDeclarationTypeHints = true,
+    --             includeInlayFunctionLikeReturnTypeHints = true,
+    --             includeInlayEnumMemberValueHints = true,
+    --         },
+    --     },
+    -- }
 }
