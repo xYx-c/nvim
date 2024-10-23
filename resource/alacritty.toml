@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 # 窗口设置
 [window]
