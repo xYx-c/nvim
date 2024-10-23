@@ -14,9 +14,16 @@ return {
         },
     },
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    -- on_attach = function(client, bufnr)
-    --     require("inlay-hints").on_attach(client, bufnr)
-    -- end,
+    on_attach = function(client, bufnr)
+        -- require("inlay-hints").on_attach(client, bufnr)
+        vim.diagnostic.config({
+            virtual_text = {
+                severity = {
+                    min = vim.diagnostic.severity.WARN
+                },
+            },
+        })
+    end,
     -- settings = {
     --     javascript = {
     --         inlayHints = {
