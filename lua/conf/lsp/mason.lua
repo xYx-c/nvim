@@ -53,6 +53,13 @@ local M = {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(client, bufnr)
             require('keybinds').lsp_maps(client, bufnr)
+            vim.diagnostic.config({
+                virtual_text = {
+                    severity = {
+                        min = vim.diagnostic.severity.INFO
+                    },
+                },
+            })
         end
     }
 }
