@@ -1,5 +1,7 @@
 -- https://github.com/ellisonleao/gruvbox.nvim
 
+local palette = require("gruvbox").palette
+
 require("gruvbox").setup({
     terminal_colors = true, -- add neovim terminal colors
     undercurl = true,
@@ -20,10 +22,10 @@ require("gruvbox").setup({
     inverse = true, -- invert background for search, diffs, statuslines and errors
     contrast = "",  -- can be "hard", "soft" or empty string
     palette_overrides = {
-        dark1 = "#282828",
+        dark1 = palette.dark0,
     },
     overrides = {
-        SignColumn = { bg = "#282828" },
+        SignColumn = { bg = palette.dark0 },
         CursorLine = { bg = "#303030" },
         NormalFloat = { bg = "#3c3836" },
     },

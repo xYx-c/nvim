@@ -27,9 +27,13 @@ local bubbles_theme = {
     },
 }
 
+-- local custom_gruvbox = require 'lualine.themes.gruvbox'
+-- custom_gruvbox.visual.c.bg = '#bdae93'
+
 require('lualine').setup {
     options = {
         theme = bubbles_theme,
+        -- theme = 'gruvbox',
         component_separators = '|',
         section_separators = { left = '', right = '' },
         globalstatus = true,
@@ -45,7 +49,7 @@ require('lualine').setup {
             'branch',
             'diagnostics'
         },
-        lualine_c = { 'fileformat' },
+        lualine_c = {},
         lualine_x = {},
         lualine_y = { 'encoding',
             {
