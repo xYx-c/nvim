@@ -22,6 +22,16 @@ return {
                     min = vim.diagnostic.severity.WARN
                 },
             },
+            signs = {
+                severity = {
+                    min = vim.diagnostic.severity.WARN
+                },
+            },
+            underline = {
+                severity = {
+                    min = vim.diagnostic.severity.INFO
+                },
+            },
         })
     end,
     -- settings = {

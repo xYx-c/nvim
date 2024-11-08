@@ -4,7 +4,6 @@ return {
         'mrcjkb/rustaceanvim',
         version = '*',
         config = function() require("conf.lsp.rustacean") end,
-        ft = { 'rust' },
     },
     {
         'saecki/crates.nvim',
