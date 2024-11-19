@@ -24,7 +24,7 @@ return {
     -- 支持 LSP 状态的 buffer 栏
     {
         "akinsho/bufferline.nvim",
-        version = "*",
+        -- version = "*",
         priority = 2,
         dependencies = {
             "famiu/bufdelete.nvim" -- 删除 buffer 时不影响现有布局
@@ -35,7 +35,7 @@ return {
     -- 目录树
     {
         "kyazdani42/nvim-tree.lua",
-        version = '*',
+        -- version = '*',
         config = function() require("conf.ui.nvim-tree") end,
     },
     -- 代码高亮

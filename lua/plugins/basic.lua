@@ -4,7 +4,7 @@ return {
     -- LSP 基础服务
     {
         "neovim/nvim-lspconfig",
-        version = "*"
+        -- version = "*"
     },
     -- 嵌入提示
     {
