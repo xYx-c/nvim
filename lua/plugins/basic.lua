@@ -2,10 +2,9 @@ return {
     -- Lua 开发模块
     "nvim-lua/plenary.nvim",
     -- LSP 基础服务
-    {
-        "neovim/nvim-lspconfig",
-        -- version = "*"
-    },
+    "neovim/nvim-lspconfig",
+    -- 图标插件
+    'kyazdani42/nvim-web-devicons',
     -- 嵌入提示
     {
         "MysticalDevil/inlay-hints.nvim",
@@ -13,8 +12,6 @@ return {
         dependencies = { "neovim/nvim-lspconfig" },
         -- config = function() require("inlay-hints").setup() end
     },
-    -- 图标插件
-    'kyazdani42/nvim-web-devicons',
     -- 安装 LSP/DAP
     {
         "williamboman/mason.nvim",

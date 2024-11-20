@@ -4,11 +4,6 @@ return {
         'chemzqm/wxapp.vim',
         event = { "BufRead *.wxml" },
     },
-    -- copilot 自动补全
-    -- {
-    --     "github/copilot.vim",
-    --     config = function() require("conf.edit.copilot") end
-    -- },
     -- codeium 自动补全
     {
         'Exafunction/codeium.vim',
@@ -58,11 +53,11 @@ return {
         "hrsh7th/nvim-cmp", -- 代码补全核心插件，下面都是增强补全的体验插件
         event = "InsertEnter",
         dependencies = {
+            { "onsails/lspkind-nvim" },     -- 为补全添加类似 vscode 的图标
             { "hrsh7th/cmp-nvim-lsp" }, -- 替换内置 omnifunc，获得更多补全
             { "hrsh7th/cmp-path" },     -- 路径补全
             -- { "hrsh7th/cmp-buffer" }, -- 缓冲区补全
             -- { "hrsh7th/cmp-cmdline" }, -- 命令补全
-            { "onsails/lspkind-nvim" },     -- 为补全添加类似 vscode 的图标
             -- { "rafamadriz/friendly-snippets" }, -- 提供多种语言的代码片段
             { "saadparwaiz1/cmp_luasnip" }, -- 适用于 luasnip 的代码片段源
             { "L3MON4D3/LuaSnip" },

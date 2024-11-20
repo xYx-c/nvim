@@ -3,7 +3,6 @@ return {
     {
         'mrcjkb/rustaceanvim',
         version = '*',
-        lazy = false,
         config = function() require("conf.lsp.rustacean") end,
     },
     {
