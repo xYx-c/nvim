@@ -71,7 +71,6 @@ cmp.setup({
         { name = 'vim-dadbod-completion' },
         -- { name = "spell" },
         -- { name = 'buffer' },
-        -- {name = "cmp_tabnine"}
     }),
     -- 格式化补全菜单
     formatting = {
@@ -159,24 +158,6 @@ cmp.setup({
         end, { "i", "s" }),
     }
 })
--- Keymaps for Luasnip
-vim.keymap.set({ "i", "s" }, "<C-j>", function()
-    if luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-    end
-end, { silent = true })
-
-vim.keymap.set({ "i", "s" }, "<C-k>", function()
-    if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-    end
-end, { silent = true })
-
-vim.keymap.set("i", "<C-n>", function()
-    if luasnip.choice_active() then
-        luasnip.change_choice(1)
-    end
-end)
 
 -- 命令行 / 模式提示
 -- cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
