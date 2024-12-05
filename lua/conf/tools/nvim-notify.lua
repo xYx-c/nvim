@@ -1,6 +1,7 @@
 -- https://github.com/rcarriga/nvim-notify
 
 local notify_opts = {
+    render = "wrapped-compact",
     -- background_colour = "#282727",
     -- 动画样式
     -- fade_in_slide_out
@@ -8,7 +9,7 @@ local notify_opts = {
     -- slide
     -- static
     stages = "fade",
-    -- max_width = 60,
+    max_width = 60,
 
     -- 超时时间，默认 5s
     -- timeout = 5000
