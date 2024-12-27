@@ -7,10 +7,9 @@ return {
     'kyazdani42/nvim-web-devicons',
     -- 嵌入提示
     {
-        "MysticalDevil/inlay-hints.nvim",
-        event = "LspAttach",
-        dependencies = { "neovim/nvim-lspconfig" },
-        -- config = function() require("inlay-hints").setup() end
+        'felpafel/inlay-hint.nvim',
+        event = 'LspAttach',
+        config = function() require('inlay-hint').setup() end,
     },
     -- 安装 LSP/DAP
     {

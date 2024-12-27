@@ -1,5 +1,4 @@
 --https://github.com/mrcjkb/rustaceanvim
--- https://github.com/lvimuser/lsp-inlayhints.nvim
 
 vim.g.rustaceanvim = function()
     local mason_registry = require('mason-registry')
@@ -22,8 +21,7 @@ vim.g.rustaceanvim = function()
         server = {
             on_attach = function(client, bufnr)
                 require("keybinds").lsp_maps(client, bufnr)
-                require("inlay-hints").on_attach(client, bufnr)
-
+                vim.lsp.inlay_hint.enable(true)
                 vim.cmd [[command! -buffer RustDebuggables execute "lua vim.cmd.RustLsp { 'debuggables' }"]]
                 vim.cmd [[command! -buffer RustRunnables execute "lua vim.cmd.RustLsp { 'runnables' }"]]
             end,

@@ -18,7 +18,7 @@ local on_attach = function(client, bufnr)
     -- Mappings.
     require('keybinds').lsp_maps(client, bufnr)
 
-    require("inlay-hints").on_attach(client, bufnr)
+    vim.lsp.inlay_hint.enable(true)
 
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
