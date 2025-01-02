@@ -6,11 +6,11 @@ return {
     -- 图标插件
     'kyazdani42/nvim-web-devicons',
     -- 嵌入提示
-    {
-        'felpafel/inlay-hint.nvim',
-        event = 'LspAttach',
-        config = function() require('inlay-hint').setup() end,
-    },
+    -- {
+    --     'felpafel/inlay-hint.nvim',
+    --     event = 'LspAttach',
+    --     config = function() require('inlay-hint').setup() end,
+    -- },
     -- 安装 LSP/DAP
     {
         "williamboman/mason.nvim",
