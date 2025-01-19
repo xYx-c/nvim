@@ -2,7 +2,7 @@
 
 local notify_opts = {
     render = "wrapped-compact",
-    -- background_colour = "#282727",
+    background_colour = require("gruvbox").palette.dark0,
     -- 动画样式
     -- fade_in_slide_out
     -- fade
