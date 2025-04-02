@@ -77,8 +77,6 @@ return {
         "potamides/pantran.nvim",
         config = function() require("conf.tools.pantran") end
     },
-    -- 预览markdown
-    -- { "ellisonleao/glow.nvim", config = function() require("conf.tools.glow") end }
     -- 预览图片
     -- { 'edluffy/hologram.nvim', config = function() require("conf.tools.hologram") end }
 }
