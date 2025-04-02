@@ -16,7 +16,6 @@ require("mason-lspconfig").setup({
         "jdtls",
         "clangd",
         "gopls",
-        -- "pyright",
         "pylyzer",
         "volar",
         "ts_ls",
@@ -42,7 +41,6 @@ local M = {
         volar = require("conf.lsp.volar"),
         jsonls = require("conf.lsp.jsonls"),
         pylyzer = require("conf.lsp.pylyzer"),
-        -- pyright = require("conf.lsp.pyright"),
         -- jdtls = require("conf.lsp.jdtls"),
         -- sqls = require("conf.lsp.sqls"),
     },
@@ -55,10 +53,21 @@ local M = {
             require('keybinds').lsp_maps(client, bufnr)
             vim.diagnostic.config({
                 virtual_text = {
+                    current_line = true,
+                },
+                underline = {
                     severity = {
                         min = vim.diagnostic.severity.INFO
                     },
                 },
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "",
+                        [vim.diagnostic.severity.WARN] = "",
+                        [vim.diagnostic.severity.INFO] = "",
+                        [vim.diagnostic.severity.HINT] = "",
+                    }
+                }
             })
         end
     }
