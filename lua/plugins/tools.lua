@@ -29,6 +29,7 @@ return {
     -- http客户端
     {
         'mistweaverco/kulala.nvim',
+        version = '*',
         config = function() require('conf.tools.kulala') end
     },
     -- 消息提示
@@ -40,7 +41,7 @@ return {
     -- 模糊查找
     {
         "nvim-telescope/telescope.nvim",
-        version = '*',
+        -- version = '*',
         dependencies = {
             "BurntSushi/ripgrep",                      -- 文字查找
             "sharkdp/fd",                              -- 文件查找
