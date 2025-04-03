@@ -1,9 +1,4 @@
 ---------------------------------------------------------------------------
--- Sign Setting
----------------------------------------------------------------------------
--- 设置断点样式
-vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "TodoFgFIX", linehl = "", numhl = "" })
----------------------------------------------------------------------------
 -- Basic Setting
 ---------------------------------------------------------------------------
 vim.o.encoding = "utf-8"              -- 设定各种文本的字符编码
@@ -67,3 +62,26 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'Buf
 --         let $LANG = 'en_US.UTF-8'
 --     ]]
 -- end
+---------------------------------------------------------------------------
+-- Sign Setting
+---------------------------------------------------------------------------
+-- 设置断点样式
+vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "TodoFgFIX", linehl = "", numhl = "" })
+vim.diagnostic.config({
+    virtual_text = {
+        current_line = true,
+    },
+    underline = {
+        severity = {
+            min = vim.diagnostic.severity.INFO
+        },
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        }
+    }
+})

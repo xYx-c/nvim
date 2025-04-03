@@ -51,24 +51,6 @@ local M = {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(client, bufnr)
             require('keybinds').lsp_maps(client, bufnr)
-            vim.diagnostic.config({
-                virtual_text = {
-                    current_line = true,
-                },
-                underline = {
-                    severity = {
-                        min = vim.diagnostic.severity.INFO
-                    },
-                },
-                signs = {
-                    text = {
-                        [vim.diagnostic.severity.ERROR] = "",
-                        [vim.diagnostic.severity.WARN] = "",
-                        [vim.diagnostic.severity.INFO] = "",
-                        [vim.diagnostic.severity.HINT] = "",
-                    }
-                }
-            })
         end
     }
 }
