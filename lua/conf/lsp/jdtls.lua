@@ -12,7 +12,8 @@ end
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home .. '/.jdtls_data/' .. project_name
 
--- local root_dir = vim.fs.root(0, { ".git", "pom.xml", "mvnw", "gradlew" })
+
+local root_dir = vim.fs.root(0, { ".git", "pom.xml", "mvnw", "gradlew" })
 
 local on_attach = function(client, bufnr)
     -- Mappings.
@@ -34,20 +35,25 @@ local on_attach = function(client, bufnr)
     vim.cmd [[command! -buffer JavaTest execute "lua require('jdtls').test_nearest_method()"]]
 
     -- debug
-    -- require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-    require('jdtls').setup_dap()
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    -- require('jdtls').setup_dap()
 
     require('jdtls.dap').setup_dap_main_class_configs()
 end
 
 local mason_registry = require('mason-registry')
+
 local java_test_path = mason_registry.get_package('java-test'):get_install_path()
 local java_debug_adapter_path = mason_registry.get_package('java-debug-adapter'):get_install_path()
 local jdtls_path = mason_registry.get_package('jdtls'):get_install_path()
-local bundles = { vim.fn.glob(java_debug_adapter_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", true), };
+
+local bundles = { vim.fn.glob(java_debug_adapter_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", true) };
 vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", true), "\n"))
 
-local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+
+local extendedClientCapabilities = require 'jdtls'.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+-- extendedClientCapabilities.progressReportProvider = true
 
 return {
     flags = { allow_incremental_sync = true },
@@ -60,14 +66,13 @@ return {
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
         '-Dlog.protocol=true',
         '-Dlog.level=ALL',
-        '-Xms1g',
-        '-Xmx2g',
+        -- '-Xms1g',
+        '-Xmx1g',
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-        '-javaagent:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
-        -- '-Xbootclasspath/a:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
-        '-jar', launcher,
+        '-javaagent:' .. jdtls_path .. '/lombok.jar',
+        '-jar', vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
         '-configuration', home .. '/.local/share/nvim/mason/packages/jdtls/config_' .. system,
         '-data', workspace_dir,
     },
@@ -77,7 +82,7 @@ return {
 
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
-    -- root_dir = root_dir,
+    root_dir = root_dir,
 
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -122,12 +127,12 @@ return {
             -- saveActions = {
             --     organizeImports = true,
             -- },
-            -- maven = {
-            --     downloadSources = true,
-            -- },
-            -- eclipse = {
-            --     downloadSources = true,
-            -- },
+            maven = {
+                downloadSources = true,
+            },
+            eclipse = {
+                downloadSources = true,
+            },
         },
     },
 
@@ -140,8 +145,6 @@ return {
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = bundles,
-        -- extendedClientCapabilities = {
-        --     progressReportProvider = true,
-        -- },
+        extendedClientCapabilities = extendedClientCapabilities
     },
 }
