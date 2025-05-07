@@ -1,10 +1,9 @@
 --https://github.com/mrcjkb/rustaceanvim
 
 vim.g.rustaceanvim = function()
-    local mason_registry = require('mason-registry')
-    local extension_path = mason_registry.get_package('codelldb'):get_install_path() .. '/extension/'
-    local codelldb_path = extension_path .. 'adapter/codelldb'
-    local liblldb_path = extension_path .. 'lldb/lib/liblldb'
+    local extension_path = vim.fn.expand("$MASON/packages/codelldb/extension")
+    local codelldb_path = extension_path .. '/adapter/codelldb'
+    local liblldb_path = extension_path .. '/lldb/lib/liblldb'
 
     -- local this_os = vim.uv.os_uname().sysname;
     local system = io.popen("uname -s"):read("*l")

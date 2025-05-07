@@ -17,7 +17,10 @@ return {
     --     config = function() require("conf.lsp.clangd") end
     -- },
     -- java
-    { "mfussenegger/nvim-jdtls", },
+    {
+        "mfussenegger/nvim-jdtls",
+        -- dependencies = { "JavaHello/spring-boot.nvim" }
+    },
     -- go
     -- { 'crispgm/nvim-go', }
 

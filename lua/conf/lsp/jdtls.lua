@@ -41,13 +41,12 @@ local on_attach = function(client, bufnr)
     require('jdtls.dap').setup_dap_main_class_configs()
 end
 
-local mason_registry = require('mason-registry')
+local java_test_path = vim.fn.expand("$MASON/packages/java-test")
+local java_debug_adapter_path = vim.fn.expand("$MASON/packages/java-debug-adapter")
+local jdtls_path = vim.fn.expand("$MASON/packages/jdtls")
 
-local java_test_path = mason_registry.get_package('java-test'):get_install_path()
-local java_debug_adapter_path = mason_registry.get_package('java-debug-adapter'):get_install_path()
-local jdtls_path = mason_registry.get_package('jdtls'):get_install_path()
-
-local bundles = { vim.fn.glob(java_debug_adapter_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", true) };
+local bundles = vim.fn.globpath("$MASON/share/java-debug-adapter", "*.jar", true, true);
+-- vim.list_extend(bundles, require("spring_boot").java_extensions())
 vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", true), "\n"))
 
 
