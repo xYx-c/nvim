@@ -13,7 +13,7 @@ return {
     },
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     on_attach = function(client, bufnr)
-        -- vim.lsp.inlay_hint.enable(true)
+        -- vim.lsp.inlay_hint.enable()
         vim.diagnostic.config({
             underline = {
                 severity = {

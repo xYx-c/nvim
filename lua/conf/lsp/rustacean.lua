@@ -20,7 +20,7 @@ vim.g.rustaceanvim = function()
         server = {
             on_attach = function(client, bufnr)
                 require("keybinds").lsp_maps(client, bufnr)
-                vim.lsp.inlay_hint.enable(true)
+                vim.lsp.inlay_hint.enable()
                 vim.cmd [[command! -buffer RustDebuggables execute "lua vim.cmd.RustLsp { 'debuggables' }"]]
                 vim.cmd [[command! -buffer RustRunnables execute "lua vim.cmd.RustLsp { 'runnables' }"]]
             end,
@@ -28,41 +28,41 @@ vim.g.rustaceanvim = function()
         dap = {
             adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
         },
-        -- settings = {
-        --     ["rust-analyzer"] = {
-        --         inlayHints = {
-        --             bindingModeHints = {
-        --                 enable = false,
-        --             },
-        --             chainingHints = {
-        --                 enable = true,
-        --             },
-        --             closingBraceHints = {
-        --                 enable = true,
-        --                 minLines = 25,
-        --             },
-        --             closureReturnTypeHints = {
-        --                 enable = "never",
-        --             },
-        --             lifetimeElisionHints = {
-        --                 enable = "never",
-        --                 useParameterNames = false,
-        --             },
-        --             maxLength = 25,
-        --             parameterHints = {
-        --                 enable = true,
-        --             },
-        --             reborrowHints = {
-        --                 enable = "never",
-        --             },
-        --             renderColons = true,
-        --             typeHints = {
-        --                 enable = true,
-        --                 hideClosureInitialization = false,
-        --                 hideNamedConstructor = false,
-        --             },
-        --         },
-        --     }
-        -- }
+        settings = {
+            ["rust-analyzer"] = {
+                inlayHints = {
+                    bindingModeHints = {
+                        enable = false,
+                    },
+                    chainingHints = {
+                        enable = true,
+                    },
+                    closingBraceHints = {
+                        enable = true,
+                        minLines = 25,
+                    },
+                    closureReturnTypeHints = {
+                        enable = "never",
+                    },
+                    lifetimeElisionHints = {
+                        enable = "never",
+                        useParameterNames = false,
+                    },
+                    maxLength = 25,
+                    parameterHints = {
+                        enable = true,
+                    },
+                    reborrowHints = {
+                        enable = "never",
+                    },
+                    renderColons = true,
+                    typeHints = {
+                        enable = true,
+                        hideClosureInitialization = false,
+                        hideNamedConstructor = false,
+                    },
+                },
+            }
+        }
     }
 end

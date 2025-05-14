@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
     -- Mappings.
     require('keybinds').lsp_maps(client, bufnr)
 
-    vim.lsp.inlay_hint.enable(true)
+    vim.lsp.inlay_hint.enable()
 
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -35,8 +35,8 @@ local on_attach = function(client, bufnr)
     vim.cmd [[command! -buffer JavaTest execute "lua require('jdtls').test_nearest_method()"]]
 
     -- debug
-    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-    -- require('jdtls').setup_dap()
+    -- require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    require('jdtls').setup_dap()
 
     require('jdtls.dap').setup_dap_main_class_configs()
 end

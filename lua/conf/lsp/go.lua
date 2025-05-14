@@ -10,7 +10,7 @@
 
 local opts = {
     on_attach = function(client, bufnr)
-        vim.lsp.inlay_hint.enable(true)
+        vim.lsp.inlay_hint.enable()
         require("inlay-hints").on_attach(client, bufnr)
     end,
     -- settings = {
