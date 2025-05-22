@@ -17,7 +17,7 @@ require("mason-lspconfig").setup({
         "clangd",
         "gopls",
         "pylyzer",
-        "volar",
+        "vue_ls",
         "ts_ls",
         "jsonls",
         "cssls",
