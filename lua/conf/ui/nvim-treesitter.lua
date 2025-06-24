@@ -3,9 +3,12 @@
 -- https://github.com/yioneko/nvim-yati
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "cpp", "rust", "java", "go", "lua", "vue", "javascript", "css", "scss", "html", "tsx",
-        "typescript", "toml", "json", "yaml", "http", "vim", "sql" },
-    -- auto_install = true,
+    ensure_installed = {
+        "c", "cpp", "rust", "java", "go", "lua", "python",
+        "vue", "javascript", "css", "scss", "html", "tsx",
+        "typescript", "toml", "json", "yaml", "http", "vim", "sql"
+    },
+    auto_install = true,
     indent = {
         enable = true
     },

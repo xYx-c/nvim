@@ -56,9 +56,9 @@ local M = {
         -- sqls = require("conf.lsp.sqls"),
     },
     opts = {
-        root_dir = function()
-            return vim.fn.getcwd()
-        end,
+        -- root_dir = function()
+        --     return vim.fn.getcwd()
+        -- end,
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(client, bufnr)
             require('keybinds').lsp_maps(client, bufnr)

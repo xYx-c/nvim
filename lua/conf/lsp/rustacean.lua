@@ -1,4 +1,4 @@
---https://github.com/mrcjkb/rustaceanvim
+-- https://github.com/mrcjkb/rustaceanvim
 
 vim.g.rustaceanvim = function()
     local extension_path = vim.fn.expand("$MASON/packages/codelldb/extension")

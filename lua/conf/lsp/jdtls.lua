@@ -9,8 +9,7 @@ elseif system == "Linux" then
 else
     system = "windows"
 end
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = home .. '/.jdtls_data/' .. project_name
+local workspace_dir = home .. '/.cache/jdtls/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
 
 local root_dir = vim.fs.root(0, { ".git", "pom.xml", "mvnw", "gradlew" })
@@ -42,7 +41,7 @@ local on_attach = function(client, bufnr)
 end
 
 local java_test_path = vim.fn.expand("$MASON/packages/java-test")
-local java_debug_adapter_path = vim.fn.expand("$MASON/packages/java-debug-adapter")
+-- local java_debug_adapter_path = vim.fn.expand("$MASON/packages/java-debug-adapter")
 local jdtls_path = vim.fn.expand("$MASON/packages/jdtls")
 
 local bundles = vim.fn.globpath("$MASON/share/java-debug-adapter", "*.jar", true, true);
