@@ -7,7 +7,7 @@ dynamic_title = true
 
 [window.dimensions]
 columns = 140
-lines = 40
+lines = 35
 
 [window.padding]
 x = 0
@@ -18,8 +18,8 @@ y = 0
 history = 10000
 multiplier = 3
 
+[colors.primary]
 # Colors (Gruvbox light)
-# [colors.primary]
 # background = '#fbf1c7'
 # foreground = '#3c3836'
 # [colors.normal]
@@ -42,7 +42,6 @@ multiplier = 3
 # white   = '#3c3836'
 
 # Colors (Gruvbox dark)
-[colors.primary]
 background = '#282828'
 foreground = '#ebdbb2'
 [colors.normal]
@@ -72,13 +71,13 @@ TERM = "alacritty"
 
 # 字体设置
 [font]
-size = 11.25
+size = 13.3
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-# style = "Regular"
+style = "Regular"
 # 字符间距
 [font.offset]
-x = -1
+x = -2
 y = 0
 
 [[keyboard.bindings]]

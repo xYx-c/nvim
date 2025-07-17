@@ -13,10 +13,10 @@ return {
     -- },
     -- 安装 LSP/DAP
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         priority = 1,
-        -- version = "*",
-        dependencies = { "williamboman/mason-lspconfig.nvim" },
+        version = "*",
+        dependencies = { "mason-org/mason-lspconfig.nvim" },
         config = function() require("conf.lsp.mason") end,
         build = ":MasonUpdate",
     },

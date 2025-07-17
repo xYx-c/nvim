@@ -1,7 +1,6 @@
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#ccrust-via-lldb-vscode
 
 
-local mason_registry = require('mason-registry')
 local extension_path = vim.fn.expand("$MASON/packages/codelldb/extension")
 local codelldb_path = extension_path .. '/adapter/codelldb'
 local liblldb_path = extension_path .. '/lldb/lib/liblldb'
@@ -49,7 +48,6 @@ for _, program in ipairs(rust_programs) do
     })
 end
 
-local cfg = require('rustaceanvim.config')
 return {
     adapter = {
         type = 'server',
@@ -62,5 +60,4 @@ return {
         },
     },
     configurations = configurations
-
 }

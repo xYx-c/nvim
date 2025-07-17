@@ -1,8 +1,17 @@
 -- https://github.com/rcarriga/nvim-notify
 
+local background = function ()
+    local colors = require("gruvbox").palette
+    if vim.o.background == "dark" then
+        return colors.dark0
+    else
+        return colors.light0
+    end
+end
+
 local notify_opts = {
     render = "wrapped-compact",
-    background_colour = require("gruvbox").palette.dark0,
+    background_colour = background(),
     -- 动画样式
     -- fade_in_slide_out
     -- fade

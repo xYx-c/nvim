@@ -11,6 +11,7 @@ require("mason").setup({
     }
 })
 require("mason-lspconfig").setup({
+    automatic_enable = false,
     ensure_installed = {
         "rust_analyzer",
         "jdtls",
@@ -18,7 +19,7 @@ require("mason-lspconfig").setup({
         "gopls",
         "pylyzer",
         "vue_ls",
-        "ts_ls",
+        "vtsls",
         "jsonls",
         "cssls",
         "tailwindcss",
@@ -45,11 +46,11 @@ local M = {
         clangd = require("conf.lsp.clangd"),
         gopls = require("conf.lsp.go"),
         lua_ls = require("conf.lsp.sumneko_lua"),
-        ts_ls = require("conf.lsp.tsserver"),
         cssls = require("conf.lsp.cssls"),
         tailwindcss = require("conf.lsp.tailwindcss"),
         html = require("conf.lsp.html"),
-        volar = require("conf.lsp.volar"),
+        vue_ls = require("conf.lsp.volar"),
+        vtsls = require("conf.lsp.vtsls"),
         jsonls = require("conf.lsp.jsonls"),
         pylyzer = require("conf.lsp.pylyzer"),
         -- jdtls = require("conf.lsp.jdtls"),
@@ -74,7 +75,9 @@ for server_name, server_options in pairs(M.servers) do
             server_options.on_attach(client, bufnr)
         end
     end
-    lspconfig[server_name].setup(opts)
+    -- lspconfig[server_name].setup(opts)
+    vim.lsp.config(server_name, opts)
+    vim.lsp.enable(server_name)
 end
 
 return M
