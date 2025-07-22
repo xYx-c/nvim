@@ -1,5 +1,15 @@
 local opts = {
     filetypes = { 'vue' },
+    on_attach = function(client, bufnr)
+        -- vim.lsp.inlay_hint.enable()
+        vim.diagnostic.config({
+            underline = {
+                severity = {
+                    min = vim.diagnostic.severity.WARN
+                },
+            },
+        })
+    end,
     on_init = function(client)
         client.handlers['tsserver/request'] = function(_, result, context)
             local clients = vim.lsp.get_clients({ bufnr = context.bufnr, name = 'vtsls' })

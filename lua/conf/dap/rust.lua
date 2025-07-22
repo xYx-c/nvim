@@ -1,17 +1,18 @@
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#ccrust-via-lldb-vscode
 
-
-local extension_path = vim.fn.expand("$MASON/packages/codelldb/extension")
+-- local extension_path = vim.fn.expand("$MASON/packages/codelldb/extension")
+local extension_path = vim.fn.stdpath('data') .. '/mason/packages/codelldb/extension'
 local codelldb_path = extension_path .. '/adapter/codelldb'
 local liblldb_path = extension_path .. '/lldb/lib/liblldb'
 
--- local this_os = vim.uv.os_uname().sysname;
-local system = io.popen("uname -s"):read("*l")
-if system == "Windows" then
+
+local this_os = vim.uv.os_uname().sysname;
+-- local system = io.popen("uname -s"):read("*l")
+if this_os:find("Windows") then
     codelldb_path = extension_path .. "adapter\\codelldb.exe"
     liblldb_path = extension_path .. "lldb\\bin\\liblldb.dll"
 else
-    liblldb_path = liblldb_path .. (system == "Linux" and ".so" or ".dylib")
+    liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
 end
 
 local function get_binary_executables(directory)

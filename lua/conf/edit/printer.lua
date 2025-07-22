@@ -19,6 +19,9 @@ require('printer').setup({
         javascript = function(inside, variable)
             return string.format('console.log("%s: ", %s);', inside, variable)
         end,
+        rust = function(inside, variable)
+            return string.format('println!("%s: {%s}");', inside, variable)
+        end
     },
     add_to_inside = function(text)
         return text

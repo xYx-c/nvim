@@ -30,15 +30,14 @@ require("mason-lspconfig").setup({
 })
 
 local mason_registry = require('mason-registry')
-local function install_or_skip(package_name)
-    if (mason_registry.is_installed(package_name)) then return end
-    mason_registry.refresh()
-    vim.cmd { cmd = "MasonInstall", args = { package_name } }
+local function install_or_skip(package_names)
+    for _, package_name in ipairs(package_names) do
+        if (mason_registry.is_installed(package_name)) then return end
+        mason_registry.refresh()
+        vim.cmd { cmd = "MasonInstall", args = { package_name } }
+    end
 end
-install_or_skip("java-debug-adapter")
-install_or_skip("java-test")
-install_or_skip("codelldb")
-install_or_skip("prettierd")
+install_or_skip({ "java-debug-adapter", "java-test", "codelldb", "prettierd" })
 
 local lspconfig = require('lspconfig')
 local M = {
@@ -53,7 +52,6 @@ local M = {
         vtsls = require("conf.lsp.vtsls"),
         jsonls = require("conf.lsp.jsonls"),
         pylyzer = require("conf.lsp.pylyzer"),
-        -- jdtls = require("conf.lsp.jdtls"),
         -- sqls = require("conf.lsp.sqls"),
     },
     opts = {

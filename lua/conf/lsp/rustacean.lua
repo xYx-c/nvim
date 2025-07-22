@@ -1,15 +1,13 @@
 -- https://github.com/mrcjkb/rustaceanvim
 
-
 vim.g.rustaceanvim = function()
     local extension_path = vim.fn.expand("$MASON/packages/codelldb/extension")
     local codelldb_path = extension_path .. '/adapter/codelldb'
     local liblldb_path = extension_path .. '/lldb/lib/liblldb'
 
-    local this_os = vim.uv.os_uname().sysname;
-
     -- local system = io.popen("uname -s"):read("*l")
-    if this_os:find "Windows" then
+    local this_os = vim.uv.os_uname().sysname;
+    if this_os:find("Windows") then
         codelldb_path = extension_path .. "adapter\\codelldb.exe"
         liblldb_path = extension_path .. "lldb\\bin\\liblldb.dll"
     else
@@ -22,8 +20,8 @@ vim.g.rustaceanvim = function()
         tools = {},
         server = {
             on_attach = function(client, bufnr)
-                require("keybinds").lsp_maps(client, bufnr)
                 vim.lsp.inlay_hint.enable()
+                require("keybinds").lsp_maps(client, bufnr)
                 vim.cmd [[command! -buffer RustDebuggables execute "lua vim.cmd.RustLsp { 'debuggables' }"]]
                 vim.cmd [[command! -buffer RustRunnables execute "lua vim.cmd.RustLsp { 'runnables' }"]]
             end,

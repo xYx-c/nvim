@@ -1,4 +1,5 @@
 -- https://github.com/mfussenegger/nvim-jdtls
+
 local java = os.getenv("JDK21")
 local home = os.getenv("HOME")
 local system = io.popen("uname -s"):read("*l")

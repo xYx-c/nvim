@@ -2,7 +2,7 @@ local vue_language_server_path = vim.fn.expand("$MASON/packages/vue-language-ser
 
 return {
     on_attach = function(client, bufnr)
-        vim.lsp.inlay_hint.enable()
+        -- vim.lsp.inlay_hint.enable()
         vim.diagnostic.config({
             underline = {
                 severity = {
