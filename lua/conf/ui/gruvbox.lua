@@ -24,7 +24,7 @@ local overrides = function()
     else
         return {
             SignColumn = { bg = palette.light0 },
-            -- CursorLine = { bg = "#F2E5BC" },
+            CursorLine = { bg = "#F5E9C2" },
             NormalFloat = { bg = "#EBDBB2" },
         }
     end

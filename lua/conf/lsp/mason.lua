@@ -25,6 +25,7 @@ require("mason-lspconfig").setup({
         "tailwindcss",
         "html",
         "lua_ls",
+        "lemminx",
         -- "sqls"
     },
 })
@@ -39,7 +40,6 @@ local function install_or_skip(package_names)
 end
 install_or_skip({ "java-debug-adapter", "java-test", "codelldb", "prettierd" })
 
-local lspconfig = require('lspconfig')
 local M = {
     servers = {
         clangd = require("conf.lsp.clangd"),
@@ -52,6 +52,7 @@ local M = {
         vtsls = require("conf.lsp.vtsls"),
         jsonls = require("conf.lsp.jsonls"),
         pylyzer = require("conf.lsp.pylyzer"),
+        lemminx = {},
         -- sqls = require("conf.lsp.sqls"),
     },
     opts = {
@@ -73,7 +74,6 @@ for server_name, server_options in pairs(M.servers) do
             server_options.on_attach(client, bufnr)
         end
     end
-    -- lspconfig[server_name].setup(opts)
     vim.lsp.config(server_name, opts)
     vim.lsp.enable(server_name)
 end

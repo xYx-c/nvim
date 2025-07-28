@@ -4,11 +4,12 @@ local conform = require("conform")
 
 conform.setup({
     formatters_by_ft = {
-        rust = { "rustfmt", lsp_format = "fallback" },
+        -- rust = { "rustfmt", lsp_format = "fallback" },
         javascript = { "prettierd", "prettier", stop_after_first = true },
-        -- javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
         vue = { "prettierd", "prettier", stop_after_first = true },
         -- python = { "black" },
+        -- xml = { "xmlformat", stop_after_first = true },
     }
 })
 

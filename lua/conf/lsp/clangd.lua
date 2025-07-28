@@ -4,9 +4,6 @@
 local clangd = vim.env.HOME .. '/.local/share/nvim/mason/bin/clangd'
 
 local opts = {
-    -- root_dir = function()
-    --     return vim.fn.getcwd()
-    -- end,
     filetype = { "c", "cc", "oc", "cpp", "objc", "objcpp" },
     on_attach = function(client, bufnr)
         vim.lsp.inlay_hint.enable()
@@ -16,13 +13,17 @@ local opts = {
     end,
     cmd = {
         clangd,
-        "--offset-encoding=utf-16",
+        -- "--offset-encoding=utf-16",
         "--background-index",
+        "--compile-commands-dir=build",
         "--clang-tidy",
         "--clang-tidy-checks=performance-*,bugprone-*",
         "--all-scopes-completion",
+        "--completion-style=detailed",
+        "--header-insertion=iwyu",
         "--pch-storage=disk",
         "--header-insertion=never",
+        -- "--fallback-style={ColumnLimit: 120}",
     },
     settings = {
         clangd = {
@@ -32,7 +33,7 @@ local opts = {
                 ParameterNames = true,
                 DeducedTypes = true,
             },
-            fallbackFlags = { "-std=c++23" },
+            fallbackFlags = { "-std:c++latest" },
         },
     }
 }

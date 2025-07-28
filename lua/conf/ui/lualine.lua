@@ -33,7 +33,7 @@ local bubbles_theme = {
 require('lualine').setup {
     options = {
         -- theme = bubbles_theme,
-        theme = 'gruvbox',
+        theme = vim.o.background == 'dark' and bubbles_theme or 'gruvbox',
         component_separators = '|',
         section_separators = { left = '', right = '' },
         globalstatus = true,
