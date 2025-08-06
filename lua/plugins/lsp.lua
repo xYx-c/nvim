@@ -12,6 +12,7 @@ return {
         event = { "BufRead Cargo.toml" },
         config = function() require('crates').setup() end,
     },
+    { 'Civitasv/cmake-tools.nvim' },
     -- clangd
     -- {
     --     "p00f/clangd_extensions.nvim",
