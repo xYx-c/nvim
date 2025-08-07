@@ -7,7 +7,7 @@ dap.adapters.python = require("conf.dap.python").adapter
 
 -- 加载调试器配置
 local dap_config = {
-    -- rust = require("conf.dap.rust"),
+    rust = require("conf.dap.rust"),
     go = require("conf.dap.go"),
     python = require("conf.dap.python"),
     -- java = require("conf.dap.java"),
