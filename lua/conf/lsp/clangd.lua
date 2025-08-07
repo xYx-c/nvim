@@ -21,7 +21,7 @@ local opts = {
         "--header-insertion=iwyu",
         "--pch-storage=disk",
         "--header-insertion=never",
-        "--fallback-style={BasedOnStyle: llvm, ColumnLimit: 120}",
+        -- "--fallback-style={BasedOnStyle: llvm, ColumnLimit: 120}",
     },
 }
 
