@@ -9,12 +9,9 @@ local opts = {
         vim.lsp.inlay_hint.enable()
         require('keybinds').lsp_maps(client, bufnr)
         vim.keymap.set("n", "\\", "<cmd>CMakeQuickDebug<cr>", { buffer = bufnr })
-        -- client.server_capabilities.documentFormattingProvider = false
-        -- client.server_capabilities.documentRangeFormattingProvider = false
     end,
     cmd = {
         clangd,
-        -- "--offset-encoding=utf-16",
         "--background-index",
         "--compile-commands-dir=build",
         "--clang-tidy",
@@ -24,22 +21,11 @@ local opts = {
         "--header-insertion=iwyu",
         "--pch-storage=disk",
         "--header-insertion=never",
-        -- "--fallback-style={ColumnLimit: 120}",
+        "--fallback-style={BasedOnStyle: llvm, ColumnLimit: 120}",
     },
-    settings = {
-        clangd = {
-            InlayHints = {
-                Designators = true,
-                Enabled = true,
-                ParameterNames = true,
-                DeducedTypes = true,
-            },
-            fallbackFlags = { "-std:c++latest" },
-        },
-    }
 }
 
-local osys = require("cmake-tools.osys")
+-- local osys = require("cmake-tools.osys")
 require("cmake-tools").setup {
     -- auto generate when save CMakeLists.txt
     cmake_regenerate_on_save = false,
@@ -59,15 +45,8 @@ require("cmake-tools").setup {
     -- end,
     cmake_build_directory = "build",
     cmake_compile_commands_options = {
-        action = "lsp",         -- available options: soft_link, copy, lsp, none
-    },
-    cmake_dap_configuration = { -- debug settings for cmake
-        name = "cpp",
-        type = "codelldb",
-        request = "launch",
-        stopOnEntry = false,
-        runInTerminal = true,
-        console = "integratedTerminal",
+        -- available options: soft_link, copy, lsp, none
+        action = "lsp",
     },
     cmake_virtual_text_support = false, -- Show the target related to current file using virtual text (at right corner)
 }
