@@ -44,6 +44,7 @@ local M = {
     servers = {
         clangd = require("conf.lsp.clangd"),
         gopls = require("conf.lsp.go"),
+        jdtls = require("conf.lsp.jdtls"),
         lua_ls = require("conf.lsp.sumneko_lua"),
         cssls = require("conf.lsp.cssls"),
         tailwindcss = require("conf.lsp.tailwindcss"),
@@ -52,7 +53,7 @@ local M = {
         vtsls = require("conf.lsp.vtsls"),
         jsonls = require("conf.lsp.jsonls"),
         pylyzer = require("conf.lsp.pylyzer"),
-        lemminx = {},
+        lemminx = nil,
         -- sqls = require("conf.lsp.sqls"),
     },
     opts = {

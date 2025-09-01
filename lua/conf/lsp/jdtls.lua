@@ -41,18 +41,28 @@ local on_attach = function(client, bufnr)
     require('jdtls.dap').setup_dap_main_class_configs()
 end
 
-local java_test_path = vim.fn.expand("$MASON/packages/java-test")
--- local java_debug_adapter_path = vim.fn.expand("$MASON/packages/java-debug-adapter")
-local jdtls_path = vim.fn.expand("$MASON/packages/jdtls")
-
 local bundles = vim.fn.globpath("$MASON/share/java-debug-adapter", "*.jar", true, true);
--- vim.list_extend(bundles, require("spring_boot").java_extensions())
-vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", true), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob("$MASON/share/java-test/*.jar", true), "\n"))
+
+-- local java_test_bundles = vim.split(vim.fn.glob("$MASON/share/java-test/*.jar", true), "\n");
+-- local excluded = {
+--   "com.microsoft.java.test.runner-jar-with-dependencies.jar",
+--   "jacocoagent.jar",
+-- }
+-- for _, java_test_jar in ipairs(java_test_bundles) do
+--   local fname = vim.fn.fnamemodify(java_test_jar, ":t")
+--   if not vim.tbl_contains(excluded, fname) then
+--     table.insert(bundles, java_test_jar)
+--   end
+-- end
 
 
 local extendedClientCapabilities = require 'jdtls'.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 -- extendedClientCapabilities.progressReportProvider = true
+
+local jdtls_path = vim.fn.expand("$MASON/packages/jdtls")
+-- vim.list_extend(bundles, require("spring_boot").java_extensions())
 
 return {
     flags = { allow_incremental_sync = true },
@@ -75,7 +85,6 @@ return {
         '-configuration', home .. '/.local/share/nvim/mason/packages/jdtls/config_' .. system,
         '-data', workspace_dir,
     },
-
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
 

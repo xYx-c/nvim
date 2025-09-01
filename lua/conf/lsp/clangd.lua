@@ -8,7 +8,6 @@ local opts = {
     on_attach = function(client, bufnr)
         vim.lsp.inlay_hint.enable()
         require('keybinds').lsp_maps(client, bufnr)
-        vim.keymap.set("n", "\\", "<cmd>CMakeQuickDebug<cr>", { buffer = bufnr })
     end,
     cmd = {
         clangd,

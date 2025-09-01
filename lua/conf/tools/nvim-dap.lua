@@ -10,7 +10,6 @@ local dap_config = {
     rust = require("conf.dap.rust"),
     go = require("conf.dap.go"),
     python = require("conf.dap.python"),
-    -- java = require("conf.dap.java"),
 }
 -- 设置调试器
 for dap_name, dap_options in pairs(dap_config) do
