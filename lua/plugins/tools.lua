@@ -1,10 +1,4 @@
 return {
-    -- OpenAi
-    -- {
-    --     "jackMort/ChatGPT.nvim",
-    --     dependencies = { "MunifTanjim/nui.nvim" },
-    --     config = function() require("conf.tools.ChatGPT") end,
-    -- },
     -- DB客户端
     {
         'kristijanhusak/vim-dadbod-ui',
@@ -64,15 +58,16 @@ return {
         dependencies = {
             -- 为代码调试提供内联文本
             "theHamsta/nvim-dap-virtual-text",
+            "igorlfs/nvim-dap-view",
         },
         config = function() require("conf.tools.nvim-dap") end
     },
     -- 为代码调试提供 UI 界面
-    {
-        "rcarriga/nvim-dap-ui",
-        -- version = "*",
-        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
-    },
+    -- {
+    --     "rcarriga/nvim-dap-ui",
+    --     -- version = "*",
+    --     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
+    -- },
     -- 翻译
     {
         "potamides/pantran.nvim",

@@ -1,6 +1,6 @@
 -- https://github.com/mfussenegger/nvim-jdtls
 
-local java = os.getenv("JDK21")
+local java = os.getenv("JDK25")
 local home = os.getenv("HOME")
 local system = io.popen("uname -s"):read("*l")
 if system == "Darwin" then
@@ -44,7 +44,7 @@ end
 local bundles = vim.fn.globpath("$MASON/share/java-debug-adapter", "*.jar", true, true);
 vim.list_extend(bundles, vim.split(vim.fn.glob("$MASON/share/java-test/*.jar", true), "\n"))
 
--- local java_test_bundles = vim.split(vim.fn.glob("$MASON/share/java-test/*.jar", true), "\n");
+-- local java_test_bundles = vim.split(vim.fn.glob("$MASON/share/java-test/*.jar", true), "\n")
 -- local excluded = {
 --   "com.microsoft.java.test.runner-jar-with-dependencies.jar",
 --   "jacocoagent.jar",
@@ -55,7 +55,6 @@ vim.list_extend(bundles, vim.split(vim.fn.glob("$MASON/share/java-test/*.jar", t
 --     table.insert(bundles, java_test_jar)
 --   end
 -- end
-
 
 local extendedClientCapabilities = require 'jdtls'.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -120,11 +119,15 @@ return {
                     {
                         name = "JavaSE-17",
                         path = os.getenv("JDK17"),
-                        default = true,
                     },
                     {
                         name = "JavaSE-21",
                         path = os.getenv("JDK21"),
+                    },
+                    {
+                        name = "JavaSE-25",
+                        path = os.getenv("JDK25"),
+                        default = true,
                     },
                 },
                 maven = {

@@ -161,10 +161,11 @@ vim.keybinds.gmap("n", "<leader>$", "<cmd>lua require('bufferline').go_to_buffer
 -- dap-debug
 ---------------------------------------------------------------------------
 -- 打开浮动窗口
-vim.keybinds.gmap("v", "K", "<cmd>lua require('dapui').eval()<CR>", vim.keybinds.opts)
-vim.cmd [[command! DapScope execute "lua require('dapui').float_element('scopes') require('dapui').float_element('scopes')"]]
-vim.cmd [[command! DapWatches execute "lua require('dapui').float_element('watches') require('dapui').float_element('watches')"]]
-vim.cmd [[command! DapStacks execute "lua require('dapui').float_element('stacks') require('dapui').float_element('stacks')"]]
+-- vim.keybinds.gmap("v", "K", "<cmd>lua require('dapui').eval()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("v", "K", "<cmd>DapViewWatch<CR>", vim.keybinds.opts)
+-- vim.cmd [[command! DapScope execute "lua require('dapui').float_element('scopes') require('dapui').float_element('scopes')"]]
+-- vim.cmd [[command! DapWatches execute "lua require('dapui').float_element('watches') require('dapui').float_element('watches')"]]
+-- vim.cmd [[command! DapStacks execute "lua require('dapui').float_element('stacks') require('dapui').float_element('stacks')"]]
 -- 打断点
 vim.keybinds.gmap("n", "@", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", vim.keybinds.opts)
 -- 开启调试或到下一个断点处
@@ -176,9 +177,9 @@ vim.keybinds.gmap("n", "[", "<cmd>lua require'dap'.step_over()<CR>", vim.keybind
 -- 步出当前函数
 vim.keybinds.gmap("n", "]", "<cmd>lua require'dap'.step_out()<CR>", vim.keybinds.opts)
 -- 显示或隐藏调试界面
-vim.keybinds.gmap("n", "W", "<cmd>lua require('dapui').toggle()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "W", "<cmd>lua require('dap-view').toggle()<CR>", vim.keybinds.opts)
 -- 退出调试（关闭调试，关闭 repl，关闭 ui，清除内联文本）
-vim.keybinds.gmap("n", "Q", "<cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "Q", "<cmd>lua require'dap-view'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- search-file or replace-file
 ---------------------------------------------------------------------------

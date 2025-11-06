@@ -16,50 +16,69 @@ for dap_name, dap_options in pairs(dap_config) do
     dap.configurations[dap_name] = dap_options.configurations
 end
 
-local dapui = require("dapui")
--- 初始化调试界面
-dapui.setup({
-    icons = { expanded = "", collapsed = "", current_frame = "" },
-    layouts = {
-        {
-            elements = {
-                -- "repl",
-                "console",
-            },
-            size = 0.25,
-            position = "bottom",
-        },
-        {
-            elements = {
-                -- Elements can be strings or table with id and size keys.
-                -- { id = "scopes", size = 0.55 },
-                -- { id = "breakpoints", size = 0.15 },
-                -- { id = "stacks", size = 0.1 },
-                -- { id = "watches", size = 0.2 },
-                -- { id = "repl", size = 0.2 },
-            },
-            size = 0.2,
-            position = "right",
-        },
-    },
-})
--- 如果开启或关闭调试，则自动打开或关闭调试界面
--- dap.listeners.after.event_initialized["dapui_config"] = function()
---     dapui.open()
+local dap_view = require("dap-view")
+-- local dapui = require("dapui")
+-- -- 初始化调试界面
+-- dapui.setup({
+--     icons = { expanded = "", collapsed = "", current_frame = "" },
+--     layouts = {
+--         {
+--             elements = {
+--                 "repl",
+--                 "console",
+--             },
+--             size = 0.25,
+--             position = "bottom",
+--         },
+--         {
+--             elements = {
+--                 -- Elements can be strings or table with id and size keys.
+--                 -- { id = "scopes", size = 0.55 },
+--                 -- { id = "breakpoints", size = 0.15 },
+--                 -- { id = "stacks", size = 0.1 },
+--                 -- { id = "watches", size = 0.2 },
+--                 -- { id = "repl", size = 0.2 },
+--             },
+--             size = 0.2,
+--             position = "right",
+--         },
+--     },
+-- })
+-- -- 如果开启或关闭调试，则自动打开或关闭调试界面
+-- -- dap.listeners.after.event_initialized["dapui_config"] = function()
+-- --     dapui.open()
+-- -- end
+-- dap.listeners.before.attach.dapui_config = function()
+--   dapui.open()
+-- end
+-- dap.listeners.before.launch.dapui_config = function()
+--   dapui.open()
+-- end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--     dapui.close()
+--     -- dap.repl.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--     dapui.close()
+--     -- dap.repl.close()
 -- end
 dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
+  dap_view.open()
 end
 dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
+  dap_view.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
-    -- dap.repl.close()
+    dap_view.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
-    -- dap.repl.close()
+    dap_view.close()
 end
 
+dap_view.setup {
+    winbar ={
+        sections = { "console", "watches", "scopes", "exceptions", "breakpoints", "threads", "repl" },
+        default_section = "console",
+    }
+}
 require "nvim-dap-virtual-text".setup {}

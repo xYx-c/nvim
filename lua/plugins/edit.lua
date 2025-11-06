@@ -6,9 +6,17 @@ return {
     },
     -- codeium 自动补全
     {
-        'Exafunction/codeium.vim',
+        'Exafunction/windsurf.vim',
         event = 'BufEnter',
     },
+    -- {
+    --     "yetone/avante.nvim",
+    --     build = vim.fn.has("win32") ~= 0
+    --         and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+    --         or "make",
+    --     event = "VeryLazy",
+    --     version = false, -- Never set this value to "*"! Never!
+    -- },
     {
         'rareitems/printer.nvim',
         config = function() require("conf.edit.printer") end

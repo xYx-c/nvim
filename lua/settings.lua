@@ -43,6 +43,7 @@ vim.o.foldenable = true                     -- 是否开启代码折叠
 vim.o.foldlevel = 99                        -- 指定代码折叠的最高层级为 99
 -- vim.o.foldmethod = "indent"                         -- 指定代码折叠的策略是按照缩进进行的
 vim.o.background = os.getenv("NVIM_THEME") or "dark" -- 设定背景颜色
+vim.opt.laststatus = 3                       -- 设定状态栏为全局状态栏
 
 ----------------------------------------------------------------------------------------------
 -- 设置treesitter折叠
