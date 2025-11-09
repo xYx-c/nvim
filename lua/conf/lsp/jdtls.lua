@@ -1,6 +1,6 @@
 -- https://github.com/mfussenegger/nvim-jdtls
 
-local java = os.getenv("JDK25")
+local java = os.getenv("JDK25") or os.getenv("JAVA_HOME")
 local home = os.getenv("HOME")
 local system = io.popen("uname -s"):read("*l")
 if system == "Darwin" then
