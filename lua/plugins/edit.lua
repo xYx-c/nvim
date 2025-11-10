@@ -17,6 +17,9 @@ return {
     --     event = "VeryLazy",
     --     version = false, -- Never set this value to "*"! Never!
     -- },
+    -- {
+    --     "olimorris/codecompanion.nvim",
+    -- },
     {
         'rareitems/printer.nvim',
         config = function() require("conf.edit.printer") end

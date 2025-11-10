@@ -214,9 +214,9 @@ vim.keybinds.gmap("n", "<C-x>", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- http_client
 ---------------------------------------------------------------------------
-vim.keybinds.gmap("n", "<C-s>", "<cmd>lua require('kulala').run()<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hh", "<cmd>lua require('kulala').jump_prev()<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>hl", "<cmd>lua require('kulala').jump_next()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<C-s>", "<cmd>lua require('kulala').run()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<leader>hh", "<cmd>lua require('kulala').jump_prev()<CR>", vim.keybinds.opts)
+-- vim.keybinds.gmap("n", "<leader>hl", "<cmd>lua require('kulala').jump_next()<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------
 -- terminal
 ---------------------------------------------------------------------------
