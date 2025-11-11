@@ -1,35 +1,5 @@
 -- https://github.com/ellisonleao/gruvbox.nvim
 
-local palette = require("gruvbox").palette
-
-local palette_overrides = function()
-    if vim.o.background == "dark" then
-        return {
-            dark1 = palette.dark0,
-        }
-    else
-        return {
-            light1 = palette.light0,
-        }
-    end
-end
-
-local overrides = function()
-    if vim.o.background == "dark" then
-        return {
-            SignColumn = { bg = palette.dark0 },
-            CursorLine = { bg = "#303030" },
-            NormalFloat = { bg = "#3c3836" },
-        }
-    else
-        return {
-            SignColumn = { bg = palette.light0 },
-            CursorLine = { bg = "#F5E9C2" },
-            NormalFloat = { bg = "#EBDBB2" },
-        }
-    end
-end
-
 require("gruvbox").setup({
     terminal_colors = true, -- add neovim terminal colors
     undercurl = true,
@@ -49,9 +19,19 @@ require("gruvbox").setup({
     invert_intend_guides = false,
     inverse = true, -- invert background for search, diffs, statuslines and errors
     contrast = "",  -- can be "hard", "soft" or empty string
-    palette_overrides = palette_overrides(),
-    overrides = overrides(),
+    overrides = {
+        CursorLine = { bg = vim.o.background == "dark" and "#303030" or "#F5E9C2" },
+        SignColumn = { bg = "NONE" },
+        GruvboxRedSign = { bg = "NONE" },
+        GruvboxGreenSign = { bg = "NONE" },
+        GruvboxYellowSign = { bg = "NONE" },
+        GruvboxBlueSign = { bg = "NONE" },
+        GruvboxPurpleSign = { bg = "NONE" },
+        GruvboxAquaSign = { bg = "NONE" },
+        GruvboxOrangeSign = { bg = "NONE" },
+    },
     dim_inactive = false,
     transparent_mode = false,
 })
+
 vim.cmd("colorscheme gruvbox")

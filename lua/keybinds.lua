@@ -96,8 +96,7 @@ M.lsp_maps = function(_, bufnr)
     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
 
-    vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>',
-        vim.keybinds.opts)
+    vim.keybinds.bmap(bufnr, 'n', '<leader>D', '<cmd>Telescope lsp_type_definitions theme=dropdown<CR>', vim.keybinds.opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 
@@ -250,5 +249,9 @@ vim.keymap.set("n", "t", "<cmd>Pantran source=zh target=en<CR>", vim.keybinds.op
 ---------------------------------------------------------------------------
 vim.keymap.set({ 'n', 'x' }, "<C-e>", "<cmd>DBUIToggle<CR>", vim.keybinds.opts)
 vim.keymap.set('v', "<Enter>", "<Plug>(DBUI_ExecuteQuery)", vim.keybinds.opts)
+---------------------------------------------------------------------------
+-- AI
+---------------------------------------------------------------------------
+vim.keybinds.gmap("n", "!", "<cmd>AvanteToggle<CR>", vim.keybinds.opts)
 
 return M

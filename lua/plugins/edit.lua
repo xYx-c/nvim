@@ -9,17 +9,17 @@ return {
         'Exafunction/windsurf.vim',
         event = 'BufEnter',
     },
-    -- {
-    --     "yetone/avante.nvim",
-    --     build = vim.fn.has("win32") ~= 0
-    --         and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-    --         or "make",
-    --     event = "VeryLazy",
-    --     version = false, -- Never set this value to "*"! Never!
-    -- },
-    -- {
-    --     "olimorris/codecompanion.nvim",
-    -- },
+    {
+        "yetone/avante.nvim",
+        build = vim.fn.has("win32") ~= 0
+            and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+            or "make",
+        event = "VeryLazy",
+        version = false, -- Never set this value to "*"! Never!
+        -- dependencies = {
+        -- },
+        config = function() require("conf.edit.avante") end
+    },
     {
         'rareitems/printer.nvim',
         config = function() require("conf.edit.printer") end
@@ -29,6 +29,15 @@ return {
     --     'jakewvincent/mkdnflow.nvim',
     --     config = function() require("conf.edit.mkdnflow") end
     -- },
+    {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+            file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+        lazy = true,
+    },
     -- 全局替换
     {
         'lucaspellegrinelli/rip.nvim',
@@ -64,7 +73,7 @@ return {
         "hrsh7th/nvim-cmp", -- 代码补全核心插件，下面都是增强补全的体验插件
         event = "InsertEnter",
         dependencies = {
-            { "onsails/lspkind-nvim" },     -- 为补全添加类似 vscode 的图标
+            { "onsails/lspkind-nvim" }, -- 为补全添加类似 vscode 的图标
             { "hrsh7th/cmp-nvim-lsp" }, -- 替换内置 omnifunc，获得更多补全
             { "hrsh7th/cmp-path" },     -- 路径补全
             -- { "hrsh7th/cmp-buffer" }, -- 缓冲区补全
