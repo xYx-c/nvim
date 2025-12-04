@@ -4,7 +4,7 @@ return {
         'chemzqm/wxapp.vim',
         event = { "BufRead *.wxml" },
     },
-    -- codeium 自动补全
+    -- AI补全
     {
         'Exafunction/windsurf.vim',
         event = 'BufEnter',

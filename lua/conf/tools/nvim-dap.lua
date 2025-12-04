@@ -1,4 +1,5 @@
 -- https://github.com/mfussenegger/nvim-dap
+-- https://github.com/igorlfs/nvim-dap-view
 
 local dap = require("dap")
 dap.adapters.codelldb = require("conf.dap.rust").adapter

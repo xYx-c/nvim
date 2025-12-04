@@ -2,16 +2,34 @@
 -- https://text.pollinations.ai/models
 
 require("avante").setup({
-    provider = "pollinations",
+    provider = "bohe",
     providers = {
+        bohe = {
+            __inherited_from = "openai",
+            endpoint = "https://x666.me/v1",
+            model = "gemini-2.5-flash",
+            api_key_name = "BOHE_API_KEY",
+        },
+        doubao = {
+            __inherited_from = "openai",
+            endpoint = "https://ark.cn-beijing.volces.com/api/v3",
+            model = "doubao-seed-code-preview-251028",
+            api_key_name = "DOUBAO_API_KEY",
+        },
         pollinations = {
             __inherited_from = "openai",
             endpoint = "https://text.pollinations.ai/openai",
             model = "gemini",
             api_key_name = "POLLINATIONS_API_KEY",
         },
-        morph = {
-            model = "morph-v3-large",
+        claude = {
+            endpoint = "https://api.anthropic.com",
+            model = "claude-sonnet-4-20250514",
+            timeout = 30000, -- Timeout in milliseconds
+            extra_request_body = {
+                temperature = 0.75,
+                max_tokens = 20480,
+            },
         },
     },
     acp_providers = {
@@ -24,9 +42,7 @@ require("avante").setup({
             },
         },
     },
-    -- windows = {
-    --     input = {
-    --         prefix = "🤖",
-    --     },
-    -- },
+    behaviour = {
+        auto_approve_tool_permissions = false,
+    },
 })
