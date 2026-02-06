@@ -36,4 +36,17 @@ return {
         },
     },
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    handlers = {
+        ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+            -- 过滤掉错误代码 2769 (No overload matches this call)
+            local filtered_diagnostics = {}
+            for _, diagnostic in ipairs(result.diagnostics) do
+                if diagnostic.code ~= 2769 then
+                    table.insert(filtered_diagnostics, diagnostic)
+                end
+            end
+            result.diagnostics = filtered_diagnostics
+            vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+        end,
+    },
 }
