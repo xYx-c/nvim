@@ -14,6 +14,8 @@ local function on_attach(bufnr)
     api.config.mappings.default_on_attach(bufnr)
     vim.keymap.set('n', '-', api.tree.change_root_to_parent, opts('Up'))
     vim.keymap.set('n', '+', api.tree.change_root_to_node, opts('CD'))
+    vim.keymap.set('n', '<C-e>', api.tree.expand_all, opts('Expand All'))
+    vim.keymap.del('n', 'E',  { buffer = bufnr })
 end
 
 require("nvim-tree").setup({

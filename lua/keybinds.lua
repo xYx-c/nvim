@@ -1,5 +1,5 @@
 -- leader键设置
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 -- 默认的键位函数设置
 vim.keybinds = {
     gmap = vim.api.nvim_set_keymap,
@@ -207,7 +207,7 @@ vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks theme=dropdown<CR>", 
 -- file-tree
 ---------------------------------------------------------------------------
 -- 打开文件树
-vim.keybinds.gmap("n", "<C-a>", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "E", "<cmd>NvimTreeToggle<CR>", vim.keybinds.opts)
 -- 按 leader fc 在文件树中找到当前以打开文件的位置
 vim.keybinds.gmap("n", "<C-x>", "<cmd>NvimTreeFindFile<CR>", vim.keybinds.opts)
 ---------------------------------------------------------------------------

@@ -7,8 +7,9 @@ require("avante").setup({
         home = {
             __inherited_from = "openai",
             endpoint = "http://ionmm.com:8317/v1",
-            -- model = "glm-4.7",
-            model = "auto",
+            model = "claude",
+            -- model = "gemini",
+            model = "codex",
             api_key_name = "HOME_API_KEY",
         },
         doubao = {
