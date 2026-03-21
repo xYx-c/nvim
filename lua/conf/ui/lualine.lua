@@ -1,14 +1,12 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 
--- tmux 状态栏桥接逻辑，直接内联到 lualine 配置中
+-- tmux 信息展示逻辑，状态栏显隐交给 tmux hook 处理
 local tmux_state = {
     cache = {
         session = '',
         windows = '',
     },
-    last_status = nil,
     timer = nil,
-    pane_id = nil,
 }
 
 local function in_tmux()
@@ -35,23 +33,25 @@ local function get_tmux_value(format)
     return tmux({ 'display-message', '-p', format }) or ''
 end
 
-local function get_tmux_target_value(target, format)
-    if not target or target == '' then
-        return ''
+local function set_tmux_status(visible)
+    if not in_tmux() then
+        return
     end
-    return tmux({ 'display-message', '-p', '-t', target, format }) or ''
+
+    tmux({ 'set-option', '-q', 'status', visible and 'on' or 'off' })
 end
 
-local function get_tmux_session_option(name)
-    return tmux({ 'show-options', '-qv', '@' .. name }) or ''
-end
+local function set_tmux_window_merged(enabled)
+    if not in_tmux() then
+        return
+    end
 
-local function set_tmux_session_option(name, value)
-    tmux({ 'set-option', '-q', '@' .. name, value })
-end
+    if enabled then
+        tmux({ 'set-window-option', '-q', '@nvim_lualine', '1' })
+        return
+    end
 
-local function unset_tmux_session_option(name)
-    tmux({ 'set-option', '-qu', '@' .. name })
+    tmux({ 'set-window-option', '-qu', '@nvim_lualine' })
 end
 
 local function split_lines(value)
@@ -73,9 +73,9 @@ local function format_windows_overview()
 
     local items = {}
     for _, line in ipairs(split_lines(raw)) do
-        local index, name, _, flags = line:match('^(.-)\t(.-)\t(.-)\t(.-)$')
+        local index, name, is_active, flags = line:match('^(.-)\t(.-)\t(.-)\t(.-)$')
         if index and name then
-            local flag_text = flags and flags ~= '' and (' ' .. flags) or ''
+            local flag_text = flags and flags ~= '' and flags ~= '-' and (' ' .. flags) or ''
             table.insert(items, string.format('%s:%s%s', index, name, flag_text))
         end
     end
@@ -98,23 +98,6 @@ local function refresh_tmux_cache()
     }
 end
 
-local function set_tmux_status(visible)
-    if not in_tmux() then
-        return
-    end
-
-    local value = visible and 'on' or 'off'
-    if tmux_state.last_status == value then
-        return
-    end
-
-    tmux({ 'set-option', '-q', 'status', value })
-    if visible then
-        tmux({ 'set-option', '-q', 'status-position', 'bottom' })
-    end
-    tmux_state.last_status = value
-end
-
 local function redraw_status()
     vim.schedule(function()
         pcall(function()
@@ -123,53 +106,16 @@ local function redraw_status()
     end)
 end
 
--- 通过 pane_id 协调多个 nvim 实例，尽量避免同 session 下互相打架
-local function reconcile_tmux_status()
-    if not in_tmux() or not tmux_state.pane_id then
-        return
-    end
-
-    local owner_key = 'nvim_lualine_owner'
-    local owner = get_tmux_session_option(owner_key)
-    local is_active = get_tmux_target_value(tmux_state.pane_id, '#{window_active}') == '1'
-
-    if is_active then
-        if owner ~= tmux_state.pane_id then
-            set_tmux_session_option(owner_key, tmux_state.pane_id)
-        end
-        set_tmux_status(false)
-        return
-    end
-
-    if owner == tmux_state.pane_id then
-        set_tmux_status(true)
-        unset_tmux_session_option(owner_key)
-    end
-end
-
-local function release_tmux_status()
-    if not in_tmux() or not tmux_state.pane_id then
-        return
-    end
-
-    local owner_key = 'nvim_lualine_owner'
-    if get_tmux_session_option(owner_key) == tmux_state.pane_id then
-        set_tmux_status(true)
-        unset_tmux_session_option(owner_key)
-    end
-end
-
 local function start_tmux_refresh_timer()
     if tmux_state.timer ~= nil or not in_tmux() then
         return
     end
 
-    tmux_state.timer = vim.fn.timer_start(120, function()
+    tmux_state.timer = vim.fn.timer_start(300, function()
         if not in_tmux() then
             return
         end
         refresh_tmux_cache()
-        reconcile_tmux_status()
         redraw_status()
     end, { ['repeat'] = -1 })
 end
@@ -179,21 +125,23 @@ local function setup_tmux_autocmds()
         return
     end
 
-    local group = vim.api.nvim_create_augroup('TmuxStatusBridge', { clear = true })
+    local group = vim.api.nvim_create_augroup('TmuxStatusCache', { clear = true })
 
-    vim.api.nvim_create_autocmd({ 'VimEnter', 'VimResume', 'FocusGained' }, {
+    vim.api.nvim_create_autocmd({ 'VimEnter', 'VimResume' }, {
         group = group,
         callback = function()
+            set_tmux_window_merged(true)
+            set_tmux_status(false)
             refresh_tmux_cache()
-            reconcile_tmux_status()
             redraw_status()
         end,
     })
 
-    vim.api.nvim_create_autocmd({ 'FocusLost', 'VimSuspend', 'VimLeavePre' }, {
+    vim.api.nvim_create_autocmd({ 'VimLeavePre', 'VimSuspend' }, {
         group = group,
         callback = function()
-            release_tmux_status()
+            set_tmux_window_merged(false)
+            set_tmux_status(true)
         end,
     })
 
@@ -201,7 +149,6 @@ local function setup_tmux_autocmds()
         group = group,
         callback = function()
             refresh_tmux_cache()
-            reconcile_tmux_status()
             redraw_status()
         end,
     })
@@ -212,11 +159,9 @@ local function setup_tmux_bridge()
         return
     end
 
-    tmux({ 'set-option', '-q', 'focus-events', 'on' })
-    tmux({ 'set-option', '-q', 'status-position', 'bottom' })
-    tmux_state.pane_id = get_tmux_value('#{pane_id}')
+    set_tmux_window_merged(true)
+    set_tmux_status(false)
     refresh_tmux_cache()
-    reconcile_tmux_status()
     start_tmux_refresh_timer()
     setup_tmux_autocmds()
 end
@@ -280,12 +225,8 @@ local tmux_lualine_component = {
     end,
 }
 
--- local custom_gruvbox = require 'lualine.themes.gruvbox'
--- custom_gruvbox.visual.c.bg = '#bdae93'
-
 require('lualine').setup {
     options = {
-        -- theme = bubbles_theme,
         theme = vim.o.background == 'dark' and bubbles_theme or 'gruvbox',
         component_separators = '|',
         section_separators = { left = '', right = '' },
@@ -293,12 +234,10 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = {
-            -- { 'mode', separator = { left = '' }, right_padding = 2 },
             { 'mode', right_padding = 2 },
         },
         lualine_b = {
             'filename',
-            -- 'diff',
             'branch',
             'diagnostics',
         },
@@ -327,7 +266,6 @@ require('lualine').setup {
             'progress',
         },
         lualine_z = {
-            -- { 'location', separator = { right = '' }, left_padding = 2 },
             { 'location', left_padding = 2 },
         },
     },

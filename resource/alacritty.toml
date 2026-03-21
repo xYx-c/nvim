@@ -71,7 +71,7 @@ TERM = "alacritty"
 
 # 字体设置
 [font]
-size = 13.3
+size = 15
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
