@@ -8,9 +8,9 @@ decorations = 'None'
 startup_mode = 'Maximized'
 option_as_alt = 'Both'
 
-[window.dimensions]
-columns = 140
-lines = 35
+# [window.dimensions]
+# columns = 140
+# lines = 35
 
 [window.padding]
 x = 0
@@ -94,9 +94,9 @@ key = "V"
 mods = "Control|Shift"
 
 [[keyboard.bindings]]
-action = "SpawnNewInstance"
+action = "CreateNewTab"
 key = "T"
-mods = "Control|Alt"
+mods = "Super"
 
 [[keyboard.bindings]]
 action = "Minimize"
