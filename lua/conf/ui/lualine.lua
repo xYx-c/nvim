@@ -64,23 +64,51 @@ local function split_lines(value)
     return lines
 end
 
+local function format_tmux_path(path)
+    if path == nil or path == '' then
+        return ''
+    end
+
+    -- return vim.fn.fnamemodify(path, ':~')
+    return vim.fn.fnamemodify(path, ':~'):match('[^/]+$')
+end
+
+local function format_tmux_window_label(name, flags, command, path)
+    local flag_text = flags and flags ~= '' and flags ~= '-' and (' ' .. flags) or ''
+
+    if command == 'nvim' or command == 'vim' then
+        local display_path = format_tmux_path(path)
+        if display_path ~= '' then
+            return string.format('%s [%s]%s', name, display_path, flag_text)
+        end
+    end
+
+    return string.format('%s%s', name, flag_text)
+end
+
+local function format_tmux_window_highlight(is_active, label)
+    local group = is_active == '1' and 'LualineTmuxWindowActive' or 'LualineTmuxWindowInactive'
+    return string.format('%%#%s# %s %%*', group, label)
+end
+
 local function format_windows_overview()
     local raw = tmux({
         'list-windows',
         '-F',
-        '#I\t#W\t#{window_active}\t#{window_flags}',
+        '#I\t#W\t#{window_active}\t#{window_flags}\t#{pane_current_command}\t#{pane_current_path}',
     }) or ''
 
     local items = {}
     for _, line in ipairs(split_lines(raw)) do
-        local index, name, is_active, flags = line:match('^(.-)\t(.-)\t(.-)\t(.-)$')
+        local index, name, is_active, flags, command, path = line:match('^(.-)\t(.-)\t(.-)\t(.-)\t(.-)\t(.-)$')
         if index and name then
-            local flag_text = flags and flags ~= '' and flags ~= '-' and (' ' .. flags) or ''
-            table.insert(items, string.format('%s:%s%s', index, name, flag_text))
+            local label = format_tmux_window_label(name, flags, command, path)
+            local text = string.format(' %s:%s', index, label)
+            table.insert(items, format_tmux_window_highlight(is_active, text))
         end
     end
 
-    return table.concat(items, '  ')
+    return table.concat(items, '')
 end
 
 local function refresh_tmux_cache()
@@ -172,7 +200,7 @@ local function tmux_component()
     end
 
     local session = tmux_state.cache.session ~= '' and (' ' .. tmux_state.cache.session) or ''
-    local windows = tmux_state.cache.windows ~= '' and (' ' .. tmux_state.cache.windows) or ''
+    local windows = tmux_state.cache.windows ~= '' and (tmux_state.cache.windows) or ''
 
     local parts = {}
     if session ~= '' then
@@ -182,7 +210,7 @@ local function tmux_component()
         table.insert(parts, windows)
     end
 
-    return table.concat(parts, '  |  ')
+    return table.concat(parts, '  |')
 end
 
 setup_tmux_bridge()
@@ -198,6 +226,14 @@ local colors = {
     violet = '#957FB8',
     grey = '#504945',
 }
+
+
+local function setup_tmux_highlights()
+    vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { fg = colors.white, bg = colors.black, bold = true })
+    vim.api.nvim_set_hl(0, 'LualineTmuxWindowInactive', { fg = colors.white, bg = colors.grey })
+end
+
+setup_tmux_highlights()
 
 local bubbles_theme = {
     normal = {

@@ -1,5 +1,5 @@
 -- leader键设置
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 -- 默认的键位函数设置
 vim.keybinds = {
     gmap = vim.api.nvim_set_keymap,
