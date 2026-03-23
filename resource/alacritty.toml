@@ -4,6 +4,8 @@ live_config_reload = true
 [window]
 dynamic_padding = true
 dynamic_title = true
+decorations = 'None'
+startup_mode = 'Maximized'
 
 [window.dimensions]
 columns = 140
@@ -126,6 +128,11 @@ mods = "Shift"
 action = "CreateNewWindow"
 key = "N"
 mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Enter"
+mods = "Super"
 
 # 鼠标配置
 [mouse]

@@ -210,7 +210,7 @@ local function tmux_component()
         table.insert(parts, windows)
     end
 
-    return table.concat(parts, '  |')
+    return table.concat(parts, ' |')
 end
 
 setup_tmux_bridge()
@@ -229,8 +229,11 @@ local colors = {
 
 
 local function setup_tmux_highlights()
-    vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { fg = colors.white, bg = colors.black, bold = true })
-    vim.api.nvim_set_hl(0, 'LualineTmuxWindowInactive', { fg = colors.white, bg = colors.grey })
+    -- vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { fg = colors.white, bg = colors.black, bold = true }) 
+    -- vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { fg = colors.grey, bg = '#D5C4A1', bold = true })
+    vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { bg = '#EBDBB2', bold = true })
+    -- vim.api.nvim_set_hl(0, 'LualineTmuxWindowInactive', { fg = colors.white, bg = colors.grey })
+    vim.api.nvim_set_hl(0, 'LualineTmuxWindowInactive', { bg = '#EBDBB2' })
 end
 
 setup_tmux_highlights()
@@ -253,8 +256,9 @@ local bubbles_theme = {
 
 local tmux_lualine_component = {
     tmux_component,
-    color = { fg = colors.white, bg = colors.grey },
-    separator = { left = '', right = '' },
+    -- color = { fg = colors.white, bg = colors.grey },
+    color = { bg = '#EBDBB2', fg= colors.grey },
+    -- separator = { left = '', right = '' },
     padding = { left = 1, right = 1 },
     cond = function()
         return in_tmux()
