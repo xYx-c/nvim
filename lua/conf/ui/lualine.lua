@@ -230,10 +230,9 @@ local colors = {
 
 local function setup_tmux_highlights()
     -- vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { fg = colors.white, bg = colors.black, bold = true }) 
-    -- vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { fg = colors.grey, bg = '#D5C4A1', bold = true })
-    vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { bg = '#EBDBB2', bold = true })
+    vim.api.nvim_set_hl(0, 'LualineTmuxWindowActive', { bg = '#EBDBB2', fg = colors.grey, bold = true })
     -- vim.api.nvim_set_hl(0, 'LualineTmuxWindowInactive', { fg = colors.white, bg = colors.grey })
-    vim.api.nvim_set_hl(0, 'LualineTmuxWindowInactive', { bg = '#EBDBB2' })
+    vim.api.nvim_set_hl(0, 'LualineTmuxWindowInactive', { bg = '#EBDBB2', fg = colors.grey })
 end
 
 setup_tmux_highlights()
