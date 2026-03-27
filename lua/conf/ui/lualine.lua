@@ -103,7 +103,8 @@ local function format_windows_overview()
         local index, name, is_active, flags, command, path = line:match('^(.-)\t(.-)\t(.-)\t(.-)\t(.-)\t(.-)$')
         if index and name then
             local label = format_tmux_window_label(name, flags, command, path)
-            local text = string.format(' %s:%s', index, label)
+            -- local text = string.format(' %s:%s', index, label)
+            local text = string.format('%s:%s', index, label)
             table.insert(items, format_tmux_window_highlight(is_active, text))
         end
     end

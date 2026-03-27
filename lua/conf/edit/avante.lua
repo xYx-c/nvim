@@ -7,16 +7,10 @@ require("avante").setup({
         home = {
             __inherited_from = "openai",
             endpoint = "http://ionmm.com:8317/v1",
-            model = "claude",
+            -- model = "claude",
             -- model = "gemini",
             model = "codex",
             api_key_name = "HOME_API_KEY",
-        },
-        doubao = {
-            __inherited_from = "openai",
-            endpoint = "https://ark.cn-beijing.volces.com/api/v3",
-            model = "doubao-seed-code-preview-251028",
-            api_key_name = "DOUBAO_API_KEY",
         },
     },
     acp_providers = {
