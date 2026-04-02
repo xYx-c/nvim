@@ -62,12 +62,17 @@ return {
     },
     -- 代码注释
     {
-        "numToStr/Comment.nvim",
-        dependencies = {
-            "JoosepAlviste/nvim-ts-context-commentstring"
-        },
-        config = function() require("conf.edit.Comment") end
+        "folke/ts-comments.nvim",
+        event = "VeryLazy",
+        enabled = vim.fn.has("nvim-0.10.0") == 1,
     },
+    -- {
+    --     "numToStr/Comment.nvim",
+    --     dependencies = {
+    --         "JoosepAlviste/nvim-ts-context-commentstring"
+    --     },
+    --     config = function() require("conf.edit.Comment") end
+    -- },
     -- 自动代码补全系列插件
     {
         "hrsh7th/nvim-cmp", -- 代码补全核心插件，下面都是增强补全的体验插件
