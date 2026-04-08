@@ -41,15 +41,10 @@ return {
     },
     -- 代码高亮
     {
-        'nvim-treesitter/nvim-treesitter',
+        'neovim-treesitter/nvim-treesitter',
         priority = 3,
         lazy = false,
-        branch = "master",
-        build = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
-        -- dependencies = {
-        --     -- 依赖nvim-treesitter的智能缩进
-        --     "yioneko/nvim-yati",
-        -- },
+        build = ':TSUpdate',
         config = function() require("conf.ui.nvim-treesitter") end,
     },
     -- 缩进线
