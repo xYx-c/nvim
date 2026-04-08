@@ -85,7 +85,6 @@ return {
         '-data', workspace_dir,
     },
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
 
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir

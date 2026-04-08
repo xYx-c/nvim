@@ -60,7 +60,8 @@ local M = {
         -- root_dir = function()
         --     return vim.fn.getcwd()
         -- end,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        -- capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        capabilities = require('blink.cmp').get_lsp_capabilities(),
         on_attach = function(client, bufnr)
             require('keybinds').lsp_maps(client, bufnr)
         end

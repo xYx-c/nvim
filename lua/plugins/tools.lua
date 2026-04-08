@@ -1,5 +1,14 @@
 return {
+    {
+        'jkeresman01/spring-initializr.nvim',
+        config = function() require('spring-initializr').setup() end
+    },
     -- DB客户端
+    -- {
+    --     "joryeugene/dadbod-grip.nvim",
+    --     -- version = "*",
+    --     config = function () require("dadbod-grip").setup({ completion = false }) end
+    -- },
     {
         'kristijanhusak/vim-dadbod-ui',
         dependencies = {
@@ -35,12 +44,10 @@ return {
     -- 模糊查找
     {
         "nvim-telescope/telescope.nvim",
-        -- version = '*',
+        version = '*',
         dependencies = {
-            "BurntSushi/ripgrep",                      -- 文字查找
-            "sharkdp/fd",                              -- 文件查找
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
             "nvim-telescope/telescope-ui-select.nvim", -- UI
-            -- "nvim-telescope/telescope-media-files.nvim",
             -- 'nvim-lua/popup.nvim',
             -- -- 预览媒体文件
             -- 'nvim-telescope/telescope-media-files.nvim'
