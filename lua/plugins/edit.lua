@@ -16,8 +16,6 @@ return {
             or "make",
         event = "VeryLazy",
         version = false, -- Never set this value to "*"! Never!
-        -- dependencies = {
-        -- },
         config = function() require("conf.edit.avante") end
     },
     {
@@ -25,7 +23,6 @@ return {
         config = function() require("conf.edit.printer") end
     },
     {
-        -- Make sure to set this up properly if you have lazy=true
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
             file_types = { "markdown", "Avante" },
@@ -77,24 +74,4 @@ return {
         dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
         config = function() require("conf.edit.blink") end,
     },
-    -- {
-    --     "hrsh7th/nvim-cmp", -- 代码补全核心插件，下面都是增强补全的体验插件
-    --     event = "InsertEnter",
-    --     dependencies = {
-    --         { "onsails/lspkind-nvim" }, -- 为补全添加类似 vscode 的图标
-    --         { "hrsh7th/cmp-nvim-lsp" }, -- 替换内置 omnifunc，获得更多补全
-    --         { "hrsh7th/cmp-path" },     -- 路径补全
-    --         -- { "hrsh7th/cmp-buffer" }, -- 缓冲区补全
-    --         -- { "hrsh7th/cmp-cmdline" }, -- 命令补全
-    --         -- { "rafamadriz/friendly-snippets" }, -- 提供多种语言的代码片段
-    --         { "saadparwaiz1/cmp_luasnip" }, -- 适用于 luasnip 的代码片段源
-    --         { "L3MON4D3/LuaSnip" },
-    --         -- { "molleweide/LuaSnip-snippets.nvim" },
-    --         -- { "hrsh7th/vim-vsnip" }, -- vsnip 引擎，用于获得代码片段支持
-    --         -- { "hrsh7th/cmp-vsnip" }, -- 适用于 vsnip 的代码片段源
-    --         -- { "f3fora/cmp-spell" }, -- 拼写建议
-    --         -- { "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
-    --     },
-    --     config = function() require("conf.edit.nvim-cmp") end
-    -- },
 }

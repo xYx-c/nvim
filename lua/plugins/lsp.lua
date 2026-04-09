@@ -13,19 +13,8 @@ return {
         config = function() require('crates').setup() end,
     },
     { 'Civitasv/cmake-tools.nvim' },
-    -- clangd
-    -- {
-    --     "p00f/clangd_extensions.nvim",
-    --     config = function() require("conf.lsp.clangd") end
-    -- },
     -- java
     {
         "mfussenegger/nvim-jdtls",
-        -- dependencies = { "JavaHello/spring-boot.nvim" }
     },
-    -- go
-    -- { 'crispgm/nvim-go', }
-
-    -- python
-    -- 'HallerPatrick/py_lsp.nvim',
 }

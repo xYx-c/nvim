@@ -48,8 +48,6 @@ return {
         dependencies = {
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
             "nvim-telescope/telescope-ui-select.nvim", -- UI
-            -- 'nvim-lua/popup.nvim',
-            -- -- 预览媒体文件
             -- 'nvim-telescope/telescope-media-files.nvim'
         },
         config = function() require("conf.tools.telescope") end

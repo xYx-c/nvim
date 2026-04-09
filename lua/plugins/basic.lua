@@ -5,12 +5,6 @@ return {
     "neovim/nvim-lspconfig",
     -- 图标插件
     'kyazdani42/nvim-web-devicons',
-    -- 嵌入提示
-    -- {
-    --     'felpafel/inlay-hint.nvim',
-    --     event = 'LspAttach',
-    --     config = function() require('inlay-hint').setup() end,
-    -- },
     -- 安装 LSP/DAP
     {
         "mason-org/mason.nvim",
@@ -35,11 +29,4 @@ return {
         "Pocco81/auto-save.nvim",
         config = function() require("conf.tools.auto-save") end,
     },
-    -- jk加速
-    -- { 'rainbowhxch/accelerated-jk.nvim' },
-    -- 按键逃脱
-    -- {
-    --     "max397574/better-escape.nvim",
-    --     config = function() require("better_escape").setup() end
-    -- },
 }
