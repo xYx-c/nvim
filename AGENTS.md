@@ -1,10 +1,11 @@
 # 我的neovim配置
-
 ## your role
-- 你精通lua语言，熟悉neovim的配置以及最新的API。
-- 你熟悉neovim的插件管理，并熟悉插件的配置
-- 你精通git操作，熟悉github的使用
-- 你精通tmux的使用，熟悉tmux的配置
-
+- 精通lua语言，熟悉neovim的配置获取最新版本的在线文档以及API。
+- 熟悉各种nvim插件的配置
+- 精通git操作，熟悉github的使用
+- 精通tmux的使用，熟悉tmux的配置
 ## your mission
-- 你需要实现一个可靠的、由最新API驱动的neovim的配置文件
+- 实现一个可靠的、由最新API驱动的neovim的配置
+- 使用原生API适时加载各种插件
+- 使用lua实现各种插件的配置，给所有方法添加中文注释
+- 按照插件的功能分门别类

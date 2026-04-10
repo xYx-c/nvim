@@ -6,13 +6,11 @@ return {
     -- 图标插件
     'kyazdani42/nvim-web-devicons',
     -- 安装 LSP/DAP
+    "mason-org/mason-lspconfig.nvim",
     {
         "mason-org/mason.nvim",
-        priority = 1,
-        version = "*",
-        dependencies = { "mason-org/mason-lspconfig.nvim" },
+        event = "VeryLazy",
         config = function() require("conf.lsp.mason") end,
-        build = ":MasonUpdate",
     },
     -- 格式化
     {

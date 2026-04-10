@@ -10,6 +10,7 @@ require("mason").setup({
         }
     }
 })
+
 require("mason-lspconfig").setup({
     automatic_enable = false,
     ensure_installed = {
@@ -47,13 +48,13 @@ local M = {
         jdtls = require("conf.lsp.jdtls"),
         lua_ls = require("conf.lsp.sumneko_lua"),
         cssls = require("conf.lsp.cssls"),
-        tailwindcss = {},
         html = require("conf.lsp.html"),
         vue_ls = require("conf.lsp.volar"),
         vtsls = require("conf.lsp.vtsls"),
         jsonls = require("conf.lsp.jsonls"),
         ty = require("conf.lsp.ty"),
         lemminx = nil,
+        tailwindcss = {},
         -- sqls = require("conf.lsp.sqls"),
     },
     opts = {

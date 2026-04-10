@@ -11,9 +11,9 @@ return {
     },
     {
         "yetone/avante.nvim",
-        build = vim.fn.has("win32") ~= 0
-            and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-            or "make",
+        -- build = vim.fn.has("win32") ~= 0
+        --     and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+        --     or "make",
         event = "VeryLazy",
         version = false, -- Never set this value to "*"! Never!
         config = function() require("conf.edit.avante") end
@@ -56,7 +56,7 @@ return {
     {
         "folke/ts-comments.nvim",
         event = "VeryLazy",
-        enabled = vim.fn.has("nvim-0.10.0") == 1,
+        config = function() require("ts-comments").setup() end
     },
     -- {
     --     "numToStr/Comment.nvim",
@@ -66,12 +66,10 @@ return {
     --     config = function() require("conf.edit.Comment") end
     -- },
     -- 自动代码补全系列插件
+    'L3MON4D3/LuaSnip',
     {
         'saghen/blink.cmp',
         event = "InsertEnter",
-        priority = 99,
-        version = '1.*',
-        dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
         config = function() require("conf.edit.blink") end,
     },
 }

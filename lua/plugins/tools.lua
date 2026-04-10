@@ -10,29 +10,19 @@ return {
     --     config = function () require("dadbod-grip").setup({ completion = false }) end
     -- },
     {
-        'kristijanhusak/vim-dadbod-ui',
-        dependencies = {
-            { 'tpope/vim-dadbod',                     lazy = true },
-            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
-        },
-        cmd = {
-            'DBUI',
-            'DBUIToggle',
-            'DBUIAddConnection',
-            'DBUIFindBuffer',
-        },
-        init = function() require("conf.tools.dadbod") end,
+        'tpope/vim-dadbod',
+        config = function() require("conf.tools.dadbod") end,
     },
+    { 'kristijanhusak/vim-dadbod-ui' },
+    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
     -- 内置终端增强
     {
         "akinsho/toggleterm.nvim",
-        version = '*',
         config = function() require("conf.tools.toggleterm") end
     },
     -- http客户端
     {
         'mistweaverco/kulala.nvim',
-        version = '*',
         config = function() require('conf.tools.kulala') end
     },
     -- 消息提示
@@ -42,14 +32,14 @@ return {
         config = function() require("conf.tools.nvim-notify") end
     },
     -- 模糊查找
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    "nvim-telescope/telescope-ui-select.nvim", -- UI
     {
         "nvim-telescope/telescope.nvim",
-        version = '*',
-        dependencies = {
-            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-            "nvim-telescope/telescope-ui-select.nvim", -- UI
-            -- 'nvim-telescope/telescope-media-files.nvim'
-        },
+        -- version = '*',
+        -- dependencies = {
+        --     'nvim-telescope/telescope-media-files.nvim'
+        -- },
         config = function() require("conf.tools.telescope") end
     },
     -- todo标签
@@ -60,13 +50,10 @@ return {
     -- debug
     {
         "mfussenegger/nvim-dap",
-        dependencies = {
-            -- 为代码调试提供内联文本
-            "theHamsta/nvim-dap-virtual-text",
-            "igorlfs/nvim-dap-view",
-        },
         config = function() require("conf.tools.nvim-dap") end
     },
+    "theHamsta/nvim-dap-virtual-text",
+    "igorlfs/nvim-dap-view",
     -- 为代码调试提供 UI 界面
     -- {
     --     "rcarriga/nvim-dap-ui",

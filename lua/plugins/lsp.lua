@@ -2,7 +2,6 @@ return {
     -- rust
     {
         'mrcjkb/rustaceanvim',
-        version = '^9',
         lazy = false,
         config = function() require("conf.lsp.rustacean") end,
     },

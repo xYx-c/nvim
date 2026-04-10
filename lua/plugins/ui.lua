@@ -1,18 +1,16 @@
 return {
     -- 界面美化
-    {
-        "MunifTanjim/nui.nvim",
-        priority = 3,
-    },
+    -- {
+    --     "MunifTanjim/nui.nvim",
+    -- },
     {
         "folke/noice.nvim",
         event = "VeryLazy",
         config = function() require("conf.ui.noice") end,
-        -- priority = 999,
     },
     -- 主题
-    { "ellisonleao/gruvbox.nvim", priority = 999, config = function() require("conf.ui.gruvbox") end },
-    -- { "rebelot/kanagawa.nvim",    priority = 999, config = function() require("conf.ui.kanagawa") end },
+    { "ellisonleao/gruvbox.nvim", lazy = false, config = function() require("conf.ui.gruvbox") end },
+    -- { "rebelot/kanagawa.nvim", lazy = false, config = function() require("conf.ui.kanagawa") end },
     -- 状态栏
     {
         'nvim-lualine/lualine.nvim',
@@ -20,19 +18,16 @@ return {
         -- dependencies = { 'arkav/lualine-lsp-progress' },
         config = function() require("conf.ui.lualine") end
     },
-    -- css #ffffff / #666 / Blue 样式着色
-    -- { "norcalli/nvim-colorizer.lua", config = function() require("conf.ui.colorizer") end },
     -- 支持 LSP 状态的 buffer 栏
     {
         "akinsho/bufferline.nvim",
         -- version = "*",
-        priority = 2,
         dependencies = {
-            "famiu/bufdelete.nvim" -- 删除 buffer 时不影响现有布局
             -- "kazhala/close-buffers.nvim"
         },
         config = function() require("conf.ui.bufferline") end
     },
+    "famiu/bufdelete.nvim", -- 删除 buffer 时不影响现有布局
     -- 目录树
     {
         "kyazdani42/nvim-tree.lua",
@@ -42,9 +37,7 @@ return {
     -- 代码高亮
     {
         'neovim-treesitter/nvim-treesitter',
-        priority = 3,
         lazy = false,
-        build = ':TSUpdate',
         config = function() require("conf.ui.nvim-treesitter") end,
     },
     -- 缩进线
