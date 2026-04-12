@@ -14,17 +14,13 @@ return {
     -- 状态栏
     {
         'nvim-lualine/lualine.nvim',
-        -- LSP 进度提示
-        -- dependencies = { 'arkav/lualine-lsp-progress' },
         config = function() require("conf.ui.lualine") end
     },
     -- 支持 LSP 状态的 buffer 栏
     {
         "akinsho/bufferline.nvim",
+        event = "VeryLazy",
         -- version = "*",
-        dependencies = {
-            -- "kazhala/close-buffers.nvim"
-        },
         config = function() require("conf.ui.bufferline") end
     },
     "famiu/bufdelete.nvim", -- 删除 buffer 时不影响现有布局
