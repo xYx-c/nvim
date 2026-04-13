@@ -1,8 +1,6 @@
 return {
     -- 界面美化
-    -- {
-    --     "MunifTanjim/nui.nvim",
-    -- },
+    -- "MunifTanjim/nui.nvim",
     {
         "folke/noice.nvim",
         event = "VeryLazy",
@@ -36,6 +34,7 @@ return {
         lazy = false,
         config = function() require("conf.ui.nvim-treesitter") end,
     },
+    { 'neovim-treesitter/treesitter-parser-registry' },
     -- 缩进线
     -- {
     --     "lukas-reineke/indent-blankline.nvim",

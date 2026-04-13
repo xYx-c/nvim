@@ -45,17 +45,6 @@ vim.o.foldlevel = 99                        -- 指定代码折叠的最高层级
 vim.o.background = os.getenv("NVIM_THEME") or "light" -- 设定背景颜色
 vim.opt.laststatus = 3                       -- 设定状态栏为全局状态栏
 
-----------------------------------------------------------------------------------------------
--- 设置treesitter折叠
-----------------------------------------------------------------------------------------------
--- vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
---     group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
---     callback = function()
---         vim.opt.foldmethod = 'expr'
---         vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
---     end
--- })
-
 -- local system = io.popen("uname -s"):read("*l")
 -- if system == "Darwin" then
 --     vim.cmd[[

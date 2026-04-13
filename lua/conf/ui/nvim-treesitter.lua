@@ -18,8 +18,10 @@ local function start_treesitter(buf, lang)
         )
         return
     end
-    vim.treesitter.start(buf)
     vim.bo[buf].syntax = "ON"
+    vim.treesitter.start(buf)
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo.foldmethod = 'expr'
     if vim.treesitter.query.get(lang, "indents") then
         vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end

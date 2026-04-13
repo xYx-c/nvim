@@ -33,13 +33,11 @@ return {
     },
     -- 模糊查找
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    -- 'nvim-telescope/telescope-media-files.nvim',
     "nvim-telescope/telescope-ui-select.nvim", -- UI
     {
         "nvim-telescope/telescope.nvim",
         -- version = '*',
-        -- dependencies = {
-        --     'nvim-telescope/telescope-media-files.nvim'
-        -- },
         config = function() require("conf.tools.telescope") end
     },
     -- todo标签
@@ -52,14 +50,9 @@ return {
         "mfussenegger/nvim-dap",
         config = function() require("conf.tools.nvim-dap") end
     },
+    -- 为代码调试提供 UI 界面
     "theHamsta/nvim-dap-virtual-text",
     "igorlfs/nvim-dap-view",
-    -- 为代码调试提供 UI 界面
-    -- {
-    --     "rcarriga/nvim-dap-ui",
-    --     -- version = "*",
-    --     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
-    -- },
     -- 翻译
     {
         "potamides/pantran.nvim",
