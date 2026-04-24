@@ -19,6 +19,10 @@ return {
         config = function() require("conf.edit.avante") end
     },
     {
+        "ravitemer/mcphub.nvim",
+        build = "npm install -g mcp-hub@latest",  -- Installs `mcp-hub` node binary globally
+    },
+    {
         'rareitems/printer.nvim',
         config = function() require("conf.edit.printer") end
     },
@@ -69,6 +73,7 @@ return {
     'L3MON4D3/LuaSnip',
     {
         'saghen/blink.cmp',
+        version = "1.*",
         event = "InsertEnter",
         config = function() require("conf.edit.blink") end,
     },

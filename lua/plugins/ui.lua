@@ -30,11 +30,12 @@ return {
     },
     -- 代码高亮
     {
-        'neovim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter',
         lazy = false,
+        build = ':TSUpdate',
         config = function() require("conf.ui.nvim-treesitter") end,
     },
-    { 'neovim-treesitter/treesitter-parser-registry' },
+    -- { 'neovim-treesitter/treesitter-parser-registry' },
     -- 缩进线
     -- {
     --     "lukas-reineke/indent-blankline.nvim",
