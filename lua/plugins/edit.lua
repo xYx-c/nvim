@@ -11,9 +11,9 @@ return {
     },
     {
         "yetone/avante.nvim",
-        -- build = vim.fn.has("win32") ~= 0
-        --     and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-        --     or "make",
+        build = vim.fn.has("win32") ~= 0
+            and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+            or "make",
         event = "VeryLazy",
         version = false, -- Never set this value to "*"! Never!
         config = function() require("conf.edit.avante") end
@@ -21,6 +21,7 @@ return {
     {
         "ravitemer/mcphub.nvim",
         build = "npm install -g mcp-hub@latest",  -- Installs `mcp-hub` node binary globally
+        lazy = true,
     },
     {
         'rareitems/printer.nvim',
@@ -41,9 +42,6 @@ return {
     },
     -- {
     --     "windwp/nvim-spectre",
-    --     dependencies = {
-    --         "BurntSushi/ripgrep" -- 文字查找
-    --     },
     --     config = function() require("conf.edit.nvim-spectre") end
     -- },
     -- 自动匹配括号

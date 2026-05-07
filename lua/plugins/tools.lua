@@ -6,7 +6,7 @@ return {
     -- DB客户端
     -- {
     --     "joryeugene/dadbod-grip.nvim",
-    --     -- version = "*",
+    --     version = "*",
     --     config = function () require("dadbod-grip").setup({ completion = false }) end
     -- },
     {
