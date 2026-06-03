@@ -8,7 +8,7 @@ return {
     {
         'saecki/crates.nvim',
         event = { "BufRead Cargo.toml" },
-        config = function() require('crates').setup() end,
+        config = function() require('crates').setup{} end,
     },
     { 'Civitasv/cmake-tools.nvim' },
     -- java
