@@ -41,6 +41,11 @@ require("avante").setup({
             - Focus on purpose and behavior.
             - Only comment public APIs, classes, functions, and methods.
             - Do not comment every line of code.
+
+            # Tool Usage Rules
+            Prefer MCP tools and resources when they are available and relevant.
+            Fall back to built-in tools only when MCP cannot satisfy the request.
+
         ]]
     end,
     -- shortcuts = {},
@@ -52,17 +57,17 @@ require("avante").setup({
             require("mcphub.extensions.avante").mcp_tool(),
         }
     end,
-    -- disabled_tools = {
-    --     "list_files",
-    --     "search_files",
-    --     "read_file",
-    --     "create_file",
-    --     "rename_file",
-    --     "delete_file",
-    --     "create_dir",
-    --     "rename_dir",
-    --     "delete_dir",
-    -- },
+    disabled_tools = {
+        "list_files",
+        "search_files",
+        "read_file",
+        "create_file",
+        "rename_file",
+        "delete_file",
+        "create_dir",
+        "rename_dir",
+        "delete_dir",
+    },
     -- behaviour = {
     --     auto_approve_tool_permissions = false,
     -- },
