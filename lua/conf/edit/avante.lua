@@ -6,7 +6,7 @@ local function get_skill_dirs()
     -- 返回 skill 查找目录，项目目录优先于全局目录
     return {
         vim.fn.getcwd() .. "/.skills",
-        vim.fn.expand("~/.config/avante/skills"),
+        vim.fn.expand("~/.config/nvim/skills"),
     }
 end
 
@@ -121,7 +121,7 @@ require("avante").setup({
     },
     rules = {
         project_dir = ".skills",
-        global_dir = "~/.config/avante/skills",
+        global_dir = "~/.config/nvim/skills",
     },
     system_prompt = function()
         local hub = require("mcphub").get_hub_instance()
