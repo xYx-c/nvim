@@ -199,6 +199,31 @@ vim.api.nvim_create_user_command("AvanteChatNew", function(opts)
     end
 
     local args = require("avante.utils").parse_args(fargs)
+    local provider = args.provider
+    local model = args.model
+    args.provider = nil
+    args.model = nil
+
+    if provider then require("avante.providers").refresh(provider) end
+    if model then
+        local config = require("avante.config")
+        local providers = require("avante.providers")
+        local target_provider = provider or config.provider
+        ---@cast target_provider string
+        config.override({
+            providers = {
+                [target_provider] = vim.tbl_deep_extend(
+                    "force",
+                    config.get_provider_config(target_provider),
+                    { model = model }
+                ),
+            },
+        })
+        if providers[target_provider] then providers[target_provider].model = model end
+        config.save_last_model(model, target_provider)
+        vim.notify("Avante model selected: " .. target_provider .. "/" .. model, vim.log.levels.INFO)
+    end
+
     args.ask = false
     args.new_chat = true
     require("avante.api").ask(args)
