@@ -102,7 +102,7 @@ require("avante").setup({
     providers = {
         home = {
             __inherited_from = "openai",
-            endpoint = "http://ionmm.com:8317/v1",
+            endpoint = "http://home.ionmm.com:8317/v1",
             -- model = "claude",
             -- model = "gemini",
             model = "codex",
