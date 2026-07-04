@@ -130,7 +130,7 @@ return {
                     },
                 },
                 maven = {
-                    globalSettings = os.getenv("MAVEN_HOME") .. "/conf/settings.xml",
+                    globalSettings = os.getenv("MAVEN_HOME") or "" .. "/conf/settings.xml",
                     userSettings = os.getenv("HOME") .. "/.m2/settings.xml",
                 }
             },
