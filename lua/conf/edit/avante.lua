@@ -103,19 +103,23 @@ require("avante").setup({
         home = {
             __inherited_from = "openai",
             endpoint = "http://home.ionmm.com:8317/v1",
-            -- model = "claude",
-            -- model = "gemini",
-            model = "codex",
+            model = "x",
             api_key_name = "HOME_API_KEY",
         },
     },
     acp_providers = {
-        ["gemini-cli"] = {
-            command = "gemini",
-            args = { "--experimental-acp" },
+        ["claude-code"] = {
+            command = "claude-agent-acp",
             env = {
                 NODE_NO_WARNINGS = "1",
-                GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
+                HOME_API_KEY = os.getenv("HOME_API_KEY"),
+            },
+        },
+        ["codex"] = {
+            command = "codex-acp",
+            env = {
+                NODE_NO_WARNINGS = "1",
+                HOME_API_KEY = os.getenv("HOME_API_KEY"),
             },
         },
     },
